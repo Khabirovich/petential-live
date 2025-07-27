@@ -1,44 +1,31 @@
 # Dependencies
 node_modules/
-*.log
 npm-debug.log*
 yarn-debug.log*
 yarn-error.log*
-pnpm-debug.log*
 
-# Next.js
+# Production builds
 .next/
 out/
-dist/
 build/
+dist/
 
 # Environment variables
-.env*
-!.env.example
+.env
+.env.local
+.env.development.local
+.env.test.local
+.env.production.local
 
 # Python
 __pycache__/
-*.py[cod]
-*$py.class
-*.so
+*.pyc
+*.pyo
+*.pyd
 .Python
 env/
 venv/
-ENV/
-env.bak/
-venv.bak/
 .venv/
-
-# Flask
-instance/
-flask.log
-
-# Data files (keep structure but not actual data)
-data/user-data.json
-
-# Large image files (will be served from CDN in production)
-public/images/
-app/static/images/
 
 # IDE
 .vscode/
@@ -50,30 +37,12 @@ app/static/images/
 .DS_Store
 Thumbs.db
 
+# Logs
+*.log
+logs/
+
 # Runtime data
-pids
+pids/
 *.pid
 *.seed
 *.pid.lock
-
-# Coverage directory used by tools like istanbul
-coverage/
-
-# Dependency directories
-node_modules/
-jspm_packages/
-
-# Optional npm cache directory
-.npm
-
-# Optional REPL history
-.node_repl_history
-
-# Output of 'npm pack'
-*.tgz
-
-# Yarn Integrity file
-.yarn-integritynode_modules/
-.next/
-dist/
-build/
