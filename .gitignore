@@ -73,4 +73,7 @@ jspm_packages/
 *.tgz
 
 # Yarn Integrity file
-.yarn-integrity
+.yarn-integritynode_modules/
+.next/
+dist/
+build/
