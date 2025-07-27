@@ -37,7 +37,7 @@ export const blogArticles: BlogArticle[] = [
     publishDate: "2025-01-15",
     readTime: "5 min read",
     category: "Dog Care",
-    image: "/images/blog/dog-breed-selection.jpg",
+    image: "/images/blog/u7892581312_happy_photo_of_young_family_with_one_dog_Corgi_an_935f7a40-092f-4d31-99ea-61e01a91de12_0.png",
     tags: ["dog breeds", "pet selection", "lifestyle"]
   },
   {
@@ -96,7 +96,7 @@ export const blogArticles: BlogArticle[] = [
     publishDate: "2025-01-05",
     readTime: "6 min read",
     category: "Pet Health",
-    image: "/images/blog/pet-nutrition.jpg",
+    image: "/images/blog/u7892581312_Pet_Nutrition_101_Feeding_Your_Furry_Friend_Right_2b50a1f3-82c7-4f43-9875-a1c2c599c71a_0.png",
     tags: ["nutrition", "pet health", "feeding"]
   },
   {
