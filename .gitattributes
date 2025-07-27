@@ -1,14 +1,1 @@
-# Track large images with Git LFS
-*.png filter=lfs diff=lfs merge=lfs -text
-*.jpg filter=lfs diff=lfs merge=lfs -text
-*.jpeg filter=lfs diff=lfs merge=lfs -text
-*.svg filter=lfs diff=lfs merge=lfs -text
-# Specifically track large directories
-public/images/** filter=lfs diff=lfs merge=lfs -text 
-*.gif filter=lfs diff=lfs merge=lfs -text
-*.webp filter=lfs diff=lfs merge=lfs -text
-app/static/images/** filter=lfs diff=lfs merge=lfs -text
-git filter=lfs diff=lfs merge=lfs -text
-lfs filter=lfs diff=lfs merge=lfs -text
-track filter=lfs diff=lfs merge=lfs -text
-public/images/blog/** filter=lfs diff=lfs merge=lfs -text
+# No LFS tracking
