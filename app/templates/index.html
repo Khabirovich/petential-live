@@ -1,0 +1,518 @@
+{% extends "layout.html" %}
+{% block title %}PETential - Find Your Perfect Pet Match{% endblock %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/components/hero.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/components/testimonials.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/components/faq.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/components/insights.css') }}">
+{% endblock %}
+
+{% block content %}
+
+<!-- HERO SECTION LAYOUT -->
+<section class="hero-section">
+    <div class="hero-container">
+        <!-- LEFT CONTENT AREA -->
+        <div class="hero-content">
+            <!-- MAIN HEADING -->
+            <h1 class="hero-heading">Find your ideal furry friend</h1>
+            
+            <!-- DESCRIPTION TEXT -->
+            <p class="hero-description">Ready to welcome a new companion? Answer a few quick questions and discover dog or cat breeds that fit your lifestyle. Explore detailed profiles, get inspired, and start your journey to a perfect match—tail wags and purrs await.</p>
+            
+            <!-- BUTTONS CONTAINER -->
+            <div class="hero-buttons">
+                <!-- PRIMARY BUTTON (Take quiz) -->
+                <a href="{{ url_for('dog_quiz') }}" class="hero-btn-primary">Take quiz</a>
+                
+                <!-- SECONDARY BUTTON (Learn more) -->
+                <a href="#about" class="hero-btn-secondary">Learn more</a>
+            </div>
+        </div>
+        
+        <!-- RIGHT IMAGE AREA -->
+        <div class="hero-image-container">
+            <img src="{{ url_for('static', filename='images/hero-pets-people.jpg') }}" 
+                 alt="Diverse group of people with various pets" 
+                 class="hero-image"
+                 onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+            <!-- Fallback content if image doesn't load -->
+            <div style="display: none; align-items: center; justify-content: center; height: 300px; color: white; font-size: 48px; text-align: center;">
+                🐕🐱<br>
+                <span style="font-size: 18px; font-weight: 400;">Happy pets & families</span>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- About Section with Tabs - Modern Design -->
+<section class="section-modern section-alabaster" id="about">
+    <div class="container">
+        <div class="text-center" style="margin-bottom: var(--spacing-3xl);">
+            <h2 style="font-family: var(--font-heading); font-size: var(--font-size-h1); font-weight: var(--font-weight-medium); color: var(--petential-dark); margin-bottom: var(--spacing-lg);">
+                Find your perfect pet fit
+            </h2>
+        </div>
+        
+
+        
+        <!-- Tab Content -->
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-2xl); align-items: center;">
+            <div class="card-modern">
+                <div style="margin-bottom: var(--spacing-lg);">
+                    <div style="width: 32px; height: 32px; background: var(--petential-primary); border-radius: var(--radius-sm); display: flex; align-items: center; justify-content: center; margin-bottom: var(--spacing-lg);">
+                        <span style="font-size: 18px;">🐕</span>
+                    </div>
+                </div>
+                
+                <div style="margin-bottom: var(--spacing-xl);">
+                    <h3 style="font-family: var(--font-heading); font-size: var(--font-size-h3); font-weight: var(--font-weight-medium); color: var(--petential-dark); margin-bottom: var(--spacing-md);">
+                        Start your journey
+                    </h3>
+                    <p style="font-size: var(--font-size-body); color: var(--petential-haiti-60); line-height: var(--line-height-normal);">
+                        Answer a few quick questions about your lifestyle and what you're looking for in a companion. We'll help you every step of the way.
+                    </p>
+                </div>
+                
+                <a href="{{ url_for('dog_quiz') }}" class="btn-link" style="display: inline-flex; align-items: center; gap: var(--spacing-sm); font-size: var(--font-size-body); color: var(--petential-dark);">
+                    Begin
+                    <span style="font-size: 16px;">→</span>
+                </a>
+            </div>
+            
+            <div style="background: url('/static/images/figmaAssets/image-of-volunteers-with-animals.png') center/cover; border-radius: var(--radius-xl); min-height: 460px; box-shadow: var(--shadow-card);"></div>
+        </div>
+    </div>
+</section>
+
+<!-- Features Section - Modern Grid Layout -->
+<section class="section-modern">
+    <div class="container">
+        <div style="display: grid; grid-template-columns: 1fr 1fr; gap: var(--spacing-4xl); align-items: center;">
+            <div style="display: flex; flex-direction: column; gap: var(--spacing-2xl);">
+                <!-- Feature 1 -->
+                <div>
+                    <div style="margin-bottom: var(--spacing-md);">
+                        <span style="font-family: var(--font-primary); font-size: var(--font-size-small); font-weight: var(--font-weight-regular); color: var(--petential-haiti-60); text-transform: uppercase; letter-spacing: 0.1em;">
+                            TOP FEATURE
+                        </span>
+                    </div>
+                    <h3 style="font-family: var(--font-heading); font-size: var(--font-size-h1); font-weight: var(--font-weight-medium); color: var(--petential-dark); margin-bottom: var(--spacing-md); line-height: var(--line-height-tight);">
+                        Find your perfect pet match
+                    </h3>
+                    <p style="font-size: var(--font-size-body-large); color: var(--petential-dark); line-height: var(--line-height-normal); margin-bottom: var(--spacing-lg);">
+                        Browse in-depth breed profiles with photos, personality traits, and care tips. Discover which dogs or cats fit your lifestyle and start your journey to a new best friend.
+                    </p>
+                    <a href="{{ url_for('dog_quiz') }}" class="btn btn-secondary">Browse</a>
+                </div>
+                
+                <!-- Feature 2 -->
+                <div>
+                    <div style="margin-bottom: var(--spacing-md);">
+                        <span style="font-family: var(--font-primary); font-size: var(--font-size-small); font-weight: var(--font-weight-regular); color: var(--petential-haiti-60); text-transform: uppercase; letter-spacing: 0.1em;">
+                            QUIZ TIME
+                        </span>
+                    </div>
+                    <h3 style="font-family: var(--font-heading); font-size: var(--font-size-h1); font-weight: var(--font-weight-medium); color: var(--petential-dark); margin-bottom: var(--spacing-md); line-height: var(--line-height-tight);">
+                        Get matched in minutes
+                    </h3>
+                    <p style="font-size: var(--font-size-body-large); color: var(--petential-dark); line-height: var(--line-height-normal); margin-bottom: var(--spacing-lg);">
+                        Take our quick, friendly quiz and let us suggest breeds that fit your life. It's simple, fun, and all about finding your ideal companion.
+                    </p>
+                    <a href="{{ url_for('dog_quiz') }}" class="btn btn-secondary">Try now</a>
+                </div>
+                
+                <!-- Feature 3 -->
+                <div>
+                    <div style="margin-bottom: var(--spacing-md);">
+                        <span style="font-family: var(--font-primary); font-size: var(--font-size-small); font-weight: var(--font-weight-regular); color: var(--petential-haiti-60); text-transform: uppercase; letter-spacing: 0.1em;">
+                            FRESH LOOK
+                        </span>
+                    </div>
+                    <h3 style="font-family: var(--font-heading); font-size: var(--font-size-h1); font-weight: var(--font-weight-medium); color: var(--petential-dark); margin-bottom: var(--spacing-md); line-height: var(--line-height-tight);">
+                        Modern, easy, and accessible
+                    </h3>
+                    <p style="font-size: var(--font-size-body-large); color: var(--petential-dark); line-height: var(--line-height-normal); margin-bottom: var(--spacing-lg);">
+                        Navigate a clean, inviting interface designed for everyone. Effortlessly compare breeds and enjoy a seamless experience from start to finish.
+                    </p>
+                    <a href="#" class="btn btn-secondary">View</a>
+                </div>
+            </div>
+            
+            <div style="display: flex; align-items: center; justify-content: center;">
+                <div style="width: 100%; max-width: 500px; height: 600px; background: linear-gradient(135deg, var(--petential-primary) 0%, var(--petential-honeysuckle) 100%); border-radius: var(--radius-xl); display: flex; align-items: center; justify-content: center; font-size: 120px; box-shadow: var(--shadow-card);">
+                    📱
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- CTA Section -->
+<section class="section-modern section-alabaster">
+    <div class="container text-center">
+        <h2 style="font-family: var(--font-heading); font-size: var(--font-size-h1); font-weight: var(--font-weight-medium); color: var(--petential-dark); margin-bottom: var(--spacing-lg);">
+            Ready to find your perfect companion?
+        </h2>
+        <p style="font-size: var(--font-size-body-large); color: var(--petential-haiti-70); margin-bottom: var(--spacing-2xl); max-width: 600px; margin-left: auto; margin-right: auto;">
+            Join thousands of pet owners who found their ideal companion through PETential's advanced matching system.
+        </p>
+        
+        <div class="btn-group">
+            <a href="{{ url_for('dog_quiz') }}" class="btn btn-primary btn-cta-large">
+                🐕 Find Your Perfect Dog
+            </a>
+            <a href="{{ url_for('cat_quiz') }}" class="btn btn-primary btn-cta-large">
+                🐱 Find Your Perfect Cat
+            </a>
+        </div>
+    </div>
+</section>
+
+<!-- TESTIMONIALS SECTION -->
+<section class="testimonials-section">
+    <div class="testimonials-container">
+        <!-- SECTION TITLE -->
+        <h2 class="testimonials-title">Real stories from happy families</h2>
+        
+        <!-- TAB NAVIGATION -->
+        <div class="testimonials-nav" role="tablist" aria-label="Customer testimonials">
+            <button class="testimonial-tab-indicator active" role="tab" aria-selected="true" aria-controls="testimonial-panel-0" tabindex="0"></button>
+            <button class="testimonial-tab-indicator" role="tab" aria-selected="false" aria-controls="testimonial-panel-1" tabindex="-1"></button>
+            <button class="testimonial-tab-indicator" role="tab" aria-selected="false" aria-controls="testimonial-panel-2" tabindex="-1"></button>
+            <button class="testimonial-tab-indicator" role="tab" aria-selected="false" aria-controls="testimonial-panel-3" tabindex="-1"></button>
+        </div>
+        
+        <!-- TAB CONTENT AREA -->
+        <div class="testimonials-content">
+            <!-- TAB 1 - TAYLOR BROOKS -->
+            <div id="testimonial-panel-0" class="testimonial-panel active" role="tabpanel" aria-labelledby="testimonial-tab-0" aria-hidden="false">
+                <!-- LEFT CONTENT AREA -->
+                <div class="testimonial-left-content">
+                    <blockquote class="testimonial-quote">
+                        The quiz felt like chatting with a friend. I found my perfect match in minutes—now every walk is a joy.
+                    </blockquote>
+                    <h3 class="testimonial-customer-name">Taylor Brooks</h3>
+                    <p class="testimonial-customer-description">First-time dog owner</p>
+                </div>
+                
+                <!-- RIGHT IMAGE AREA -->
+                <div class="testimonial-right-content">
+                    <div class="testimonial-image-container taylor">
+                        <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Diverse group of people with various dogs and cats in cozy indoor setting" 
+                             class="testimonial-image"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <!-- Fallback content -->
+                        <div style="display: none; align-items: center; justify-content: center; height: 300px; color: white; font-size: 48px; text-align: center;">
+                            🐕🐱<br>
+                            <span style="font-size: 18px; font-weight: 400;">Happy Families</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TAB 2 - CASEY MORGAN -->
+            <div id="testimonial-panel-1" class="testimonial-panel" role="tabpanel" aria-labelledby="testimonial-tab-1" aria-hidden="true">
+                <!-- LEFT CONTENT AREA -->
+                <div class="testimonial-left-content">
+                    <blockquote class="testimonial-quote">
+                        Step-by-step guidance made it simple. My new cat fits my routine and brings so much happiness to my days.
+                    </blockquote>
+                    <h3 class="testimonial-customer-name">Casey Morgan</h3>
+                    <p class="testimonial-customer-description">Remote worker & cat enthusiast</p>
+                </div>
+                
+                <!-- RIGHT IMAGE AREA -->
+                <div class="testimonial-right-content">
+                    <div class="testimonial-image-container casey">
+                        <img src="https://images.unsplash.com/photo-1497366216548-37526070297c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Professional office environment with team members and animal welfare banners" 
+                             class="testimonial-image"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <!-- Fallback content -->
+                        <div style="display: none; align-items: center; justify-content: center; height: 300px; color: white; font-size: 48px; text-align: center;">
+                            💼🐱<br>
+                            <span style="font-size: 18px; font-weight: 400;">Remote Work</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TAB 3 - JORDAN AVERY -->
+            <div id="testimonial-panel-2" class="testimonial-panel" role="tabpanel" aria-labelledby="testimonial-tab-2" aria-hidden="true">
+                <!-- LEFT CONTENT AREA -->
+                <div class="testimonial-left-content">
+                    <blockquote class="testimonial-quote">
+                        The breed profiles gave me confidence. I felt supported and informed from start to finish.
+                    </blockquote>
+                    <h3 class="testimonial-customer-name">Jordan Avery</h3>
+                    <p class="testimonial-customer-description">Active city explorer</p>
+                </div>
+                
+                <!-- RIGHT IMAGE AREA -->
+                <div class="testimonial-right-content">
+                    <div class="testimonial-image-container jordan">
+                        <img src="https://images.unsplash.com/photo-1576201836106-db1758fd1c97?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Consultation scene with veterinarian showing information to clients with dogs" 
+                             class="testimonial-image"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <!-- Fallback content -->
+                        <div style="display: none; align-items: center; justify-content: center; height: 300px; color: white; font-size: 48px; text-align: center;">
+                            🏃‍♂️🐕<br>
+                            <span style="font-size: 18px; font-weight: 400;">Active Life</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <!-- TAB 4 - ALEX RIVERA -->
+            <div id="testimonial-panel-3" class="testimonial-panel" role="tabpanel" aria-labelledby="testimonial-tab-3" aria-hidden="true">
+                <!-- LEFT CONTENT AREA -->
+                <div class="testimonial-left-content">
+                    <blockquote class="testimonial-quote">
+                        The process was welcoming and easy. We found a companion who truly belongs in our family.
+                    </blockquote>
+                    <h3 class="testimonial-customer-name">Alex Rivera</h3>
+                    <p class="testimonial-customer-description">Parent & animal advocate</p>
+                </div>
+                
+                <!-- RIGHT IMAGE AREA -->
+                <div class="testimonial-right-content">
+                    <div class="testimonial-image-container alex">
+                        <img src="https://images.unsplash.com/photo-1601758003122-479da8a8db32?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                             alt="Animal shelter interior with organized cat housing and modern facility" 
+                             class="testimonial-image"
+                             onerror="this.style.display='none'; this.nextElementSibling.style.display='flex';">
+                        <!-- Fallback content -->
+                        <div style="display: none; align-items: center; justify-content: center; height: 300px; color: white; font-size: 48px; text-align: center;">
+                            👨‍👩‍👧‍👦🐱<br>
+                            <span style="font-size: 18px; font-weight: 400;">Family Love</span>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FAQ SECTION -->
+<section class="faq-section">
+    <div class="faq-container">
+        <!-- SECTION HEADER -->
+        <div class="faq-header">
+            <div class="faq-badge">FREQUENTLY ASKED QUESTIONS</div>
+            <h2 class="faq-title">Answers for your pet search</h2>
+            <p class="faq-subtitle">Wondering how our matching works? Find friendly, detailed answers to help you discover your perfect pet companion.</p>
+        </div>
+        
+        <!-- FAQ ACCORDION CONTAINER -->
+        <div class="faq-accordion">
+            <!-- FAQ ITEM 1 -->
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <h3 class="faq-question-text">How does the quiz find my match?</h3>
+                    <div class="faq-expand-icon" aria-hidden="true"></div>
+                </button>
+                <div class="faq-answer">
+                    <p class="faq-answer-text">We ask about your lifestyle, preferences, and pet experience. Our smart algorithm then recommends breeds that fit you best—making your search easy and enjoyable.</p>
+                </div>
+            </div>
+            
+            <!-- FAQ ITEM 2 -->
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <h3 class="faq-question-text">Will I get info on each breed?</h3>
+                    <div class="faq-expand-icon" aria-hidden="true"></div>
+                </button>
+                <div class="faq-answer">
+                    <p class="faq-answer-text">Yes! Every match comes with a detailed profile, including personality, care tips, and photos, so you can get to know each breed before making a choice.</p>
+                </div>
+            </div>
+            
+            <!-- FAQ ITEM 3 -->
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <h3 class="faq-question-text">Is this for both cats and dogs?</h3>
+                    <div class="faq-expand-icon" aria-hidden="true"></div>
+                </button>
+                <div class="faq-answer">
+                    <p class="faq-answer-text">Absolutely. Whether you love dogs, cats, or both, you'll find personalized matches and helpful info for every furry friend.</p>
+                </div>
+            </div>
+            
+            <!-- FAQ ITEM 4 -->
+            <div class="faq-item">
+                <button class="faq-question" aria-expanded="false">
+                    <h3 class="faq-question-text">Do I need pet experience?</h3>
+                    <div class="faq-expand-icon" aria-hidden="true"></div>
+                </button>
+                <div class="faq-answer">
+                    <p class="faq-answer-text">No experience needed! Our platform is for everyone—from first-timers to lifelong pet lovers. We'll guide you every step of the way.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+<!-- FRESH INSIGHTS SECTION -->
+<section class="insights-section">
+    <div class="insights-container">
+        <!-- HEADER ROW -->
+        <div class="insights-header">
+            <h2 class="insights-title">Fresh insights for every pet lover</h2>
+            
+            <!-- SLIDER CONTROLS -->
+            <div class="insights-controls">
+                <button class="insights-control-btn insights-prev" aria-label="Previous insights">
+                    <span aria-hidden="true">←</span>
+                </button>
+                <button class="insights-control-btn insights-next" aria-label="Next insights">
+                    <span aria-hidden="true">→</span>
+                </button>
+            </div>
+        </div>
+        
+        <!-- GRID LAYOUT -->
+        <div class="insights-grid">
+            <!-- CARD 1 -->
+            <article class="insights-card" tabindex="0" role="article">
+                <img src="https://images.unsplash.com/photo-1601758228041-f3b2795255f1?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Vibrant photo of people with six dogs in indoor studio" 
+                     class="insights-card-image"
+                     loading="lazy"
+                     width="400"
+                     height="280">
+                <h3 class="insights-card-title">Find your perfect breed match</h3>
+                <p class="insights-card-description">Take our quiz to discover which dog or cat fits your lifestyle best. Start your journey to a lifelong companion.</p>
+            </article>
+            
+            <!-- CARD 2 -->
+            <article class="insights-card" tabindex="0" role="article">
+                <img src="https://images.unsplash.com/photo-1574144611937-0df059b5ef3e?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Modern orange shelving wall with cats relaxing in individual beds" 
+                     class="insights-card-image"
+                     loading="lazy"
+                     width="400"
+                     height="280">
+                <h3 class="insights-card-title">Settle in with your new pet</h3>
+                <p class="insights-card-description">Get friendly tips on nutrition, training, and daily care to help your furry friend feel right at home.</p>
+            </article>
+            
+            <!-- CARD 3 -->
+            <article class="insights-card" tabindex="0" role="article">
+                <img src="https://images.unsplash.com/photo-1551650975-87deedd944c3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Tablet dashboard on red backdrop with leaves shadows" 
+                     class="insights-card-image"
+                     loading="lazy"
+                     width="400"
+                     height="280">
+                <h3 class="insights-card-title">Real advice from real pet owners</h3>
+                <p class="insights-card-description">Hear stories and practical answers from our community and pet-care experts—you're not alone on this journey.</p>
+            </article>
+            
+            <!-- CARD 4 -->
+            <article class="insights-card" tabindex="0" role="article">
+                <img src="https://images.unsplash.com/photo-1552728089-57bdde30beb3?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" 
+                     alt="Close-up pastel parakeet on solid orange background" 
+                     class="insights-card-image"
+                     loading="lazy"
+                     width="400"
+                     height="280">
+                <h3 class="insights-card-title">Heartfelt stories, happy matches</h3>
+                <p class="insights-card-description">Be inspired by uplifting tales and helpful advice from people who've found their perfect four-legged friends.</p>
+            </article>
+        </div>
+    </div>
+</section>
+
+<style>
+/* Responsive Design */
+@media (max-width: 1023px) {
+    .hero-container {
+        grid-template-columns: 1fr !important;
+        gap: var(--spacing-2xl) !important;
+        text-align: center;
+    }
+    
+    .hero-image {
+        order: -1;
+        min-height: 300px !important;
+    }
+    
+    .section-modern > .container > div[style*="grid-template-columns"] {
+        grid-template-columns: 1fr !important;
+        gap: var(--spacing-2xl) !important;
+    }
+}
+
+@media (max-width: 767px) {
+    .hero-section {
+        padding: var(--spacing-3xl) 0 !important;
+        min-height: 70vh !important;
+    }
+    
+    .hero-content h1 {
+        font-size: calc(var(--font-size-hero) * 0.7) !important;
+    }
+    
+    .hero-image {
+        min-height: 250px !important;
+    }
+    
+    .btn-group {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-md);
+    }
+    
+    .btn {
+        width: 100%;
+        max-width: 280px;
+    }
+    
+    .card-modern {
+        padding: var(--spacing-lg) !important;
+    }
+    
+    h3[style*="font-size: var(--font-size-h1)"] {
+        font-size: var(--font-size-h2) !important;
+    }
+}
+</style>
+
+<script>
+// Initialize page functionality
+document.addEventListener('DOMContentLoaded', function() {
+    
+    // Intersection Observer for animations
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.opacity = '1';
+                entry.target.style.transform = 'translateY(0)';
+            }
+        });
+    }, observerOptions);
+    
+    // Observe sections for scroll animations
+    document.querySelectorAll('section').forEach(section => {
+        section.style.opacity = '0';
+        section.style.transform = 'translateY(20px)';
+        section.style.transition = 'opacity 0.6s ease, transform 0.6s ease';
+        observer.observe(section);
+    });
+    
+    // Set first section (hero) to be visible immediately
+    document.querySelector('.hero-section').style.opacity = '1';
+    document.querySelector('.hero-section').style.transform = 'translateY(0)';
+});
+</script>
+
+{% endblock %}

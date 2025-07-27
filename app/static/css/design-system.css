@@ -1,0 +1,389 @@
+/* PETential Design System - Based on Untitled-Body Modern Design */
+
+:root {
+  /* Colors - Modern PETential Palette */
+  --petential-primary: #c1fd3a;
+  --petential-primary-hover: #b3e834;
+  --petential-dark: #080516;
+  --petential-white: #ffffff;
+  --petential-alabaster: #f9f8f9;
+  --petential-haiti: #080516;
+  --petential-haiti-60: rgba(8, 5, 22, 0.6);
+  --petential-haiti-70: rgba(8, 5, 22, 0.7);
+  --petential-haiti-75: rgba(8, 5, 22, 0.75);
+  --petential-haiti-80: rgba(8, 5, 22, 0.8);
+  --petential-green-yellow: #c1fd3a;
+  --petential-honeysuckle: #d4fe77;
+  
+  /* Typography - Modern Font System */
+  --font-primary: "DM Sans", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+  --font-heading: "Roboto", -apple-system, BlinkMacSystemFont, "Segoe UI", sans-serif;
+  
+  /* Font Sizes - Responsive Scale */
+  --font-size-hero: clamp(3rem, 8vw, 5.65rem); /* 90.4px max */
+  --font-size-h1: clamp(2rem, 5vw, 2.83rem); /* 45.3px max */
+  --font-size-h2: clamp(1.5rem, 4vw, 2.25rem); /* 36px max */
+  --font-size-h3: clamp(1.25rem, 3vw, 1.41rem); /* 22.6px max */
+  --font-size-h4: clamp(1.125rem, 2.5vw, 1.25rem); /* 20px max */
+  --font-size-body-large: 1.131rem; /* 18.1px */
+  --font-size-body: 1rem; /* 16px */
+  --font-size-small: 0.875rem; /* 14px */
+  --font-size-caption: 0.75rem; /* 12px */
+  
+  /* Font Weights */
+  --font-weight-regular: 400;
+  --font-weight-medium: 500;
+  --font-weight-semibold: 600;
+  --font-weight-bold: 700;
+  
+  /* Line Heights */
+  --line-height-tight: 1.1;
+  --line-height-normal: 1.6;
+  --line-height-relaxed: 1.8;
+  
+  /* Spacing System - 8px base */
+  --spacing-xs: 0.25rem; /* 4px */
+  --spacing-sm: 0.5rem; /* 8px */
+  --spacing-md: 1rem; /* 16px */
+  --spacing-lg: 1.5rem; /* 24px */
+  --spacing-xl: 2rem; /* 32px */
+  --spacing-2xl: 3rem; /* 48px */
+  --spacing-3xl: 4rem; /* 64px */
+  --spacing-4xl: 6rem; /* 96px */
+  --spacing-5xl: 8rem; /* 128px */
+  
+  /* Border Radius */
+  --radius-sm: 0.25rem; /* 4px */
+  --radius-md: 0.5rem; /* 8px */
+  --radius-lg: 0.75rem; /* 12px */
+  --radius-xl: 1rem; /* 16px */
+  --radius-2xl: 1.5rem; /* 24px */
+  
+  /* Shadows - Modern Depth System */
+  --shadow-sm: 0 1px 2px rgba(0, 0, 0, 0.05);
+  --shadow-md: 0 4px 6px rgba(0, 0, 0, 0.07);
+  --shadow-lg: 0 10px 15px rgba(0, 0, 0, 0.1);
+  --shadow-xl: 0 20px 25px rgba(0, 0, 0, 0.1);
+  --shadow-card: 0 4px 20px rgba(0, 0, 0, 0.08);
+  --shadow-button: 4px 4px 0px var(--petential-dark);
+  --shadow-button-hover: 2px 2px 0px var(--petential-dark);
+  
+  /* Container Sizes */
+  --container-max-width: 1200px;
+  --container-padding-mobile: 1rem;
+  --container-padding-tablet: 2rem;
+  --container-padding-desktop: 3rem;
+  
+  /* Transitions */
+  --transition-fast: 0.15s ease;
+  --transition-normal: 0.3s ease;
+  --transition-slow: 0.5s ease;
+  
+  /* Z-Index Scale */
+  --z-dropdown: 1000;
+  --z-sticky: 1020;
+  --z-fixed: 1030;
+  --z-modal-backdrop: 1040;
+  --z-modal: 1050;
+  --z-popover: 1060;
+  --z-tooltip: 1070;
+
+  /* Background Gradients */
+  --bg-gradient-hero: linear-gradient(135deg, var(--petential-white) 0%, var(--petential-alabaster) 100%);
+}
+
+/* Base Typography Styles */
+body {
+  font-family: var(--font-primary);
+  font-size: var(--font-size-body);
+  line-height: var(--line-height-normal);
+  color: var(--petential-dark);
+  background-color: var(--petential-white);
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+/* Heading Styles */
+h1, .h1 {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-hero);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-tight);
+  color: var(--petential-dark);
+  margin-bottom: var(--spacing-lg);
+  letter-spacing: -0.02em;
+}
+
+h2, .h2 {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h1);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-tight);
+  color: var(--petential-dark);
+  margin-bottom: var(--spacing-md);
+  letter-spacing: -0.01em;
+}
+
+h3, .h3 {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h2);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+  color: var(--petential-dark);
+  margin-bottom: var(--spacing-md);
+}
+
+h4, .h4 {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h3);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+  color: var(--petential-dark);
+  margin-bottom: var(--spacing-sm);
+}
+
+h5, .h5 {
+  font-family: var(--font-heading);
+  font-size: var(--font-size-h4);
+  font-weight: var(--font-weight-medium);
+  line-height: var(--line-height-normal);
+  color: var(--petential-dark);
+  margin-bottom: var(--spacing-sm);
+}
+
+/* Body Text Styles */
+p, .body-text {
+  font-size: var(--font-size-body-large);
+  line-height: var(--line-height-normal);
+  color: var(--petential-haiti-70);
+  margin-bottom: var(--spacing-md);
+}
+
+.body-large {
+  font-size: var(--font-size-body-large);
+  line-height: var(--line-height-normal);
+}
+
+.body-small {
+  font-size: var(--font-size-small);
+  line-height: var(--line-height-normal);
+}
+
+.text-muted {
+  color: var(--petential-haiti-60);
+}
+
+.text-secondary {
+  color: var(--petential-haiti-70);
+}
+
+/* Utility Classes */
+.container {
+  max-width: var(--container-max-width);
+  margin: 0 auto;
+  padding-left: var(--container-padding-mobile);
+  padding-right: var(--container-padding-mobile);
+}
+
+@media (min-width: 768px) {
+  .container {
+    padding-left: var(--container-padding-tablet);
+    padding-right: var(--container-padding-tablet);
+  }
+}
+
+@media (min-width: 1024px) {
+  .container {
+    padding-left: var(--container-padding-desktop);
+    padding-right: var(--container-padding-desktop);
+  }
+}
+
+/* Layout Utilities */
+.section {
+  padding: var(--spacing-4xl) 0;
+}
+
+.section-sm {
+  padding: var(--spacing-2xl) 0;
+}
+
+.section-lg {
+  padding: var(--spacing-5xl) 0;
+}
+
+/* Flexbox Utilities */
+.flex {
+  display: flex;
+}
+
+.flex-col {
+  flex-direction: column;
+}
+
+.items-center {
+  align-items: center;
+}
+
+.justify-center {
+  justify-content: center;
+}
+
+.justify-between {
+  justify-content: space-between;
+}
+
+.gap-sm {
+  gap: var(--spacing-sm);
+}
+
+.gap-md {
+  gap: var(--spacing-md);
+}
+
+.gap-lg {
+  gap: var(--spacing-lg);
+}
+
+.gap-xl {
+  gap: var(--spacing-xl);
+}
+
+/* Grid Utilities */
+.grid {
+  display: grid;
+}
+
+.grid-cols-1 {
+  grid-template-columns: repeat(1, 1fr);
+}
+
+.grid-cols-2 {
+  grid-template-columns: repeat(2, 1fr);
+}
+
+.grid-cols-3 {
+  grid-template-columns: repeat(3, 1fr);
+}
+
+@media (min-width: 768px) {
+  .md\:grid-cols-2 {
+    grid-template-columns: repeat(2, 1fr);
+  }
+  
+  .md\:grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:grid-cols-3 {
+    grid-template-columns: repeat(3, 1fr);
+  }
+  
+  .lg\:grid-cols-4 {
+    grid-template-columns: repeat(4, 1fr);
+  }
+}
+
+/* Background Utilities */
+.bg-primary {
+  background-color: var(--petential-primary);
+}
+
+.bg-white {
+  background-color: var(--petential-white);
+}
+
+.bg-alabaster {
+  background-color: var(--petential-alabaster);
+}
+
+.bg-gradient-hero {
+  background: linear-gradient(135deg, #f5f7fa 0%, #c3cfe2 100%);
+}
+
+/* Text Utilities */
+.text-center {
+  text-align: center;
+}
+
+.text-left {
+  text-align: left;
+}
+
+.text-right {
+  text-align: right;
+}
+
+/* Responsive Utilities */
+.hidden {
+  display: none;
+}
+
+@media (min-width: 768px) {
+  .md\:block {
+    display: block;
+  }
+  
+  .md\:flex {
+    display: flex;
+  }
+  
+  .md\:hidden {
+    display: none;
+  }
+}
+
+@media (min-width: 1024px) {
+  .lg\:block {
+    display: block;
+  }
+  
+  .lg\:flex {
+    display: flex;
+  }
+  
+  .lg\:hidden {
+    display: none;
+  }
+}
+
+/* Animation Utilities */
+.transition {
+  transition: all var(--transition-normal);
+}
+
+.transition-fast {
+  transition: all var(--transition-fast);
+}
+
+.transition-slow {
+  transition: all var(--transition-slow);
+}
+
+/* Focus States */
+*:focus {
+  outline: 2px solid var(--petential-primary);
+  outline-offset: 2px;
+}
+
+*:focus:not(:focus-visible) {
+  outline: none;
+}
+
+/* Smooth Scrolling */
+html {
+  scroll-behavior: smooth;
+}
+
+/* Selection Styles */
+::selection {
+  background-color: var(--petential-primary);
+  color: var(--petential-dark);
+}
+
+::-moz-selection {
+  background-color: var(--petential-primary);
+  color: var(--petential-dark);
+}

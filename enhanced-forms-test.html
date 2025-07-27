@@ -1,0 +1,637 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Enhanced Forms Test - Phase 2 Features</title>
+    <link rel="stylesheet" href="app/static/css/design-system.css">
+    <link rel="stylesheet" href="app/static/css/forms.css">
+    <link rel="stylesheet" href="app/static/css/components/buttons.css">
+    <style>
+        body {
+            font-family: var(--petential-font-primary);
+            background: linear-gradient(135deg, var(--petential-background) 0%, var(--petential-surface) 100%);
+            margin: 0;
+            padding: var(--petential-space-xl);
+            min-height: 100vh;
+        }
+
+        .test-container {
+            max-width: 1200px;
+            margin: 0 auto;
+        }
+
+        .test-section {
+            background: var(--petential-background);
+            border-radius: var(--petential-radius-lg);
+            padding: var(--petential-space-xl);
+            margin-bottom: var(--petential-space-xl);
+            box-shadow: var(--petential-shadow-md);
+            border: 1px solid var(--petential-border);
+        }
+
+        .test-title {
+            font-size: 28px;
+            font-weight: 700;
+            color: var(--petential-dark);
+            margin: 0 0 var(--petential-space-lg) 0;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: var(--petential-primary);
+            margin: 0 0 var(--petential-space-lg) 0;
+            border-bottom: 2px solid var(--petential-border);
+            padding-bottom: var(--petential-space-sm);
+        }
+
+        .demo-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(400px, 1fr));
+            gap: var(--petential-space-xl);
+            margin-top: var(--petential-space-lg);
+        }
+
+        .demo-card {
+            background: var(--petential-surface);
+            border-radius: var(--petential-radius-md);
+            padding: var(--petential-space-lg);
+            border: 1px solid var(--petential-border);
+        }
+
+        .demo-card h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: var(--petential-text);
+            margin: 0 0 var(--petential-space-md) 0;
+        }
+
+        .control-panel {
+            background: var(--petential-dark);
+            color: var(--petential-background);
+            border-radius: var(--petential-radius-md);
+            padding: var(--petential-space-lg);
+            margin-bottom: var(--petential-space-lg);
+        }
+
+        .control-panel h3 {
+            margin: 0 0 var(--petential-space-md) 0;
+            color: var(--petential-background);
+        }
+
+        .control-buttons {
+            display: flex;
+            gap: var(--petential-space-sm);
+            flex-wrap: wrap;
+        }
+
+        .control-btn {
+            padding: var(--petential-space-sm) var(--petential-space-md);
+            background: var(--petential-primary);
+            color: var(--petential-background);
+            border: none;
+            border-radius: var(--petential-radius-sm);
+            cursor: pointer;
+            font-size: 14px;
+            font-weight: 500;
+            transition: all 0.2s ease;
+        }
+
+        .control-btn:hover {
+            background: var(--petential-secondary);
+            transform: translateY(-1px);
+        }
+
+        .form-row {
+            display: grid;
+            grid-template-columns: 1fr 1fr;
+            gap: var(--petential-space-md);
+        }
+
+        @media (max-width: 768px) {
+            .demo-grid {
+                grid-template-columns: 1fr;
+            }
+            
+            .form-row {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <div class="test-container">
+        <h1 class="test-title">🚀 Phase 2: Enhanced Forms Features</h1>
+        
+        <!-- Control Panel -->
+        <div class="control-panel">
+            <h3>🎮 Interactive Demo Controls</h3>
+            <div class="control-buttons">
+                <button class="control-btn" onclick="showLoadingDemo()">Show Loading States</button>
+                <button class="control-btn" onclick="showErrorDemo()">Show Error States</button>
+                <button class="control-btn" onclick="showSuccessDemo()">Show Success States</button>
+                <button class="control-btn" onclick="showSkeletonDemo()">Show Skeleton Loading</button>
+                <button class="control-btn" onclick="resetAllForms()">Reset All Forms</button>
+                <button class="control-btn" onclick="validateAllForms()">Validate All Forms</button>
+            </div>
+        </div>
+
+        <!-- Modern Form Styling -->
+        <div class="test-section">
+            <h2 class="section-title">✨ Modern Form Styling</h2>
+            
+            <div class="demo-grid">
+                <!-- Basic Form Elements -->
+                <div class="demo-card">
+                    <h4>Basic Form Elements</h4>
+                    <form id="basic-form" class="form-container">
+                        <div class="form-group">
+                            <label for="basic-name" class="form-label required">Full Name</label>
+                            <input type="text" id="basic-name" name="name" class="form-input" placeholder="Enter your full name" required>
+                            <span class="form-help">This will be displayed on your profile</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="basic-email" class="form-label required">Email Address</label>
+                            <input type="email" id="basic-email" name="email" class="form-input" placeholder="your.email@example.com" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="basic-phone" class="form-label">Phone Number</label>
+                            <input type="tel" id="basic-phone" name="phone" class="form-input" placeholder="+1 (555) 123-4567">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="basic-select" class="form-label required">Pet Preference</label>
+                            <select id="basic-select" name="pet_type" class="form-select" required>
+                                <option value="">Choose your preference</option>
+                                <option value="dogs">Dogs</option>
+                                <option value="cats">Cats</option>
+                                <option value="both">Both Dogs and Cats</option>
+                                <option value="other">Other Pets</option>
+                            </select>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Submit Form</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Advanced Form Elements -->
+                <div class="demo-card">
+                    <h4>Advanced Form Elements</h4>
+                    <form id="advanced-form" class="form-container">
+                        <div class="form-group">
+                            <label class="form-label">Search with Clear Button</label>
+                            <div class="form-search">
+                                <div class="form-search-icon">🔍</div>
+                                <input type="text" class="form-search-input" placeholder="Search for breeds...">
+                                <button type="button" class="form-search-clear">×</button>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="advanced-message" class="form-label">Message</label>
+                            <textarea id="advanced-message" name="message" class="form-input form-textarea" placeholder="Tell us about your pet preferences..." maxlength="500"></textarea>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Experience Level</label>
+                            
+                            <div class="form-radio">
+                                <input type="radio" id="exp-beginner" name="experience" class="form-radio-input" value="beginner">
+                                <div class="form-radio-indicator"></div>
+                                <label for="exp-beginner" class="form-radio-label">🌱 First-time pet owner</label>
+                            </div>
+                            
+                            <div class="form-radio">
+                                <input type="radio" id="exp-some" name="experience" class="form-radio-input" value="some">
+                                <div class="form-radio-indicator"></div>
+                                <label for="exp-some" class="form-radio-label">🐕 Some experience</label>
+                            </div>
+                            
+                            <div class="form-radio">
+                                <input type="radio" id="exp-expert" name="experience" class="form-radio-input" value="expert">
+                                <div class="form-radio-indicator"></div>
+                                <label for="exp-expert" class="form-radio-label">🏆 Very experienced</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Pet Care Services (Select all that apply)</label>
+                            
+                            <div class="form-checkbox">
+                                <input type="checkbox" id="service-grooming" name="services" class="form-checkbox-input" value="grooming">
+                                <div class="form-checkbox-indicator"></div>
+                                <label for="service-grooming" class="form-checkbox-label">✂️ Professional Grooming</label>
+                            </div>
+                            
+                            <div class="form-checkbox">
+                                <input type="checkbox" id="service-training" name="services" class="form-checkbox-input" value="training">
+                                <div class="form-checkbox-indicator"></div>
+                                <label for="service-training" class="form-checkbox-label">🎓 Training Classes</label>
+                            </div>
+                            
+                            <div class="form-checkbox">
+                                <input type="checkbox" id="service-vet" name="services" class="form-checkbox-input" value="veterinary">
+                                <div class="form-checkbox-indicator"></div>
+                                <label for="service-vet" class="form-checkbox-label">🏥 Veterinary Care</label>
+                            </div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-secondary">Save Draft</button>
+                            <button type="submit" class="btn btn-primary">Complete Profile</button>
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+
+        <!-- Loading States -->
+        <div class="test-section">
+            <h2 class="section-title">⏳ Loading States</h2>
+            
+            <div class="demo-grid">
+                <!-- Form Loading Overlay -->
+                <div class="demo-card">
+                    <h4>Form Loading Overlay</h4>
+                    <form id="loading-form" class="form-container">
+                        <div class="form-group">
+                            <label for="loading-name" class="form-label">Name</label>
+                            <input type="text" id="loading-name" name="name" class="form-input" placeholder="Enter your name">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="loading-email" class="form-label">Email</label>
+                            <input type="email" id="loading-email" name="email" class="form-input" placeholder="Enter your email">
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Submit with Loading</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Skeleton Loading -->
+                <div class="demo-card">
+                    <h4>Skeleton Loading States</h4>
+                    <div id="skeleton-container" class="form-container">
+                        <div class="form-group">
+                            <label class="form-label">Loading Form...</label>
+                            <input type="text" class="form-input" placeholder="This will show skeleton">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Another Field</label>
+                            <textarea class="form-input form-textarea" placeholder="This will also show skeleton"></textarea>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button class="btn btn-primary">Loading Button</button>
+                            <button class="btn btn-secondary">Another Button</button>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Button Loading States -->
+                <div class="demo-card">
+                    <h4>Button Loading States</h4>
+                    <div class="form-container">
+                        <div class="form-group">
+                            <label class="form-label">Test Different Button Loading States</label>
+                            <div style="display: flex; gap: var(--petential-space-md); flex-wrap: wrap; margin-top: var(--petential-space-md);">
+                                <button id="btn-primary-loading" class="btn btn-primary">Primary Loading</button>
+                                <button id="btn-secondary-loading" class="btn btn-secondary">Secondary Loading</button>
+                                <button id="btn-tertiary-loading" class="btn btn-tertiary">Tertiary Loading</button>
+                            </div>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label class="form-label">Input Loading States</label>
+                            <input type="text" id="input-loading-demo" class="form-input" placeholder="This input can show loading state">
+                            <span class="form-help">Try the "Show Loading States" button above</span>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Progress Indicators -->
+                <div class="demo-card">
+                    <h4>Progress Indicators</h4>
+                    <div class="form-container">
+                        <div class="form-group">
+                            <label class="form-label">Form Completion Progress</label>
+                            <div class="form-progress">
+                                <div id="demo-progress-bar" class="form-progress-bar" style="width: 45%;"></div>
+                            </div>
+                            <span class="form-help">45% Complete - 3 of 7 fields filled</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="progress-name" class="form-label">Name</label>
+                            <input type="text" id="progress-name" class="form-input" placeholder="Fill this to increase progress" onchange="updateProgress()">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="progress-email" class="form-label">Email</label>
+                            <input type="email" id="progress-email" class="form-input" placeholder="Fill this to increase progress" onchange="updateProgress()">
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Error States -->
+        <div class="test-section">
+            <h2 class="section-title">❌ Error States</h2>
+            
+            <div class="demo-grid">
+                <!-- Field Validation Errors -->
+                <div class="demo-card">
+                    <h4>Field Validation Errors</h4>
+                    <form id="error-form" class="form-container">
+                        <div class="form-group">
+                            <label for="error-name" class="form-label required">Name</label>
+                            <input type="text" id="error-name" name="name" class="form-input" placeholder="Leave empty to see error" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="error-email" class="form-label required">Email</label>
+                            <input type="email" id="error-email" name="email" class="form-input" placeholder="Enter invalid email" required>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="error-phone" class="form-label">Phone</label>
+                            <input type="tel" id="error-phone" name="phone" class="form-input" placeholder="Enter invalid phone">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="error-password" class="form-label">Password</label>
+                            <input type="password" id="error-password" name="password" class="form-input" placeholder="Enter weak password">
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="submit" class="btn btn-primary">Validate Fields</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Form-Level Errors -->
+                <div class="demo-card">
+                    <h4>Form-Level Error Messages</h4>
+                    <form id="form-errors-demo" class="form-container">
+                        <div class="form-group">
+                            <label for="demo-field1" class="form-label">Field 1</label>
+                            <input type="text" id="demo-field1" class="form-input" placeholder="Some field">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="demo-field2" class="form-label">Field 2</label>
+                            <input type="text" id="demo-field2" class="form-input" placeholder="Another field">
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-primary" onclick="showFormErrorsDemo()">Show Form Errors</button>
+                            <button type="button" class="btn btn-secondary" onclick="showFormSuccessDemo()">Show Success</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Success States -->
+                <div class="demo-card">
+                    <h4>Success States</h4>
+                    <form id="success-form" class="form-container">
+                        <div class="form-group success">
+                            <label for="success-name" class="form-label">Name</label>
+                            <input type="text" id="success-name" name="name" class="form-input" value="John Doe" readonly>
+                            <div class="form-success-message">Valid name entered</div>
+                        </div>
+                        
+                        <div class="form-group success">
+                            <label for="success-email" class="form-label">Email</label>
+                            <input type="email" id="success-email" name="email" class="form-input" value="john@example.com" readonly>
+                            <div class="form-success-message">Email format is correct</div>
+                        </div>
+                        
+                        <div class="form-group warning">
+                            <label for="warning-password" class="form-label">Password</label>
+                            <input type="password" id="warning-password" name="password" class="form-input" value="password123" readonly>
+                            <div class="form-warning-message">Consider using uppercase, lowercase, and numbers for better security</div>
+                        </div>
+                        
+                        <div class="form-actions">
+                            <button type="button" class="btn btn-primary" disabled>Form Validated ✓</button>
+                        </div>
+                    </form>
+                </div>
+
+                <!-- Interactive Validation -->
+                <div class="demo-card">
+                    <h4>Real-time Validation</h4>
+                    <form id="realtime-form" class="form-container">
+                        <div class="form-group">
+                            <label for="realtime-email" class="form-label">Email (validates on blur)</label>
+                            <input type="email" id="realtime-email" name="email" class="form-input" placeholder="Type and click away to validate">
+                            <span class="form-help">Validation happens when you leave the field</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="realtime-password" class="form-label">Password (validates on blur)</label>
+                            <input type="password" id="realtime-password" name="password" class="form-input" placeholder="Enter password">
+                            <span class="form-help">Must be at least 8 characters</span>
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="realtime-confirm" class="form-label">Confirm Password</label>
+                            <input type="password" id="realtime-confirm" name="confirm" class="form-input" placeholder="Confirm password">
+                        </div>
+                    </form>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script src="app/static/js/forms.js"></script>
+    <script>
+        // Demo control functions
+        function showLoadingDemo() {
+            // Show form loading overlay
+            const loadingForm = document.getElementById('loading-form');
+            const handler = new FormHandler();
+            handler.showFormLoading(loadingForm);
+            
+            // Show button loading states
+            const buttons = ['btn-primary-loading', 'btn-secondary-loading', 'btn-tertiary-loading'];
+            buttons.forEach(id => {
+                const btn = document.getElementById(id);
+                btn.classList.add('btn-loading');
+                btn.disabled = true;
+            });
+            
+            // Show input loading
+            const input = document.getElementById('input-loading-demo');
+            handler.showInputLoading(input);
+            
+            // Auto-hide after 3 seconds
+            setTimeout(() => {
+                handler.hideFormLoading(loadingForm);
+                buttons.forEach(id => {
+                    const btn = document.getElementById(id);
+                    btn.classList.remove('btn-loading');
+                    btn.disabled = false;
+                });
+                handler.hideInputLoading(input);
+            }, 3000);
+        }
+        
+        function showErrorDemo() {
+            const forms = ['basic-form', 'advanced-form', 'error-form'];
+            forms.forEach(formId => {
+                const form = document.getElementById(formId);
+                const inputs = form.querySelectorAll('.form-input, .form-select, .form-textarea');
+                const handler = new FormHandler();
+                
+                inputs.forEach((input, index) => {
+                    if (index % 2 === 0) { // Show errors on every other field
+                        const formGroup = input.closest('.form-group');
+                        formGroup.classList.add('error');
+                        
+                        const errorMsg = document.createElement('div');
+                        errorMsg.className = 'form-error-message';
+                        errorMsg.textContent = 'This field has an error';
+                        formGroup.appendChild(errorMsg);
+                        
+                        input.setAttribute('aria-invalid', 'true');
+                    }
+                });
+            });
+        }
+        
+        function showSuccessDemo() {
+            const forms = ['basic-form', 'advanced-form'];
+            forms.forEach(formId => {
+                const form = document.getElementById(formId);
+                const inputs = form.querySelectorAll('.form-input, .form-select, .form-textarea');
+                
+                inputs.forEach(input => {
+                    const formGroup = input.closest('.form-group');
+                    formGroup.classList.add('success');
+                    
+                    const successMsg = document.createElement('div');
+                    successMsg.className = 'form-success-message';
+                    successMsg.textContent = 'Valid input';
+                    formGroup.appendChild(successMsg);
+                    
+                    input.setAttribute('aria-invalid', 'false');
+                });
+            });
+        }
+        
+        function showSkeletonDemo() {
+            const container = document.getElementById('skeleton-container');
+            const handler = new FormHandler();
+            handler.showSkeletonLoading(container);
+            
+            // Auto-hide after 3 seconds
+            setTimeout(() => {
+                handler.hideSkeletonLoading(container);
+            }, 3000);
+        }
+        
+        function resetAllForms() {
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                form.reset();
+                
+                // Clear all validation states
+                const formGroups = form.querySelectorAll('.form-group');
+                formGroups.forEach(group => {
+                    group.classList.remove('success', 'error', 'warning');
+                    const messages = group.querySelectorAll('.form-success-message, .form-error-message, .form-warning-message');
+                    messages.forEach(msg => msg.remove());
+                });
+                
+                // Clear loading states
+                const buttons = form.querySelectorAll('.btn');
+                buttons.forEach(btn => {
+                    btn.classList.remove('btn-loading');
+                    btn.disabled = false;
+                });
+                
+                // Remove form-level messages
+                const containers = form.querySelectorAll('.form-error-container, .form-success-container');
+                containers.forEach(container => container.remove());
+            });
+        }
+        
+        function validateAllForms() {
+            const forms = document.querySelectorAll('form');
+            forms.forEach(form => {
+                const handler = new FormHandler();
+                handler.validateForm(form);
+            });
+        }
+        
+        function showFormErrorsDemo() {
+            const form = document.getElementById('form-errors-demo');
+            const handler = new FormHandler();
+            const errors = [
+                'Please fill in all required fields',
+                'Email format is invalid',
+                'Password must be at least 8 characters',
+                'Phone number format is incorrect'
+            ];
+            handler.showFormErrors(form, errors);
+        }
+        
+        function showFormSuccessDemo() {
+            const form = document.getElementById('form-errors-demo');
+            const handler = new FormHandler();
+            handler.showFormSuccess(form, 'Your form has been successfully submitted! We will contact you soon.');
+        }
+        
+        function updateProgress() {
+            const nameField = document.getElementById('progress-name');
+            const emailField = document.getElementById('progress-email');
+            const progressBar = document.getElementById('demo-progress-bar');
+            
+            let filledFields = 3; // Base fields already "filled"
+            if (nameField.value.trim()) filledFields++;
+            if (emailField.value.trim()) filledFields++;
+            
+            const percentage = (filledFields / 7) * 100;
+            progressBar.style.width = percentage + '%';
+            
+            const helpText = progressBar.parentNode.nextElementSibling;
+            helpText.textContent = `${Math.round(percentage)}% Complete - ${filledFields} of 7 fields filled`;
+        }
+        
+        // Add some interactive behavior
+        document.addEventListener('DOMContentLoaded', function() {
+            // Make loading form actually show loading on submit
+            const loadingForm = document.getElementById('loading-form');
+            loadingForm.addEventListener('submit', function(e) {
+                e.preventDefault();
+                showLoadingDemo();
+            });
+            
+            // Add real-time validation to the realtime form
+            const realtimeForm = document.getElementById('realtime-form');
+            const confirmPassword = document.getElementById('realtime-confirm');
+            const password = document.getElementById('realtime-password');
+            
+            confirmPassword.addEventListener('blur', function() {
+                const handler = new FormHandler();
+                if (password.value && confirmPassword.value && password.value !== confirmPassword.value) {
+                    handler.setFieldValidation(confirmPassword, 'error', 'Passwords do not match');
+                } else if (confirmPassword.value) {
+                    handler.setFieldValidation(confirmPassword, 'success', 'Passwords match');
+                }
+            });
+        });
+    </script>
+</body>
+</html>

@@ -1,0 +1,421 @@
+{% extends "layout.html" %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/quiz.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="quiz-wrapper">
+    <div class="quiz-container">
+        <!-- Progress Section -->
+        <div class="quiz-progress-section" role="region" aria-labelledby="progress-label">
+            <div class="progress-bar-container" role="progressbar" 
+                 aria-valuenow="{{ current_question + 1 }}" 
+                 aria-valuemin="1" 
+                 aria-valuemax="{{ total_questions }}"
+                 aria-labelledby="progress-label">
+                <div class="progress-bar" id="question-progress"></div>
+            </div>
+            <div class="progress-text">
+                <span class="progress-label" id="progress-label">Question</span>
+                <span class="progress-numbers">
+                    <span id="current-question">{{ current_question + 1 }}</span>
+                    <span class="progress-separator">of</span>
+                    <span id="total-questions">{{ total_questions }}</span>
+                </span>
+            </div>
+        </div>
+        
+        <!-- Question Card -->
+        <div class="question-card" role="main">
+            <div class="question-header">
+                <h1 class="quiz-title">{{ pet_type.capitalize() }} Compatibility Quiz</h1>
+            </div>
+            
+            <div class="question-content">
+                <h2 class="question-text" id="question-text">{{ question.question }}</h2>
+                
+                <div class="answers-section">
+                    <fieldset class="answer-options" id="answer-options" aria-labelledby="question-text">
+                        <legend class="sr-only">Answer options for: {{ question.question }}</legend>
+                        {% if question.answers is mapping %}
+                            {% for answer, weight in question.answers.items() %}
+                            <div class="answer-card">
+                                <input type="radio" name="answer" id="answer-{{ loop.index }}" value="{{ answer }}" data-index="{{ weight }}" class="answer-input" aria-describedby="answer-{{ loop.index }}-desc">
+                                <label for="answer-{{ loop.index }}" class="answer-label">
+                                    <span class="answer-text">{{ answer }}</span>
+                                    <div class="answer-indicator" aria-hidden="true"></div>
+                                </label>
+                                <span id="answer-{{ loop.index }}-desc" class="sr-only">Option {{ loop.index }} of {{ question.answers|length }}</span>
+                            </div>
+                            {% endfor %}
+                        {% elif question.answers is iterable and question.answers is not string %}
+                            {% for answer in question.answers %}
+                            <div class="answer-card">
+                                <input type="radio" name="answer" id="answer-{{ loop.index }}" value="{{ answer }}" data-index="{{ loop.index0 }}" class="answer-input" aria-describedby="answer-{{ loop.index }}-desc">
+                                <label for="answer-{{ loop.index }}" class="answer-label">
+                                    <span class="answer-text">{{ answer }}</span>
+                                    <div class="answer-indicator" aria-hidden="true"></div>
+                                </label>
+                                <span id="answer-{{ loop.index }}-desc" class="sr-only">Option {{ loop.index }} of {{ question.answers|length }}</span>
+                            </div>
+                            {% endfor %}
+                        {% else %}
+                            <div class="no-answers-card" role="alert">
+                                <div class="no-answers-icon" aria-hidden="true">⚠️</div>
+                                <p class="no-answers-message">No answer options available for this question.</p>
+                                <p class="no-answers-hint">Please use the Skip button to continue.</p>
+                            </div>
+                        {% endif %}
+                    </fieldset>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Navigation Section -->
+        <div class="quiz-navigation" role="group" aria-label="Quiz navigation">
+            <button id="prev-button" class="btn btn-secondary" 
+                    {% if current_question == 0 %}disabled aria-disabled="true"{% endif %}
+                    aria-label="Go to previous question"
+                    type="button">
+                <span class="btn-icon" aria-hidden="true">←</span>
+                <span class="btn-text">Previous</span>
+            </button>
+            
+            <button id="skip-button" class="btn btn-tertiary" 
+                    aria-label="Skip this question and continue"
+                    type="button">
+                <span class="btn-text">Skip Question</span>
+            </button>
+            
+            <button id="next-button" class="btn btn-primary" 
+                    disabled aria-disabled="true"
+                    aria-label="Go to next question"
+                    type="button">
+                <span class="btn-text">Next</span>
+                <span class="btn-icon" aria-hidden="true">→</span>
+            </button>
+        </div>
+    </div>
+</div>
+{% endblock %}
+
+{% block additional_scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const questionText = document.getElementById('question-text');
+        const currentQuestionSpan = document.getElementById('current-question');
+        const totalQuestionsSpan = document.getElementById('total-questions');
+        const prevButton = document.getElementById('prev-button');
+        const nextButton = document.getElementById('next-button');
+        const skipButton = document.getElementById('skip-button');
+        const progressBar = document.getElementById('question-progress');
+        const radioButtons = document.querySelectorAll('.answer-input');
+        
+        // Initialize variables from data attributes
+        let currentQuestion = parseInt('{{ current_question }}');
+        let totalQuestions = parseInt('{{ total_questions }}');
+        let petType = '{{ pet_type }}';
+        let currentCharacteristic = '{{ question.characteristic }}';
+        
+        // Set initial progress bar width
+        updateProgressBar();
+        
+        function updateProgressBar() {
+            const progressPercentage = ((currentQuestion + 1) / totalQuestions) * 100;
+            progressBar.style.width = progressPercentage + '%';
+        }
+        
+        // Enable next button when an answer is selected
+        radioButtons.forEach(radio => {
+            radio.addEventListener('change', function() {
+                nextButton.disabled = false;
+                nextButton.setAttribute('aria-disabled', 'false');
+                // Add visual feedback for selection
+                updateAnswerSelection();
+            });
+        });
+        
+        function updateAnswerSelection() {
+            // Remove any existing selection indicators
+            document.querySelectorAll('.answer-card').forEach(card => {
+                card.classList.remove('selected');
+            });
+            
+            // Add selection indicator to the selected answer
+            const selectedInput = document.querySelector('.answer-input:checked');
+            if (selectedInput) {
+                selectedInput.closest('.answer-card').classList.add('selected');
+                // Announce selection to screen readers
+                const announcement = document.createElement('div');
+                announcement.setAttribute('aria-live', 'polite');
+                announcement.setAttribute('aria-atomic', 'true');
+                announcement.className = 'sr-only';
+                announcement.textContent = `Selected: ${selectedInput.value}`;
+                document.body.appendChild(announcement);
+                setTimeout(() => document.body.removeChild(announcement), 1000);
+            }
+        }
+        
+        // Handle next button click
+        nextButton.addEventListener('click', function() {
+            const selectedOption = document.querySelector('.answer-input:checked');
+            if (selectedOption) {
+                // Add loading state to button
+                nextButton.classList.add('btn-loading');
+                nextButton.disabled = true;
+                
+                submitAnswer(selectedOption.value, selectedOption.dataset.index);
+            }
+        });
+        
+        // Handle skip button click
+        skipButton.addEventListener('click', function() {
+            // Add loading state to button
+            skipButton.classList.add('btn-loading');
+            skipButton.disabled = true;
+            
+            goToNextQuestion();
+        });
+        
+        // Handle previous button click
+        prevButton.addEventListener('click', function() {
+            if (currentQuestion > 0) {
+                // Add loading state to button
+                prevButton.classList.add('btn-loading');
+                prevButton.disabled = true;
+                
+                currentQuestion--;
+                loadQuestion(currentQuestion);
+            }
+        });
+        
+        // Submit user's answer
+        function submitAnswer(answer, answerIndex) {
+            fetch('/submit_answer', {
+                method: 'POST',
+                headers: {
+                    'Content-Type': 'application/json',
+                },
+                body: JSON.stringify({
+                    question: questionText.textContent,
+                    answer: answer,
+                    answer_weight: answerIndex,
+                    characteristic: currentCharacteristic
+                }),
+            })
+            .then(response => response.json())
+            .then(data => {
+                if (data.status === 'complete') {
+                    window.location.href = '/results';
+                } else if (data.status === 'next') {
+                    goToNextQuestion();
+                }
+            })
+            .catch(error => {
+                console.error('Error submitting answer:', error);
+                // Remove loading state on error
+                nextButton.classList.remove('btn-loading');
+                nextButton.disabled = false;
+            });
+        }
+        
+        // Load the next question
+        function goToNextQuestion() {
+            currentQuestion++;
+            loadQuestion(currentQuestion);
+        }
+        
+        // Load question by index
+        function loadQuestion(questionIndex) {
+            fetch(`/question/${questionIndex}`)
+                .then(response => response.json())
+                .then(data => {
+                    if (data.error) {
+                        console.error('Error in question data:', data.error);
+                        return;
+                    }
+                    
+                    console.log('Received question data:', data);
+                    
+                    // Update question text and counter
+                    questionText.textContent = data.question.question;
+                    currentCharacteristic = data.question.characteristic;
+                    currentQuestionSpan.textContent = data.current_question + 1;
+                    totalQuestionsSpan.textContent = data.total_questions;
+                    
+                    // Update progress bar
+                    currentQuestion = data.current_question;
+                    totalQuestions = data.total_questions;
+                    updateProgressBar();
+                    
+                    // Reset button states
+                    prevButton.classList.remove('btn-loading');
+                    nextButton.classList.remove('btn-loading');
+                    skipButton.classList.remove('btn-loading');
+                    
+                    // Enable/disable prev button
+                    prevButton.disabled = data.current_question === 0;
+                    
+                    // Disable next button until selection is made
+                    nextButton.disabled = true;
+                    skipButton.disabled = false;
+                    
+                    // Clear any selected options
+                    document.querySelectorAll('.answer-input').forEach(radio => {
+                        radio.checked = false;
+                    });
+                    
+                    // Update answer options
+                    const answersContainer = document.getElementById('answer-options');
+                    answersContainer.innerHTML = '';
+                    
+                    // Check if answers exist and is an array or object
+                    if (data.question.answers && (Array.isArray(data.question.answers) || typeof data.question.answers === 'object') && 
+                        (Array.isArray(data.question.answers) ? data.question.answers.length > 0 : Object.keys(data.question.answers).length > 0)) {
+                        
+                        console.log('Processing answers:', data.question.answers);
+                        
+                        // Handle answers that come as an object (dictionary)
+                        if (!Array.isArray(data.question.answers) && typeof data.question.answers === 'object') {
+                            const answersObject = data.question.answers;
+                            const answerKeys = Object.keys(answersObject);
+                            
+                            answerKeys.forEach((answer, index) => {
+                                const answerCard = document.createElement('div');
+                                answerCard.className = 'answer-card';
+                                
+                                const input = document.createElement('input');
+                                input.type = 'radio';
+                                input.name = 'answer';
+                                input.id = `answer-${index + 1}`;
+                                input.value = answer;
+                                input.className = 'answer-input';
+                                input.dataset.index = answersObject[answer]; // Use the value as index/weight
+                                input.setAttribute('aria-describedby', `answer-${index + 1}-desc`);
+                                input.addEventListener('change', function() {
+                                    nextButton.disabled = false;
+                                    nextButton.setAttribute('aria-disabled', 'false');
+                                    updateAnswerSelection();
+                                });
+                                
+                                const label = document.createElement('label');
+                                label.setAttribute('for', `answer-${index + 1}`);
+                                label.className = 'answer-label';
+                                
+                                const answerText = document.createElement('span');
+                                answerText.className = 'answer-text';
+                                answerText.textContent = answer;
+                                
+                                const indicator = document.createElement('div');
+                                indicator.className = 'answer-indicator';
+                                indicator.setAttribute('aria-hidden', 'true');
+                                
+                                const description = document.createElement('span');
+                                description.id = `answer-${index + 1}-desc`;
+                                description.className = 'sr-only';
+                                description.textContent = `Option ${index + 1} of ${answerKeys.length}`;
+                                
+                                label.appendChild(answerText);
+                                label.appendChild(indicator);
+                                answerCard.appendChild(input);
+                                answerCard.appendChild(label);
+                                answerCard.appendChild(description);
+                                answersContainer.appendChild(answerCard);
+                            });
+                        } 
+                        // Handle answers that come as an array
+                        else if (Array.isArray(data.question.answers)) {
+                            data.question.answers.forEach((answer, index) => {
+                                const answerCard = document.createElement('div');
+                                answerCard.className = 'answer-card';
+                                
+                                const input = document.createElement('input');
+                                input.type = 'radio';
+                                input.name = 'answer';
+                                input.id = `answer-${index + 1}`;
+                                input.value = answer;
+                                input.className = 'answer-input';
+                                input.dataset.index = index;
+                                input.setAttribute('aria-describedby', `answer-${index + 1}-desc`);
+                                input.addEventListener('change', function() {
+                                    nextButton.disabled = false;
+                                    nextButton.setAttribute('aria-disabled', 'false');
+                                    updateAnswerSelection();
+                                });
+                                
+                                const label = document.createElement('label');
+                                label.setAttribute('for', `answer-${index + 1}`);
+                                label.className = 'answer-label';
+                                
+                                const answerText = document.createElement('span');
+                                answerText.className = 'answer-text';
+                                answerText.textContent = answer;
+                                
+                                const indicator = document.createElement('div');
+                                indicator.className = 'answer-indicator';
+                                indicator.setAttribute('aria-hidden', 'true');
+                                
+                                const description = document.createElement('span');
+                                description.id = `answer-${index + 1}-desc`;
+                                description.className = 'sr-only';
+                                description.textContent = `Option ${index + 1} of ${data.question.answers.length}`;
+                                
+                                label.appendChild(answerText);
+                                label.appendChild(indicator);
+                                answerCard.appendChild(input);
+                                answerCard.appendChild(label);
+                                answerCard.appendChild(description);
+                                answersContainer.appendChild(answerCard);
+                            });
+                        }
+                        
+                        // Make Skip button less prominent when answers are available
+                        skipButton.classList.remove('btn-primary');
+                        skipButton.classList.remove('highlight');
+                        skipButton.classList.add('btn-tertiary');
+                    } else {
+                        console.error('No answers found in question data or answers is not an array or object:', data.question);
+                        
+                        const noAnswersCard = document.createElement('div');
+                        noAnswersCard.className = 'no-answers-card';
+                        
+                        const icon = document.createElement('div');
+                        icon.className = 'no-answers-icon';
+                        icon.textContent = '⚠️';
+                        
+                        const message = document.createElement('p');
+                        message.className = 'no-answers-message';
+                        message.textContent = 'No answer options available for this question.';
+                        
+                        const hint = document.createElement('p');
+                        hint.className = 'no-answers-hint';
+                        hint.textContent = 'Please use the Skip button to continue.';
+                        
+                        noAnswersCard.appendChild(icon);
+                        noAnswersCard.appendChild(message);
+                        noAnswersCard.appendChild(hint);
+                        answersContainer.appendChild(noAnswersCard);
+                        
+                        // Make Skip button more prominent when no answers are available
+                        skipButton.classList.remove('btn-tertiary');
+                        skipButton.classList.add('btn-primary');
+                        skipButton.classList.add('highlight');
+                        nextButton.disabled = true;
+                    }
+                })
+                .catch(error => {
+                    console.error('Error fetching question:', error);
+                    // Remove loading states on error
+                    prevButton.classList.remove('btn-loading');
+                    nextButton.classList.remove('btn-loading');
+                    skipButton.classList.remove('btn-loading');
+                    
+                    // Re-enable buttons
+                    prevButton.disabled = currentQuestion === 0;
+                    skipButton.disabled = false;
+                });
+        }
+    });
+</script>
+{% endblock %}

@@ -1,0 +1,430 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Navigation Test - PETential Header</title>
+    <link rel="stylesheet" href="app/static/css/design-system.css">
+    <link rel="stylesheet" href="app/static/css/components/navigation.css">
+    <link rel="stylesheet" href="app/static/css/components/buttons.css">
+    <style>
+        body {
+            margin: 0;
+            padding: 0;
+            font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+            background: #f8f9fa;
+            padding-top: 80px; /* Account for fixed navbar */
+        }
+
+        .test-content {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 40px 16px;
+        }
+
+        .test-section {
+            background: white;
+            border-radius: 12px;
+            padding: 32px;
+            margin-bottom: 32px;
+            box-shadow: 0 2px 12px rgba(0, 0, 0, 0.1);
+        }
+
+        .test-title {
+            font-size: 32px;
+            font-weight: 700;
+            color: #000000;
+            margin: 0 0 24px 0;
+            text-align: center;
+        }
+
+        .section-title {
+            font-size: 24px;
+            font-weight: 600;
+            color: #374151;
+            margin: 0 0 20px 0;
+            border-bottom: 2px solid #c1fd3a;
+            padding-bottom: 8px;
+        }
+
+        .feature-grid {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 24px;
+            margin-top: 24px;
+        }
+
+        .feature-card {
+            background: #f8f9fa;
+            border-radius: 8px;
+            padding: 20px;
+            border: 1px solid #e9ecef;
+        }
+
+        .feature-card h4 {
+            font-size: 18px;
+            font-weight: 600;
+            color: #000000;
+            margin: 0 0 12px 0;
+        }
+
+        .feature-card p {
+            font-size: 14px;
+            color: #374151;
+            margin: 0;
+            line-height: 1.5;
+        }
+
+        .button-demo {
+            display: flex;
+            gap: 16px;
+            flex-wrap: wrap;
+            margin-top: 20px;
+        }
+
+        .color-swatch {
+            display: inline-block;
+            width: 24px;
+            height: 24px;
+            border-radius: 4px;
+            vertical-align: middle;
+            margin-right: 8px;
+            border: 1px solid #ddd;
+        }
+
+        .specs-table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-top: 16px;
+        }
+
+        .specs-table th,
+        .specs-table td {
+            padding: 12px;
+            text-align: left;
+            border-bottom: 1px solid #e9ecef;
+        }
+
+        .specs-table th {
+            background: #f8f9fa;
+            font-weight: 600;
+            color: #374151;
+        }
+
+        .specs-table td {
+            font-family: 'Courier New', monospace;
+            font-size: 13px;
+            color: #000000;
+        }
+
+        .mobile-demo {
+            max-width: 375px;
+            margin: 0 auto;
+            border: 2px solid #ddd;
+            border-radius: 12px;
+            overflow: hidden;
+            background: white;
+        }
+
+        .mobile-screen {
+            height: 600px;
+            overflow-y: auto;
+            position: relative;
+        }
+
+        @media (max-width: 768px) {
+            .test-content {
+                padding: 20px 16px;
+            }
+            
+            .test-section {
+                padding: 20px;
+            }
+            
+            .button-demo {
+                flex-direction: column;
+            }
+        }
+    </style>
+</head>
+<body>
+    <!-- PETential Header Navigation -->
+    <nav class="navbar" role="navigation" aria-label="Main navigation">
+        <div class="nav-container">
+            <!-- LOGO COMPONENT -->
+            <a href="#" class="nav-logo" aria-label="PETential - Go to homepage">
+                <div class="nav-logo-icon" aria-hidden="true"></div>
+                <span class="nav-logo-text">PETential</span>
+            </a>
+            
+            <!-- NAVIGATION MENU -->
+            <ul class="nav-menu" role="menubar" aria-label="Main menu">
+                <li role="none">
+                    <a href="#breeds" class="nav-link has-dropdown" role="menuitem" aria-haspopup="true">Breeds</a>
+                </li>
+                <li role="none">
+                    <a href="#about" class="nav-link" role="menuitem">About</a>
+                </li>
+                <li role="none">
+                    <a href="#blog" class="nav-link" role="menuitem">Blog</a>
+                </li>
+                <li role="none">
+                    <a href="#support" class="nav-link has-dropdown" role="menuitem" aria-haspopup="true">Support</a>
+                </li>
+                <li role="none">
+                    <a href="#get-started" class="nav-cta" role="menuitem">Get started</a>
+                </li>
+            </ul>
+            
+            <!-- Mobile Hamburger Menu -->
+            <button class="nav-hamburger" id="nav-hamburger" type="button" 
+                    aria-label="Toggle mobile menu" 
+                    aria-expanded="false" 
+                    aria-controls="nav-mobile-menu"
+                    aria-haspopup="true">
+                <span class="hamburger-line" aria-hidden="true"></span>
+                <span class="hamburger-line" aria-hidden="true"></span>
+                <span class="hamburger-line" aria-hidden="true"></span>
+            </button>
+        </div>
+        
+        <!-- Mobile Menu Overlay -->
+        <div class="nav-mobile-menu" id="nav-mobile-menu" role="menu" aria-label="Mobile navigation menu" aria-hidden="true">
+            <a href="#breeds" class="nav-mobile-link" role="menuitem">Breeds</a>
+            <a href="#about" class="nav-mobile-link" role="menuitem">About</a>
+            <a href="#blog" class="nav-mobile-link" role="menuitem">Blog</a>
+            <a href="#support" class="nav-mobile-link" role="menuitem">Support</a>
+            <a href="#get-started" class="nav-mobile-link nav-mobile-cta" role="menuitem">Get started</a>
+        </div>
+    </nav>
+
+    <div class="test-content">
+        <h1 class="test-title">🎯 Header Navigation Implementation</h1>
+        
+        <!-- Navigation Specifications -->
+        <div class="test-section">
+            <h2 class="section-title">📋 Implementation Specifications</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>🏗️ Container Structure</h4>
+                    <p>Full width white background (#FFFFFF), max-width 1200px, centered with auto margins, 16px horizontal and 12px vertical padding, flexbox layout with space-between alignment.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>🎨 Logo Component</h4>
+                    <p>Flexbox container with 8px gap, black star/diamond icon (32x32px), "PETential" text in Inter font, 600 weight, 24px size, black color (#000000).</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>🧭 Navigation Menu</h4>
+                    <p>Flexbox with 40px gap, menu items: Breeds, About, Blog, Support. Inter font, 16px size, 400 weight, #374151 color, hover state: #c1fd3a.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>🚀 CTA Button</h4>
+                    <p>Background: #c1fd3a, text: "Get started", black color, 600 weight, 12px/24px padding, 8px border-radius, hover animations with scale and shadow effects.</p>
+                </div>
+            </div>
+        </div>
+
+        <!-- Color Specifications -->
+        <div class="test-section">
+            <h2 class="section-title">🎨 Color Specifications</h2>
+            
+            <table class="specs-table">
+                <thead>
+                    <tr>
+                        <th>Element</th>
+                        <th>Color</th>
+                        <th>Hex Code</th>
+                        <th>Usage</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    <tr>
+                        <td>Primary Green</td>
+                        <td><span class="color-swatch" style="background: #c1fd3a;"></span>Accent Primary</td>
+                        <td>#c1fd3a</td>
+                        <td>CTA button background, hover states</td>
+                    </tr>
+                    <tr>
+                        <td>Hover Green</td>
+                        <td><span class="color-swatch" style="background: #d4fe77;"></span>Accent Primary Hover</td>
+                        <td>#d4fe77</td>
+                        <td>Button hover background</td>
+                    </tr>
+                    <tr>
+                        <td>Text Primary</td>
+                        <td><span class="color-swatch" style="background: #000000;"></span>Black</td>
+                        <td>#000000</td>
+                        <td>Logo text, button text</td>
+                    </tr>
+                    <tr>
+                        <td>Text Secondary</td>
+                        <td><span class="color-swatch" style="background: #374151;"></span>Gray</td>
+                        <td>#374151</td>
+                        <td>Navigation menu items</td>
+                    </tr>
+                    <tr>
+                        <td>Background</td>
+                        <td><span class="color-swatch" style="background: #FFFFFF;"></span>White</td>
+                        <td>#FFFFFF</td>
+                        <td>Navigation background</td>
+                    </tr>
+                </tbody>
+            </table>
+        </div>
+
+        <!-- Button Demonstrations -->
+        <div class="test-section">
+            <h2 class="section-title">🔘 Universal Green Button Styles</h2>
+            
+            <div class="button-demo">
+                <button class="btn btn-primary">Primary Button</button>
+                <button class="btn btn-green">Green Button</button>
+                <a href="#" class="nav-cta">Get started CTA</a>
+                <button class="btn btn-primary btn-sm">Small Green</button>
+                <button class="btn btn-primary btn-lg">Large Green</button>
+            </div>
+            
+            <h4 style="margin-top: 24px;">Animation Specifications:</h4>
+            <ul style="color: #374151; line-height: 1.6;">
+                <li><strong>Hover:</strong> transform: translateY(-2px) scale(1.02), box-shadow: 0 8px 24px rgba(193, 253, 58, 0.4)</li>
+                <li><strong>Active:</strong> transform: translateY(0) scale(0.98), box-shadow: 0 2px 8px rgba(193, 253, 58, 0.3)</li>
+                <li><strong>Focus:</strong> outline: 2px solid #c1fd3a, outline-offset: 2px</li>
+                <li><strong>Transition:</strong> all 0.3s cubic-bezier(0.4, 0, 0.2, 1)</li>
+            </ul>
+        </div>
+
+        <!-- Mobile Responsiveness -->
+        <div class="test-section">
+            <h2 class="section-title">📱 Mobile Responsiveness</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>📱 Mobile Breakpoint (≤809px)</h4>
+                    <p>Navigation menu hidden, hamburger menu displayed, logo text reduced to 20px, logo icon reduced to 28x28px, mobile overlay menu with full-screen backdrop.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>💻 Tablet Breakpoint (810px-1199px)</h4>
+                    <p>Navigation gap reduced to 32px, font sizes slightly reduced to 15px, CTA button padding adjusted to 10px/20px for better fit.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>🖥️ Desktop (≥1200px)</h4>
+                    <p>Full navigation layout with 40px gap, 16px font sizes, 12px/24px CTA padding, optimal spacing and proportions.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>🎯 Interactive Features</h4>
+                    <p>Dropdown indicators for "Breeds" and "Support", smooth hover transitions, mobile menu with backdrop blur, keyboard navigation support.</p>
+                </div>
+            </div>
+            
+            <p style="margin-top: 20px; color: #374151; text-align: center;">
+                <strong>Try resizing your browser window or use mobile device to test responsiveness!</strong>
+            </p>
+        </div>
+
+        <!-- Implementation Status -->
+        <div class="test-section">
+            <h2 class="section-title">✅ Implementation Status</h2>
+            
+            <div class="feature-grid">
+                <div class="feature-card">
+                    <h4>✅ Container Structure</h4>
+                    <p>Full width, white background, max-width 1200px, centered, proper padding, flexbox layout implemented.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>✅ Logo Component</h4>
+                    <p>Flexbox container, 8px gap, black star/diamond icon, Inter font, proper sizing and colors implemented.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>✅ Navigation Menu</h4>
+                    <p>40px gap, proper menu items, Inter font, correct colors, hover states, dropdown indicators implemented.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>✅ CTA Button & Universal Styles</h4>
+                    <p>Green background (#c1fd3a), hover animations, scale effects, shadow transitions, focus states implemented.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>✅ Mobile Responsiveness</h4>
+                    <p>Hamburger menu, mobile overlay, responsive breakpoints, touch-friendly interactions implemented.</p>
+                </div>
+                
+                <div class="feature-card">
+                    <h4>✅ Accessibility</h4>
+                    <p>ARIA attributes, keyboard navigation, screen reader support, focus management implemented.</p>
+                </div>
+            </div>
+        </div>
+    </div>
+
+    <script>
+        // Mobile navigation functionality
+        document.addEventListener('DOMContentLoaded', function() {
+            const hamburger = document.getElementById('nav-hamburger');
+            const mobileMenu = document.getElementById('nav-mobile-menu');
+            const mobileLinks = document.querySelectorAll('.nav-mobile-link');
+            
+            // Toggle mobile menu
+            hamburger.addEventListener('click', function() {
+                const isExpanded = hamburger.getAttribute('aria-expanded') === 'true';
+                
+                hamburger.classList.toggle('active');
+                mobileMenu.classList.toggle('active');
+                
+                // Update ARIA attributes
+                hamburger.setAttribute('aria-expanded', !isExpanded);
+                mobileMenu.setAttribute('aria-hidden', isExpanded);
+                
+                // Prevent body scroll when menu is open
+                if (mobileMenu.classList.contains('active')) {
+                    document.body.style.overflow = 'hidden';
+                } else {
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            // Close mobile menu when clicking on a link
+            mobileLinks.forEach(link => {
+                link.addEventListener('click', function() {
+                    hamburger.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                    mobileMenu.setAttribute('aria-hidden', 'true');
+                    document.body.style.overflow = '';
+                });
+            });
+            
+            // Close mobile menu when clicking outside
+            mobileMenu.addEventListener('click', function(e) {
+                if (e.target === mobileMenu) {
+                    hamburger.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                    mobileMenu.setAttribute('aria-hidden', 'true');
+                    document.body.style.overflow = '';
+                }
+            });
+            
+            // Handle window resize
+            window.addEventListener('resize', function() {
+                if (window.innerWidth > 809) {
+                    hamburger.classList.remove('active');
+                    mobileMenu.classList.remove('active');
+                    hamburger.setAttribute('aria-expanded', 'false');
+                    mobileMenu.setAttribute('aria-hidden', 'true');
+                    document.body.style.overflow = '';
+                }
+            });
+        });
+    </script>
+</body>
+</html>

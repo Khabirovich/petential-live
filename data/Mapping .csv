@@ -1,0 +1,63 @@
+Question;Answer;Characteristic;Weight
+Are you a beginner or an experienced owner?;Beginner;Owner Experience;1
+Are you a beginner or an experienced owner?;Some experience;Owner Experience;2
+Are you a beginner or an experienced owner?;Intermediate;Owner Experience;3
+Are you a beginner or an experienced owner?;Experienced;Owner Experience;4
+Are you a beginner or an experienced owner?;Very experienced;Owner Experience;5
+Do you have a preference for the size of your pet?;Small;Dog Size;1
+Do you have a preference for the size of your pet?;Slightly small;Dog Size;2
+Do you have a preference for the size of your pet?;Medium;Dog Size;3
+Do you have a preference for the size of your pet?;Large;Dog Size;4
+Do you have a preference for the size of your pet?;Very Large;Dog Size;5
+How actively are you willing to train your dog?;Not willing;Training Level;1
+How actively are you willing to train your dog?;Slightly willing;Training Level;2
+How actively are you willing to train your dog?;Somewhat willing;Training Level;3
+How actively are you willing to train your dog?;Willing;Training Level;4
+How actively are you willing to train your dog?;Very willing;Training Level;5
+Is it important to you that the dog has guarding qualities? ;Not important;Guarding Level;1
+Is it important to you that the dog has guarding qualities? ;Slightly important;Guarding Level;2
+Is it important to you that the dog has guarding qualities? ;Somewhat important;Guarding Level;3
+Is it important to you that the dog has guarding qualities? ;Important;Guarding Level;4
+Is it important to you that the dog has guarding qualities? ;Very important;Guarding Level;5
+What do you envision walking with your pet to be like?;Low activity;Walk Activity;1
+What do you envision walking with your pet to be like?;Slightly active;Walk Activity;2
+What do you envision walking with your pet to be like?;Medium activity;Walk Activity;3
+What do you envision walking with your pet to be like?;Active;Walk Activity;4
+What do you envision walking with your pet to be like?;High activity;Walk Activity;5
+How much time are you willing to walk your dog?;Little time;Exercise Needs;1
+How much time are you willing to walk your dog?;Some time;Exercise Needs;2
+How much time are you willing to walk your dog?;Moderate time;Exercise Needs;3
+How much time are you willing to walk your dog?;More time;Exercise Needs;4
+How much time are you willing to walk your dog?;A lot of time;Exercise Needs;5
+How long have you been away from home?;Little time;Tolerates Being Alone;1
+How long have you been away from home?;Some time;Tolerates Being Alone;2
+How long have you been away from home?;Moderate time;Tolerates Being Alone;3
+How long have you been away from home?;More time;Tolerates Being Alone;4
+How long have you been away from home?;A lot of time;Tolerates Being Alone;5
+How important is it that your dog gets along with kids?;Not important;Kid-Friendly;1
+How important is it that your dog gets along with kids?;Slightly important;Kid-Friendly;2
+How important is it that your dog gets along with kids?;Somewhat important;Kid-Friendly;3
+How important is it that your dog gets along with kids?;Important;Kid-Friendly;4
+How important is it that your dog gets along with kids?;Very important;Kid-Friendly;5
+How important is it that your dog gets along with other dogs?;Not important;Dog Friendly;1
+How important is it that your dog gets along with other dogs?;Slightly important;Dog Friendly;2
+How important is it that your dog gets along with other dogs?;Somewhat important;Dog Friendly;3
+How important is it that your dog gets along with other dogs?;Important;Dog Friendly;4
+How important is it that your dog gets along with other dogs?;Very important;Dog Friendly;5
+How much drooling can you tolerate?;Low;Drooling Level;1
+How much drooling can you tolerate?;Slightly low;Drooling Level;2
+How much drooling can you tolerate?;Medium;Drooling Level;3
+How much drooling can you tolerate?;High;Drooling Level;4
+How much drooling can you tolerate?;Very high;Drooling Level;5
+How much grooming are you willing to do?;Low;Grooming Level;1
+How much grooming are you willing to do?;Slightly low;Grooming Level;2
+How much grooming are you willing to do?;Medium;Grooming Level;3
+How much grooming are you willing to do?;High;Grooming Level;4
+How much grooming are you willing to do?;Very high;Grooming Level;5
+How much barking/howling can you tolerate?;Low;Tendency To Bark Or Howl;1
+How much barking/howling can you tolerate?;Slightly low;Tendency To Bark Or Howl;2
+How much barking/howling can you tolerate?;Medium;Tendency To Bark Or Howl;3
+How much barking/howling can you tolerate?;High;Tendency To Bark Or Howl;4
+How much barking/howling can you tolerate?;Very high;Tendency To Bark Or Howl;5
+Do you have allergies?;No;Hyperalergic (1 - no, 2 - yes);1
+Do you have allergies?;Yes;Hyperalergic (1 - no, 2 - yes);5

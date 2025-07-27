@@ -1,0 +1,164 @@
+[
+    {
+        "question": "How experienced are you with dogs?",
+        "characteristic": "experience",
+        "answers": [
+            "Not at all",
+            "Slightly",
+            "Moderately",
+            "Very",
+            "Extremely"
+        ]
+    },
+    {
+        "question": "How much time can you dedicate to training?",
+        "characteristic": "training",
+        "answers": [
+            "Minimal",
+            "Some",
+            "Average",
+            "Significant",
+            "Extensive"
+        ]
+    },
+    {
+        "question": "Are you a beginner or an experienced owner?",
+        "answers": {
+            "Beginner": 1,
+            "Some experience": 2,
+            "Intermediate": 3,
+            "Experienced": 4,
+            "Very experienced": 5
+        },
+        "characteristic": "Owner Experience"
+    },
+    {
+        "question": "Do you have a preference for the size of your pet?",
+        "answers": {
+            "Very Small": 1,
+            "Small": 2,
+            "Medium": 3,
+            "Large": 4,
+            "Very Large": 5
+        },
+        "characteristic": "Dog Size"
+    },
+    {
+        "question": "How actively are you willing to train your dog?",
+        "answers": {
+            "Not willing": 1,
+            "Slightly willing": 2,
+            "Somewhat willing": 3,
+            "Willing": 4,
+            "Very willing": 5
+        },
+        "characteristic": "Training Level"
+    },
+    {
+        "question": "Is it important to you that the dog has guarding qualities? ",
+        "answers": {
+            "Not important": 1,
+            "Slightly important": 2,
+            "Somewhat important": 3,
+            "Important": 4,
+            "Very important": 5
+        },
+        "characteristic": "Guarding Level"
+    },
+    {
+        "question": "What do you envision walking with your pet to be like?",
+        "answers": {
+            "Low activity": 1,
+            "Slightly active": 2,
+            "Medium activity": 3,
+            "Active": 4,
+            "High activity": 5
+        },
+        "characteristic": "Walk Activity"
+    },
+    {
+        "question": "How much time are you willing to walk your dog?",
+        "answers": {
+            "Little time": 1,
+            "Some time": 2,
+            "Moderate time": 3,
+            "More time": 4,
+            "A lot of time": 5
+        },
+        "characteristic": "Exercise Needs"
+    },
+    {
+        "question": "How long have you been away from home?",
+        "answers": {
+            "Little time": 1,
+            "Some time": 2,
+            "Moderate time": 3,
+            "More time": 4,
+            "A lot of time": 5
+        },
+        "characteristic": "Tolerates Being Alone"
+    },
+    {
+        "question": "How important is it that your dog gets along with kids?",
+        "answers": {
+            "Not important": 1,
+            "Slightly important": 2,
+            "Somewhat important": 3,
+            "Important": 4,
+            "Very important": 5
+        },
+        "characteristic": "Kid-Friendly"
+    },
+    {
+        "question": "How important is it that your dog gets along with other dogs?",
+        "answers": {
+            "Not important": 1,
+            "Slightly important": 2,
+            "Somewhat important": 3,
+            "Important": 4,
+            "Very important": 5
+        },
+        "characteristic": "Dog Friendly"
+    },
+    {
+        "question": "How much drooling can you tolerate?",
+        "answers": {
+            "Low": 1,
+            "Slightly low": 2,
+            "Medium": 3,
+            "High": 4,
+            "Very high": 5
+        },
+        "characteristic": "Drooling Level"
+    },
+    {
+        "question": "How much grooming are you willing to do?",
+        "answers": {
+            "Low": 1,
+            "Slightly low": 2,
+            "Medium": 3,
+            "High": 4,
+            "Very high": 5
+        },
+        "characteristic": "Grooming Level"
+    },
+    {
+        "question": "How much barking/howling can you tolerate?",
+        "answers": {
+            "Low": 1,
+            "Slightly low": 2,
+            "Medium": 3,
+            "High": 4,
+            "Very high": 5
+        },
+        "characteristic": "Tendency To Bark Or Howl"
+    },
+    {
+        "question": "Do you have allergies?",
+        "answers": {
+            "No": 1,
+            "Yes": 5
+        },
+        "characteristic": "Hyperalergic (1 - no, 2 - yes)"
+    }
+]

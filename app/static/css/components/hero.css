@@ -1,0 +1,283 @@
+/* PETential Hero Section - Exact Specifications */
+
+/* HERO SECTION LAYOUT */
+.hero-section {
+    width: 100%;
+    background: #FFFFFF;
+    padding: 120px 0 100px 0;
+}
+
+.hero-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 40px;
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 80px;
+    align-items: center;
+}
+
+/* LEFT CONTENT AREA */
+.hero-content {
+    display: flex;
+    flex-direction: column;
+}
+
+/* MAIN HEADING */
+.hero-heading {
+    font-family: var(--font-heading);
+    font-weight: 800;
+    font-size: clamp(2.5rem, 6vw, 3.5rem); /* Responsive 40px-56px */
+    line-height: var(--line-height-tight);
+    color: #111827;
+    margin-bottom: var(--spacing-lg);
+    margin-top: 0;
+    letter-spacing: -0.02em;
+}
+
+/* DESCRIPTION TEXT */
+.hero-description {
+    font-family: var(--font-primary);
+    font-size: var(--font-size-body-large);
+    font-weight: var(--font-weight-regular);
+    line-height: var(--line-height-normal);
+    color: #6B7280;
+    margin-bottom: var(--spacing-2xl);
+    max-width: 28rem; /* 448px - better proportion */
+    margin-top: 0;
+}
+
+/* BUTTONS CONTAINER */
+.hero-buttons {
+    display: flex;
+    gap: var(--spacing-md);
+    margin-top: 0; /* Remove duplicate margin since description already has margin-bottom */
+}
+
+/* GREEN BUTTON CORRECTED ANIMATION */
+.green-button {
+    /* Backgrounds */
+    background-color: #c1fd3a; /* Accent Primary */
+    
+    /* Typography */
+    color: #000000;
+    font-family: Inter, system-ui, sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    
+    /* Layout */
+    display: inline-block;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    
+    /* Effects */
+    box-shadow: 4px 4px 0px 0px #000000;
+    transform: translate(0, 0);
+    cursor: pointer;
+    
+    /* Transitions */
+    transition: background-color 200ms ease-out,
+                color 200ms ease-out,
+                box-shadow 200ms ease-out,
+                transform 200ms ease-out;
+}
+
+/* Hover состояние */
+.green-button:hover {
+    background-color: #c1fd3a; /* Цвет НЕ меняется */
+    box-shadow: 6px 6px 0px 0px #000000;
+    transform: translate(-2px, -2px);
+    text-decoration: none;
+}
+
+/* Active состояние */
+.green-button:active {
+    transform: translate(-1px, -1px);
+    box-shadow: 2px 2px 0px 0px #000000;
+}
+
+/* Focus состояние для доступности */
+.green-button:focus {
+    outline: 2px solid #c1fd3a;
+    outline-offset: 2px;
+}
+
+/* PRIMARY BUTTON (Take quiz) */
+.hero-btn-primary {
+    background: #c1fd3a;
+    color: #000000;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 16px 32px;
+    border-radius: 8px;
+    border: none;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    box-shadow: 4px 4px 0px 0px #000000;
+    transform: translate(0, 0);
+    transition: background-color 200ms ease-out,
+                color 200ms ease-out,
+                box-shadow 200ms ease-out,
+                transform 200ms ease-out;
+}
+
+.hero-btn-primary:hover {
+    background: #c1fd3a;
+    color: #000000;
+    box-shadow: 6px 6px 0px 0px #000000;
+    transform: translate(-2px, -2px);
+    text-decoration: none;
+}
+
+.hero-btn-primary:active {
+    transform: translate(-1px, -1px);
+    box-shadow: 2px 2px 0px 0px #000000;
+}
+
+.hero-btn-primary:focus {
+    outline: 2px solid #c1fd3a;
+    outline-offset: 2px;
+}
+
+/* SECONDARY BUTTON (Learn more) */
+.hero-btn-secondary {
+    background: transparent;
+    border: 2px solid #D1D5DB;
+    color: #374151;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    padding: 14px 30px;
+    border-radius: 8px;
+    text-decoration: none;
+    display: inline-block;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.hero-btn-secondary:hover {
+    background: #F3F4F6;
+    border-color: #9CA3AF;
+    color: #374151;
+    text-decoration: none;
+}
+
+.hero-btn-secondary:focus {
+    outline: 2px solid #D1D5DB;
+    outline-offset: 2px;
+}
+
+/* RIGHT IMAGE AREA */
+.hero-image-container {
+    position: relative;
+    background: linear-gradient(135deg, #10B981 0%, #059669 100%);
+    border-radius: 16px;
+    padding: 40px;
+    box-shadow: 0 20px 40px rgba(0, 0, 0, 0.1);
+}
+
+.hero-image {
+    width: 100%;
+    height: auto;
+    border-radius: 12px;
+    object-fit: cover;
+    display: block;
+}
+
+/* RESPONSIVE DESIGN */
+@media (max-width: 1024px) {
+    .hero-container {
+        gap: var(--spacing-2xl);
+        padding: 0 var(--spacing-md);
+    }
+}
+
+@media (max-width: 768px) {
+    .hero-section {
+        padding: calc(var(--spacing-2xl) * 2) 0; /* 96px equivalent */
+    }
+    
+    .hero-container {
+        grid-template-columns: 1fr;
+        gap: var(--spacing-2xl);
+        text-align: center;
+        padding: 0 var(--spacing-lg);
+    }
+    
+    .hero-description {
+        max-width: none;
+    }
+    
+    .hero-buttons {
+        justify-content: center;
+        flex-wrap: wrap;
+    }
+    
+    .hero-image-container {
+        padding: var(--spacing-lg);
+        order: -1;
+    }
+}
+
+@media (max-width: 480px) {
+    .hero-section {
+        padding: calc(var(--spacing-2xl) + var(--spacing-sm)) 0; /* 56px equivalent */
+    }
+    
+    .hero-container {
+        padding: 0 var(--spacing-md);
+        gap: var(--spacing-2xl);
+    }
+    
+    .hero-buttons {
+        flex-direction: column;
+        align-items: center;
+        gap: var(--spacing-sm);
+    }
+    
+    .hero-btn-primary,
+    .hero-btn-secondary {
+        width: 100%;
+        max-width: 17.5rem; /* 280px */
+        text-align: center;
+    }
+    
+    .hero-image-container {
+        padding: var(--spacing-lg);
+    }
+}
+
+/* Accessibility improvements */
+@media (prefers-reduced-motion: reduce) {
+    .green-button,
+    .hero-btn-primary,
+    .hero-btn-secondary {
+        transition: none;
+    }
+    
+    .green-button:hover,
+    .hero-btn-primary:hover {
+        transform: none;
+    }
+}
+
+/* High contrast mode support */
+@media (prefers-contrast: high) {
+    .hero-heading {
+        color: #000000;
+    }
+    
+    .hero-description {
+        color: #333333;
+    }
+    
+    .green-button,
+    .hero-btn-primary {
+        border: 2px solid #000000;
+    }
+}
