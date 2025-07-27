@@ -36,6 +36,11 @@ flask.log
 # Data files (keep structure but not actual data)
 data/user-data.json
 
+# Large image files (will be served from CDN in production)
+public/images/breeds/
+public/images/figmaAssets/
+public/images/blog/
+
 # IDE
 .vscode/
 .idea/

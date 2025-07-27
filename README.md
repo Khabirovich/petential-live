@@ -129,18 +129,20 @@ The Flask API provides:
 - ✅ Responsive design for all devices
 - ✅ Accessibility-compliant components
 - ✅ Session-based quiz state management
+- ✅ Admin panel for user data management
+- ✅ Contact form and newsletter signup
+- ✅ Bilingual support (English/Spanish)
 
 ## 🚀 Deployment
 
-### Frontend (Vercel/Netlify)
+### Frontend (Vercel)
 ```bash
 npm run build
 ```
 
-### Backend (Heroku/Railway)
+### Backend (Railway)
 ```bash
-# Add Procfile for deployment
-echo "web: python3 app.py" > Procfile
+# Procfile already configured for deployment
 ```
 
 ## 🤝 Contributing
@@ -154,3 +156,9 @@ echo "web: python3 app.py" > Procfile
 ## 📄 License
 
 This project is licensed under the MIT License.
+
+---
+
+## 🌐 Live Site
+
+Visit **[petential.es](https://petential.es)** to see the live application!

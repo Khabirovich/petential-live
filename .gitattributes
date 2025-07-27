@@ -1,4 +1,10 @@
+# Track large images with Git LFS
 *.png filter=lfs diff=lfs merge=lfs -text
 *.jpg filter=lfs diff=lfs merge=lfs -text
 *.jpeg filter=lfs diff=lfs merge=lfs -text
+
+# Specifically track breed images
+public/images/breeds/** filter=lfs diff=lfs merge=lfs -text
+public/images/figmaAssets/** filter=lfs diff=lfs merge=lfs -text
+public/images/blog/** filter=lfs diff=lfs merge=lfs -text 
 *.svg filter=lfs diff=lfs merge=lfs -text
