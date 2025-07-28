@@ -11,7 +11,7 @@ export interface BlogArticle {
   tags: string[]
 }
 
-// Cache invalidation timestamp: 2025-01-28T15:30:00Z
+// Cache invalidation timestamp: 2025-01-28T15:45:00Z - DEPLOYMENT TEST
 
 // Blog articles data - Updated 2025-01-28
 export const blogArticles: BlogArticle[] = [
