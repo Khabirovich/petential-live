@@ -278,6 +278,10 @@ export default function BlogArticlePage({ params }: BlogArticlePageProps) {
                     }}
                     onError={(e) => {
                       console.error('Image failed to load:', article.image);
+                      console.error('Article title:', article.title);
+                    }}
+                    onLoad={() => {
+                      console.log('Image loaded successfully:', article.image);
                     }}
                   />
                 ) : (
