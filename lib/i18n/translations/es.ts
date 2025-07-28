@@ -728,5 +728,85 @@ export const es = {
   // CTA Section
   "nutritionGuide.cta.title": "¿Listo para Encontrar tu Mascota Perfecta?",
   "nutritionGuide.cta.subtitle": "Realiza nuestro cuestionario para descubrir qué raza de mascota coincide con tu estilo de vida y capacidades de cuidado",
-  "nutritionGuide.cta.button": "Realizar Cuestionario"
+  "nutritionGuide.cta.button": "Realizar Cuestionario",
+
+  // Legal Pages
+  "legal.privacy.title": "Política de Privacidad",
+  "legal.privacy.lastUpdated": "Última actualización: 28 de enero de 2025",
+  "legal.privacy.content": `
+    <h2>Información que Recopilamos</h2>
+    <p>Recopilamos información que nos proporcionas directamente, como cuando realizas nuestro quiz de emparejamiento de mascotas, creas una cuenta o nos contactas para soporte.</p>
+    
+    <h2>Cómo Usamos tu Información</h2>
+    <p>Utilizamos la información que recopilamos para proporcionar, mantener y mejorar nuestros servicios, incluyendo emparejarte con razas de mascotas adecuadas basadas en tus preferencias y estilo de vida.</p>
+    
+    <h2>Compartir Información</h2>
+    <p>No vendemos, intercambiamos o transferimos tu información personal a terceros sin tu consentimiento, excepto como se describe en esta política.</p>
+    
+    <h2>Seguridad de Datos</h2>
+    <p>Implementamos medidas de seguridad apropiadas para proteger tu información personal contra acceso no autorizado, alteración, divulgación o destrucción.</p>
+    
+    <h2>Tus Derechos</h2>
+    <p>Tienes derecho a acceder, actualizar o eliminar tu información personal. También puedes optar por no recibir ciertas comunicaciones nuestras.</p>
+    
+    <h2>Contáctanos</h2>
+    <p>Si tienes preguntas sobre esta Política de Privacidad, contáctanos en privacy@petential.com.</p>
+  `,
+
+  "legal.terms.title": "Términos de Servicio",
+  "legal.terms.lastUpdated": "Última actualización: 28 de enero de 2025",
+  "legal.terms.content": `
+    <h2>Aceptación de Términos</h2>
+    <p>Al acceder y usar PETential, aceptas y acuerdas estar sujeto a los términos y disposiciones de este acuerdo.</p>
+    
+    <h2>Licencia de Uso</h2>
+    <p>Se otorga permiso para usar temporalmente PETential solo para visualización personal y no comercial. Esta es la concesión de una licencia, no una transferencia de título.</p>
+    
+    <h2>Descargo de Responsabilidad</h2>
+    <p>La información en PETential se proporciona 'tal como está'. En la medida máxima permitida por la ley, excluimos todas las representaciones, garantías y condiciones relacionadas con nuestro sitio web.</p>
+    
+    <h2>Servicio de Emparejamiento de Mascotas</h2>
+    <p>Nuestro quiz de emparejamiento de mascotas proporciona recomendaciones basadas en la información que proporcionas. Estas son solo sugerencias y no deben reemplazar el consejo profesional de veterinarios o expertos en cuidado de mascotas.</p>
+    
+    <h2>Responsabilidades del Usuario</h2>
+    <p>Eres responsable de asegurar que cualquier información que proporciones sea precisa y actualizada. Acuerdas no usar nuestro servicio para ningún propósito ilegal.</p>
+    
+    <h2>Limitación de Responsabilidad</h2>
+    <p>PETential no será responsable de ningún daño indirecto, incidental, especial, consecuente o punitivo resultante de tu uso de nuestro servicio.</p>
+    
+    <h2>Información de Contacto</h2>
+    <p>Las preguntas sobre los Términos de Servicio deben enviarse a legal@petential.com.</p>
+  `,
+
+  "legal.cookies.title": "Política de Cookies",
+  "legal.cookies.lastUpdated": "Última actualización: 28 de enero de 2025",
+  "legal.cookies.content": `
+    <h2>Qué son las Cookies</h2>
+    <p>Las cookies son pequeños archivos de texto que se colocan en tu computadora o dispositivo móvil cuando visitas nuestro sitio web. Nos ayudan a brindarte una mejor experiencia recordando tus preferencias.</p>
+    
+    <h2>Cómo Usamos las Cookies</h2>
+    <p>Usamos cookies para:</p>
+    <ul>
+      <li>Recordar los resultados de tu quiz y preferencias</li>
+      <li>Mejorar el rendimiento del sitio web y la experiencia del usuario</li>
+      <li>Analizar cómo se usa nuestro sitio web</li>
+      <li>Proporcionar contenido personalizado y recomendaciones</li>
+    </ul>
+    
+    <h2>Tipos de Cookies que Usamos</h2>
+    <h3>Cookies Esenciales</h3>
+    <p>Estas cookies son necesarias para que el sitio web funcione correctamente y no se pueden desactivar.</p>
+    
+    <h3>Cookies de Análisis</h3>
+    <p>Estas cookies nos ayudan a entender cómo los visitantes interactúan con nuestro sitio web recopilando y reportando información de forma anónima.</p>
+    
+    <h3>Cookies de Preferencias</h3>
+    <p>Estas cookies permiten que nuestro sitio web recuerde las elecciones que haces y proporcione características mejoradas y más personales.</p>
+    
+    <h2>Gestión de Cookies</h2>
+    <p>Puedes controlar y/o eliminar cookies como desees. Puedes eliminar todas las cookies que ya están en tu computadora y puedes configurar la mayoría de los navegadores para evitar que se coloquen.</p>
+    
+    <h2>Contáctanos</h2>
+    <p>Si tienes preguntas sobre nuestro uso de cookies, contáctanos en cookies@petential.com.</p>
+  `
 }
