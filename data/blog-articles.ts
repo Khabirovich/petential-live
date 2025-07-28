@@ -11,7 +11,9 @@ export interface BlogArticle {
   tags: string[]
 }
 
-// Force rebuild - 2025-01-28
+// Cache invalidation timestamp: 2025-01-28T15:30:00Z
+
+// Blog articles data - Updated 2025-01-28
 export const blogArticles: BlogArticle[] = [
   {
     id: "choosing-right-dog-breed",

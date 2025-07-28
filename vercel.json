@@ -1,18 +1,18 @@
 {
-  "version": 2,
-  "builds": [
-    {
-      "src": "package.json",
-      "use": "@vercel/next"
+  "functions": {
+    "app/**/*.tsx": {
+      "maxDuration": 30
     }
-  ],
-  "routes": [
+  },
+  "headers": [
     {
-      "src": "/api/(.*)",
-      "dest": "/api/$1"
+      "source": "/images/blog/(.*)",
+      "headers": [
+        {
+          "key": "Cache-Control",
+          "value": "public, max-age=31536000, immutable"
+        }
+      ]
     }
-  ],
-  "env": {
-    "NODE_ENV": "production"
-  }
-} 
+  ]
+}
