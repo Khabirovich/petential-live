@@ -18,7 +18,7 @@ app.secret_key = os.urandom(24)
 # Enable CORS for Next.js frontend
 allowed_origins = [
     "http://localhost:3000",  # Local development
-    "https://petentialv-3-2-kopiya.vercel.app",  # Your Vercel domain
+    "https://petential-live.vercel.app",  # Your Vercel domain
     "https://*.vercel.app"  # Any Vercel subdomain
 ]
 
