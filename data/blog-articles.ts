@@ -11,6 +11,7 @@ export interface BlogArticle {
   tags: string[]
 }
 
+// Force rebuild - 2025-01-28
 export const blogArticles: BlogArticle[] = [
   {
     id: "choosing-right-dog-breed",
