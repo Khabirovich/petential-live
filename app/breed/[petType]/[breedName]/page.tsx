@@ -29,14 +29,15 @@ export default function BreedDetailsPage() {
     const fetchBreedDetails = async () => {
       try {
         setIsLoading(true);
-        const apiUrl = process.env.NEXT_PUBLIC_API_URL || 'http://localhost:5001/api';
-        const response = await fetch(`${apiUrl}/breed/${petType}/${encodeURIComponent(breedName)}`);
-
-        if (!response.ok) {
-          throw new Error('Failed to fetch breed details');
-        }
-
-        const data = await response.json();
+        
+        // Get current language from localStorage or default to 'en'
+        const currentLanguage = typeof window !== 'undefined' 
+          ? localStorage.getItem('language') || 'en' 
+          : 'en';
+        
+        // Import API service dynamically to avoid SSR issues
+        const { apiService } = await import('@/lib/api');
+        const data = await apiService.getBreedDetails(petType as 'dog' | 'cat', breedName, currentLanguage);
         setBreedDetails(data);
       } catch (error) {
         console.error('Error fetching breed details:', error);

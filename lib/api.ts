@@ -80,14 +80,15 @@ class ApiService {
   }
 
   // Breed details
-  async getBreedDetails(petType: 'dog' | 'cat', breedName: string) {
+  async getBreedDetails(petType: 'dog' | 'cat', breedName: string, language: string = 'en') {
     return this.request<{
       pet_type: string;
       breed_name: string;
       breed_data: any;
       images: string[];
       description: string;
-    }>(`/breed/${petType}/${encodeURIComponent(breedName)}`);
+      language: string;
+    }>(`/breed/${petType}/${encodeURIComponent(breedName)}?lang=${language}`);
   }
 
   // Feedback

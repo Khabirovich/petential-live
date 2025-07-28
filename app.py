@@ -349,6 +349,9 @@ def get_results():
 @app.route('/api/breed/<pet_type>/<breed_name>', methods=['GET'])
 def get_breed_details(pet_type, breed_name):
     """Get detailed breed information"""
+    # Get language from query parameter or header
+    language = request.args.get('lang', 'en')  # Default to English
+    
     # Get breed data
     _, _, dog_breeds, cat_breeds, _ = load_data()
     
@@ -366,15 +369,20 @@ def get_breed_details(pet_type, breed_name):
     
     images = [image]  # Keep as array for compatibility
     
-    # Generate breed description using OpenAI
-    description = generate_breed_description(breed_name, pet_type)
+    # Generate breed description using OpenAI with language support
+    description = generate_breed_description(breed_name, pet_type, language)
+    
+    # Translate breed characteristics if Spanish
+    if language == 'es':
+        breed_data = translate_breed_characteristics(breed_data)
     
     return jsonify({
         'pet_type': pet_type,
         'breed_name': breed_name,
         'breed_data': breed_data,
         'images': images,
-        'description': description
+        'description': description,
+        'language': language
     }), 200
 
 # Helper functions
@@ -528,18 +536,24 @@ def get_cat_image(breed_name):
         print(f"Error fetching cat image for {breed_name}: {e}")
         return "https://images.unsplash.com/photo-1514888286974-6c03e2ca1dba?w=400&h=300&fit=crop&crop=face"
 
-def generate_breed_description(breed_name, pet_type):
+def generate_breed_description(breed_name, pet_type, language='en'):
     try:
-        print(f"Generating description for {breed_name} {pet_type} using OpenRouter...")
+        print(f"Generating description for {breed_name} {pet_type} in {language} using OpenRouter...")
         print(f"API Key available: {bool(OPENROUTER_API_KEY)}")
         print(f"API Key prefix: {OPENROUTER_API_KEY[:20] if OPENROUTER_API_KEY else 'None'}")
         
         # Check if API key is available
         if not OPENROUTER_API_KEY or OPENROUTER_API_KEY == 'your_openrouter_api_key_here':
             print("❌ No valid OpenRouter API key found - using fallback")
-            return generate_fallback_description(breed_name, pet_type)
+            return generate_fallback_description(breed_name, pet_type, language)
         
-        prompt = f"Write a concise description of the {breed_name} {pet_type} breed in maximum 800 characters. Include key information about size, temperament, care needs, and exercise requirements. Format using only HTML paragraphs (<p>) and one heading (<h3>) - no DOCTYPE, html, head, or body tags. Be brief and informative."
+        # Create language-specific prompt
+        if language == 'es':
+            prompt = f"Escribe una descripción concisa de la raza {breed_name} de {pet_type} en máximo 800 caracteres. Incluye información clave sobre tamaño, temperamento, necesidades de cuidado y requisitos de ejercicio. Formatea usando solo párrafos HTML (<p>) y un encabezado (<h3>) - sin DOCTYPE, html, head, o body tags. Sé breve e informativo. Responde completamente en español."
+            system_message = "Eres un experto en mascotas que proporciona información concisa sobre razas. Mantén las respuestas bajo 800 caracteres en total. Responde siempre en español."
+        else:
+            prompt = f"Write a concise description of the {breed_name} {pet_type} breed in maximum 800 characters. Include key information about size, temperament, care needs, and exercise requirements. Format using only HTML paragraphs (<p>) and one heading (<h3>) - no DOCTYPE, html, head, or body tags. Be brief and informative."
+            system_message = "You are a pet expert providing concise breed information. Keep responses under 800 characters total."
         
         print("Making OpenRouter API request...")
         
@@ -555,7 +569,7 @@ def generate_breed_description(breed_name, pet_type):
             data=json.dumps({
                 "model": "openai/gpt-4o",
                 "messages": [
-                    {"role": "system", "content": "You are a pet expert providing concise breed information. Keep responses under 800 characters total."},
+                    {"role": "system", "content": system_message},
                     {"role": "user", "content": prompt}
                 ],
                 "max_tokens": 200,
@@ -587,17 +601,98 @@ def generate_breed_description(breed_name, pet_type):
         else:
             print(f"❌ OpenRouter API error: {response.status_code}")
             print(f"Response: {response.text}")
-            return generate_fallback_description(breed_name, pet_type)
+            return generate_fallback_description(breed_name, pet_type, language)
         
     except Exception as e:
         print(f"❌ Error generating description for {breed_name}: {e}")
         import traceback
         traceback.print_exc()
-        return generate_fallback_description(breed_name, pet_type)
+        return generate_fallback_description(breed_name, pet_type, language)
 
-def generate_fallback_description(breed_name, pet_type):
+def translate_breed_characteristics(breed_data):
+    """Translate breed characteristic labels to Spanish"""
+    translations = {
+        # Size characteristics
+        'Size': 'Tamaño',
+        'Weight': 'Peso',
+        'Height': 'Altura',
+        
+        # Temperament characteristics
+        'Energy Level': 'Nivel de Energía',
+        'Exercise Needs': 'Necesidades de Ejercicio',
+        'Playfulness': 'Juguetón',
+        'Affection Level': 'Nivel de Afecto',
+        'Friendliness': 'Amigabilidad',
+        'Kid Friendly': 'Amigable con Niños',
+        'Pet Friendly': 'Amigable con Mascotas',
+        'Stranger Friendly': 'Amigable con Extraños',
+        
+        # Care characteristics
+        'Grooming Needs': 'Necesidades de Aseo',
+        'Shedding Level': 'Nivel de Muda',
+        'Drooling Level': 'Nivel de Babeo',
+        'Health Issues': 'Problemas de Salud',
+        'Hypoallergenic': 'Hipoalergénico',
+        
+        # Training characteristics
+        'Trainability': 'Facilidad de Entrenamiento',
+        'Intelligence': 'Inteligencia',
+        'Barking Level': 'Nivel de Ladrido',
+        'Watchdog Ability': 'Habilidad de Guardián',
+        
+        # Adaptability
+        'Adaptability': 'Adaptabilidad',
+        'Apartment Living': 'Vida en Apartamento',
+        'Cold Weather': 'Clima Frío',
+        'Hot Weather': 'Clima Caluroso',
+        
+        # Cat specific
+        'Independence': 'Independencia',
+        'Vocalization': 'Vocalización',
+        'Activity Level': 'Nivel de Actividad'
+    }
+    
+    # Create a new dictionary with translated keys
+    translated_data = {}
+    for key, value in breed_data.items():
+        translated_key = translations.get(key, key)  # Use translation if available, otherwise keep original
+        translated_data[translated_key] = value
+    
+    return translated_data
+
+def generate_fallback_description(breed_name, pet_type, language='en'):
     """Generate a more detailed fallback description when OpenRouter is not available"""
     
+    if language == 'es':
+        # Spanish fallback descriptions
+        if pet_type == 'dog':
+            return f"""
+            <h3>Acerca del {breed_name}</h3>
+            <p>El {breed_name} es una raza de perro con características únicas que lo hacen especial. Cada raza ha sido desarrollada para propósitos específicos y tiene rasgos distintivos que los posibles propietarios deben entender.</p>
+            
+            <h4>Consideraciones Importantes</h4>
+            <p>Antes de elegir cualquier raza de perro, es importante investigar sus necesidades específicas, temperamento, requisitos de ejercicio, necesidades de aseo y posibles problemas de salud. Considera tu estilo de vida, situación de vivienda y nivel de experiencia.</p>
+            
+            <h4>Cuidado General</h4>
+            <p>Todos los perros requieren nutrición adecuada, atención veterinaria regular, ejercicio apropiado y socialización. Los requisitos específicos varían significativamente entre razas.</p>
+            
+            <p><em>Nota: Para información detallada generada por IA, por favor configura tu clave API de OpenRouter en la configuración del sistema.</em></p>
+            """
+        else:
+            return f"""
+            <h3>Acerca del {breed_name}</h3>
+            <p>El {breed_name} es una raza de gato con características únicas que lo hacen especial. Cada raza ha sido desarrollada para propósitos específicos y tiene rasgos distintivos que los posibles propietarios deben entender.</p>
+            
+            <h4>Consideraciones Importantes</h4>
+            <p>Antes de elegir cualquier raza de gato, es importante investigar sus necesidades específicas, temperamento, requisitos de ejercicio, necesidades de aseo y posibles problemas de salud. Considera tu estilo de vida, situación de vivienda y nivel de experiencia.</p>
+            
+            <h4>Cuidado General</h4>
+            <p>Todos los gatos requieren nutrición adecuada, atención veterinaria regular, ejercicio apropiado y socialización. Los requisitos específicos varían significativamente entre razas.</p>
+            
+            <p><em>Nota: Para información detallada generada por IA, por favor configura tu clave API de OpenRouter en la configuración del sistema.</em></p>
+            """
+    
+    # English fallback descriptions (existing code)
     # Basic breed information based on common knowledge
     if pet_type == 'dog':
         if 'Husky' in breed_name:
