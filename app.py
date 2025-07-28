@@ -179,8 +179,8 @@ def debug_breed_data(pet_type, breed_name):
         'language': language,
         'original_keys': list(original_data.keys()),
         'translated_keys': list(translated_data.keys()) if language == 'es' else 'Not translated (English)',
-        'sample_original': {k: v for k, v in list(original_data.items())[:5]},
-        'sample_translated': {k: v for k, v in list(translated_data.items())[:5]} if language == 'es' else 'Not translated'
+        'original_data': original_data,
+        'translated_data': translated_data if language == 'es' else 'Not translated'
     }), 200
 
 @app.route('/api/debug/openai')
@@ -405,11 +405,9 @@ def get_breed_details(pet_type, breed_name):
     # Translate breed characteristics if Spanish
     if language == 'es':
         print(f"🔄 Translating breed characteristics to Spanish")
-        original_keys = list(breed_data.keys())[:5]  # Show first 5 keys
+        print(f"📋 All original keys: {list(breed_data.keys())}")
         breed_data = translate_breed_characteristics(breed_data)
-        translated_keys = list(breed_data.keys())[:5]  # Show first 5 translated keys
-        print(f"📝 Original keys: {original_keys}")
-        print(f"📝 Translated keys: {translated_keys}")
+        print(f"📋 All translated keys: {list(breed_data.keys())}")
     else:
         print(f"🔄 Keeping breed characteristics in English (language={language})")
     
@@ -655,6 +653,7 @@ def translate_breed_characteristics(breed_data):
         'Grooming Level': 'Nivel de Aseo',
         'Guarding Level': 'Nivel de Guardia',
         'Hypoallergenic': 'Hipoalergénico',
+        'Hyperalergic (1 - no, 2 - yes)': 'Hipoalergénico',
         'Kid- Friendly': 'Amigable con Niños',
         'Kid Friendly': 'Amigable con Niños',
         'Owner Experience': 'Experiencia del Propietario',
@@ -687,6 +686,17 @@ def translate_breed_characteristics(breed_data):
         'Cold Weather': 'Clima Frío',
         'Hot Weather': 'Clima Caluroso',
         
+        # More specific characteristics that might be in your data
+        'Good With Children': 'Bueno con Niños',
+        'Good With Dogs': 'Bueno con Perros',
+        'Good With Cats': 'Bueno con Gatos',
+        'Exercise Requirements': 'Requisitos de Ejercicio',
+        'Mental Stimulation': 'Estimulación Mental',
+        'Coat Type': 'Tipo de Pelaje',
+        'Coat Length': 'Longitud del Pelaje',
+        'Life Span': 'Esperanza de Vida',
+        'Common Health Issues': 'Problemas de Salud Comunes',
+        
         # Cat specific
         'Independence': 'Independencia',
         'Vocalization': 'Vocalización',
@@ -694,13 +704,31 @@ def translate_breed_characteristics(breed_data):
         'Cat Friendly': 'Amigable con Gatos'
     }
     
-    # Create a new dictionary with translated keys
+    # Value translations
+    value_translations = {
+        'No': 'No',
+        'Yes': 'Sí',
+        'Low': 'Bajo',
+        'Medium': 'Medio',
+        'High': 'Alto',
+        'Very High': 'Muy Alto',
+        'Very Low': 'Muy Bajo'
+    }
+    
+    # Create a new dictionary with translated keys and values
     translated_data = {}
     untranslated_keys = []
     
     for key, value in breed_data.items():
         translated_key = translations.get(key, key)  # Use translation if available, otherwise keep original
-        translated_data[translated_key] = value
+        
+        # Translate values if they are strings
+        if isinstance(value, str):
+            translated_value = value_translations.get(value, value)
+        else:
+            translated_value = value
+            
+        translated_data[translated_key] = translated_value
         
         # Track untranslated keys for debugging
         if translated_key == key and key not in ['Dog Breeds', 'Cat Breeds']:  # Ignore breed name keys
