@@ -155,6 +155,34 @@ def debug_images():
         'test_cat_image': cat_image
     }), 200
 
+@app.route('/api/debug/breed/<pet_type>/<breed_name>')
+def debug_breed_data(pet_type, breed_name):
+    """Debug endpoint to see raw breed data"""
+    language = request.args.get('lang', 'en')
+    
+    # Get breed data
+    _, _, dog_breeds, cat_breeds, _ = load_data()
+    breeds = dog_breeds if pet_type == 'dog' else cat_breeds
+    breed_key = 'Dog Breeds' if pet_type == 'dog' else 'Cat Breeds'
+    breed_data = next((b for b in breeds if b.get(breed_key) == breed_name), None)
+    
+    if not breed_data:
+        return jsonify({'error': 'Breed not found'}), 404
+    
+    # Show original and translated data
+    original_data = breed_data.copy()
+    translated_data = translate_breed_characteristics(breed_data) if language == 'es' else breed_data
+    
+    return jsonify({
+        'pet_type': pet_type,
+        'breed_name': breed_name,
+        'language': language,
+        'original_keys': list(original_data.keys()),
+        'translated_keys': list(translated_data.keys()) if language == 'es' else 'Not translated (English)',
+        'sample_original': {k: v for k, v in list(original_data.items())[:5]},
+        'sample_translated': {k: v for k, v in list(translated_data.items())[:5]} if language == 'es' else 'Not translated'
+    }), 200
+
 @app.route('/api/debug/openai')
 def debug_openai():
     """Debug endpoint to test OpenRouter connection"""
@@ -621,35 +649,39 @@ def generate_breed_description(breed_name, pet_type, language='en'):
 def translate_breed_characteristics(breed_data):
     """Translate breed characteristic labels to Spanish"""
     translations = {
-        # Size characteristics
+        # Actual characteristics from your data
+        'Dog Friendly': 'Amigable con Perros',
+        'Dog Size': 'Tamaño del Perro',
+        'Grooming Level': 'Nivel de Aseo',
+        'Guarding Level': 'Nivel de Guardia',
+        'Hypoallergenic': 'Hipoalergénico',
+        'Kid- Friendly': 'Amigable con Niños',
+        'Kid Friendly': 'Amigable con Niños',
+        'Owner Experience': 'Experiencia del Propietario',
+        'Tendency To Bark Or Howl': 'Tendencia a Ladrar o Aullar',
+        'Tolerates Being Alone': 'Tolera Estar Solo',
+        'Training Level': 'Nivel de Entrenamiento',
+        'Walk Activity': 'Actividad de Paseo',
+        
+        # Additional common characteristics
         'Size': 'Tamaño',
         'Weight': 'Peso',
         'Height': 'Altura',
-        
-        # Temperament characteristics
         'Energy Level': 'Nivel de Energía',
         'Exercise Needs': 'Necesidades de Ejercicio',
         'Playfulness': 'Juguetón',
         'Affection Level': 'Nivel de Afecto',
         'Friendliness': 'Amigabilidad',
-        'Kid Friendly': 'Amigable con Niños',
         'Pet Friendly': 'Amigable con Mascotas',
         'Stranger Friendly': 'Amigable con Extraños',
-        
-        # Care characteristics
         'Grooming Needs': 'Necesidades de Aseo',
         'Shedding Level': 'Nivel de Muda',
         'Drooling Level': 'Nivel de Babeo',
         'Health Issues': 'Problemas de Salud',
-        'Hypoallergenic': 'Hipoalergénico',
-        
-        # Training characteristics
         'Trainability': 'Facilidad de Entrenamiento',
         'Intelligence': 'Inteligencia',
         'Barking Level': 'Nivel de Ladrido',
         'Watchdog Ability': 'Habilidad de Guardián',
-        
-        # Adaptability
         'Adaptability': 'Adaptabilidad',
         'Apartment Living': 'Vida en Apartamento',
         'Cold Weather': 'Clima Frío',
@@ -658,15 +690,26 @@ def translate_breed_characteristics(breed_data):
         # Cat specific
         'Independence': 'Independencia',
         'Vocalization': 'Vocalización',
-        'Activity Level': 'Nivel de Actividad'
+        'Activity Level': 'Nivel de Actividad',
+        'Cat Friendly': 'Amigable con Gatos'
     }
     
     # Create a new dictionary with translated keys
     translated_data = {}
+    untranslated_keys = []
+    
     for key, value in breed_data.items():
         translated_key = translations.get(key, key)  # Use translation if available, otherwise keep original
         translated_data[translated_key] = value
+        
+        # Track untranslated keys for debugging
+        if translated_key == key and key not in ['Dog Breeds', 'Cat Breeds']:  # Ignore breed name keys
+            untranslated_keys.append(key)
     
+    if untranslated_keys:
+        print(f"⚠️ Untranslated characteristics: {untranslated_keys}")
+    
+    print(f"✅ Translated {len(breed_data)} characteristics")
     return translated_data
 
 def generate_fallback_description(breed_name, pet_type, language='en'):
