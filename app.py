@@ -351,6 +351,8 @@ def get_breed_details(pet_type, breed_name):
     """Get detailed breed information"""
     # Get language from query parameter or header
     language = request.args.get('lang', 'en')  # Default to English
+    print(f"🌐 API Request - Pet: {pet_type}, Breed: {breed_name}, Language: {language}")
+    print(f"📋 Query params: {dict(request.args)}")
     
     # Get breed data
     _, _, dog_breeds, cat_breeds, _ = load_data()
@@ -374,7 +376,14 @@ def get_breed_details(pet_type, breed_name):
     
     # Translate breed characteristics if Spanish
     if language == 'es':
+        print(f"🔄 Translating breed characteristics to Spanish")
+        original_keys = list(breed_data.keys())[:5]  # Show first 5 keys
         breed_data = translate_breed_characteristics(breed_data)
+        translated_keys = list(breed_data.keys())[:5]  # Show first 5 translated keys
+        print(f"📝 Original keys: {original_keys}")
+        print(f"📝 Translated keys: {translated_keys}")
+    else:
+        print(f"🔄 Keeping breed characteristics in English (language={language})")
     
     return jsonify({
         'pet_type': pet_type,

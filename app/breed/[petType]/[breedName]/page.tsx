@@ -6,6 +6,7 @@ import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Loader2, ArrowLeft } from 'lucide-react';
 import { getBreedImageWithFallback } from '@/lib/breed-images';
+import { useLanguage } from '@/lib/i18n/context';
 
 interface BreedDetails {
   pet_type: string;
@@ -18,6 +19,7 @@ interface BreedDetails {
 export default function BreedDetailsPage() {
   const router = useRouter();
   const params = useParams();
+  const { language } = useLanguage();
   const petType = params.petType as string;
   const breedName = decodeURIComponent(params.breedName as string);
 
@@ -30,14 +32,20 @@ export default function BreedDetailsPage() {
       try {
         setIsLoading(true);
         
-        // Get current language from localStorage or default to 'en'
-        const currentLanguage = typeof window !== 'undefined' 
-          ? localStorage.getItem('language') || 'en' 
-          : 'en';
+        // Get current language from hook (primary) or localStorage (fallback)
+        const currentLanguage = language || (typeof window !== 'undefined' 
+          ? localStorage.getItem('preferred-language') || 'en' 
+          : 'en');
+        
+        console.log('🌐 Language from hook:', language);
+        console.log('🌐 Current language used:', currentLanguage);
+        console.log('📦 localStorage preferred-language:', typeof window !== 'undefined' ? localStorage.getItem('preferred-language') : 'SSR');
         
         // Import API service dynamically to avoid SSR issues
         const { apiService } = await import('@/lib/api');
         const data = await apiService.getBreedDetails(petType as 'dog' | 'cat', breedName, currentLanguage);
+        
+        console.log('📊 API Response:', data);
         setBreedDetails(data);
       } catch (error) {
         console.error('Error fetching breed details:', error);
