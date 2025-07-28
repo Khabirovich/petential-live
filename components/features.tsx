@@ -50,7 +50,7 @@ export default function Features() {
                   lineHeight: "var(--line-height-tight)",
                 }}
               >
-                {t('hero.title')}
+                {t('features.feature1.title')}
               </h3>
               <p
                 style={{

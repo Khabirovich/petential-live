@@ -18,7 +18,7 @@ export default function About() {
               marginBottom: "var(--spacing-lg)",
             }}
           >
-            {t('hero.title')}
+            {t('about.howItWorks.title')}
           </h2>
         </div>
 
