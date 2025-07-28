@@ -86,7 +86,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="/faq" className="footer-link">
+                <Link href="/#faq" className="footer-link">
                   {t('footer.faq')}
                 </Link>
               </li>
