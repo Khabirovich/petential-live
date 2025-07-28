@@ -120,7 +120,7 @@ export default function BlogPage() {
                       overflow: "hidden"
                     }}
                   >
-                    {article.image && article.image.startsWith('data:') ? (
+                    {article.image ? (
                       <img
                         src={article.image}
                         alt={article.title}

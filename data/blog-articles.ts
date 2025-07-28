@@ -195,7 +195,7 @@ export const blogArticles: BlogArticle[] = [
     publishDate: "2024-12-25",
     readTime: "7 min read",
     category: "Pet Health",
-    image: "/images/blog/senior-pet-care.jpg",
+    image: "/images/blog/u7892581312_Caring_for_Senior_Pets_What_Every_Owner_Should_Kn_ac93778b-4094-4ca4-abfd-28f471014ae6_1.png",
     tags: ["senior pets", "aging", "pet health", "quality of life"]
   },
   {
@@ -272,7 +272,7 @@ export const blogArticles: BlogArticle[] = [
     publishDate: "2024-12-20",
     readTime: "8 min read",
     category: "Pet Health",
-    image: "/images/blog/pet-emergency.jpg",
+    image: "/images/blog/u7892581312_Pet_Emergency_Preparedness_Be_Ready_for_Anything__ea91cf88-7d06-4a5d-897c-603d3ac90878_3.png",
     tags: ["emergency preparedness", "pet safety", "disaster planning", "first aid"]
   },
   {
@@ -312,7 +312,7 @@ export const blogArticles: BlogArticle[] = [
     publishDate: "2024-12-18",
     readTime: "6 min read",
     category: "Nutrition",
-    image: "/images/blog/pet-food-labels.jpg",
+    image: "/images/blog/u7892581312_dog_and_his_owner_in_grocery_store_choosing_food__2c0aed11-39ff-4d31-8573-dce5c7315ea3_1.png",
     tags: ["pet nutrition", "food labels", "pet food", "healthy eating"]
   }
 ]
