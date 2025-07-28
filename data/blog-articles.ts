@@ -11,7 +11,8 @@ export interface BlogArticle {
   tags: string[]
 }
 
-// Cache invalidation timestamp: 2025-01-28T15:45:00Z - DEPLOYMENT TEST
+// Cache invalidation timestamp: 2025-01-28T16:00:00Z - FIX DUPLICATE IMAGES
+export const BLOG_DATA_VERSION = "2025-01-28-v2"
 
 // Blog articles data - Updated 2025-01-28
 export const blogArticles: BlogArticle[] = [

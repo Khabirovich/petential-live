@@ -9,8 +9,17 @@ export function getBlogArticles(): BlogArticle[] {
   }
   
   // Always load fresh articles from data file and merge with localStorage
-  const { blogArticles: defaultArticles } = require('../data/blog-articles')
+  const { blogArticles: defaultArticles, BLOG_DATA_VERSION } = require('../data/blog-articles')
   const stored = localStorage.getItem('blog-articles')
+  const storedVersion = localStorage.getItem('blog-data-version')
+  
+  // If version changed, clear cache and use fresh data
+  if (storedVersion !== BLOG_DATA_VERSION) {
+    localStorage.removeItem('blog-articles')
+    localStorage.setItem('blog-data-version', BLOG_DATA_VERSION)
+    saveBlogArticles(defaultArticles)
+    return defaultArticles
+  }
   
   if (stored) {
     try {
@@ -189,6 +198,15 @@ export function initializeBlogStorage(): void {
 export function refreshBlogArticles(): void {
   if (typeof window === 'undefined') return
   
+  const { blogArticles } = require('../data/blog-articles')
+  saveBlogArticles(blogArticles)
+}
+
+// Clear localStorage cache and reload fresh articles
+export function clearBlogCache(): void {
+  if (typeof window === 'undefined') return
+  
+  localStorage.removeItem('blog-articles')
   const { blogArticles } = require('../data/blog-articles')
   saveBlogArticles(blogArticles)
 }
