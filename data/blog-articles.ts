@@ -68,7 +68,7 @@ export const blogArticles: BlogArticle[] = [
     publishDate: "2025-01-10",
     readTime: "7 min read",
     category: "Cat Care",
-    image: "/images/blog/dog-breed-selection.png",
+    image: "/images/blog/cat-behavior.png",
     tags: ["cat behavior", "pet psychology", "feline care"]
   },
   {
