@@ -69,7 +69,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#" className="footer-link">
+                <Link href="/blog" className="footer-link">
                   {t('footer.blog')}
                 </Link>
               </li>
@@ -86,7 +86,7 @@ export default function Footer() {
                 </Link>
               </li>
               <li>
-                <Link href="#" className="footer-link">
+                <Link href="/faq" className="footer-link">
                   {t('footer.faq')}
                 </Link>
               </li>
@@ -136,17 +136,17 @@ export default function Footer() {
           <p className="footer-copyright">{t('footer.copyright')}</p>
           <ul className="footer-legal">
             <li>
-              <Link href="#" className="footer-legal-link">
+              <Link href="/privacy" className="footer-legal-link">
                 {t('footer.privacyPolicy')}
               </Link>
             </li>
             <li>
-              <Link href="#" className="footer-legal-link">
+              <Link href="/terms" className="footer-legal-link">
                 {t('footer.termsOfService')}
               </Link>
             </li>
             <li>
-              <Link href="#" className="footer-legal-link">
+              <Link href="/cookies" className="footer-legal-link">
                 {t('footer.cookiePolicy')}
               </Link>
             </li>

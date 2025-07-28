@@ -10,13 +10,13 @@ export const en = {
   "nav.guides.petCareGuide": "Pet Care Guide",
   "nav.guides.trainingTips": "Training Tips",
   "nav.guides.nutritionGuide": "Nutrition Guide",
-  
+
   // Hero Section
   "hero.title": "Find your ideal furry friend",
   "hero.description": "Ready to welcome a new companion? Answer a few quick questions and discover dog or cat breeds that fit your lifestyle. Explore detailed profiles, get inspired, and start your journey to a perfect match—tail wags and purrs await.",
   "hero.takeQuiz": "Take quiz",
   "hero.learnMore": "Learn more",
-  
+
   // About Page
   "about.title": "About PETential",
   "about.subtitle": "Helping you find the perfect pet companion through intelligent matching",
@@ -42,7 +42,7 @@ export const en = {
   "about.cta.subtitle": "Start your journey to finding the ideal companion today",
   "about.cta.takeQuiz": "Take the Quiz",
   "about.cta.browsBreeds": "Browse Breeds",
-  
+
   // Blog Page
   "blog.title": "Pet Care Blog",
   "blog.subtitle": "Expert advice, tips, and insights for pet owners",
@@ -55,7 +55,7 @@ export const en = {
   "blog.pagination.showing": "Showing",
   "blog.pagination.of": "of",
   "blog.pagination.articles": "articles",
-  
+
   // Blog Article Page
   "blogArticle.backToBlog": "Back to Blog",
   "blogArticle.takeQuiz": "Take Pet Quiz",
@@ -66,7 +66,7 @@ export const en = {
   "blogArticle.notFound.description": "The article you're looking for doesn't exist.",
   "blogArticle.notFound.backToBlog": "Back to Blog",
   "blogArticle.notFound.adminPanel": "Admin Panel",
-  
+
   // Contact Page
   "contact.title": "Contact Us",
   "contact.subtitle": "Have a question or feedback? We'd love to hear from you.",
@@ -79,7 +79,7 @@ export const en = {
   "contact.success": "Thank you for your message! We'll get back to you soon.",
   "contact.error": "Sorry, there was an error sending your message. Please try again.",
   "contact.backToHome": "Back to Home",
-  
+
   // Footer
   "footer.description": "Connecting pet lovers with their perfect companions through personalized matching and expert guidance. Your journey to finding the ideal furry friend starts here.",
   "footer.discover": "Discover",
@@ -104,7 +104,7 @@ export const en = {
   "footer.privacyPolicy": "Privacy Policy",
   "footer.termsOfService": "Terms of Service",
   "footer.cookiePolicy": "Cookie Policy",
-  
+
   // Admin Pages
   "admin.login.title": "Admin Login",
   "admin.login.subtitle": "Enter password to access blog management",
@@ -147,7 +147,7 @@ export const en = {
   "admin.form.currentImage": "Current Image:",
   "admin.form.newImagePreview": "New Image Preview:",
   "admin.form.noImageUploaded": "No image uploaded",
-  
+
   // Categories
   "category.petCare": "Pet Care",
   "category.dogCare": "Dog Care",
@@ -155,7 +155,7 @@ export const en = {
   "category.petHealth": "Pet Health",
   "category.training": "Training",
   "category.nutrition": "Nutrition",
-  
+
   // Breeds Page
   "breeds.title": "Explore Pet Breeds",
   "breeds.subtitle": "Discover detailed information about different dog and cat breeds. Find the perfect companion that matches your lifestyle and preferences.",
@@ -181,7 +181,7 @@ export const en = {
   "breeds.labels.activity": "Activity",
   "breeds.labels.kidFriendly": "Kid-Friendly",
   "breeds.labels.children": "Children",
-  
+
   // Quiz
   "quiz.title": "Pet Matching Quiz",
   "quiz.subtitle": "Find your perfect pet companion",
@@ -190,13 +190,13 @@ export const en = {
   "quiz.previous": "Previous",
   "quiz.submit": "Submit",
   "quiz.results": "Your Results",
-  
+
   // Results Page
   "results.title": "Your Perfect Pet Matches",
   "results.subtitle": "Based on your answers, here are the breeds that match your lifestyle",
   "results.retakeQuiz": "Retake Quiz",
   "results.learnMore": "Learn More",
-  
+
   // Features Section
   "features.title": "Why Choose PETential?",
   "features.subtitle": "Discover what makes our pet matching service special",
@@ -207,7 +207,7 @@ export const en = {
   "features.feature3.title": "Expert Guidance",
   "features.feature3.description": "Get professional advice and tips from veterinarians and pet care experts to ensure a successful pet adoption.",
   "features.cta": "Start Your Journey",
-  
+
   // Testimonials Section
   "testimonials.title": "Real stories from happy families",
   "testimonials.subtitle": "Real stories from happy pet families",
@@ -223,7 +223,7 @@ export const en = {
   "testimonials.testimonial4.quote": "The process was welcoming and easy. We found a companion who truly belongs in our family.",
   "testimonials.testimonial4.author": "Alex Rivera",
   "testimonials.testimonial4.description": "Parent & animal advocate",
-  
+
   // FAQ Section
   "faq.title": "Frequently Asked Questions",
   "faq.subtitle": "Answers for your pet search",
@@ -236,7 +236,7 @@ export const en = {
   "faq.answer3": "Absolutely. Whether you love dogs, cats, or both, you'll find personalized matches and helpful info for every furry friend.",
   "faq.question4": "Do I need pet experience?",
   "faq.answer4": "No experience needed! Our platform is for everyone—from first-timers to lifelong pet lovers. We'll guide you every step of the way.",
-  
+
   // Insights Section
   "insights.title": "Fresh insights for every pet lover",
   "insights.subtitle": "Latest tips and advice for pet owners",
@@ -250,7 +250,7 @@ export const en = {
   "insights.insight3.description": "Hear stories and practical answers from our community and pet-care experts—you're not alone on this journey.",
   "insights.insight4.title": "Heartfelt stories, happy matches",
   "insights.insight4.description": "Be inspired by uplifting tales and helpful advice from people who've found their perfect four-legged friends.",
-  
+
   // CTA Section
   "cta.title": "Ready to find your perfect companion?",
   "cta.subtitle": "Join thousands of pet owners who found their ideal companion through PETential's advanced matching system.",
@@ -260,7 +260,7 @@ export const en = {
   "cta.features.feature1": "Quick 5-minute quiz",
   "cta.features.feature2": "Personalized breed matches",
   "cta.features.feature3": "Expert recommendations",
-  
+
   // Common
   "common.loading": "Loading...",
   "common.loadingArticle": "Loading article...",
@@ -354,7 +354,7 @@ export const en = {
   "quizStart.description": "Take our personalized quiz to discover which pet breed matches your lifestyle, preferences, and living situation perfectly.",
   "quizStart.dogQuizTitle": "Dog Quiz",
   "quizStart.dogQuizDescription": "Find the perfect dog breed that matches your lifestyle and preferences",
-  "quizStart.catQuizTitle": "Cat Quiz", 
+  "quizStart.catQuizTitle": "Cat Quiz",
   "quizStart.catQuizDescription": "Discover the ideal cat breed that suits your home and personality",
   "quizStart.startDogQuiz": "Start Dog Quiz",
   "quizStart.startCatQuiz": "Start Cat Quiz",
@@ -369,7 +369,7 @@ export const en = {
 
   // Common Quiz Answers
   "quizAnswer.notAtAll": "Not at all",
-  "quizAnswer.slightly": "Slightly", 
+  "quizAnswer.slightly": "Slightly",
   "quizAnswer.moderately": "Moderately",
   "quizAnswer.very": "Very",
   "quizAnswer.extremely": "Extremely",
@@ -518,7 +518,7 @@ export const en = {
   "petCareGuide.title": "Complete Pet Care Guide",
   "petCareGuide.subtitle": "Everything you need to know to keep your furry friend happy and healthy",
   "petCareGuide.description": "From your first days together to daily care routines, this comprehensive guide covers all the essentials of responsible pet ownership.",
-  
+
   // First Days Section
   "petCareGuide.firstDays.title": "First Days with Your Pet",
   "petCareGuide.firstDays.description": "Essential preparations and items for welcoming your new companion",
@@ -562,20 +562,20 @@ export const en = {
   "trainingTips.title": "Pet Training Tips & Techniques",
   "trainingTips.subtitle": "Expert advice for training your dog or cat with positive reinforcement methods",
   "trainingTips.description": "Build a stronger bond with your pet through effective training techniques. Choose your pet type below for personalized guidance.",
-  
+
   // Tab Navigation
   "trainingTips.dogTab": "Dog Training",
   "trainingTips.catTab": "Cat Training",
-  
+
   // Personalized Section
   "trainingTips.personalized.title": "Personalized Training for Your Breed",
   "trainingTips.personalized.noResult": "Take our quiz to get breed-specific training advice tailored to your pet!",
   "trainingTips.personalized.takeQuiz": "Take Quiz for Personalized Tips",
-  
+
   // Basic Commands Section
   "trainingTips.basicCommands.title": "Basic Commands",
   "trainingTips.basicCommands.description": "Essential commands every pet should know",
-  
+
   // Dog Commands
   "trainingTips.dogCommands.sit.title": "Teaching 'Sit'",
   "trainingTips.dogCommands.sit.steps": "1. Hold a treat close to your dog's nose\n2. Slowly lift the treat over their head\n3. As their head follows the treat, their bottom will naturally touch the ground\n4. The moment they sit, say 'Sit!' and give the treat\n5. Repeat 5-10 times daily in short sessions\n6. Practice without treats once mastered",
@@ -587,7 +587,7 @@ export const en = {
   "trainingTips.dogCommands.down.steps": "1. Start with your dog in the 'sit' position\n2. Hold a treat to their nose\n3. Slowly lower the treat to the floor\n4. Move the treat away from them along the ground\n5. As they follow, they'll naturally lie down\n6. Say 'Down!' and reward immediately\n7. Practice until they respond to voice command only",
   "trainingTips.dogCommands.no.title": "Teaching 'No'",
   "trainingTips.dogCommands.no.steps": "1. Use a firm, calm voice (never shout)\n2. Say 'No' once when catching unwanted behavior\n3. Immediately redirect to appropriate behavior\n4. Reward the correct behavior\n5. Be consistent - everyone in family uses same command\n6. Time it right - correct during the action, not after",
-  
+
   // Cat Training
   "trainingTips.catTraining.litter.title": "Litter Box Training",
   "trainingTips.catTraining.litter.steps": "1. Choose a quiet, accessible location\n2. Use unscented, clumping litter initially\n3. Keep the box clean - scoop daily\n4. Show your kitten the box after meals\n5. Gently place them in the box if they start to squat elsewhere\n6. Never punish accidents - clean thoroughly\n7. Provide one box per cat plus one extra",
@@ -595,48 +595,48 @@ export const en = {
   "trainingTips.catTraining.scratching.steps": "1. Place scratching posts near sleeping areas\n2. Use catnip or treats to attract them to the post\n3. Gently guide their paws in scratching motion\n4. Praise and reward when they use the post\n5. Cover furniture with less appealing textures temporarily\n6. Trim nails regularly to reduce damage\n7. Provide both vertical and horizontal scratching options",
   "trainingTips.catTraining.carrier.title": "Carrier Introduction",
   "trainingTips.catTraining.carrier.steps": "1. Leave carrier out as normal furniture\n2. Place favorite treats and toys inside\n3. Feed meals near or inside the carrier\n4. Let them explore at their own pace\n5. Close door briefly while they eat (once comfortable)\n6. Take short car rides around the block\n7. Always associate carrier with positive experiences",
-  
+
   // Socialization Section
   "trainingTips.socialization.title": "Socialization",
   "trainingTips.socialization.description": "Help your pet become confident and well-adjusted",
-  
+
   "trainingTips.socialization.people.title": "Meeting People",
   "trainingTips.socialization.people.content": "• Start with calm, patient family members\n• Ask visitors to ignore your pet initially\n• Let your pet approach at their own pace\n• Reward calm, friendly behavior with treats\n• Expose to people of different ages and appearances\n• Practice in different environments (home, park, street)\n• Keep interactions positive and stress-free",
-  
+
   "trainingTips.socialization.animals.title": "Other Animals",
   "trainingTips.socialization.animals.content": "• Begin with calm, well-socialized animals\n• Keep initial meetings short and supervised\n• Use positive reinforcement for friendly behavior\n• Maintain safe distance until comfort is established\n• Watch for stress signs (panting, hiding, aggression)\n• Gradually increase interaction time\n• Always provide escape routes for your pet",
-  
+
   "trainingTips.socialization.environment.title": "Environmental Adaptation",
   "trainingTips.socialization.environment.content": "• Expose to various sounds gradually (traffic, appliances, storms)\n• Visit different locations regularly\n• Practice walking on various surfaces\n• Introduce new objects and experiences slowly\n• Use treats and praise for calm reactions\n• Start with less intense versions of stimuli\n• Build confidence through positive associations",
-  
+
   "trainingTips.socialization.age.title": "Age-Specific Tips",
   "trainingTips.socialization.age.puppy": "Puppies (8-16 weeks): Critical socialization period. Expose to as many positive experiences as possible while maintaining safety.",
   "trainingTips.socialization.age.kitten": "Kittens (3-14 weeks): Handle gently and frequently. Introduce to household sounds, people, and safe experiences.",
   "trainingTips.socialization.age.adult": "Adult pets: Go slower and be more patient. Use high-value treats and keep sessions shorter to prevent overwhelm.",
-  
+
   // Problem Solving Section
   "trainingTips.problemSolving.title": "Problem Solving",
   "trainingTips.problemSolving.description": "Address common behavioral issues with positive methods",
-  
+
   "trainingTips.problems.barking.title": "Excessive Barking",
   "trainingTips.problems.barking.solution": "• Identify the trigger (boredom, attention, fear)\n• Don't yell - this reinforces the behavior\n• Redirect attention to a quiet activity\n• Reward quiet behavior immediately\n• Provide adequate mental and physical stimulation\n• Use 'quiet' command training\n• Consider professional help for persistent issues",
-  
+
   "trainingTips.problems.chewing.title": "Destructive Chewing",
   "trainingTips.problems.chewing.solution": "• Provide appropriate chew toys\n• Puppy-proof your home (remove tempting items)\n• Exercise your dog adequately\n• Use bitter apple spray on furniture\n• Redirect to appropriate items when caught chewing\n• Don't punish after the fact\n• Ensure they're not anxious or bored",
-  
+
   "trainingTips.problems.jumping.title": "Jumping on People",
   "trainingTips.problems.jumping.solution": "• Ignore jumping behavior completely\n• Turn away and avoid eye contact\n• Only give attention when all paws are on ground\n• Train an alternative behavior like 'sit' for greetings\n• Ask visitors to follow the same protocol\n• Practice with family members regularly\n• Be patient and consistent",
-  
+
   "trainingTips.problems.catLitter.title": "Litter Box Avoidance",
   "trainingTips.problems.catLitter.solution": "• Rule out medical issues first\n• Keep boxes extremely clean\n• Try different litter types\n• Ensure enough boxes (one per cat plus one)\n• Check box location (quiet, accessible)\n• Clean accidents with enzyme cleaner\n• Reduce stress in the household",
-  
+
   "trainingTips.problems.catAggression.title": "Cat Aggression",
   "trainingTips.problems.catAggression.solution": "• Never punish aggressive behavior\n• Give your cat space and escape routes\n• Identify triggers and avoid them initially\n• Use interactive toys to redirect energy\n• Ensure adequate resources (food, water, litter)\n• Consider pheromone diffusers\n• Consult veterinarian to rule out pain or illness",
-  
+
   "trainingTips.professional.title": "When to Contact a Professional",
   "trainingTips.professional.signs": "• Aggression toward people or other animals\n• Destructive behavior that doesn't improve\n• Severe anxiety or fearfulness\n• Persistent house training issues after 6 months\n• Any behavior that threatens safety\n• When you feel overwhelmed or frustrated\n• For specialized training needs",
   "trainingTips.professional.benefits": "Professional trainers can provide personalized solutions, faster results, and prevent problems from becoming worse. Don't hesitate to seek help early!",
-  
+
   // CTA Section
   "trainingTips.cta.title": "Ready to Find Your Perfect Training Partner?",
   "trainingTips.cta.subtitle": "Take our quiz to discover which pet breed matches your training experience and lifestyle",
@@ -646,15 +646,15 @@ export const en = {
   "nutritionGuide.title": "Complete Pet Nutrition Guide",
   "nutritionGuide.subtitle": "Expert guidance on feeding your dog or cat for optimal health and wellbeing",
   "nutritionGuide.description": "Proper nutrition is the foundation of your pet's health. Choose your pet type below for species-specific nutritional guidance.",
-  
+
   // Tab Navigation
   "nutritionGuide.dogTab": "Dog Nutrition",
   "nutritionGuide.catTab": "Cat Nutrition",
-  
+
   // Essential Nutrients Section
   "nutritionGuide.nutrients.title": "Essential Nutrients",
   "nutritionGuide.nutrients.description": "Understanding what your pet needs for optimal health",
-  
+
   // Dog Nutrients
   "nutritionGuide.dogNutrients.protein.title": "Protein",
   "nutritionGuide.dogNutrients.protein.content": "• 18-25% of diet for adult dogs\n• Builds and repairs muscles, organs, and tissues\n• Sources: Chicken, beef, fish, lamb, eggs\n• Higher needs during growth, pregnancy, and illness\n• Complete proteins contain all essential amino acids",
@@ -666,7 +666,7 @@ export const en = {
   "nutritionGuide.dogNutrients.vitamins.content": "• Vitamin A: Vision and immune function\n• B vitamins: Energy metabolism\n• Vitamin D: Bone health\n• Calcium and phosphorus: Strong bones and teeth\n• Iron: Oxygen transport in blood",
   "nutritionGuide.dogNutrients.water.title": "Water",
   "nutritionGuide.dogNutrients.water.content": "• Most important nutrient\n• 60-70% of adult dog's body weight\n• Fresh water should always be available\n• Increase intake during hot weather\n• Monitor for changes in drinking habits",
-  
+
   // Cat Nutrients
   "nutritionGuide.catNutrients.protein.title": "Protein (Higher Needs)",
   "nutritionGuide.catNutrients.protein.content": "• 26-35% of diet for adult cats\n• Cats are obligate carnivores\n• Need more protein than dogs\n• Must come from animal sources\n• Essential for maintaining muscle mass",
@@ -678,55 +678,135 @@ export const en = {
   "nutritionGuide.catNutrients.vitamins.content": "• Vitamin A: Cats cannot convert beta-carotene\n• B vitamins: Higher needs than dogs\n• Niacin: Cannot synthesize from tryptophan\n• Calcium/phosphorus: Proper ratio is crucial\n• Magnesium: Should be limited for urinary health",
   "nutritionGuide.catNutrients.water.title": "Water",
   "nutritionGuide.catNutrients.water.content": "• Often get water from prey in wild\n• May not drink enough from bowls\n• Wet food helps increase water intake\n• Dehydration can cause kidney problems\n• Multiple water sources encourage drinking",
-  
+
   // Life Stage Feeding Section
   "nutritionGuide.lifeStage.title": "Life Stage Feeding",
   "nutritionGuide.lifeStage.description": "Nutritional needs change throughout your pet's life",
-  
+
   "nutritionGuide.lifeStage.puppy.title": "Puppy/Kitten (Growth)",
   "nutritionGuide.lifeStage.puppy.content": "• Higher calorie and protein needs\n• Feed puppy/kitten specific formulas\n• Small breeds: 4 meals/day until 6 months\n• Large breeds: 3 meals/day until 6 months\n• Free-choice feeding not recommended\n• Monitor growth rate and body condition",
-  
+
   "nutritionGuide.lifeStage.adult.title": "Adult (Maintenance)",
   "nutritionGuide.lifeStage.adult.content": "• Balanced nutrition for daily activities\n• 2 meals per day is ideal\n• Adjust portions based on activity level\n• Monitor weight and body condition\n• Quality over quantity approach\n• Regular meal times help digestion",
-  
+
   "nutritionGuide.lifeStage.senior.title": "Senior (7+ years)",
   "nutritionGuide.lifeStage.senior.content": "• Often need fewer calories\n• May need easier to digest foods\n• Higher quality protein important\n• Joint support supplements beneficial\n• More frequent vet nutrition checks\n• Watch for dental issues affecting eating",
-  
+
   // Feeding Guidelines Section
   "nutritionGuide.guidelines.title": "Feeding Guidelines",
   "nutritionGuide.guidelines.description": "Practical advice for daily feeding routines",
-  
+
   "nutritionGuide.guidelines.portions.title": "Portion Sizes",
   "nutritionGuide.guidelines.portions.content": "• Follow feeding guide on food package as starting point\n• Adjust based on your pet's body condition\n• Active pets need more, sedentary pets need less\n• Use measuring cups, not estimates\n• Body condition score is more important than weight\n• Consult vet if unsure about portions",
-  
+
   "nutritionGuide.guidelines.schedule.title": "Feeding Schedules",
   "nutritionGuide.guidelines.schedule.content": "• Puppies under 6 months: 3-4 meals daily\n• Adult dogs: 2 meals daily\n• Kittens under 6 months: 3-4 meals daily\n• Adult cats: 2-3 meals daily\n• Consistent timing helps digestion\n• Allow 30 minutes for meals, then remove food",
-  
+
   "nutritionGuide.guidelines.treats.title": "Treats & Extras",
   "nutritionGuide.guidelines.treats.content": "• Maximum 10% of daily calories\n• Use for training and bonding\n• Choose healthy, species-appropriate options\n• Fruits/vegetables: Small amounts only\n• Avoid chocolate, grapes, onions, garlic\n• Table scraps can unbalance diet",
-  
+
   // Food Selection Section
   "nutritionGuide.selection.title": "Food Selection Tips",
   "nutritionGuide.selection.description": "How to choose the best food for your pet",
-  
+
   "nutritionGuide.selection.labels.title": "Reading Labels",
   "nutritionGuide.selection.labels.content": "• Look for 'Complete and Balanced' statement\n• AAFCO feeding trial statement is ideal\n• Ingredients listed by weight (heaviest first)\n• Named protein source should be first ingredient\n• Avoid foods with excessive fillers\n• Guaranteed analysis shows minimum/maximum levels",
-  
+
   "nutritionGuide.selection.quality.title": "Quality Indicators",
   "nutritionGuide.selection.quality.content": "• Reputable manufacturer with good history\n• Made in facilities with quality controls\n• Transparent about sourcing and testing\n• Appropriate for your pet's life stage\n• No recent recalls or safety issues\n• Veterinary nutritionist involvement in formulation",
-  
+
   "nutritionGuide.selection.mistakes.title": "Common Mistakes",
   "nutritionGuide.selection.mistakes.content": "• Feeding the same food to dogs and cats\n• Choosing based on price alone\n• Frequent diet changes without transition\n• Ignoring body condition changes\n• Over-supplementing balanced diets\n• Following fad diets without scientific backing",
-  
+
   // Foods to Avoid
   "nutritionGuide.avoid.title": "Foods to Avoid",
   "nutritionGuide.avoid.toxic": "Toxic Foods",
   "nutritionGuide.avoid.toxicList": "• Chocolate (especially dark chocolate)\n• Grapes and raisins\n• Onions and garlic\n• Xylitol (artificial sweetener)\n• Macadamia nuts\n• Avocado (especially for birds)\n• Alcohol\n• Caffeine",
   "nutritionGuide.avoid.problematic": "Problematic Foods",
   "nutritionGuide.avoid.problematicList": "• High-fat foods (can cause pancreatitis)\n• Bones that can splinter (cooked poultry bones)\n• Excessive treats or table scraps\n• Foods with artificial colors/preservatives\n• Raw diets without proper preparation\n• Generic or store-brand foods with poor quality control",
-  
+
   // CTA Section
   "nutritionGuide.cta.title": "Ready to Find Your Perfect Pet?",
   "nutritionGuide.cta.subtitle": "Take our quiz to discover which pet breed matches your lifestyle and care capabilities",
-  "nutritionGuide.cta.button": "Take the Quiz"
+  "nutritionGuide.cta.button": "Take the Quiz",
+
+  // Legal Pages
+  "legal.privacy.title": "Privacy Policy",
+  "legal.privacy.lastUpdated": "Last updated: January 28, 2025",
+  "legal.privacy.content": `
+    <h2>Information We Collect</h2>
+    <p>We collect information you provide directly to us, such as when you take our pet matching quiz, create an account, or contact us for support.</p>
+    
+    <h2>How We Use Your Information</h2>
+    <p>We use the information we collect to provide, maintain, and improve our services, including matching you with suitable pet breeds based on your preferences and lifestyle.</p>
+    
+    <h2>Information Sharing</h2>
+    <p>We do not sell, trade, or otherwise transfer your personal information to third parties without your consent, except as described in this policy.</p>
+    
+    <h2>Data Security</h2>
+    <p>We implement appropriate security measures to protect your personal information against unauthorized access, alteration, disclosure, or destruction.</p>
+    
+    <h2>Your Rights</h2>
+    <p>You have the right to access, update, or delete your personal information. You may also opt out of certain communications from us.</p>
+    
+    <h2>Contact Us</h2>
+    <p>If you have any questions about this Privacy Policy, please contact us at privacy@petential.com.</p>
+  `,
+
+  "legal.terms.title": "Terms of Service",
+  "legal.terms.lastUpdated": "Last updated: January 28, 2025",
+  "legal.terms.content": `
+    <h2>Acceptance of Terms</h2>
+    <p>By accessing and using PETential, you accept and agree to be bound by the terms and provision of this agreement.</p>
+    
+    <h2>Use License</h2>
+    <p>Permission is granted to temporarily use PETential for personal, non-commercial transitory viewing only. This is the grant of a license, not a transfer of title.</p>
+    
+    <h2>Disclaimer</h2>
+    <p>The information on PETential is provided on an 'as is' basis. To the fullest extent permitted by law, we exclude all representations, warranties, and conditions relating to our website and the use of this website.</p>
+    
+    <h2>Pet Matching Service</h2>
+    <p>Our pet matching quiz provides recommendations based on the information you provide. These are suggestions only and should not replace professional advice from veterinarians or pet care experts.</p>
+    
+    <h2>User Responsibilities</h2>
+    <p>You are responsible for ensuring that any information you provide is accurate and up-to-date. You agree not to use our service for any unlawful purpose.</p>
+    
+    <h2>Limitation of Liability</h2>
+    <p>PETential shall not be liable for any indirect, incidental, special, consequential, or punitive damages resulting from your use of our service.</p>
+    
+    <h2>Contact Information</h2>
+    <p>Questions about the Terms of Service should be sent to us at legal@petential.com.</p>
+  `,
+
+  "legal.cookies.title": "Cookie Policy",
+  "legal.cookies.lastUpdated": "Last updated: January 28, 2025",
+  "legal.cookies.content": `
+    <h2>What Are Cookies</h2>
+    <p>Cookies are small text files that are placed on your computer or mobile device when you visit our website. They help us provide you with a better experience by remembering your preferences.</p>
+    
+    <h2>How We Use Cookies</h2>
+    <p>We use cookies to:</p>
+    <ul>
+      <li>Remember your quiz results and preferences</li>
+      <li>Improve website performance and user experience</li>
+      <li>Analyze how our website is used</li>
+      <li>Provide personalized content and recommendations</li>
+    </ul>
+    
+    <h2>Types of Cookies We Use</h2>
+    <h3>Essential Cookies</h3>
+    <p>These cookies are necessary for the website to function properly and cannot be disabled.</p>
+    
+    <h3>Analytics Cookies</h3>
+    <p>These cookies help us understand how visitors interact with our website by collecting and reporting information anonymously.</p>
+    
+    <h3>Preference Cookies</h3>
+    <p>These cookies allow our website to remember choices you make and provide enhanced, more personal features.</p>
+    
+    <h2>Managing Cookies</h2>
+    <p>You can control and/or delete cookies as you wish. You can delete all cookies that are already on your computer and you can set most browsers to prevent them from being placed.</p>
+    
+    <h2>Contact Us</h2>
+    <p>If you have any questions about our use of cookies, please contact us at cookies@petential.com.</p>
+  `
 }
