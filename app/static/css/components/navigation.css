@@ -237,22 +237,30 @@
 }
 
 /* RESPONSIVE NAVIGATION */
+/* Tablet breakpoint */
 @media (min-width: 810px) and (max-width: 1199px) {
     .nav-container {
-        padding: 12px 24px;
+        padding: 12px 20px;
     }
     
     .nav-menu {
-        gap: 32px;
+        gap: 16px;
     }
     
     .nav-link {
-        font-size: 15px;
+        font-size: 14px;
+        padding: 6px 8px;
     }
     
     .nav-cta {
-        padding: 10px 20px;
-        font-size: 15px;
+        padding: 10px 16px !important;
+        font-size: 14px !important;
+        white-space: nowrap;
+        min-width: 120px;
+        text-align: center;
+        flex-shrink: 0;
+        display: inline-block;
+        line-height: 1.2;
     }
 }
 

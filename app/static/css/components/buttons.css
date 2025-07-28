@@ -102,6 +102,10 @@
     font-weight: var(--font-weight-medium);
     min-height: 56px;
     border-radius: var(--radius-lg);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
 }
 
 /* Button with Icon */
@@ -245,6 +249,10 @@
         font-size: var(--font-size-body);
         padding: var(--spacing-md) var(--spacing-lg);
         min-height: 52px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
     }
 }
 
@@ -253,5 +261,10 @@
         font-size: var(--font-size-body);
         padding: var(--spacing-sm) var(--spacing-md);
         min-height: 48px;
+        display: flex;
+        align-items: center;
+        justify-content: center;
+        text-align: center;
+        line-height: 1.2;
     }
 }
