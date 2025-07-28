@@ -129,6 +129,9 @@ export default function BlogPage() {
                           height: "100%",
                           objectFit: "cover"
                         }}
+                        onError={(e) => {
+                          console.error('Image failed to load:', article.image);
+                        }}
                       />
                     ) : (
                       <div 

@@ -267,7 +267,7 @@ export default function BlogArticlePage({ params }: BlogArticlePageProps) {
                   overflow: "hidden"
                 }}
               >
-                {article.image && article.image.startsWith('data:') ? (
+                {article.image ? (
                   <img
                     src={article.image}
                     alt={article.title}
@@ -275,6 +275,9 @@ export default function BlogArticlePage({ params }: BlogArticlePageProps) {
                       width: "100%",
                       height: "100%",
                       objectFit: "cover"
+                    }}
+                    onError={(e) => {
+                      console.error('Image failed to load:', article.image);
                     }}
                   />
                 ) : (
