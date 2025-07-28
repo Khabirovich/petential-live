@@ -76,10 +76,18 @@ export default function ResultsPage() {
   };
 
   const getCompatibilityLabel = (level: string) => {
-    switch (level) {
-      case 'high': return 'Excellent Match';
-      case 'medium': return 'Good Match';
-      default: return 'Fair Match';
+    if (language === 'es') {
+      switch (level) {
+        case 'high': return 'Excelente Compatibilidad';
+        case 'medium': return 'Buena Compatibilidad';
+        default: return 'Compatibilidad Regular';
+      }
+    } else {
+      switch (level) {
+        case 'high': return 'Excellent Match';
+        case 'medium': return 'Good Match';
+        default: return 'Fair Match';
+      }
     }
   };
 
@@ -95,7 +103,7 @@ export default function ResultsPage() {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
         <Loader2 className="h-8 w-8 animate-spin" />
-        <span className="ml-2">Loading your results...</span>
+        <span className="ml-2">{language === 'es' ? 'Cargando tus resultados...' : 'Loading your results...'}</span>
       </div>
     );
   }
@@ -103,13 +111,13 @@ export default function ResultsPage() {
   if (error || !results) {
     return (
       <div className="max-w-2xl mx-auto p-6 text-center">
-        <h1 className="text-2xl font-bold text-red-600 mb-4">Error</h1>
+        <h1 className="text-2xl font-bold text-red-600 mb-4">{language === 'es' ? 'Error' : 'Error'}</h1>
         <p className="text-gray-600 mb-6">{error}</p>
         <button
           onClick={() => router.push('/quiz')}
           className="btn-primary"
         >
-          Take Quiz Again
+          {language === 'es' ? 'Repetir Quiz' : 'Take Quiz Again'}
         </button>
       </div>
     );
@@ -119,10 +127,16 @@ export default function ResultsPage() {
     <div className="max-w-6xl mx-auto p-6">
       <div className="text-center mb-8">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          Your {results.pet_type.charAt(0).toUpperCase() + results.pet_type.slice(1)} Breed Matches
+          {language === 'es' 
+            ? `Tus Razas de ${results.pet_type === 'dog' ? 'Perro' : 'Gato'} Compatibles`
+            : `Your ${results.pet_type.charAt(0).toUpperCase() + results.pet_type.slice(1)} Breed Matches`
+          }
         </h1>
         <p className="text-xl text-gray-600">
-          Based on your responses, we've found the following breeds that best match your preferences and lifestyle.
+          {language === 'es'
+            ? 'Basado en tus respuestas, hemos encontrado las siguientes razas que mejor coinciden con tus preferencias y estilo de vida.'
+            : 'Based on your responses, we\'ve found the following breeds that best match your preferences and lifestyle.'
+          }
         </p>
       </div>
 
@@ -205,13 +219,13 @@ export default function ResultsPage() {
           onClick={() => router.push('/quiz')}
           className="btn-primary"
         >
-          Take Quiz Again
+          {language === 'es' ? 'Repetir Quiz' : 'Take Quiz Again'}
         </button>
         <button
           onClick={() => router.push('/')}
           className="btn-secondary"
         >
-          Back to Home
+          {language === 'es' ? 'Volver al Inicio' : 'Back to Home'}
         </button>
       </div>
     </div>

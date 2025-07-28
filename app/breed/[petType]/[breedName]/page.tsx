@@ -138,7 +138,7 @@ export default function BreedDetailsPage() {
       <div className="grid lg:grid-cols-2 gap-8">
         {/* Images Section */}
         <div className="space-y-4">
-          <h2 className="text-2xl font-semibold mb-4">Photo</h2>
+          <h2 className="text-2xl font-semibold mb-4">{language === 'es' ? 'Foto' : 'Photo'}</h2>
           <div className="aspect-video overflow-hidden rounded-lg">
             <img
               src={getBreedImageWithFallback(breedDetails.breed_name, petType as 'dog' | 'cat')}
@@ -159,7 +159,7 @@ export default function BreedDetailsPage() {
           {/* Characteristics */}
           <Card>
             <CardHeader>
-              <CardTitle>Breed Characteristics</CardTitle>
+              <CardTitle>{language === 'es' ? 'Características de la Raza' : 'Breed Characteristics'}</CardTitle>
             </CardHeader>
             <CardContent>
               <div className="space-y-4">
@@ -209,7 +209,7 @@ export default function BreedDetailsPage() {
           {/* AI Generated Description */}
           <Card>
             <CardHeader>
-              <CardTitle>About This Breed</CardTitle>
+              <CardTitle>{language === 'es' ? 'Acerca de Esta Raza' : 'About This Breed'}</CardTitle>
             </CardHeader>
             <CardContent>
               <div
@@ -227,13 +227,13 @@ export default function BreedDetailsPage() {
           onClick={() => router.push('/quiz')}
           className="btn-primary"
         >
-          Take Quiz Again
+          {language === 'es' ? 'Repetir Quiz' : 'Take Quiz Again'}
         </button>
         <button
           onClick={() => router.push('/')}
           className="btn-secondary"
         >
-          Back to Home
+          {language === 'es' ? 'Volver al Inicio' : 'Back to Home'}
         </button>
       </div>
     </div>
