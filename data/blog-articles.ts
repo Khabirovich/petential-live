@@ -37,7 +37,7 @@ export const blogArticles: BlogArticle[] = [
     publishDate: "2025-01-15",
     readTime: "5 min read",
     category: "Dog Care",
-    image: "/images/blog/u7892581312_happy_photo_of_young_family_with_one_dog_Corgi_an_935f7a40-092f-4d31-99ea-61e01a91de12_0.png",
+    image: "/images/blog/dog-breed-selection.png",
     tags: ["dog breeds", "pet selection", "lifestyle"]
   },
   {
@@ -96,7 +96,7 @@ export const blogArticles: BlogArticle[] = [
     publishDate: "2025-01-05",
     readTime: "6 min read",
     category: "Pet Health",
-    image: "/images/blog/u7892581312_Pet_Nutrition_101_Feeding_Your_Furry_Friend_Right_2b50a1f3-82c7-4f43-9875-a1c2c599c71a_0.png",
+    image: "/images/blog/pet-nutrition.png",
     tags: ["nutrition", "pet health", "feeding"]
   },
   {
@@ -130,7 +130,7 @@ export const blogArticles: BlogArticle[] = [
     publishDate: "2025-01-01",
     readTime: "8 min read",
     category: "Pet Care",
-    image: "/images/blog/first-time-owner.jpg",
+    image: "/images/blog/first-time-owner.png",
     tags: ["new pet owner", "pet preparation", "pet care basics"]
   },
   {
@@ -161,7 +161,7 @@ export const blogArticles: BlogArticle[] = [
     publishDate: "2024-12-28",
     readTime: "6 min read",
     category: "Training",
-    image: "/images/blog/dog-training.jpg",
+    image: "/images/blog/dog-training.png",
     tags: ["dog training", "positive reinforcement", "pet behavior", "bonding"]
   },
   {
@@ -195,7 +195,7 @@ export const blogArticles: BlogArticle[] = [
     publishDate: "2024-12-25",
     readTime: "7 min read",
     category: "Pet Health",
-    image: "/images/blog/u7892581312_Caring_for_Senior_Pets_What_Every_Owner_Should_Kn_ac93778b-4094-4ca4-abfd-28f471014ae6_1.png",
+    image: "/images/blog/senior-pet-care.png",
     tags: ["senior pets", "aging", "pet health", "quality of life"]
   },
   {
@@ -232,7 +232,7 @@ export const blogArticles: BlogArticle[] = [
     publishDate: "2024-12-22",
     readTime: "5 min read",
     category: "Cat Care",
-    image: "/images/blog/indoor-cat-enrichment.jpg",
+    image: "/images/blog/indoor-cat-enrichment.png",
     tags: ["indoor cats", "enrichment", "cat behavior", "mental stimulation"]
   },
   {
@@ -272,7 +272,7 @@ export const blogArticles: BlogArticle[] = [
     publishDate: "2024-12-20",
     readTime: "8 min read",
     category: "Pet Health",
-    image: "/images/blog/u7892581312_Pet_Emergency_Preparedness_Be_Ready_for_Anything__ea91cf88-7d06-4a5d-897c-603d3ac90878_3.png",
+    image: "/images/blog/pet-emergency.png",
     tags: ["emergency preparedness", "pet safety", "disaster planning", "first aid"]
   },
   {
@@ -312,7 +312,7 @@ export const blogArticles: BlogArticle[] = [
     publishDate: "2024-12-18",
     readTime: "6 min read",
     category: "Nutrition",
-    image: "/images/blog/u7892581312_dog_and_his_owner_in_grocery_store_choosing_food__2c0aed11-39ff-4d31-8573-dce5c7315ea3_1.png",
+    image: "/images/blog/pet-food-labels.png",
     tags: ["pet nutrition", "food labels", "pet food", "healthy eating"]
   }
 ]
