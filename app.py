@@ -16,7 +16,18 @@ app = Flask(__name__)
 app.secret_key = os.urandom(24)
 
 # Enable CORS for Next.js frontend
-CORS(app, origins=["http://localhost:3000"], supports_credentials=True)
+allowed_origins = [
+    "http://localhost:3000",  # Local development
+    "https://petentialv-3-2-kopiya.vercel.app",  # Your Vercel domain
+    "https://*.vercel.app"  # Any Vercel subdomain
+]
+
+# Add Railway environment variable for frontend URL if available
+frontend_url = os.getenv('FRONTEND_URL')
+if frontend_url:
+    allowed_origins.append(frontend_url)
+
+CORS(app, origins=allowed_origins, supports_credentials=True)
 
 # API Keys
 DOG_API_KEY = os.getenv('DOG_API_KEY')
@@ -705,5 +716,6 @@ def save_feedback_to_file(feedback_data):
 if __name__ == '__main__':
     import os
     port = int(os.environ.get('PORT', 5001))
-    debug = os.environ.get('NODE_ENV') != 'production'
+    debug = os.environ.get('RAILWAY_ENVIRONMENT') != 'production'
+    print(f"Starting Flask app on port {port}")
     app.run(debug=debug, port=port, host='0.0.0.0')
