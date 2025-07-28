@@ -312,6 +312,7 @@ export const en = {
   "breedDetails.backToResults": "Back to Results",
   "breedDetails.photo": "Photo",
   "breedDetails.characteristics": "Breed Characteristics",
+  "breedDetails.learnMore": "Learn More",
   "breedDetails.aboutBreed": "About This Breed",
   "breedDetails.takeQuizAgain": "Take Quiz Again",
   "breedDetails.backToHome": "Back to Home",

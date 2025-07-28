@@ -315,6 +315,7 @@ export const es = {
   "breedDetails.aboutBreed": "Acerca de Esta Raza",
   "breedDetails.takeQuizAgain": "Repetir Quiz",
   "breedDetails.backToHome": "Volver al Inicio",
+  "breedDetails.learnMore": "Saber Más",
 
   // Breed Characteristics (Dogs)
   "characteristic.dogFriendly": "Amigable con Perros",

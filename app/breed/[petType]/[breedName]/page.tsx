@@ -124,7 +124,7 @@ export default function BreedDetailsPage() {
           className="btn-secondary mb-4"
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
-          Back to Results
+          {language === 'es' ? 'Volver a Resultados' : 'Back to Results'}
         </button>
 
         <div className="flex items-center gap-4 mb-2">

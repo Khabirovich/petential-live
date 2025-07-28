@@ -5,6 +5,7 @@ import { useRouter } from 'next/navigation';
 import { Card, CardContent, CardHeader, CardTitle } from '@/components/ui/card';
 import { Badge } from '@/components/ui/badge';
 import { Loader2 } from 'lucide-react';
+import { useLanguage } from '@/lib/i18n/context';
 import { getBreedImageWithFallback } from '@/lib/breed-images';
 
 interface Breed {
@@ -23,6 +24,7 @@ interface Results {
 
 export default function ResultsPage() {
   const router = useRouter();
+  const { language } = useLanguage();
   const [results, setResults] = useState<Results | null>(null);
   const [isLoading, setIsLoading] = useState(true);
   const [error, setError] = useState<string | null>(null);
@@ -166,7 +168,7 @@ export default function ResultsPage() {
                   className="btn-secondary w-full"
                   onClick={() => router.push(`/breed/${results.pet_type}/${encodeURIComponent(breed.name)}`)}
                 >
-                  Learn More
+                  {language === 'es' ? 'Saber Más' : 'Learn More'}
                 </button>
               </CardContent>
             </Card>
