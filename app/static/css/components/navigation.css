@@ -196,7 +196,7 @@
     flex-direction: column;
     align-items: center;
     justify-content: flex-start;
-    gap: 24px;
+    gap: 16px;
     overflow-y: auto;
     overflow-x: hidden;
     padding: 80px 20px 40px 20px;
@@ -204,6 +204,7 @@
     scrollbar-width: none; /* Firefox */
     -ms-overflow-style: none; /* IE and Edge */
     overscroll-behavior: contain; /* Prevent scroll chaining */
+    box-sizing: border-box;
 }
 
 /* Hide scrollbar for webkit browsers */
@@ -214,16 +215,17 @@
 /* Mobile guides section */
 .nav-mobile-guides-section {
     width: 100%;
-    max-width: 300px;
+    max-width: 280px;
     display: flex;
     flex-direction: column;
     align-items: center;
-    gap: 12px;
+    gap: 8px;
     margin: 16px 0;
     padding: 16px;
     border-left: 3px solid #c1fd3a;
     background: rgba(193, 253, 58, 0.05);
     border-radius: 8px;
+    box-sizing: border-box;
 }
 
 .nav-mobile-guides-title {
@@ -243,6 +245,10 @@
     color: #374151 !important;
     background: rgba(255, 255, 255, 0.8);
     border: 1px solid rgba(193, 253, 58, 0.2);
+    width: 100% !important;
+    max-width: none !important;
+    white-space: nowrap;
+    box-sizing: border-box;
 }
 
 .nav-mobile-guide-link:hover {
@@ -253,13 +259,14 @@
 /* Mobile language section */
 .nav-mobile-language-section {
     width: 100%;
-    max-width: 300px;
+    max-width: 280px;
     display: flex;
     gap: 12px;
     margin: 20px 0;
     padding: 16px;
     border-top: 1px solid rgba(193, 253, 58, 0.3);
     border-bottom: 1px solid rgba(193, 253, 58, 0.3);
+    box-sizing: border-box;
 }
 
 .nav-mobile-language-btn {
@@ -306,9 +313,11 @@
     transition: all 0.2s ease;
     text-align: center;
     width: 100%;
-    max-width: 300px;
+    max-width: 280px;
     flex-shrink: 0;
     display: block;
+    white-space: nowrap;
+    box-sizing: border-box;
 }
 
 .nav-mobile-link:hover {
@@ -331,7 +340,9 @@
     text-align: center;
     display: block;
     width: 100%;
-    max-width: 300px;
+    max-width: 280px;
+    white-space: nowrap;
+    box-sizing: border-box;
 }
 
 .nav-mobile-cta:hover {
