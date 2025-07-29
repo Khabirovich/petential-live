@@ -19,9 +19,9 @@ export default function PetCareGuidePage() {
   return (
     <div className="min-h-screen" style={{ background: "var(--bg-gradient-hero)" }}>
       {/* Hero Section */}
-      <section className="section-modern" style={{ padding: "3rem 0 2rem 0" }}>
+      <section className="section-modern-first">
         <div className="container">
-          <div className="text-center" style={{ marginBottom: "2rem" }}>
+          <div className="text-center" style={{ marginBottom: "var(--spacing-xl)" }}>
             <h1 
               style={{
                 fontFamily: "var(--font-heading)",

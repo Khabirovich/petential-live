@@ -32,9 +32,17 @@
 .nav-logo-icon {
     width: 32px;
     height: 32px;
-    background: #000000;
-    /* Star/diamond shape - can be replaced with actual icon */
-    clip-path: polygon(50% 0%, 61% 35%, 98% 35%, 68% 57%, 79% 91%, 50% 70%, 21% 91%, 32% 57%, 2% 35%, 39% 35%);
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Paw print icon using CSS */
+.nav-logo-icon::before {
+    content: '🐾';
+    font-size: 24px;
+    display: block;
 }
 
 .nav-logo-text {
@@ -131,8 +139,6 @@
     outline-offset: 2px;
 }
 
-
-
 /* MOBILE HAMBURGER MENU */
 .nav-hamburger {
     display: none;
@@ -176,7 +182,6 @@
     left: 0;
     width: 100%;
     height: 100vh;
-    height: 100dvh; /* Use dynamic viewport height for better mobile support */
     background: rgba(255, 255, 255, 0.98);
     backdrop-filter: blur(20px);
     -webkit-backdrop-filter: blur(20px);
@@ -185,7 +190,13 @@
     visibility: hidden;
     transform: translateY(-20px);
     transition: all 0.3s ease;
-    overflow: hidden; /* Prevent scrolling on the overlay itself */
+    overflow: hidden;
+}
+
+.nav-mobile-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
 }
 
 /* Mobile menu scrollable content */
@@ -206,17 +217,8 @@
     overscroll-behavior: contain;
 }
 
-/* Hide scrollbar for webkit browsers */
 .nav-mobile-content::-webkit-scrollbar {
     display: none;
-}
-
-
-
-.nav-mobile-menu.active {
-    opacity: 1;
-    visibility: visible;
-    transform: translateY(0);
 }
 
 .nav-mobile-link {
@@ -230,9 +232,6 @@
     transition: all 0.2s ease;
     text-align: center;
     min-width: 200px;
-    background: none;
-    border: none;
-    cursor: pointer;
 }
 
 .nav-mobile-link:hover {
@@ -254,7 +253,7 @@
 }
 
 .nav-mobile-cta:hover {
-    background-color: #c1fd3a; /* Цвет НЕ меняется */
+    background-color: #c1fd3a;
     color: #000000 !important;
     box-shadow: 6px 6px 0px 0px #000000;
     transform: translate(-2px, -2px);
@@ -309,37 +308,6 @@
     .nav-logo-icon {
         width: 28px;
         height: 28px;
-    }
-    
-    .nav-mobile-content {
-        padding: max(70px, env(safe-area-inset-top) + 20px) 16px max(30px, env(safe-area-inset-bottom) + 10px) 16px;
-        gap: 20px;
-    }
-    
-    .nav-mobile-link {
-        font-size: 18px;
-        padding: 14px 20px;
-        min-width: 180px;
-    }
-}
-
-/* Extra small screens */
-@media (max-width: 480px) {
-    .nav-mobile-content {
-        padding: max(60px, env(safe-area-inset-top) + 10px) 12px max(20px, env(safe-area-inset-bottom) + 10px) 12px;
-        gap: 16px;
-    }
-    
-    .nav-mobile-link {
-        font-size: 16px;
-        padding: 12px 16px;
-        min-width: 160px;
-    }
-    
-    .nav-mobile-cta {
-        margin-top: 16px;
-        padding: 12px 20px;
-        font-size: 16px;
     }
 }
 

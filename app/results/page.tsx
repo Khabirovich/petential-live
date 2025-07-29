@@ -127,7 +127,7 @@ export default function ResultsPage() {
     <div className="max-w-6xl mx-auto p-6">
       <div className="text-center mb-8">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
-          {language === 'es' 
+          {language === 'es'
             ? `Tus Razas de ${results.pet_type === 'dog' ? 'Perro' : 'Gato'} Compatibles`
             : `Your ${results.pet_type.charAt(0).toUpperCase() + results.pet_type.slice(1)} Breed Matches`
           }
