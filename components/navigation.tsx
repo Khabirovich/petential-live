@@ -36,9 +36,17 @@ export default function Navigation() {
   const toggleMobileMenu = () => {
     setIsMobileMenuOpen(!isMobileMenuOpen)
     if (!isMobileMenuOpen) {
-      document.body.style.overflow = "hidden"
+      // Prevent background scrolling but allow menu scrolling
+      document.body.style.position = "fixed"
+      document.body.style.top = `-${window.scrollY}px`
+      document.body.style.width = "100%"
     } else {
-      document.body.style.overflow = ""
+      // Restore background scrolling
+      const scrollY = document.body.style.top
+      document.body.style.position = ""
+      document.body.style.top = ""
+      document.body.style.width = ""
+      window.scrollTo(0, parseInt(scrollY || '0') * -1)
     }
   }
 
@@ -260,127 +268,132 @@ export default function Navigation() {
           aria-label="Mobile navigation menu"
           aria-hidden={!isMobileMenuOpen}
         >
-          <Link href="/breeds" className="nav-mobile-link" role="menuitem" onClick={toggleMobileMenu}>
-            {t('nav.breeds')}
-          </Link>
-          <Link href="/about" className="nav-mobile-link" role="menuitem" onClick={toggleMobileMenu}>
-            {t('nav.about')}
-          </Link>
-          <Link href="/blog" className="nav-mobile-link" role="menuitem" onClick={toggleMobileMenu}>
-            {t('nav.blog')}
-          </Link>
-          
-          {/* Mobile Guides Links */}
-          <div 
-            className="border-l-2 ml-4 pl-4 my-4"
-            style={{
-              borderColor: "#c1fd3a"
-            }}
-          >
+          <div className="nav-mobile-content">
+            <Link href="/breeds" className="nav-mobile-link" role="menuitem" onClick={toggleMobileMenu}>
+              {t('nav.breeds')}
+            </Link>
+            <Link href="/about" className="nav-mobile-link" role="menuitem" onClick={toggleMobileMenu}>
+              {t('nav.about')}
+            </Link>
+            <Link href="/blog" className="nav-mobile-link" role="menuitem" onClick={toggleMobileMenu}>
+              {t('nav.blog')}
+            </Link>
+            <Link href="/insurance" className="nav-mobile-link" role="menuitem" onClick={toggleMobileMenu}>
+              {t('nav.insurance')}
+            </Link>
+            
+            {/* Mobile Guides Links */}
             <div 
-              className="text-xs font-medium uppercase tracking-wider mb-3 px-2"
+              className="border-l-2 ml-4 pl-4 my-4"
               style={{
-                color: "#374151",
-                fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-                fontWeight: "600"
+                borderColor: "#c1fd3a"
               }}
             >
-              {t('nav.guides')}
+              <div 
+                className="text-xs font-medium uppercase tracking-wider mb-3 px-2"
+                style={{
+                  color: "#374151",
+                  fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+                  fontWeight: "600"
+                }}
+              >
+                {t('nav.guides')}
+              </div>
+              <Link 
+                href="/pet-care-guide" 
+                className="nav-mobile-link block py-2 px-2 text-sm rounded-md transition-colors duration-200" 
+                role="menuitem" 
+                onClick={toggleMobileMenu}
+                style={{
+                  fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+                  color: "#374151"
+                }}
+              >
+                {t('nav.guides.petCareGuide')}
+              </Link>
+              <Link 
+                href="/training-tips" 
+                className="nav-mobile-link block py-2 px-2 text-sm rounded-md transition-colors duration-200" 
+                role="menuitem" 
+                onClick={toggleMobileMenu}
+                style={{
+                  fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+                  color: "#374151"
+                }}
+              >
+                {t('nav.guides.trainingTips')}
+              </Link>
+              <Link 
+                href="/nutrition-guide" 
+                className="nav-mobile-link block py-2 px-2 text-sm rounded-md transition-colors duration-200" 
+                role="menuitem" 
+                onClick={toggleMobileMenu}
+                style={{
+                  fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
+                  color: "#374151"
+                }}
+              >
+                {t('nav.guides.nutritionGuide')}
+              </Link>
             </div>
-            <Link 
-              href="/pet-care-guide" 
-              className="nav-mobile-link block py-2 px-2 text-sm rounded-md transition-colors duration-200" 
-              role="menuitem" 
-              onClick={toggleMobileMenu}
+            
+            {/* Mobile Language Switcher */}
+            <div 
               style={{
-                fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-                color: "#374151"
+                display: "flex",
+                justifyContent: "center",
+                gap: "var(--spacing-sm)",
+                padding: "var(--spacing-lg)",
+                borderTop: "1px solid var(--petential-alabaster)",
+                borderBottom: "1px solid var(--petential-alabaster)",
+                margin: "var(--spacing-md) 0"
               }}
             >
-              {t('nav.guides.petCareGuide')}
-            </Link>
-            <Link 
-              href="/training-tips" 
-              className="nav-mobile-link block py-2 px-2 text-sm rounded-md transition-colors duration-200" 
-              role="menuitem" 
+              <button
+                onClick={() => {setLanguage('en'); toggleMobileMenu()}}
+                style={{
+                  padding: "var(--spacing-sm) var(--spacing-lg)",
+                  backgroundColor: language === 'en' ? "var(--petential-primary)" : "transparent",
+                  color: language === 'en' ? "var(--petential-dark)" : "var(--petential-haiti-60)",
+                  border: "2px solid var(--petential-alabaster)",
+                  borderRadius: "var(--radius-lg)",
+                  cursor: "pointer",
+                  fontSize: "var(--font-size-body)",
+                  fontWeight: "var(--font-weight-medium)",
+                  transition: "all var(--transition-normal)",
+                  flex: 1
+                }}
+              >
+                English
+              </button>
+              <button
+                onClick={() => {setLanguage('es'); toggleMobileMenu()}}
+                style={{
+                  padding: "var(--spacing-sm) var(--spacing-lg)",
+                  backgroundColor: language === 'es' ? "var(--petential-primary)" : "transparent",
+                  color: language === 'es' ? "var(--petential-dark)" : "var(--petential-haiti-60)",
+                  border: "2px solid var(--petential-alabaster)",
+                  borderRadius: "var(--radius-lg)",
+                  cursor: "pointer",
+                  fontSize: "var(--font-size-body)",
+                  fontWeight: "var(--font-weight-medium)",
+                  transition: "all var(--transition-normal)",
+                  flex: 1
+                }}
+              >
+                Español
+              </button>
+            </div>
+            
+            <Link
+              href="/#quiz-section"
+              className="nav-mobile-link nav-mobile-cta"
+              role="menuitem"
               onClick={toggleMobileMenu}
-              style={{
-                fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-                color: "#374151"
-              }}
             >
-              {t('nav.guides.trainingTips')}
-            </Link>
-            <Link 
-              href="/nutrition-guide" 
-              className="nav-mobile-link block py-2 px-2 text-sm rounded-md transition-colors duration-200" 
-              role="menuitem" 
-              onClick={toggleMobileMenu}
-              style={{
-                fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-                color: "#374151"
-              }}
-            >
-              {t('nav.guides.nutritionGuide')}
+              {t('nav.getStarted')}
             </Link>
           </div>
-          
-          {/* Mobile Language Switcher */}
-          <div 
-            style={{
-              display: "flex",
-              justifyContent: "center",
-              gap: "var(--spacing-sm)",
-              padding: "var(--spacing-lg)",
-              borderTop: "1px solid var(--petential-alabaster)",
-              borderBottom: "1px solid var(--petential-alabaster)",
-              margin: "var(--spacing-md) 0"
-            }}
-          >
-            <button
-              onClick={() => {setLanguage('en'); toggleMobileMenu()}}
-              style={{
-                padding: "var(--spacing-sm) var(--spacing-lg)",
-                backgroundColor: language === 'en' ? "var(--petential-primary)" : "transparent",
-                color: language === 'en' ? "var(--petential-dark)" : "var(--petential-haiti-60)",
-                border: "2px solid var(--petential-alabaster)",
-                borderRadius: "var(--radius-lg)",
-                cursor: "pointer",
-                fontSize: "var(--font-size-body)",
-                fontWeight: "var(--font-weight-medium)",
-                transition: "all var(--transition-normal)",
-                flex: 1
-              }}
-            >
-              English
-            </button>
-            <button
-              onClick={() => {setLanguage('es'); toggleMobileMenu()}}
-              style={{
-                padding: "var(--spacing-sm) var(--spacing-lg)",
-                backgroundColor: language === 'es' ? "var(--petential-primary)" : "transparent",
-                color: language === 'es' ? "var(--petential-dark)" : "var(--petential-haiti-60)",
-                border: "2px solid var(--petential-alabaster)",
-                borderRadius: "var(--radius-lg)",
-                cursor: "pointer",
-                fontSize: "var(--font-size-body)",
-                fontWeight: "var(--font-weight-medium)",
-                transition: "all var(--transition-normal)",
-                flex: 1
-              }}
-            >
-              Español
-            </button>
-          </div>
-          
-          <Link
-            href="/#quiz-section"
-            className="nav-mobile-link nav-mobile-cta"
-            role="menuitem"
-            onClick={toggleMobileMenu}
-          >
-            {t('nav.getStarted')}
-          </Link>
         </div>
       </nav>
     </>
