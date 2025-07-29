@@ -94,7 +94,7 @@ export default function InsurancePage() {
       {/* Hero Section */}
       <section className="section-modern-first">
         <div className="container">
-          <div className="text-center" style={{ marginBottom: "var(--spacing-xl)" }}>
+          <div className="text-center" style={{ marginBottom: "var(--spacing-2xl)" }}>
             <h1 
               style={{
                 fontFamily: "var(--font-heading)",
