@@ -126,11 +126,12 @@ export default function BreedDetailsPage() {
   const characteristics = Object.entries(breedDetails.breed_data)
     .filter(([key, value]) => {
       if (key === breedKey) return false;
+      if (key === '№') return false; // Filter out the № characteristic
       if (typeof value !== 'number') return false;
       if (petType === 'dog') {
         return currentAllowedCharacteristics.includes(key);
       }
-      return true; // For cats, show all numeric characteristics for now
+      return true; // For cats, show all numeric characteristics except № and breed name
     })
     .map(([key, value]) => ({ key, value: value as number }));
 
@@ -140,7 +141,7 @@ export default function BreedDetailsPage() {
       <div className="mb-6">
         <button
           onClick={() => router.back()}
-          className="btn-secondary mb-4"
+          className="inline-flex items-center px-4 py-2 mb-4 text-sm font-medium text-gray-700 bg-white border border-gray-300 rounded-md shadow-sm hover:bg-gray-50 focus:outline-none focus:ring-2 focus:ring-offset-2 focus:ring-blue-500 transition-colors"
         >
           <ArrowLeft className="w-4 h-4 mr-2" />
           {language === 'es' ? 'Volver a Resultados' : 'Back to Results'}
