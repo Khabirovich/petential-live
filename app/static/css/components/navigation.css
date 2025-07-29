@@ -192,20 +192,18 @@
 .nav-mobile-content {
     height: 100%;
     width: 100%;
-    padding: 80px 20px 40px 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 32px;
     overflow-y: auto;
     overflow-x: hidden;
+    padding: 80px 20px 40px 20px;
     -webkit-overflow-scrolling: touch;
-    text-align: center;
-    display: block !important;
-}
-
-.nav-mobile-content > * {
-    display: block !important;
-    width: 250px !important;
-    margin: 15px auto !important;
-    float: none !important;
-    clear: both !important;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overscroll-behavior: contain;
 }
 
 /* Hide scrollbar for webkit browsers */
@@ -222,24 +220,19 @@
 }
 
 .nav-mobile-link {
-    display: block !important;
-    width: 250px !important;
-    margin: 15px auto !important;
-    padding: 15px 20px !important;
-    background: white !important;
-    color: #000000 !important;
-    text-decoration: none !important;
-    border-radius: 8px !important;
-    font-family: Inter, sans-serif !important;
-    font-size: 18px !important;
-    font-weight: 400 !important;
-    text-align: center !important;
-    border: none !important;
-    cursor: pointer !important;
-    transition: all 0.2s ease !important;
-    float: none !important;
-    clear: both !important;
-    position: relative !important;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #000000;
+    text-decoration: none;
+    padding: 16px 24px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    text-align: center;
+    min-width: 200px;
+    background: none;
+    border: none;
+    cursor: pointer;
 }
 
 .nav-mobile-link:hover {
@@ -248,11 +241,16 @@
 }
 
 .nav-mobile-cta {
-    background-color: #c1fd3a !important;
+    background-color: #c1fd3a;
     color: #000000 !important;
-    font-weight: 600 !important;
+    font-weight: 600;
+    margin-top: 24px;
     box-shadow: 4px 4px 0px 0px #000000;
-    margin-top: 30px !important;
+    transform: translate(0, 0);
+    transition: background-color 200ms ease-out,
+                color 200ms ease-out,
+                box-shadow 200ms ease-out,
+                transform 200ms ease-out;
 }
 
 .nav-mobile-cta:hover {
