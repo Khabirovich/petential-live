@@ -49,7 +49,7 @@ export default function BreedDetailsPage() {
         setBreedDetails(data);
       } catch (error) {
         console.error('Error fetching breed details:', error);
-        setError('Failed to load breed details. Please try again.');
+        setError(language === 'es' ? 'Error al cargar detalles de la raza. Por favor intenta de nuevo.' : 'Failed to load breed details. Please try again.');
       } finally {
         setIsLoading(false);
       }
@@ -64,7 +64,7 @@ export default function BreedDetailsPage() {
     return (
       <div className="flex items-center justify-center min-h-[400px]">
         <Loader2 className="h-8 w-8 animate-spin" />
-        <span className="ml-2">Loading breed details...</span>
+        <span className="ml-2">{language === 'es' ? 'Cargando detalles de la raza...' : 'Loading breed details...'}</span>
       </div>
     );
   }
@@ -87,29 +87,48 @@ export default function BreedDetailsPage() {
 
   const breedKey = petType === 'dog' ? 'Dog Breeds' : 'Cat Breeds';
 
-  // Define the specific characteristics to show for dogs (exactly as requested)
-  const allowedDogCharacteristics = [
-    'Dog Friendly',
-    'Dog Size',
-    'Drooling Level',
-    'Exercise Needs',
-    'Grooming Level',
-    'Guarding Level',
-    'Hyperalergic (1 - no, 2 - yes)', // Shows Yes/No only
-    'Kid-Friendly',
-    'Owner Experience',
-    'Tendency To Bark Or Howl',
-    'Tolerates Being Alone',
-    'Training Level',
-    'Walk Activity'
-  ];
+  // Define the specific characteristics to show for dogs (in both languages)
+  const allowedDogCharacteristics = {
+    en: [
+      'Dog Friendly',
+      'Dog Size',
+      'Drooling Level',
+      'Exercise Needs',
+      'Grooming Level',
+      'Guarding Level',
+      'Hyperalergic (1 - no, 2 - yes)', // Shows Yes/No only
+      'Kid-Friendly',
+      'Owner Experience',
+      'Tendency To Bark Or Howl',
+      'Tolerates Being Alone',
+      'Training Level',
+      'Walk Activity'
+    ],
+    es: [
+      'Amigable con Perros',
+      'Tamaño del Perro',
+      'Nivel de Babeo',
+      'Necesidades de Ejercicio',
+      'Nivel de Aseo',
+      'Nivel de Guardia',
+      'Hipoalergénico', // Shows Yes/No only
+      'Amigable con Niños',
+      'Experiencia del Propietario',
+      'Tendencia a Ladrar o Aullar',
+      'Tolera Estar Solo',
+      'Nivel de Entrenamiento',
+      'Actividad de Paseo'
+    ]
+  };
+
+  const currentAllowedCharacteristics = allowedDogCharacteristics[language] || allowedDogCharacteristics.en;
 
   const characteristics = Object.entries(breedDetails.breed_data)
     .filter(([key, value]) => {
       if (key === breedKey) return false;
       if (typeof value !== 'number') return false;
       if (petType === 'dog') {
-        return allowedDogCharacteristics.includes(key);
+        return currentAllowedCharacteristics.includes(key);
       }
       return true; // For cats, show all numeric characteristics for now
     })
@@ -164,19 +183,24 @@ export default function BreedDetailsPage() {
             <CardContent>
               <div className="space-y-4">
                 {characteristics.map(({ key, value }) => {
-                  // Special handling for Hyperalergic field
-                  const isHyperalergic = key === 'Hyperalergic (1 - no, 2 - yes)';
+                  // Special handling for Hyperalergic/Hipoalergénico field
+                  const isHyperalergic = key === 'Hyperalergic (1 - no, 2 - yes)' || key === 'Hipoalergénico';
 
                   // Clean display name without any numbers or special characters
                   let displayName = key;
                   if (isHyperalergic) {
-                    displayName = 'Hypoallergenic';
+                    displayName = language === 'es' ? 'Hipoalergénico' : 'Hypoallergenic';
                   } else {
-                    // Clean up the display name
-                    displayName = key
-                      .replace(/([A-Z])/g, ' $1')
-                      .replace(/^./, str => str.toUpperCase())
-                      .trim();
+                    // For Spanish, use the key as-is since it's already translated
+                    // For English, clean up the display name
+                    if (language === 'es') {
+                      displayName = key;
+                    } else {
+                      displayName = key
+                        .replace(/([A-Z])/g, ' $1')
+                        .replace(/^./, str => str.toUpperCase())
+                        .trim();
+                    }
                   }
 
                   return (

@@ -61,7 +61,7 @@ export default function ResultsPage() {
         }
       } catch (error) {
         console.error('Failed to parse results:', error);
-        setError('Failed to load results. Please try taking the quiz again.');
+        setError(language === 'es' ? 'Error al cargar resultados. Por favor intenta hacer el quiz de nuevo.' : 'Failed to load results. Please try taking the quiz again.');
       }
     } else {
       setError('No quiz results found. Please take the quiz first.');
@@ -199,15 +199,15 @@ export default function ResultsPage() {
           <div className="grid md:grid-cols-3 gap-4">
             <div className="flex items-center space-x-3">
               <div className="w-4 h-4 bg-green-500 rounded-full"></div>
-              <span className="text-sm font-medium">Excellent Match (80%+)</span>
+              <span className="text-sm font-medium">{language === 'es' ? 'Excelente Compatibilidad (80%+)' : 'Excellent Match (80%+)'}</span>
             </div>
             <div className="flex items-center space-x-3">
               <div className="w-4 h-4 bg-yellow-500 rounded-full"></div>
-              <span className="text-sm font-medium">Good Match (60-79%)</span>
+              <span className="text-sm font-medium">{language === 'es' ? 'Buena Compatibilidad (60-79%)' : 'Good Match (60-79%)'}</span>
             </div>
             <div className="flex items-center space-x-3">
               <div className="w-4 h-4 bg-gray-500 rounded-full"></div>
-              <span className="text-sm font-medium">Fair Match (Below 60%)</span>
+              <span className="text-sm font-medium">{language === 'es' ? 'Compatibilidad Regular (Menos del 60%)' : 'Fair Match (Below 60%)'}</span>
             </div>
           </div>
         </CardContent>

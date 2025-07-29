@@ -408,8 +408,15 @@ def get_breed_details(pet_type, breed_name):
         print(f"📋 All original keys: {list(breed_data.keys())}")
         breed_data = translate_breed_characteristics(breed_data)
         print(f"📋 All translated keys: {list(breed_data.keys())}")
+        
+        # Debug: Show numeric characteristics that would be displayed
+        numeric_chars = {k: v for k, v in breed_data.items() if isinstance(v, (int, float)) and k not in ['Dog Breeds', 'Cat Breeds']}
+        print(f"🔢 Numeric characteristics for display: {list(numeric_chars.keys())}")
     else:
         print(f"🔄 Keeping breed characteristics in English (language={language})")
+        # Debug: Show numeric characteristics that would be displayed
+        numeric_chars = {k: v for k, v in breed_data.items() if isinstance(v, (int, float)) and k not in ['Dog Breeds', 'Cat Breeds']}
+        print(f"🔢 Numeric characteristics for display: {list(numeric_chars.keys())}")
     
     return jsonify({
         'pet_type': pet_type,
@@ -654,6 +661,7 @@ def translate_breed_characteristics(breed_data):
         'Guarding Level': 'Nivel de Guardia',
         'Hypoallergenic': 'Hipoalergénico',
         'Hyperalergic (1 - no, 2 - yes)': 'Hipoalergénico',
+        'Kid-Friendly': 'Amigable con Niños',
         'Kid- Friendly': 'Amigable con Niños',
         'Kid Friendly': 'Amigable con Niños',
         'Owner Experience': 'Experiencia del Propietario',
