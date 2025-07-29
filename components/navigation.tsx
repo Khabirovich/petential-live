@@ -15,7 +15,7 @@ export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const pathname = usePathname()
   const { language, setLanguage, t } = useLanguage()
-  
+
   // Touch/swipe handling
   const [touchStart, setTouchStart] = useState<number | null>(null)
   const [touchEnd, setTouchEnd] = useState<number | null>(null)
@@ -90,7 +90,7 @@ export default function Navigation() {
             {/* Guides Dropdown */}
             <li role="none">
               <DropdownMenu>
-                <DropdownMenuTrigger 
+                <DropdownMenuTrigger
                   className="nav-link focus:outline-none"
                   role="menuitem"
                   aria-haspopup="true"
@@ -115,7 +115,7 @@ export default function Navigation() {
                 >
                   {t('nav.guides')}
                 </DropdownMenuTrigger>
-                <DropdownMenuContent 
+                <DropdownMenuContent
                   className="z-50 min-w-[220px] rounded-lg border border-gray-200 p-1"
                   align="center"
                   sideOffset={8}
@@ -126,8 +126,8 @@ export default function Navigation() {
                   }}
                 >
                   <DropdownMenuItem asChild>
-                    <Link 
-                      href="/pet-care-guide" 
+                    <Link
+                      href="/pet-care-guide"
                       className="w-full flex items-center rounded-md transition-colors duration-200"
                       style={{
                         padding: "12px 16px",
@@ -149,8 +149,8 @@ export default function Navigation() {
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link 
-                      href="/training-tips" 
+                    <Link
+                      href="/training-tips"
                       className="w-full flex items-center rounded-md transition-colors duration-200"
                       style={{
                         padding: "12px 16px",
@@ -172,8 +172,8 @@ export default function Navigation() {
                     </Link>
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
-                    <Link 
-                      href="/nutrition-guide" 
+                    <Link
+                      href="/nutrition-guide"
                       className="w-full flex items-center rounded-md transition-colors duration-200"
                       style={{
                         padding: "12px 16px",
@@ -200,7 +200,7 @@ export default function Navigation() {
 
             {/* Language Switcher */}
             <li role="none">
-              <div 
+              <div
                 style={{
                   display: "flex",
                   alignItems: "center",
@@ -294,10 +294,10 @@ export default function Navigation() {
             <Link href="/nutrition-guide" className="nav-mobile-link" onClick={toggleMobileMenu}>
               {t('nav.guides.nutritionGuide')}
             </Link>
-            <button onClick={() => {setLanguage('en'); toggleMobileMenu()}} className="nav-mobile-link">
+            <button onClick={() => { setLanguage('en'); toggleMobileMenu() }} className="nav-mobile-link">
               English
             </button>
-            <button onClick={() => {setLanguage('es'); toggleMobileMenu()}} className="nav-mobile-link">
+            <button onClick={() => { setLanguage('es'); toggleMobileMenu() }} className="nav-mobile-link">
               Español
             </button>
             <Link href="/#quiz-section" className="nav-mobile-link nav-mobile-cta" onClick={toggleMobileMenu}>

@@ -1053,7 +1053,7 @@ body {
 
 .breeds-hero-title {
   font-family: var(--font-heading);
-  font-size: var(--font-size-h1);
+  font-size: var(--font-size-hero);
   font-weight: var(--font-weight-bold);
   color: var(--petential-dark);
   margin-bottom: var(--spacing-lg);
@@ -1358,9 +1358,7 @@ body {
     padding: var(--spacing-3xl) 0 var(--spacing-2xl) 0;
   }
 
-  .breeds-hero-title {
-    font-size: var(--font-size-h2);
-  }
+  /* Breeds hero title uses same size as other pages */
 
   .breeds-controls .container {
     gap: var(--spacing-md);
