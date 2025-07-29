@@ -19,7 +19,9 @@ app.secret_key = os.urandom(24)
 allowed_origins = [
     "http://localhost:3000",  # Local development
     "https://petential-live.vercel.app",  # Your Vercel domain
-    "https://*.vercel.app"  # Any Vercel subdomain
+    "https://*.vercel.app",  # Any Vercel subdomain
+    "https://petential.es",  # Основной домен
+    "https://www.petential.es"
 ]
 
 # Add Railway environment variable for frontend URL if available
