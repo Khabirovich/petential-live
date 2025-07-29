@@ -192,11 +192,7 @@
 .nav-mobile-content {
     height: 100%;
     width: 100%;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: flex-start;
-    gap: 16px;
+    display: block;
     overflow-y: auto;
     overflow-x: hidden;
     padding: 80px 20px 40px 20px;
@@ -205,6 +201,7 @@
     -ms-overflow-style: none; /* IE and Edge */
     overscroll-behavior: contain; /* Prevent scroll chaining */
     box-sizing: border-box;
+    text-align: center;
 }
 
 /* Hide scrollbar for webkit browsers */
@@ -214,13 +211,8 @@
 
 /* Mobile guides section */
 .nav-mobile-guides-section {
-    width: 100%;
-    max-width: 280px;
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    gap: 8px;
-    margin: 16px 0;
+    width: 280px;
+    margin: 20px auto;
     padding: 16px;
     border-left: 3px solid #c1fd3a;
     background: rgba(193, 253, 58, 0.05);
@@ -235,8 +227,9 @@
     color: #374151;
     text-transform: uppercase;
     letter-spacing: 0.05em;
-    margin-bottom: 8px;
+    margin-bottom: 12px;
     text-align: center;
+    display: block;
 }
 
 .nav-mobile-guide-link {
@@ -245,9 +238,9 @@
     color: #374151 !important;
     background: rgba(255, 255, 255, 0.8);
     border: 1px solid rgba(193, 253, 58, 0.2);
+    display: block !important;
     width: 100% !important;
-    max-width: none !important;
-    white-space: nowrap;
+    margin: 8px 0 !important;
     box-sizing: border-box;
 }
 
@@ -258,11 +251,10 @@
 
 /* Mobile language section */
 .nav-mobile-language-section {
-    width: 100%;
-    max-width: 280px;
+    width: 280px;
     display: flex;
     gap: 12px;
-    margin: 20px 0;
+    margin: 20px auto;
     padding: 16px;
     border-top: 1px solid rgba(193, 253, 58, 0.3);
     border-bottom: 1px solid rgba(193, 253, 58, 0.3);
@@ -312,11 +304,9 @@
     border-radius: 8px;
     transition: all 0.2s ease;
     text-align: center;
-    width: 100%;
-    max-width: 280px;
-    flex-shrink: 0;
     display: block;
-    white-space: nowrap;
+    width: 280px;
+    margin: 12px auto;
     box-sizing: border-box;
 }
 
@@ -330,7 +320,7 @@
     color: #000000 !important;
     font-weight: 600;
     font-size: 18px;
-    margin-top: 24px;
+    margin: 24px auto;
     box-shadow: 4px 4px 0px 0px #000000;
     transform: translate(0, 0);
     transition: background-color 200ms ease-out,
@@ -339,9 +329,7 @@
                 transform 200ms ease-out;
     text-align: center;
     display: block;
-    width: 100%;
-    max-width: 280px;
-    white-space: nowrap;
+    width: 280px;
     box-sizing: border-box;
 }
 
