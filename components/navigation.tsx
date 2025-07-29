@@ -15,6 +15,10 @@ export default function Navigation() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
   const pathname = usePathname()
   const { language, setLanguage, t } = useLanguage()
+  
+  // Touch/swipe handling
+  const [touchStart, setTouchStart] = useState<number | null>(null)
+  const [touchEnd, setTouchEnd] = useState<number | null>(null)
 
   useEffect(() => {
     const handleScroll = () => {
@@ -283,103 +287,47 @@ export default function Navigation() {
             </Link>
             
             {/* Mobile Guides Links */}
-            <div 
-              className="border-l-2 ml-4 pl-4 my-4"
-              style={{
-                borderColor: "#c1fd3a"
-              }}
-            >
-              <div 
-                className="text-xs font-medium uppercase tracking-wider mb-3 px-2"
-                style={{
-                  color: "#374151",
-                  fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-                  fontWeight: "600"
-                }}
-              >
+            <div className="nav-mobile-guides-section">
+              <div className="nav-mobile-guides-title">
                 {t('nav.guides')}
               </div>
               <Link 
                 href="/pet-care-guide" 
-                className="nav-mobile-link block py-2 px-2 text-sm rounded-md transition-colors duration-200" 
+                className="nav-mobile-link nav-mobile-guide-link" 
                 role="menuitem" 
                 onClick={toggleMobileMenu}
-                style={{
-                  fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-                  color: "#374151"
-                }}
               >
                 {t('nav.guides.petCareGuide')}
               </Link>
               <Link 
                 href="/training-tips" 
-                className="nav-mobile-link block py-2 px-2 text-sm rounded-md transition-colors duration-200" 
+                className="nav-mobile-link nav-mobile-guide-link" 
                 role="menuitem" 
                 onClick={toggleMobileMenu}
-                style={{
-                  fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-                  color: "#374151"
-                }}
               >
                 {t('nav.guides.trainingTips')}
               </Link>
               <Link 
                 href="/nutrition-guide" 
-                className="nav-mobile-link block py-2 px-2 text-sm rounded-md transition-colors duration-200" 
+                className="nav-mobile-link nav-mobile-guide-link" 
                 role="menuitem" 
                 onClick={toggleMobileMenu}
-                style={{
-                  fontFamily: "Inter, -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto, sans-serif",
-                  color: "#374151"
-                }}
               >
                 {t('nav.guides.nutritionGuide')}
               </Link>
             </div>
             
             {/* Mobile Language Switcher */}
-            <div 
-              style={{
-                display: "flex",
-                justifyContent: "center",
-                gap: "var(--spacing-sm)",
-                padding: "var(--spacing-lg)",
-                borderTop: "1px solid var(--petential-alabaster)",
-                borderBottom: "1px solid var(--petential-alabaster)",
-                margin: "var(--spacing-md) 0"
-              }}
-            >
+            <div className="nav-mobile-language-section">
               <button
                 onClick={() => {setLanguage('en'); toggleMobileMenu()}}
-                style={{
-                  padding: "var(--spacing-sm) var(--spacing-lg)",
-                  backgroundColor: language === 'en' ? "var(--petential-primary)" : "transparent",
-                  color: language === 'en' ? "var(--petential-dark)" : "var(--petential-haiti-60)",
-                  border: "2px solid var(--petential-alabaster)",
-                  borderRadius: "var(--radius-lg)",
-                  cursor: "pointer",
-                  fontSize: "var(--font-size-body)",
-                  fontWeight: "var(--font-weight-medium)",
-                  transition: "all var(--transition-normal)",
-                  flex: 1
-                }}
+                className={`nav-mobile-language-btn ${language === 'en' ? 'active' : ''}`}
               >
                 English
               </button>
               <button
                 onClick={() => {setLanguage('es'); toggleMobileMenu()}}
-                style={{
-                  padding: "var(--spacing-sm) var(--spacing-lg)",
-                  backgroundColor: language === 'es' ? "var(--petential-primary)" : "transparent",
-                  color: language === 'es' ? "var(--petential-dark)" : "var(--petential-haiti-60)",
-                  border: "2px solid var(--petential-alabaster)",
-                  borderRadius: "var(--radius-lg)",
-                  cursor: "pointer",
-                  fontSize: "var(--font-size-body)",
-                  fontWeight: "var(--font-weight-medium)",
-                  transition: "all var(--transition-normal)",
-                  flex: 1
-                }}
+                className={`nav-mobile-language-btn ${language === 'es' ? 'active' : ''}`}
               >
                 Español
               </button>
