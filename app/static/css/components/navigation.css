@@ -197,6 +197,15 @@
     overflow-x: hidden;
     -webkit-overflow-scrolling: touch;
     text-align: center;
+    display: block !important;
+}
+
+.nav-mobile-content > * {
+    display: block !important;
+    width: 250px !important;
+    margin: 15px auto !important;
+    float: none !important;
+    clear: both !important;
 }
 
 /* Hide scrollbar for webkit browsers */
@@ -214,20 +223,23 @@
 
 .nav-mobile-link {
     display: block !important;
-    width: 250px;
-    margin: 15px auto;
-    padding: 15px 20px;
-    background: white;
-    color: #000000;
-    text-decoration: none;
-    border-radius: 8px;
-    font-family: Inter, sans-serif;
-    font-size: 18px;
-    font-weight: 400;
-    text-align: center;
-    border: none;
-    cursor: pointer;
-    transition: all 0.2s ease;
+    width: 250px !important;
+    margin: 15px auto !important;
+    padding: 15px 20px !important;
+    background: white !important;
+    color: #000000 !important;
+    text-decoration: none !important;
+    border-radius: 8px !important;
+    font-family: Inter, sans-serif !important;
+    font-size: 18px !important;
+    font-weight: 400 !important;
+    text-align: center !important;
+    border: none !important;
+    cursor: pointer !important;
+    transition: all 0.2s ease !important;
+    float: none !important;
+    clear: both !important;
+    position: relative !important;
 }
 
 .nav-mobile-link:hover {
