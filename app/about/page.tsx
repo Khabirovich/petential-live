@@ -8,7 +8,7 @@ export default function AboutPage() {
   return (
     <div className="min-h-screen" style={{ background: "var(--bg-gradient-hero)" }}>
       {/* Hero Section */}
-      <section className="section-modern">
+      <section className="section-modern-first">
         <div className="container">
           <div className="text-center" style={{ marginBottom: "var(--spacing-4xl)" }}>
             <h1 

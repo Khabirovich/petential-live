@@ -364,6 +364,11 @@ body {
   padding: var(--spacing-4xl) 0;
 }
 
+/* First section after navigation - reduced top padding */
+.section-modern-first {
+  padding: var(--spacing-2xl) 0 var(--spacing-4xl) 0;
+}
+
 .section-alabaster {
   background-color: var(--petential-alabaster);
 }

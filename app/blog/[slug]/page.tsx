@@ -115,7 +115,7 @@ export default function BlogArticlePage({ params }: BlogArticlePageProps) {
   return (
     <div className="min-h-screen" style={{ background: "var(--bg-gradient-hero)" }}>
       {/* Article Header */}
-      <section className="section-modern">
+      <section className="section-modern-first">
         <div className="container">
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>
             {/* Breadcrumb */}
