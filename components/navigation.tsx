@@ -273,72 +273,34 @@ export default function Navigation() {
           aria-hidden={!isMobileMenuOpen}
         >
           <div className="nav-mobile-content">
-            <Link href="/breeds" className="nav-mobile-link" role="menuitem" onClick={toggleMobileMenu}>
+            <Link href="/breeds" className="nav-mobile-link" onClick={toggleMobileMenu}>
               {t('nav.breeds')}
             </Link>
-            <Link href="/about" className="nav-mobile-link" role="menuitem" onClick={toggleMobileMenu}>
+            <Link href="/about" className="nav-mobile-link" onClick={toggleMobileMenu}>
               {t('nav.about')}
             </Link>
-            <Link href="/blog" className="nav-mobile-link" role="menuitem" onClick={toggleMobileMenu}>
+            <Link href="/blog" className="nav-mobile-link" onClick={toggleMobileMenu}>
               {t('nav.blog')}
             </Link>
-            <Link href="/insurance" className="nav-mobile-link" role="menuitem" onClick={toggleMobileMenu}>
+            <Link href="/insurance" className="nav-mobile-link" onClick={toggleMobileMenu}>
               {t('nav.insurance')}
             </Link>
-            
-            {/* Mobile Guides Links */}
-            <div className="nav-mobile-guides-section">
-              <div className="nav-mobile-guides-title">
-                {t('nav.guides')}
-              </div>
-              <Link 
-                href="/pet-care-guide" 
-                className="nav-mobile-link nav-mobile-guide-link" 
-                role="menuitem" 
-                onClick={toggleMobileMenu}
-              >
-                {t('nav.guides.petCareGuide')}
-              </Link>
-              <Link 
-                href="/training-tips" 
-                className="nav-mobile-link nav-mobile-guide-link" 
-                role="menuitem" 
-                onClick={toggleMobileMenu}
-              >
-                {t('nav.guides.trainingTips')}
-              </Link>
-              <Link 
-                href="/nutrition-guide" 
-                className="nav-mobile-link nav-mobile-guide-link" 
-                role="menuitem" 
-                onClick={toggleMobileMenu}
-              >
-                {t('nav.guides.nutritionGuide')}
-              </Link>
-            </div>
-            
-            {/* Mobile Language Switcher */}
-            <div className="nav-mobile-language-section">
-              <button
-                onClick={() => {setLanguage('en'); toggleMobileMenu()}}
-                className={`nav-mobile-language-btn ${language === 'en' ? 'active' : ''}`}
-              >
-                English
-              </button>
-              <button
-                onClick={() => {setLanguage('es'); toggleMobileMenu()}}
-                className={`nav-mobile-language-btn ${language === 'es' ? 'active' : ''}`}
-              >
-                Español
-              </button>
-            </div>
-            
-            <Link
-              href="/#quiz-section"
-              className="nav-mobile-link nav-mobile-cta"
-              role="menuitem"
-              onClick={toggleMobileMenu}
-            >
+            <Link href="/pet-care-guide" className="nav-mobile-link" onClick={toggleMobileMenu}>
+              {t('nav.guides.petCareGuide')}
+            </Link>
+            <Link href="/training-tips" className="nav-mobile-link" onClick={toggleMobileMenu}>
+              {t('nav.guides.trainingTips')}
+            </Link>
+            <Link href="/nutrition-guide" className="nav-mobile-link" onClick={toggleMobileMenu}>
+              {t('nav.guides.nutritionGuide')}
+            </Link>
+            <button onClick={() => {setLanguage('en'); toggleMobileMenu()}} className="nav-mobile-link">
+              English
+            </button>
+            <button onClick={() => {setLanguage('es'); toggleMobileMenu()}} className="nav-mobile-link">
+              Español
+            </button>
+            <Link href="/#quiz-section" className="nav-mobile-link nav-mobile-cta" onClick={toggleMobileMenu}>
               {t('nav.getStarted')}
             </Link>
           </div>
