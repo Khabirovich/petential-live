@@ -23,23 +23,17 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   title: "PETential - Find Your Perfect Pet Match",
   description: "Find your perfect pet match with PETential's personalized quiz system for dogs and cats",
-  themeColor: "#c1fd3a",
   generator: 'v0.dev',
   icons: {
     icon: [
+      { url: '/favicon.ico' },
       { url: '/favicon/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
-      { url: '/favicon/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
-      { url: '/favicon/favicon.ico', sizes: 'any' }
+      { url: '/favicon/favicon-32x32.png', sizes: '32x32', type: 'image/png' }
     ],
     apple: [
       { url: '/favicon/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }
-    ],
-    other: [
-      { url: '/favicon/android-chrome-192x192.png', sizes: '192x192', type: 'image/png', rel: 'icon' },
-      { url: '/favicon/android-chrome-512x512.png', sizes: '512x512', type: 'image/png', rel: 'icon' }
     ]
-  },
-  manifest: '/favicon/site.webmanifest'
+  }
 }
 
 export default function RootLayout({
@@ -49,6 +43,12 @@ export default function RootLayout({
 }) {
   return (
     <html lang="en">
+      <head>
+        <link rel="icon" href="/favicon.ico" sizes="any" />
+        <link rel="icon" href="/favicon/favicon-16x16.png" sizes="16x16" type="image/png" />
+        <link rel="icon" href="/favicon/favicon-32x32.png" sizes="32x32" type="image/png" />
+        <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
+      </head>
       <body className={`${dmSans.variable} ${roboto.variable} antialiased`}>
         <LanguageProvider>
           <Navigation />
