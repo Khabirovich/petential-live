@@ -29,8 +29,8 @@ export default function ContactPage() {
     setSubmitStatus("idle")
 
     try {
-      // Submit to our new contact API
-      const response = await fetch('/api/contact', {
+      // Submit to Flask backend API
+      const response = await fetch('https://petential-live-production.up.railway.app/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

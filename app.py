@@ -869,8 +869,118 @@ def submit_feedback():
             'message': 'Sorry, there was an error processing your feedback. Please try again.'
         }), 500
 
-def save_feedback_to_file(feedback_data):
-    """Save feedback data to JSON file"""
+@app.route('/api/contact', methods=['POST'])
+def submit_contact():
+    """Handle contact form submission"""
+    try:
+        data = request.json
+        
+        # Validate required fields
+        if not data.get('email') or not data.get('message'):
+            return jsonify({
+                'status': 'error',
+                'message': 'Email and message are required'
+            }), 400
+        
+        # Save contact data
+        contact_data = {
+            'name': data.get('name', ''),
+            'email': data.get('email', ''),
+            'subject': data.get('subject', ''),
+            'message': data.get('message', ''),
+            'timestamp': datetime.now().isoformat(),
+            'id': str(int(datetime.now().timestamp() * 1000))
+        }
+        
+        save_user_data(contact_data, 'contacts')
+        
+        return jsonify({
+            'status': 'success',
+            'message': 'Thank you for your message! We will get back to you soon.',
+            'id': contact_data['id']
+        }), 200
+        
+    except Exception as e:
+        print(f"Error processing contact form: {e}")
+        return jsonify({
+            'status': 'error',
+            'message': 'Sorry, there was an error sending your message. Please try again.'
+        }), 500
+
+@app.route('/api/newsletter', methods=['POST'])
+def submit_newsletter():
+    """Handle newsletter subscription"""
+    try:
+        data = request.json
+        
+        # Validate email
+        email = data.get('email', '').strip()
+        if not email:
+            return jsonify({
+                'status': 'error',
+                'message': 'Email is required'
+            }), 400
+        
+        # Basic email validation
+        import re
+        email_regex = r'^[^\s@]+@[^\s@]+\.[^\s@]+$'
+        if not re.match(email_regex, email):
+            return jsonify({
+                'status': 'error',
+                'message': 'Please enter a valid email address'
+            }), 400
+        
+        # Check if already subscribed
+        existing_data = load_user_data()
+        for subscription in existing_data.get('newsletters', []):
+            if subscription.get('email') == email:
+                return jsonify({
+                    'status': 'success',
+                    'message': 'You are already subscribed to our newsletter.',
+                    'id': subscription.get('id')
+                }), 200
+        
+        # Save newsletter subscription
+        newsletter_data = {
+            'email': email,
+            'timestamp': datetime.now().isoformat(),
+            'id': str(int(datetime.now().timestamp() * 1000))
+        }
+        
+        save_user_data(newsletter_data, 'newsletters')
+        
+        return jsonify({
+            'status': 'success',
+            'message': 'Thank you for subscribing! You will receive our latest updates.',
+            'id': newsletter_data['id']
+        }), 200
+        
+    except Exception as e:
+        print(f"Error processing newsletter subscription: {e}")
+        return jsonify({
+            'status': 'error',
+            'message': 'Sorry, there was an error with your subscription. Please try again.'
+        }), 500
+
+def load_user_data():
+    """Load user data from JSON file"""
+    import json
+    import os
+    
+    data_dir = os.path.join(os.getcwd(), 'data')
+    user_data_file = os.path.join(data_dir, 'user-data.json')
+    
+    try:
+        if os.path.exists(user_data_file):
+            with open(user_data_file, 'r') as f:
+                return json.load(f)
+        else:
+            return {'contacts': [], 'newsletters': [], 'feedback': []}
+    except:
+        return {'contacts': [], 'newsletters': [], 'feedback': []}
+
+def save_user_data(data, data_type):
+    """Save user data to JSON file"""
     import json
     import os
     
@@ -881,22 +991,22 @@ def save_feedback_to_file(feedback_data):
     
     user_data_file = os.path.join(data_dir, 'user-data.json')
     
-    # Read existing data
-    try:
-        if os.path.exists(user_data_file):
-            with open(user_data_file, 'r') as f:
-                user_data = json.load(f)
-        else:
-            user_data = {'contacts': [], 'newsletters': [], 'feedback': []}
-    except:
-        user_data = {'contacts': [], 'newsletters': [], 'feedback': []}
+    # Load existing data
+    user_data = load_user_data()
     
-    # Add new feedback
-    user_data['feedback'].insert(0, feedback_data)  # Add to beginning
+    # Add new data
+    if data_type not in user_data:
+        user_data[data_type] = []
+    
+    user_data[data_type].insert(0, data)  # Add to beginning
     
     # Save back to file
     with open(user_data_file, 'w') as f:
         json.dump(user_data, f, indent=2)
+
+def save_feedback_to_file(feedback_data):
+    """Save feedback data to JSON file (legacy function)"""
+    save_user_data(feedback_data, 'feedback')
 
 if __name__ == '__main__':
     import os

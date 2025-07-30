@@ -1279,12 +1279,12 @@ body {
   .breeds-hero {
     padding-top: calc(var(--spacing-3xl) + 40px) !important; /* Moderate space for tablet navbar */
   }
-}
 
   .footer-main {
     grid-template-columns: 1fr 1fr !important;
     gap: var(--spacing-xl) !important;
   }
+}
 
   .testimonial-panel {
     grid-template-columns: 1fr !important;

@@ -106,7 +106,7 @@ export default function Footer() {
               const email = formData.get('email') as string
               
               try {
-                const response = await fetch('/api/newsletter', {
+                const response = await fetch('https://petential-live-production.up.railway.app/api/newsletter', {
                   method: 'POST',
                   headers: { 'Content-Type': 'application/json' },
                   body: JSON.stringify({ email })
