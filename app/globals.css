@@ -1296,7 +1296,6 @@ body {
     gap: var(--spacing-lg);
     text-align: center;
   }
-}
 
 @media (max-width: 809px) {
   .nav-menu {
