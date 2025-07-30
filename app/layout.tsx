@@ -23,8 +23,23 @@ const roboto = Roboto({
 export const metadata: Metadata = {
   title: "PETential - Find Your Perfect Pet Match",
   description: "Find your perfect pet match with PETential's personalized quiz system for dogs and cats",
-  themeColor: "#667eea",
-    generator: 'v0.dev'
+  themeColor: "#c1fd3a",
+  generator: 'v0.dev',
+  icons: {
+    icon: [
+      { url: '/favicon/favicon-16x16.png', sizes: '16x16', type: 'image/png' },
+      { url: '/favicon/favicon-32x32.png', sizes: '32x32', type: 'image/png' },
+      { url: '/favicon/favicon.ico', sizes: 'any' }
+    ],
+    apple: [
+      { url: '/favicon/apple-touch-icon.png', sizes: '180x180', type: 'image/png' }
+    ],
+    other: [
+      { url: '/favicon/android-chrome-192x192.png', sizes: '192x192', type: 'image/png', rel: 'icon' },
+      { url: '/favicon/android-chrome-512x512.png', sizes: '512x512', type: 'image/png', rel: 'icon' }
+    ]
+  },
+  manifest: '/favicon/site.webmanifest'
 }
 
 export default function RootLayout({
