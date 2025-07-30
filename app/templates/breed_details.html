@@ -1,0 +1,375 @@
+{% extends "layout.html" %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/breed_details.css') }}">
+{% endblock %}
+
+{% block content %}
+<div class="breed-details-wrapper">
+    <div class="breed-details-container">
+        <!-- Breed Header Section -->
+        <header class="breed-header" role="banner">
+            <div class="breed-header-content">
+                <h1 class="breed-title">{{ breed_name }}</h1>
+                <p class="breed-subtitle">{{ pet_type.capitalize() }} Breed</p>
+            </div>
+        </header>
+        
+        <!-- Main Content Grid -->
+        <div class="breed-main-content">
+            <!-- Image Gallery Section -->
+            <section class="breed-gallery-section" aria-labelledby="gallery-title">
+                <h2 id="gallery-title" class="sr-only">{{ breed_name }} Photo Gallery</h2>
+                <div class="gallery-container">
+                    <div class="main-image-container">
+                        <img src="{{ images[0] }}" 
+                             alt="{{ breed_name }} main photo" 
+                             id="main-breed-image" 
+                             class="main-breed-image"
+                             aria-describedby="image-gallery-desc">
+                    </div>
+                    <div class="thumbnail-gallery" 
+                         role="tablist" 
+                         aria-label="Photo gallery thumbnails"
+                         id="image-gallery-desc">
+                        {% for image in images %}
+                        <button class="thumbnail-item" 
+                                data-image="{{ image }}"
+                                role="tab"
+                                aria-selected="{% if loop.first %}true{% else %}false{% endif %}"
+                                aria-controls="main-breed-image"
+                                aria-label="View photo {{ loop.index }} of {{ loop.length }}"
+                                tabindex="{% if loop.first %}0{% else %}-1{% endif %}">
+                            <img src="{{ image }}" 
+                                 alt="{{ breed_name }} photo {{ loop.index }}" 
+                                 class="thumbnail-image">
+                        </button>
+                        {% endfor %}
+                    </div>
+                </div>
+            </section>
+            
+            <!-- Characteristics Section -->
+            <section class="breed-characteristics-section" aria-labelledby="characteristics-title">
+                <div class="characteristics-container">
+                    <h2 id="characteristics-title" class="characteristics-title">Characteristics</h2>
+                    <div class="characteristics-grid" role="list" aria-label="Breed characteristics">
+                        {% if pet_type == 'dog' %}
+                            <div class="characteristic-item" role="listitem">
+                                <div class="characteristic-header">
+                                    <h3 class="characteristic-name">Size</h3>
+                                    <span class="characteristic-value">
+                                        {% if breed_data['Dog Size'] == 1 %}Very Small
+                                        {% elif breed_data['Dog Size'] == 2 %}Small
+                                        {% elif breed_data['Dog Size'] == 3 %}Medium
+                                        {% elif breed_data['Dog Size'] == 4 %}Large
+                                        {% else %}Very Large{% endif %}
+                                    </span>
+                                </div>
+                                <div class="characteristic-bar" 
+                                     role="progressbar" 
+                                     aria-valuenow="{{ breed_data['Dog Size'] }}" 
+                                     aria-valuemin="1" 
+                                     aria-valuemax="5"
+                                     aria-label="Size level: {{ breed_data['Dog Size'] }} out of 5">
+                                    <div class="characteristic-fill" data-value="{{ breed_data['Dog Size'] }}" data-max="5" aria-hidden="true"></div>
+                                </div>
+                            </div>
+                            <div class="characteristic-item" role="listitem">
+                                <div class="characteristic-header">
+                                    <h3 class="characteristic-name">Training Level</h3>
+                                    <span class="characteristic-value">
+                                        {% if breed_data['Training Level'] == 1 %}Minimal
+                                        {% elif breed_data['Training Level'] == 2 %}Some
+                                        {% elif breed_data['Training Level'] == 3 %}Average
+                                        {% elif breed_data['Training Level'] == 4 %}Significant
+                                        {% else %}Extensive{% endif %}
+                                    </span>
+                                </div>
+                                <div class="characteristic-bar" 
+                                     role="progressbar" 
+                                     aria-valuenow="{{ breed_data['Training Level'] }}" 
+                                     aria-valuemin="1" 
+                                     aria-valuemax="5"
+                                     aria-label="Training level: {{ breed_data['Training Level'] }} out of 5">
+                                    <div class="characteristic-fill" data-value="{{ breed_data['Training Level'] }}" data-max="5" aria-hidden="true"></div>
+                                </div>
+                            </div>
+                            <div class="characteristic-item" role="listitem">
+                                <div class="characteristic-header">
+                                    <h3 class="characteristic-name">Exercise Needs</h3>
+                                    <span class="characteristic-value">
+                                        {% if breed_data['Exercise Needs'] == 1 %}Minimal
+                                        {% elif breed_data['Exercise Needs'] == 2 %}Low
+                                        {% elif breed_data['Exercise Needs'] == 3 %}Average
+                                        {% elif breed_data['Exercise Needs'] == 4 %}High
+                                        {% else %}Very High{% endif %}
+                                    </span>
+                                </div>
+                                <div class="characteristic-bar" 
+                                     role="progressbar" 
+                                     aria-valuenow="{{ breed_data['Exercise Needs'] }}" 
+                                     aria-valuemin="1" 
+                                     aria-valuemax="5"
+                                     aria-label="Exercise needs: {{ breed_data['Exercise Needs'] }} out of 5">
+                                    <div class="characteristic-fill" data-value="{{ breed_data['Exercise Needs'] }}" data-max="5" aria-hidden="true"></div>
+                                </div>
+                            </div>
+                            <div class="characteristic-item" role="listitem">
+                                <div class="characteristic-header">
+                                    <h3 class="characteristic-name">Grooming Level</h3>
+                                    <span class="characteristic-value">
+                                        {% if breed_data['Grooming Level'] == 1 %}Minimal
+                                        {% elif breed_data['Grooming Level'] == 2 %}Low
+                                        {% elif breed_data['Grooming Level'] == 3 %}Average
+                                        {% elif breed_data['Grooming Level'] == 4 %}High
+                                        {% else %}Very High{% endif %}
+                                    </span>
+                                </div>
+                                <div class="characteristic-bar" 
+                                     role="progressbar" 
+                                     aria-valuenow="{{ breed_data['Grooming Level'] }}" 
+                                     aria-valuemin="1" 
+                                     aria-valuemax="5"
+                                     aria-label="Grooming level: {{ breed_data['Grooming Level'] }} out of 5">
+                                    <div class="characteristic-fill" data-value="{{ breed_data['Grooming Level'] }}" data-max="5" aria-hidden="true"></div>
+                                </div>
+                            </div>
+                            <div class="characteristic-item" role="listitem">
+                                <div class="characteristic-header">
+                                    <h3 class="characteristic-name">Kid-Friendly</h3>
+                                    <span class="characteristic-value">
+                                        {% if breed_data['Kid-Friendly'] == 1 %}Not Friendly
+                                        {% elif breed_data['Kid-Friendly'] == 2 %}Somewhat Friendly
+                                        {% elif breed_data['Kid-Friendly'] == 3 %}Moderately Friendly
+                                        {% elif breed_data['Kid-Friendly'] == 4 %}Very Friendly
+                                        {% else %}Extremely Friendly{% endif %}
+                                    </span>
+                                </div>
+                                <div class="characteristic-bar" 
+                                     role="progressbar" 
+                                     aria-valuenow="{{ breed_data['Kid-Friendly'] }}" 
+                                     aria-valuemin="1" 
+                                     aria-valuemax="5"
+                                     aria-label="Kid-friendly level: {{ breed_data['Kid-Friendly'] }} out of 5">
+                                    <div class="characteristic-fill" data-value="{{ breed_data['Kid-Friendly'] }}" data-max="5" aria-hidden="true"></div>
+                                </div>
+                            </div>
+                        {% else %}
+                            <div class="characteristic-item" role="listitem">
+                                <div class="characteristic-header">
+                                    <h3 class="characteristic-name">Activity</h3>
+                                    <span class="characteristic-value">
+                                        {% if breed_data['Activity'] == 1 %}Very Low
+                                        {% elif breed_data['Activity'] == 2 %}Low
+                                        {% elif breed_data['Activity'] == 3 %}Medium
+                                        {% elif breed_data['Activity'] == 4 %}High
+                                        {% else %}Very High{% endif %}
+                                    </span>
+                                </div>
+                                <div class="characteristic-bar" 
+                                     role="progressbar" 
+                                     aria-valuenow="{{ breed_data['Activity'] }}" 
+                                     aria-valuemin="1" 
+                                     aria-valuemax="5"
+                                     aria-label="Activity level: {{ breed_data['Activity'] }} out of 5">
+                                    <div class="characteristic-fill" data-value="{{ breed_data['Activity'] }}" data-max="5" aria-hidden="true"></div>
+                                </div>
+                            </div>
+                            <div class="characteristic-item" role="listitem">
+                                <div class="characteristic-header">
+                                    <h3 class="characteristic-name">Sociable</h3>
+                                    <span class="characteristic-value">
+                                        {% if breed_data['Sociable'] == 1 %}Not Sociable
+                                        {% elif breed_data['Sociable'] == 2 %}Somewhat Sociable
+                                        {% elif breed_data['Sociable'] == 3 %}Moderately Sociable
+                                        {% elif breed_data['Sociable'] == 4 %}Very Sociable
+                                        {% else %}Extremely Sociable{% endif %}
+                                    </span>
+                                </div>
+                                <div class="characteristic-bar" 
+                                     role="progressbar" 
+                                     aria-valuenow="{{ breed_data['Sociable'] }}" 
+                                     aria-valuemin="1" 
+                                     aria-valuemax="5"
+                                     aria-label="Sociability level: {{ breed_data['Sociable'] }} out of 5">
+                                    <div class="characteristic-fill" data-value="{{ breed_data['Sociable'] }}" data-max="5" aria-hidden="true"></div>
+                                </div>
+                            </div>
+                            <div class="characteristic-item" role="listitem">
+                                <div class="characteristic-header">
+                                    <h3 class="characteristic-name">Talkative</h3>
+                                    <span class="characteristic-value">
+                                        {% if breed_data['Talkative'] == 1 %}Very Quiet
+                                        {% elif breed_data['Talkative'] == 2 %}Quiet
+                                        {% elif breed_data['Talkative'] == 3 %}Moderate
+                                        {% elif breed_data['Talkative'] == 4 %}Talkative
+                                        {% else %}Very Talkative{% endif %}
+                                    </span>
+                                </div>
+                                <div class="characteristic-bar" 
+                                     role="progressbar" 
+                                     aria-valuenow="{{ breed_data['Talkative'] }}" 
+                                     aria-valuemin="1" 
+                                     aria-valuemax="5"
+                                     aria-label="Talkative level: {{ breed_data['Talkative'] }} out of 5">
+                                    <div class="characteristic-fill" data-value="{{ breed_data['Talkative'] }}" data-max="5" aria-hidden="true"></div>
+                                </div>
+                            </div>
+                            <div class="characteristic-item" role="listitem">
+                                <div class="characteristic-header">
+                                    <h3 class="characteristic-name">Grooming</h3>
+                                    <span class="characteristic-value">
+                                        {% if breed_data['Grooming'] == 1 %}Minimal
+                                        {% elif breed_data['Grooming'] == 2 %}Low
+                                        {% elif breed_data['Grooming'] == 3 %}Average
+                                        {% elif breed_data['Grooming'] == 4 %}High
+                                        {% else %}Very High{% endif %}
+                                    </span>
+                                </div>
+                                <div class="characteristic-bar" 
+                                     role="progressbar" 
+                                     aria-valuenow="{{ breed_data['Grooming'] }}" 
+                                     aria-valuemin="1" 
+                                     aria-valuemax="5"
+                                     aria-label="Grooming needs: {{ breed_data['Grooming'] }} out of 5">
+                                    <div class="characteristic-fill" data-value="{{ breed_data['Grooming'] }}" data-max="5" aria-hidden="true"></div>
+                                </div>
+                            </div>
+                            <div class="characteristic-item" role="listitem">
+                                <div class="characteristic-header">
+                                    <h3 class="characteristic-name">Good with Children</h3>
+                                    <span class="characteristic-value">
+                                        {% if breed_data['Good with children'] == 1 %}Not Good
+                                        {% elif breed_data['Good with children'] == 2 %}Fair
+                                        {% elif breed_data['Good with children'] == 3 %}Good
+                                        {% elif breed_data['Good with children'] == 4 %}Very Good
+                                        {% else %}Excellent{% endif %}
+                                    </span>
+                                </div>
+                                <div class="characteristic-bar" 
+                                     role="progressbar" 
+                                     aria-valuenow="{{ breed_data['Good with children'] }}" 
+                                     aria-valuemin="1" 
+                                     aria-valuemax="5"
+                                     aria-label="Good with children level: {{ breed_data['Good with children'] }} out of 5">
+                                    <div class="characteristic-fill" data-value="{{ breed_data['Good with children'] }}" data-max="5" aria-hidden="true"></div>
+                                </div>
+                            </div>
+                        {% endif %}
+                    </div>
+                </div>
+            </div>
+        </div>
+        
+        <!-- Breed Description Section -->
+        <section class="breed-description-section" aria-labelledby="description-title">
+            <div class="description-container">
+                <h2 id="description-title" class="description-title">About the {{ breed_name }}</h2>
+                <div class="description-content">
+                    {{ description|safe }}
+                </div>
+            </div>
+        </section>
+        
+        <!-- Action Buttons -->
+        <nav class="breed-actions" role="navigation" aria-label="Page navigation">
+            <a href="{{ url_for('results') }}" class="btn btn-secondary" aria-label="Return to breed compatibility results">Back to Results</a>
+            <a href="{{ url_for('index') }}" class="btn btn-primary" aria-label="Start a new pet compatibility quiz">Find Another Pet</a>
+        </nav>
+    </div>
+</div>
+{% endblock %}
+
+{% block additional_scripts %}
+<script>
+    document.addEventListener('DOMContentLoaded', function() {
+        const mainImage = document.getElementById('main-breed-image');
+        const thumbnails = document.querySelectorAll('.thumbnail-item');
+        
+        // Set width for characteristic bars
+        const characteristicFills = document.querySelectorAll('.characteristic-fill');
+        characteristicFills.forEach(fill => {
+            const value = parseInt(fill.dataset.value);
+            const max = parseInt(fill.dataset.max);
+            const percentage = (value / max) * 100;
+            fill.style.width = percentage + '%';
+        });
+        
+        // Add click and keyboard event to each thumbnail
+        thumbnails.forEach((thumbnail, index) => {
+            thumbnail.addEventListener('click', function() {
+                selectThumbnail(this, index);
+            });
+            
+            thumbnail.addEventListener('keydown', function(e) {
+                handleThumbnailKeydown(e, index);
+            });
+        });
+        
+        function selectThumbnail(thumbnail, index) {
+            const imageUrl = thumbnail.dataset.image;
+            mainImage.src = imageUrl;
+            
+            // Update ARIA attributes and active states
+            thumbnails.forEach((t, i) => {
+                t.classList.remove('active');
+                t.setAttribute('aria-selected', 'false');
+                t.setAttribute('tabindex', '-1');
+            });
+            
+            thumbnail.classList.add('active');
+            thumbnail.setAttribute('aria-selected', 'true');
+            thumbnail.setAttribute('tabindex', '0');
+            
+            // Announce change to screen readers
+            const announcement = document.createElement('div');
+            announcement.setAttribute('aria-live', 'polite');
+            announcement.setAttribute('aria-atomic', 'true');
+            announcement.className = 'sr-only';
+            announcement.textContent = `Now viewing photo ${index + 1} of ${thumbnails.length}`;
+            document.body.appendChild(announcement);
+            setTimeout(() => document.body.removeChild(announcement), 1000);
+        }
+        
+        function handleThumbnailKeydown(e, currentIndex) {
+            let newIndex = currentIndex;
+            
+            switch(e.key) {
+                case 'ArrowLeft':
+                    e.preventDefault();
+                    newIndex = currentIndex > 0 ? currentIndex - 1 : thumbnails.length - 1;
+                    break;
+                case 'ArrowRight':
+                    e.preventDefault();
+                    newIndex = currentIndex < thumbnails.length - 1 ? currentIndex + 1 : 0;
+                    break;
+                case 'Home':
+                    e.preventDefault();
+                    newIndex = 0;
+                    break;
+                case 'End':
+                    e.preventDefault();
+                    newIndex = thumbnails.length - 1;
+                    break;
+                case 'Enter':
+                case ' ':
+                    e.preventDefault();
+                    selectThumbnail(thumbnails[currentIndex], currentIndex);
+                    return;
+                default:
+                    return;
+            }
+            
+            // Focus and select new thumbnail
+            thumbnails[newIndex].focus();
+            selectThumbnail(thumbnails[newIndex], newIndex);
+        }
+        
+        // Set first thumbnail as active by default
+        if (thumbnails.length > 0) {
+            selectThumbnail(thumbnails[0], 0);
+        }
+    });
+</script>
+{% endblock %}

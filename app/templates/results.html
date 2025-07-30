@@ -1,0 +1,118 @@
+{% extends "layout.html" %}
+
+{% block extra_css %}
+<link rel="stylesheet" href="{{ url_for('static', filename='css/results.css') }}">
+<link rel="stylesheet" href="{{ url_for('static', filename='css/modal.css') }}">
+{% endblock %}
+
+{% block content %}
+<main class="results-main">
+    <div class="container">
+        <section class="results-hero" aria-labelledby="results-title">
+            <h1 id="results-title" class="results-title">Your {{ pet_type.capitalize() }} Breed Matches</h1>
+            <p class="results-subtitle">Based on your responses, we've found the following breeds that best match your
+                preferences and lifestyle.</p>
+        </section>
+
+        <section class="results-content" aria-labelledby="results-content-title">
+            <h2 id="results-content-title" class="sr-only">Breed compatibility results</h2>
+            <div class="breeds-grid" role="list"
+                aria-label="Breed compatibility results, sorted by compatibility score">
+                {% set all_breeds = (high_match + medium_match + low_match)[:9] %}
+                {% for breed in all_breeds %}
+                <article class="breed-card" data-breed="{{ breed.name }}" data-pet-type="{{ pet_type }}"
+                    data-score="{{ breed.score|round|int }}" role="listitem button" tabindex="0"
+                    aria-label="View details for {{ breed.name }}, {{ breed.score|round|int }}% compatibility, {{ 'Excellent Match' if breed in high_match else 'Good Match' if breed in medium_match else 'Fair Match' }}"
+                    aria-describedby="breed-{{ loop.index }}-desc">
+                    <div class="breed-card-inner">
+                        <div class="compatibility-badge compatibility-{{ 'high' if breed in high_match else 'medium' if breed in medium_match else 'low' }}"
+                            role="img" aria-label="Compatibility score: {{ breed.score|round|int }}%">
+                            <span class="compatibility-percentage" aria-hidden="true">{{ breed.score|round|int
+                                }}%</span>
+                        </div>
+
+                        <div class="breed-image-container">
+                            <img src="{{ breed.image }}" alt="{{ breed.name }} breed photo" class="breed-image"
+                                loading="lazy">
+                            <div class="breed-image-overlay" aria-hidden="true"></div>
+                        </div>
+
+                        <div class="breed-info">
+                            <h3 class="breed-name">{{ breed.name }}</h3>
+                            <div class="compatibility-indicator">
+                                <div class="compatibility-bar" role="progressbar"
+                                    aria-valuenow="{{ breed.score|round|int }}" aria-valuemin="0" aria-valuemax="100"
+                                    aria-label="Compatibility score">
+                                    <div class="compatibility-fill compatibility-{{ 'high' if breed in high_match else 'medium' if breed in medium_match else 'low' }}"
+                                        data-score="{{ breed.score|round|int }}" aria-hidden="true"></div>
+                                </div>
+                                <span class="compatibility-label">{{ 'Excellent Match' if breed in high_match else 'Good
+                                    Match' if breed in medium_match else 'Fair Match' }}</span>
+                            </div>
+                        </div>
+                    </div>
+                    <span id="breed-{{ loop.index }}-desc" class="sr-only">
+                        Press Enter or Space to view detailed information about {{ breed.name }}
+                    </span>
+                </article>
+                {% endfor %}
+            </div>
+
+            <div class="results-legend" role="region" aria-labelledby="legend-title">
+                <h3 id="legend-title" class="legend-title">Compatibility Guide</h3>
+                <div class="legend-items" role="list" aria-label="Compatibility score ranges">
+                    <div class="legend-item" role="listitem">
+                        <div class="legend-indicator compatibility-high" role="img"
+                            aria-label="High compatibility color indicator"></div>
+                        <span class="legend-text">Excellent Match (80%+)</span>
+                    </div>
+                    <div class="legend-item" role="listitem">
+                        <div class="legend-indicator compatibility-medium" role="img"
+                            aria-label="Medium compatibility color indicator"></div>
+                        <span class="legend-text">Good Match (60-79%)</span>
+                    </div>
+                    <div class="legend-item" role="listitem">
+                        <div class="legend-indicator compatibility-low" role="img"
+                            aria-label="Low compatibility color indicator"></div>
+                        <span class="legend-text">Fair Match (Below 60%)</span>
+                    </div>
+                </div>
+            </div>
+
+            <div class="results-actions" role="region" aria-labelledby="actions-title">
+                <h3 id="actions-title" class="sr-only">Available actions</h3>
+                <div class="btn-group" role="group" aria-label="Results page actions">
+                    <a href="{{ url_for('quiz', pet_type=pet_type) }}" class="btn btn-primary btn-lg"
+                        aria-label="Retake the {{ pet_type }} compatibility quiz">Take Quiz Again</a>
+                    <a href="{{ url_for('index') }}" class="btn btn-secondary btn-lg"
+                        aria-label="Return to PETential homepage">Back to Home</a>
+                </div>
+            </div>
+        </section>
+    </div>
+</main>
+
+<!-- Modal will be created dynamically by modal.js -->
+{% endblock %}
+
+{% block additional_scripts %}
+<script src="{{ url_for('static', filename='js/modal.js') }}"></script>
+<script>
+    document.addEventListener('DOMContentLoaded', function () {
+        // Sort breed cards by compatibility score
+        const breedsGrid = document.querySelector('.breeds-grid');
+        const breedCards = Array.from(document.querySelectorAll('.breed-card'));
+
+        // Sort from highest to lowest score
+        breedCards.sort((a, b) => {
+            return parseInt(b.dataset.score) - parseInt(a.dataset.score);
+        });
+
+        // Clear grid and add sorted cards
+        breedsGrid.innerHTML = '';
+        breedCards.forEach(card => {
+            breedsGrid.appendChild(card);
+        });
+    });
+</script>
+{% endblock %}

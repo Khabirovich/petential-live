@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>PETential - Simple Test</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: linear-gradient(135deg, #c1fd3a, #d4fe77);
+            margin: 0;
+            padding: 40px 20px;
+            min-height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+        }
+        .container {
+            background: white;
+            padding: 40px;
+            border-radius: 20px;
+            box-shadow: 0 10px 30px rgba(0,0,0,0.1);
+            text-align: center;
+            max-width: 600px;
+        }
+        h1 {
+            color: #080516;
+            margin-bottom: 20px;
+            font-size: 2.5em;
+        }
+        p {
+            color: #666;
+            font-size: 1.2em;
+            margin-bottom: 30px;
+        }
+        .btn {
+            background: #c1fd3a;
+            color: #080516;
+            padding: 15px 30px;
+            border: 2px solid #080516;
+            border-radius: 10px;
+            font-weight: bold;
+            text-decoration: none;
+            display: inline-block;
+            transition: all 0.3s;
+            box-shadow: 4px 4px 0 #080516;
+        }
+        .btn:hover {
+            transform: translateY(-2px);
+            box-shadow: 6px 6px 0 #080516;
+        }
+    </style>
+</head>
+<body>
+    <div class="container">
+        <h1>🐕 PETential 🐱</h1>
+        <p>Find your perfect pet match!</p>
+        <p>This is a simplified version to test if Flask is working.</p>
+        <a href="/quiz/dog" class="btn">Start Dog Quiz</a>
+        <a href="/quiz/cat" class="btn">Start Cat Quiz</a>
+        <br><br>
+        <a href="/test">Full Test Page</a> | 
+        <a href="/health">Health Check</a>
+    </div>
+</body>
+</html>

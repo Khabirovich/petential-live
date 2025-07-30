@@ -1,0 +1,313 @@
+{% extends "layout.html" %}
+
+{% block title %}Feedback - PETential{% endblock %}
+
+{% block content %}
+<div class="feedback-wrapper">
+    <div class="feedback-container">
+        <div class="form-container">
+            <div class="form-header">
+                <h1 class="form-title">Share Your Feedback</h1>
+                <p class="form-description">Help us improve PETential by sharing your experience and suggestions. Your feedback is valuable to us!</p>
+            </div>
+            
+            <form id="feedback-form" class="feedback-form" method="POST" action="/submit-feedback">
+                <!-- Personal Information -->
+                <div class="form-section">
+                    <div class="form-row">
+                        <div class="form-group">
+                            <label for="feedback-name" class="form-label">Name</label>
+                            <input type="text" id="feedback-name" name="name" class="form-input" placeholder="Your name (optional)">
+                        </div>
+                        
+                        <div class="form-group">
+                            <label for="feedback-email" class="form-label">Email</label>
+                            <input type="email" id="feedback-email" name="email" class="form-input" placeholder="your.email@example.com (optional)">
+                            <span class="form-help">We'll only use this to follow up if needed</span>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Feedback Type -->
+                <div class="form-section">
+                    <div class="form-group">
+                        <label for="feedback-type" class="form-label required">Feedback Type</label>
+                        <select id="feedback-type" name="feedback_type" class="form-select" required>
+                            <option value="">Select feedback type</option>
+                            <option value="general">General Feedback</option>
+                            <option value="quiz">Quiz Experience</option>
+                            <option value="results">Results & Recommendations</option>
+                            <option value="bug">Bug Report</option>
+                            <option value="feature">Feature Request</option>
+                            <option value="other">Other</option>
+                        </select>
+                    </div>
+                </div>
+                
+                <!-- Rating -->
+                <div class="form-section">
+                    <div class="form-group">
+                        <label class="form-label">Overall Experience</label>
+                        
+                        <div class="form-radio">
+                            <input type="radio" id="rating-excellent" name="rating" class="form-radio-input" value="excellent">
+                            <div class="form-radio-indicator"></div>
+                            <label for="rating-excellent" class="form-radio-label">⭐⭐⭐⭐⭐ Excellent</label>
+                        </div>
+                        
+                        <div class="form-radio">
+                            <input type="radio" id="rating-good" name="rating" class="form-radio-input" value="good">
+                            <div class="form-radio-indicator"></div>
+                            <label for="rating-good" class="form-radio-label">⭐⭐⭐⭐ Good</label>
+                        </div>
+                        
+                        <div class="form-radio">
+                            <input type="radio" id="rating-average" name="rating" class="form-radio-input" value="average">
+                            <div class="form-radio-indicator"></div>
+                            <label for="rating-average" class="form-radio-label">⭐⭐⭐ Average</label>
+                        </div>
+                        
+                        <div class="form-radio">
+                            <input type="radio" id="rating-poor" name="rating" class="form-radio-input" value="poor">
+                            <div class="form-radio-indicator"></div>
+                            <label for="rating-poor" class="form-radio-label">⭐⭐ Poor</label>
+                        </div>
+                        
+                        <div class="form-radio">
+                            <input type="radio" id="rating-terrible" name="rating" class="form-radio-input" value="terrible">
+                            <div class="form-radio-indicator"></div>
+                            <label for="rating-terrible" class="form-radio-label">⭐ Terrible</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Features Used -->
+                <div class="form-section">
+                    <div class="form-group">
+                        <label class="form-label">Which features did you use? (Select all that apply)</label>
+                        
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="feature-dog-quiz" name="features_used" class="form-checkbox-input" value="dog_quiz">
+                            <div class="form-checkbox-indicator"></div>
+                            <label for="feature-dog-quiz" class="form-checkbox-label">Dog Compatibility Quiz</label>
+                        </div>
+                        
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="feature-cat-quiz" name="features_used" class="form-checkbox-input" value="cat_quiz">
+                            <div class="form-checkbox-indicator"></div>
+                            <label for="feature-cat-quiz" class="form-checkbox-label">Cat Compatibility Quiz</label>
+                        </div>
+                        
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="feature-breed-details" name="features_used" class="form-checkbox-input" value="breed_details">
+                            <div class="form-checkbox-indicator"></div>
+                            <label for="feature-breed-details" class="form-checkbox-label">Breed Detail Pages</label>
+                        </div>
+                        
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="feature-results" name="features_used" class="form-checkbox-input" value="results">
+                            <div class="form-checkbox-indicator"></div>
+                            <label for="feature-results" class="form-checkbox-label">Results & Recommendations</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Detailed Feedback -->
+                <div class="form-section">
+                    <div class="form-group">
+                        <label for="feedback-message" class="form-label required">Your Feedback</label>
+                        <textarea id="feedback-message" name="message" class="form-input form-textarea" placeholder="Please share your detailed feedback, suggestions, or report any issues you encountered..." required maxlength="1000"></textarea>
+                        <span class="form-help">Be as specific as possible to help us improve</span>
+                    </div>
+                </div>
+                
+                <!-- Additional Information -->
+                <div class="form-section">
+                    <div class="form-group">
+                        <label for="feedback-suggestions" class="form-label">Suggestions for Improvement</label>
+                        <textarea id="feedback-suggestions" name="suggestions" class="form-input form-textarea" placeholder="What features would you like to see added? How can we make PETential better?" maxlength="500"></textarea>
+                    </div>
+                </div>
+                
+                <!-- Contact Preferences -->
+                <div class="form-section">
+                    <div class="form-group">
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="follow-up" name="allow_follow_up" class="form-checkbox-input" value="yes">
+                            <div class="form-checkbox-indicator"></div>
+                            <label for="follow-up" class="form-checkbox-label">I'm okay with being contacted for follow-up questions</label>
+                        </div>
+                        
+                        <div class="form-checkbox">
+                            <input type="checkbox" id="newsletter" name="newsletter_signup" class="form-checkbox-input" value="yes">
+                            <div class="form-checkbox-indicator"></div>
+                            <label for="newsletter" class="form-checkbox-label">Send me updates about new features and pet care tips</label>
+                        </div>
+                    </div>
+                </div>
+                
+                <!-- Form Actions -->
+                <div class="form-actions">
+                    <a href="{{ url_for('index') }}" class="btn btn-secondary">Cancel</a>
+                    <button type="submit" class="btn btn-primary">Submit Feedback</button>
+                </div>
+            </form>
+        </div>
+    </div>
+</div>
+
+<style>
+.feedback-wrapper {
+    min-height: calc(100vh - 200px);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    padding: var(--spacing-2xl) 0;
+    background: linear-gradient(135deg, var(--background-color) 0%, var(--background-secondary) 100%);
+}
+
+.feedback-container {
+    width: 100%;
+    max-width: 800px;
+    margin: 0 auto;
+    padding: 0 var(--container-padding-desktop);
+}
+
+.feedback-form {
+    background: var(--background-color);
+    border-radius: var(--radius-xl);
+    box-shadow: var(--shadow-card);
+    padding: var(--spacing-4xl);
+    border: 1px solid var(--token-1b7aa9b7-b59c-4baa-b39a-c5a63ee10b97);
+}
+
+/* Responsive Design */
+@media (min-width: 810px) and (max-width: 1199px) {
+    .feedback-container {
+        padding: 0 var(--container-padding-tablet);
+    }
+    
+    .feedback-form {
+        padding: var(--spacing-3xl);
+    }
+}
+
+@media (max-width: 809px) {
+    .feedback-wrapper {
+        padding: var(--spacing-lg) 0;
+    }
+    
+    .feedback-container {
+        padding: 0 var(--container-padding-mobile);
+    }
+    
+    .feedback-form {
+        padding: var(--spacing-2xl);
+        border-radius: var(--radius-lg);
+    }
+}
+</style>
+
+<script>
+document.addEventListener('DOMContentLoaded', function() {
+    const form = document.getElementById('feedback-form');
+    const handler = new FormHandler();
+    
+    // Handle form submission
+    form.addEventListener('submit', function(e) {
+        e.preventDefault();
+        
+        // Validate form first
+        if (!handler.validateForm(form)) {
+            const errors = [];
+            const invalidFields = form.querySelectorAll('[aria-invalid="true"]');
+            invalidFields.forEach(field => {
+                const label = form.querySelector(`label[for="${field.id}"]`);
+                if (label) {
+                    errors.push(`${label.textContent.replace('*', '').trim()} is required or invalid`);
+                }
+            });
+            
+            if (errors.length > 0) {
+                handler.showFormErrors(form, errors);
+                return;
+            }
+        }
+        
+        // Show loading state
+        handler.showFormLoading(form);
+        
+        // Get form data
+        const formData = new FormData(form);
+        const data = Object.fromEntries(formData.entries());
+        
+        // Get multiple checkbox values
+        const featuresUsed = formData.getAll('features_used');
+        data.features_used = featuresUsed;
+        
+        // Simulate API call
+        setTimeout(() => {
+            // Hide loading state
+            handler.hideFormLoading(form);
+            
+            // Show success message
+            handler.showFormSuccess(form, 'Thank you for your feedback! We appreciate your input and will use it to improve PETential.');
+            
+            // Reset form after showing success
+            setTimeout(() => {
+                form.reset();
+                
+                // Clear validation states
+                const formGroups = form.querySelectorAll('.form-group');
+                formGroups.forEach(group => {
+                    group.classList.remove('success', 'error', 'warning');
+                    const messages = group.querySelectorAll('.form-success-message, .form-error-message, .form-warning-message');
+                    messages.forEach(message => message.remove());
+                });
+                
+                // Remove success container
+                const successContainer = form.querySelector('.form-success-container');
+                if (successContainer) {
+                    successContainer.remove();
+                }
+                
+                // Redirect to home page
+                setTimeout(() => {
+                    window.location.href = '{{ url_for("index") }}';
+                }, 1000);
+            }, 3000);
+            
+        }, 2000);
+    });
+    
+    // Dynamic form behavior based on feedback type
+    const feedbackTypeSelect = document.getElementById('feedback-type');
+    const messageTextarea = document.getElementById('feedback-message');
+    
+    feedbackTypeSelect.addEventListener('change', function() {
+        const selectedType = this.value;
+        let placeholder = 'Please share your detailed feedback, suggestions, or report any issues you encountered...';
+        
+        switch(selectedType) {
+            case 'quiz':
+                placeholder = 'Tell us about your quiz experience. Was it easy to understand? Were the questions relevant? Did you get helpful results?';
+                break;
+            case 'results':
+                placeholder = 'How were the breed recommendations? Were they accurate? Did the breed information help you make a decision?';
+                break;
+            case 'bug':
+                placeholder = 'Please describe the bug you encountered. Include steps to reproduce it and what you expected to happen.';
+                break;
+            case 'feature':
+                placeholder = 'What new feature would you like to see? How would it improve your experience with PETential?';
+                break;
+            case 'general':
+                placeholder = 'Share your overall thoughts about PETential. What do you like? What could be improved?';
+                break;
+        }
+        
+        messageTextarea.placeholder = placeholder;
+    });
+});
+</script>
+{% endblock %}

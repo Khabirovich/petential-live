@@ -1,0 +1,88 @@
+[
+    {
+        "question": "How active of a cat are you looking for?",
+        "characteristic": "activity",
+        "answers": ["Very relaxed", "Somewhat relaxed", "Average", "Somewhat active", "Very active"]
+    },
+    {
+        "question": "How much grooming are you willing to do?",
+        "characteristic": "grooming",
+        "answers": ["Minimal", "Some", "Average", "Significant", "Extensive"]
+    },
+    {
+        "question": "How active a cat do you want?",
+        "answers": {
+            "No matter": 2,
+            "I like calm cats": 1,
+            "I want a playful and curious cat": 3,
+            "I want an active and inquisitive cat": 4
+        },
+        "characteristic": "Activity"
+    },
+    {
+        "question": "How sociable your cat should be",
+        "answers": {
+            "No matter": 2,
+            "Sociable and loyal": 4,
+            "Friendly yet independent": 3,
+            "Independent": 1
+        },
+        "characteristic": "Sociable"
+    },
+    {
+        "question": "What do you think about 'talkative' cats?",
+        "answers": {
+            "No matter": 2,
+            "I want a quiet cat": 1,
+            "I want a cat that loves to socialize": 3,
+            "I want a cat that loves to communicate": 4
+        },
+        "characteristic": "Talkative"
+    },
+    {
+        "question": "Which body type do you like cats the most?",
+        "answers": {
+            "No matter": 2,
+            "I prefer slender and elegant breeds": 1,
+            "I prefer cats of medium build": 3,
+            "I prefer large breeds": 4
+        },
+        "characteristic": "Size"
+    },
+    {
+        "question": "How much time are you willing to devote to grooming your cat's coat?",
+        "answers": {
+            "No matter": 2,
+            "Daily": 4,
+            "Once a week": 3
+        },
+        "characteristic": "Grooming"
+    },
+    {
+        "question": "Does anyone in your family have an allergy to cats?",
+        "answers": {
+            "Yes": 1,
+            "No": 4
+        },
+        "characteristic": "Allergy"
+    },
+    {
+        "question": "What conditions will your cat live in?",
+        "answers": {
+            "No matter": 2,
+            "Indoors only": 4,
+            "Limited access to the street": 3,
+            "Free access to the street": 1
+        },
+        "characteristic": "Home conditions"
+    },
+    {
+        "question": "Are you looking for a cat that gets along with children?",
+        "answers": {
+            "No matter": 2,
+            "Yes": 4,
+            "No": 1
+        },
+        "characteristic": "Good with children"
+    }
+]

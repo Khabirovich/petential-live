@@ -1,0 +1,786 @@
+/* Cross-Browser Compatibility CSS - Framer Design System */
+/* This file contains vendor prefixes, fallbacks, and browser-specific fixes */
+
+/* =============================================================================
+   CSS CUSTOM PROPERTIES FALLBACKS
+   ============================================================================= */
+
+/* Fallback values for older browsers that don't support CSS custom properties */
+:root {
+    /* Fallback colors for IE11 and older browsers */
+    --primary-brand-fallback: #667eea;
+    --secondary-brand-fallback: #764ba2;
+    --text-color-fallback: #262626;
+    --background-color-fallback: #ffffff;
+    --border-color-fallback: rgba(87, 87, 87, 0.04);
+}
+
+/* =============================================================================
+   FLEXBOX COMPATIBILITY
+   ============================================================================= */
+
+/* Flexbox with vendor prefixes for older browsers */
+.nav-container,
+.nav-menu,
+.quiz-navigation,
+.btn-group,
+.form-actions,
+.modal-header,
+.breed-actions,
+.answer-options,
+.steps,
+.pet-selection {
+    display: -webkit-box;      /* OLD - iOS 6-, Safari 3.1-6 */
+    display: -moz-box;         /* OLD - Firefox 19- (buggy but mostly works) */
+    display: -ms-flexbox;      /* TWEENER - IE 10 */
+    display: -webkit-flex;     /* NEW - Chrome */
+    display: flex;             /* NEW, Spec - Opera 12.1, Firefox 20+ */
+}
+
+/* Flex direction with vendor prefixes */
+.nav-mobile-menu,
+.quiz-container,
+.question-content,
+.modal-content,
+.breed-main-content {
+    -webkit-flex-direction: column;
+    -moz-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+/* Justify content with vendor prefixes */
+.nav-container,
+.quiz-navigation,
+.form-actions,
+.breed-actions {
+    -webkit-justify-content: center;
+    -moz-justify-content: center;
+    -ms-justify-content: center;
+    justify-content: center;
+}
+
+.nav-container {
+    -webkit-justify-content: space-between;
+    -moz-justify-content: space-between;
+    -ms-justify-content: space-between;
+    justify-content: space-between;
+}
+
+/* Align items with vendor prefixes */
+.nav-container,
+.nav-menu,
+.quiz-navigation,
+.form-actions,
+.modal-header,
+.breed-actions {
+    -webkit-align-items: center;
+    -moz-align-items: center;
+    -ms-align-items: center;
+    align-items: center;
+}
+
+/* Flex grow/shrink with vendor prefixes */
+.modal-body,
+.breed-info {
+    -webkit-flex-grow: 1;
+    -moz-flex-grow: 1;
+    -ms-flex-positive: 1;
+    flex-grow: 1;
+}
+
+/* =============================================================================
+   CSS GRID COMPATIBILITY
+   ============================================================================= */
+
+/* CSS Grid with vendor prefixes and fallbacks */
+.answer-options,
+.breeds-grid,
+.characteristics-grid,
+.modal-characteristics-grid {
+    display: -ms-grid;
+    display: grid;
+}
+
+/* Grid template columns with vendor prefixes */
+.answer-options {
+    -ms-grid-columns: 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(200px, 1fr));
+}
+
+.breeds-grid {
+    -ms-grid-columns: 1fr 1fr 1fr;
+    grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+}
+
+/* Grid gap with vendor prefixes */
+.answer-options,
+.breeds-grid,
+.characteristics-grid {
+    -ms-grid-column-gap: 20px;
+    -ms-grid-row-gap: 20px;
+    grid-gap: 20px;
+    gap: 20px;
+}
+
+/* Fallback for browsers without grid support */
+@supports not (display: grid) {
+    .answer-options {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        -moz-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+    
+    .answer-options .answer-card {
+        -webkit-flex: 1 1 200px;
+        -moz-flex: 1 1 200px;
+        -ms-flex: 1 1 200px;
+        flex: 1 1 200px;
+        margin: 10px;
+    }
+    
+    .breeds-grid {
+        display: -webkit-box;
+        display: -moz-box;
+        display: -ms-flexbox;
+        display: -webkit-flex;
+        display: flex;
+        -webkit-flex-wrap: wrap;
+        -moz-flex-wrap: wrap;
+        -ms-flex-wrap: wrap;
+        flex-wrap: wrap;
+    }
+    
+    .breeds-grid .breed-card {
+        -webkit-flex: 1 1 320px;
+        -moz-flex: 1 1 320px;
+        -ms-flex: 1 1 320px;
+        flex: 1 1 320px;
+        margin: 10px;
+    }
+}
+
+/* =============================================================================
+   TRANSFORM AND TRANSITION COMPATIBILITY
+   ============================================================================= */
+
+/* Transform with vendor prefixes */
+.pet-option:hover,
+.step:hover,
+.breed-card:hover,
+.btn:hover,
+.nav-logo:hover {
+    -webkit-transform: translateY(-2px) scale(1.02);
+    -moz-transform: translateY(-2px) scale(1.02);
+    -ms-transform: translateY(-2px) scale(1.02);
+    -o-transform: translateY(-2px) scale(1.02);
+    transform: translateY(-2px) scale(1.02);
+}
+
+.btn:active,
+.breed-card:active {
+    -webkit-transform: translateY(-1px);
+    -moz-transform: translateY(-1px);
+    -ms-transform: translateY(-1px);
+    -o-transform: translateY(-1px);
+    transform: translateY(-1px);
+}
+
+/* Transition with vendor prefixes */
+.pet-option,
+.step,
+.breed-card,
+.btn,
+.nav-logo,
+.nav-link,
+.nav-cta,
+.form-input,
+.form-select,
+.answer-label,
+.modal-container,
+.modal-backdrop {
+    -webkit-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    -moz-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    -ms-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    -o-transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+}
+
+/* =============================================================================
+   BORDER RADIUS COMPATIBILITY
+   ============================================================================= */
+
+/* Border radius with vendor prefixes */
+.pet-option,
+.step,
+.breed-card,
+.btn,
+.question-card,
+.answer-label,
+.modal-content,
+.form-input,
+.form-select,
+.gallery-container,
+.characteristics-container,
+.description-container {
+    -webkit-border-radius: 12px;
+    -moz-border-radius: 12px;
+    border-radius: 12px;
+}
+
+.main-image-container,
+.breed-image-container,
+.modal-breed-image {
+    -webkit-border-radius: 18px;
+    -moz-border-radius: 18px;
+    border-radius: 18px;
+}
+
+.thumbnail-item,
+.modal-thumbnail-item {
+    -webkit-border-radius: 8px;
+    -moz-border-radius: 8px;
+    border-radius: 8px;
+}
+
+/* =============================================================================
+   BOX SHADOW COMPATIBILITY
+   ============================================================================= */
+
+/* Box shadow with vendor prefixes */
+.pet-option,
+.step,
+.breed-card,
+.btn,
+.question-card,
+.modal-content,
+.form-input:focus,
+.gallery-container,
+.characteristics-container,
+.description-container {
+    -webkit-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    -moz-box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+    box-shadow: 0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+.btn:hover,
+.breed-card:hover {
+    -webkit-box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    -moz-box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+    box-shadow: 0 8px 24px rgba(0, 0, 0, 0.15);
+}
+
+/* =============================================================================
+   GRADIENT COMPATIBILITY
+   ============================================================================= */
+
+/* Linear gradient with vendor prefixes */
+.btn,
+.btn-primary,
+.navbar,
+.nav-mobile-menu,
+.progress-bar,
+.characteristic-fill,
+.compatibility-fill {
+    background: -webkit-linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: -moz-linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: -ms-linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: -o-linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+    background: linear-gradient(135deg, #667eea 0%, #764ba2 100%);
+}
+
+/* Fallback solid colors for browsers without gradient support */
+.btn,
+.btn-primary {
+    background-color: #667eea; /* Fallback */
+}
+
+.navbar,
+.nav-mobile-menu {
+    background-color: #667eea; /* Fallback */
+}
+
+/* =============================================================================
+   BACKDROP FILTER COMPATIBILITY
+   ============================================================================= */
+
+/* Backdrop filter with vendor prefixes */
+.navbar,
+.modal-backdrop {
+    -webkit-backdrop-filter: blur(10px);
+    backdrop-filter: blur(10px);
+}
+
+/* Fallback for browsers without backdrop-filter support */
+@supports not (backdrop-filter: blur(10px)) {
+    .navbar {
+        background: rgba(102, 126, 234, 0.95);
+    }
+    
+    .modal-backdrop {
+        background: rgba(0, 0, 0, 0.8);
+    }
+}
+
+/* =============================================================================
+   ANIMATION COMPATIBILITY
+   ============================================================================= */
+
+/* Animation with vendor prefixes */
+@-webkit-keyframes spin {
+    0% { -webkit-transform: rotate(0deg); }
+    100% { -webkit-transform: rotate(360deg); }
+}
+
+@-moz-keyframes spin {
+    0% { -moz-transform: rotate(0deg); }
+    100% { -moz-transform: rotate(360deg); }
+}
+
+@-ms-keyframes spin {
+    0% { -ms-transform: rotate(0deg); }
+    100% { -ms-transform: rotate(360deg); }
+}
+
+@-o-keyframes spin {
+    0% { -o-transform: rotate(0deg); }
+    100% { -o-transform: rotate(360deg); }
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.loading-spinner,
+.modal-loading-spinner,
+.btn-loading::after {
+    -webkit-animation: spin 1s linear infinite;
+    -moz-animation: spin 1s linear infinite;
+    -ms-animation: spin 1s linear infinite;
+    -o-animation: spin 1s linear infinite;
+    animation: spin 1s linear infinite;
+}
+
+/* Shimmer animation with vendor prefixes */
+@-webkit-keyframes shimmer {
+    0% { -webkit-transform: translateX(-100%); }
+    100% { -webkit-transform: translateX(100%); }
+}
+
+@-moz-keyframes shimmer {
+    0% { -moz-transform: translateX(-100%); }
+    100% { -moz-transform: translateX(100%); }
+}
+
+@-ms-keyframes shimmer {
+    0% { -ms-transform: translateX(-100%); }
+    100% { -ms-transform: translateX(100%); }
+}
+
+@keyframes shimmer {
+    0% { transform: translateX(-100%); }
+    100% { transform: translateX(100%); }
+}
+
+.progress-bar::after,
+.characteristic-fill::after,
+.compatibility-fill::after {
+    -webkit-animation: shimmer 2s infinite;
+    -moz-animation: shimmer 2s infinite;
+    -ms-animation: shimmer 2s infinite;
+    animation: shimmer 2s infinite;
+}
+
+/* =============================================================================
+   APPEARANCE AND USER-SELECT COMPATIBILITY
+   ============================================================================= */
+
+/* Appearance with vendor prefixes */
+.form-input,
+.form-select,
+.form-search-input,
+.btn {
+    -webkit-appearance: none;
+    -moz-appearance: none;
+    -ms-appearance: none;
+    appearance: none;
+}
+
+/* User select with vendor prefixes */
+.btn,
+.nav-logo,
+.modal-close,
+.breed-card {
+    -webkit-user-select: none;
+    -moz-user-select: none;
+    -ms-user-select: none;
+    user-select: none;
+}
+
+/* =============================================================================
+   SCROLLBAR STYLING COMPATIBILITY
+   ============================================================================= */
+
+/* Webkit scrollbar styling */
+.modal-body::-webkit-scrollbar,
+.thumbnail-gallery::-webkit-scrollbar {
+    width: 6px;
+    height: 4px;
+}
+
+.modal-body::-webkit-scrollbar-track,
+.thumbnail-gallery::-webkit-scrollbar-track {
+    background: transparent;
+}
+
+.modal-body::-webkit-scrollbar-thumb,
+.thumbnail-gallery::-webkit-scrollbar-thumb {
+    background: rgba(89, 94, 102, 0.15);
+    border-radius: 3px;
+}
+
+.modal-body::-webkit-scrollbar-thumb:hover,
+.thumbnail-gallery::-webkit-scrollbar-thumb:hover {
+    background: rgba(87, 87, 87, 0.3);
+}
+
+/* Firefox scrollbar styling */
+.modal-body,
+.thumbnail-gallery {
+    scrollbar-width: thin;
+    scrollbar-color: rgba(89, 94, 102, 0.15) transparent;
+}
+
+/* =============================================================================
+   OBJECT-FIT COMPATIBILITY
+   ============================================================================= */
+
+/* Object-fit with fallback for IE */
+.breed-image,
+.main-breed-image,
+.thumbnail-image,
+.modal-breed-image,
+.modal-main-image,
+.modal-thumbnail-image {
+    object-fit: cover;
+    object-position: center;
+    /* Fallback for IE */
+    font-family: 'object-fit: cover; object-position: center;';
+}
+
+/* IE11 object-fit polyfill support */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    .breed-image,
+    .main-breed-image,
+    .thumbnail-image,
+    .modal-breed-image,
+    .modal-main-image,
+    .modal-thumbnail-image {
+        width: 100%;
+        height: 100%;
+    }
+}
+
+/* =============================================================================
+   POSITION STICKY COMPATIBILITY
+   ============================================================================= */
+
+/* Position sticky with vendor prefixes */
+.navbar {
+    position: -webkit-sticky;
+    position: sticky;
+    top: 0;
+}
+
+/* Fallback for browsers without sticky support */
+@supports not (position: sticky) {
+    .navbar {
+        position: fixed;
+        top: 0;
+        left: 0;
+        right: 0;
+        z-index: 1000;
+    }
+    
+    body {
+        padding-top: 80px; /* Adjust based on navbar height */
+    }
+}
+
+/* =============================================================================
+   CALC() COMPATIBILITY
+   ============================================================================= */
+
+/* Calc with vendor prefixes */
+.quiz-wrapper,
+.results-main,
+.breed-details-wrapper {
+    min-height: -webkit-calc(100vh - 200px);
+    min-height: -moz-calc(100vh - 200px);
+    min-height: calc(100vh - 200px);
+}
+
+/* =============================================================================
+   BROWSER-SPECIFIC FIXES
+   ============================================================================= */
+
+/* Internet Explorer 11 fixes */
+@media screen and (-ms-high-contrast: active), (-ms-high-contrast: none) {
+    /* Fix flexbox issues in IE11 */
+    .nav-menu,
+    .quiz-navigation,
+    .form-actions,
+    .breed-actions {
+        -ms-flex-pack: center;
+    }
+    
+    .nav-container {
+        -ms-flex-pack: justify;
+    }
+    
+    /* Fix grid issues in IE11 */
+    .answer-options {
+        display: -ms-grid;
+        -ms-grid-columns: 1fr 20px 1fr;
+        -ms-grid-rows: auto;
+    }
+    
+    .answer-card:nth-child(1) { -ms-grid-column: 1; }
+    .answer-card:nth-child(2) { -ms-grid-column: 3; }
+    .answer-card:nth-child(3) { -ms-grid-column: 1; -ms-grid-row: 2; }
+    .answer-card:nth-child(4) { -ms-grid-column: 3; -ms-grid-row: 2; }
+    
+    /* Fix CSS custom properties in IE11 */
+    .btn {
+        background: #667eea;
+        color: #ffffff;
+    }
+    
+    .text-color {
+        color: #262626;
+    }
+    
+    .background-color {
+        background-color: #ffffff;
+    }
+}
+
+/* Safari-specific fixes */
+@media not all and (min-resolution:.001dpcm) {
+    @supports (-webkit-appearance:none) {
+        /* Fix Safari button styling */
+        .btn {
+            -webkit-appearance: none;
+            border: none;
+        }
+        
+        /* Fix Safari form input styling */
+        .form-input,
+        .form-select {
+            -webkit-appearance: none;
+        }
+        
+        /* Fix Safari backdrop-filter performance */
+        .navbar,
+        .modal-backdrop {
+            -webkit-transform: translateZ(0);
+            transform: translateZ(0);
+        }
+    }
+}
+
+/* Firefox-specific fixes */
+@-moz-document url-prefix() {
+    /* Fix Firefox button styling */
+    .btn {
+        -moz-appearance: none;
+    }
+    
+    /* Fix Firefox form styling */
+    .form-input,
+    .form-select {
+        -moz-appearance: none;
+    }
+    
+    /* Fix Firefox flexbox issues */
+    .nav-menu,
+    .quiz-navigation {
+        -moz-box-sizing: border-box;
+    }
+}
+
+/* Edge-specific fixes */
+@supports (-ms-ime-align:auto) {
+    /* Fix Edge flexbox issues */
+    .nav-container,
+    .quiz-navigation,
+    .form-actions {
+        -ms-flex-align: center;
+        -ms-flex-pack: center;
+    }
+    
+    /* Fix Edge grid issues */
+    .answer-options,
+    .breeds-grid {
+        display: -ms-grid;
+    }
+}
+
+/* Chrome-specific fixes */
+@media screen and (-webkit-min-device-pixel-ratio:0) and (min-resolution:.001dpcm) {
+    /* Fix Chrome form autofill styling */
+    .form-input:-webkit-autofill,
+    .form-input:-webkit-autofill:hover,
+    .form-input:-webkit-autofill:focus {
+        -webkit-box-shadow: 0 0 0 1000px white inset;
+        -webkit-text-fill-color: #262626;
+    }
+    
+    /* Fix Chrome button focus outline */
+    .btn:focus {
+        outline: none;
+    }
+}
+
+/* =============================================================================
+   PRINT STYLES COMPATIBILITY
+   ============================================================================= */
+
+@media print {
+    /* Hide interactive elements */
+    .navbar,
+    .nav-mobile-menu,
+    .quiz-navigation,
+    .form-actions,
+    .breed-actions,
+    .modal,
+    .btn {
+        display: none !important;
+    }
+    
+    /* Optimize for print */
+    body {
+        background: white !important;
+        color: black !important;
+        font-size: 12pt;
+        line-height: 1.4;
+    }
+    
+    .pet-option,
+    .breed-card,
+    .question-card {
+        break-inside: avoid;
+        page-break-inside: avoid;
+        border: 1px solid black;
+        box-shadow: none;
+    }
+    
+    /* Ensure images print properly */
+    .breed-image,
+    .main-breed-image {
+        max-width: 100% !important;
+        height: auto !important;
+    }
+}
+
+/* =============================================================================
+   HIGH CONTRAST MODE COMPATIBILITY
+   ============================================================================= */
+
+@media (prefers-contrast: high) {
+    /* Enhance contrast for accessibility */
+    .pet-option,
+    .breed-card,
+    .btn,
+    .form-input,
+    .answer-label {
+        border: 2px solid;
+    }
+    
+    .btn {
+        background: ButtonFace;
+        color: ButtonText;
+        border-color: ButtonText;
+    }
+    
+    .btn:hover {
+        background: Highlight;
+        color: HighlightText;
+    }
+}
+
+/* =============================================================================
+   REDUCED MOTION COMPATIBILITY
+   ============================================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    /* Disable animations for users who prefer reduced motion */
+    *,
+    *::before,
+    *::after {
+        -webkit-animation-duration: 0.01ms !important;
+        -moz-animation-duration: 0.01ms !important;
+        -ms-animation-duration: 0.01ms !important;
+        animation-duration: 0.01ms !important;
+        -webkit-animation-iteration-count: 1 !important;
+        -moz-animation-iteration-count: 1 !important;
+        -ms-animation-iteration-count: 1 !important;
+        animation-iteration-count: 1 !important;
+        -webkit-transition-duration: 0.01ms !important;
+        -moz-transition-duration: 0.01ms !important;
+        -ms-transition-duration: 0.01ms !important;
+        transition-duration: 0.01ms !important;
+        scroll-behavior: auto !important;
+    }
+    
+    /* Remove transforms for reduced motion */
+    .pet-option:hover,
+    .breed-card:hover,
+    .btn:hover {
+        -webkit-transform: none;
+        -moz-transform: none;
+        -ms-transform: none;
+        transform: none;
+    }
+}
+
+/* =============================================================================
+   FORCED COLORS MODE COMPATIBILITY (Windows High Contrast)
+   ============================================================================= */
+
+@media (forced-colors: active) {
+    /* Ensure compatibility with Windows High Contrast mode */
+    .btn {
+        background: ButtonFace;
+        color: ButtonText;
+        border: 1px solid ButtonText;
+    }
+    
+    .btn:hover {
+        background: Highlight;
+        color: HighlightText;
+        border-color: HighlightText;
+    }
+    
+    .form-input,
+    .form-select {
+        background: Field;
+        color: FieldText;
+        border: 1px solid FieldText;
+    }
+    
+    .pet-option,
+    .breed-card,
+    .question-card {
+        background: Canvas;
+        color: CanvasText;
+        border: 1px solid CanvasText;
+    }
+}

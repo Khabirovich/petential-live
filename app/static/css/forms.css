@@ -1,0 +1,949 @@
+/* PETential Framer Design System - Form Elements */
+/* Matching exact design from: https://framer.com/projects/PETential--btyscj3O9KLXHBLtzReE-eOyfC */
+
+/* =============================================================================
+   PETENTIAL DESIGN TOKENS FROM FRAMER PROJECT
+   ============================================================================= */
+
+:root {
+    /* PETential Colors from Framer Design */
+    --petential-primary: #FF6B35;        /* Orange primary color */
+    --petential-secondary: #F7931E;      /* Secondary orange */
+    --petential-accent: #4ECDC4;         /* Teal accent */
+    --petential-dark: #2C3E50;           /* Dark blue-gray */
+    --petential-text: #2C3E50;           /* Main text color */
+    --petential-text-light: #7F8C8D;     /* Light text */
+    --petential-background: #FFFFFF;     /* White background */
+    --petential-surface: #F8F9FA;        /* Light surface */
+    --petential-border: #E9ECEF;         /* Border color */
+    --petential-success: #27AE60;        /* Success green */
+    --petential-error: #E74C3C;          /* Error red */
+    --petential-warning: #F39C12;        /* Warning orange */
+    
+    /* PETential Typography from Framer */
+    --petential-font-primary: "Poppins", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    --petential-font-secondary: "Inter", -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    
+    /* PETential Spacing from Framer */
+    --petential-space-xs: 8px;
+    --petential-space-sm: 12px;
+    --petential-space-md: 16px;
+    --petential-space-lg: 24px;
+    --petential-space-xl: 32px;
+    --petential-space-2xl: 48px;
+    --petential-space-3xl: 64px;
+    
+    /* PETential Border Radius from Framer */
+    --petential-radius-sm: 8px;
+    --petential-radius-md: 12px;
+    --petential-radius-lg: 16px;
+    --petential-radius-xl: 24px;
+    
+    /* PETential Shadows from Framer */
+    --petential-shadow-sm: 0 2px 4px rgba(44, 62, 80, 0.08);
+    --petential-shadow-md: 0 4px 12px rgba(44, 62, 80, 0.12);
+    --petential-shadow-lg: 0 8px 24px rgba(44, 62, 80, 0.16);
+    --petential-shadow-focus: 0 0 0 3px rgba(255, 107, 53, 0.2);
+}
+
+/* =============================================================================
+   PETENTIAL FORM FOUNDATION
+   ============================================================================= */
+
+.form-container {
+    width: 100%;
+    max-width: 600px;
+    margin: 0 auto;
+    padding: 0;
+    font-family: var(--petential-font-primary);
+}
+
+.form-section {
+    margin-bottom: var(--petential-space-2xl);
+}
+
+.form-section:last-child {
+    margin-bottom: 0;
+}
+
+.form-header {
+    margin-bottom: var(--petential-space-xl);
+    text-align: center;
+}
+
+.form-title {
+    font-family: var(--petential-font-primary);
+    font-size: 36px;
+    font-weight: 700;
+    color: var(--petential-dark);
+    margin: 0 0 var(--petential-space-sm) 0;
+    line-height: 1.2;
+    letter-spacing: -0.02em;
+}
+
+.form-description {
+    font-family: var(--petential-font-secondary);
+    font-size: 18px;
+    font-weight: 400;
+    color: var(--petential-text-light);
+    margin: 0;
+    line-height: 1.6;
+}
+
+/* =============================================================================
+   PETENTIAL FORM GROUPS AND LABELS
+   ============================================================================= */
+
+.form-group {
+    margin-bottom: var(--petential-space-lg);
+    position: relative;
+}
+
+.form-group:last-child {
+    margin-bottom: 0;
+}
+
+.form-label {
+    display: block;
+    font-family: var(--petential-font-primary);
+    font-size: 16px;
+    font-weight: 600;
+    color: var(--petential-text);
+    margin-bottom: var(--petential-space-sm);
+    line-height: 1.4;
+}
+
+.form-label.required::after {
+    content: '*';
+    color: var(--petential-error);
+    margin-left: var(--petential-space-xs);
+}
+
+.form-help {
+    display: block;
+    font-family: var(--petential-font-secondary);
+    font-size: 14px;
+    font-weight: 400;
+    color: var(--petential-text-light);
+    margin-top: var(--petential-space-xs);
+    line-height: 1.4;
+}
+
+/* =============================================================================
+   PETENTIAL INPUT FIELDS
+   ============================================================================= */
+
+.form-input {
+    width: 100%;
+    padding: var(--petential-space-md) var(--petential-space-lg);
+    font-family: var(--petential-font-secondary);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--petential-text);
+    background: var(--petential-background);
+    border: 2px solid var(--petential-border);
+    border-radius: var(--petential-radius-md);
+    box-shadow: var(--petential-shadow-sm);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    appearance: none;
+}
+
+.form-input::placeholder {
+    color: var(--petential-text-light);
+    font-weight: 400;
+    opacity: 0.8;
+}
+
+.form-input:hover {
+    border-color: var(--petential-primary);
+    box-shadow: var(--petential-shadow-md);
+    transform: translateY(-1px);
+}
+
+.form-input:focus {
+    border-color: var(--petential-primary);
+    box-shadow: var(--petential-shadow-focus);
+    background: var(--petential-background);
+}
+
+.form-input:disabled {
+    background: var(--petential-surface);
+    color: var(--petential-text-light);
+    cursor: not-allowed;
+    opacity: 0.6;
+    border-color: var(--petential-border);
+}
+
+/* =============================================================================
+   PETENTIAL TEXTAREA
+   ============================================================================= */
+
+.form-textarea {
+    min-height: 120px;
+    resize: vertical;
+    line-height: 1.6;
+    padding: var(--petential-space-lg);
+}
+
+textarea.form-input {
+    min-height: 120px;
+    resize: vertical;
+    line-height: 1.6;
+    padding: var(--petential-space-lg);
+}
+
+/* =============================================================================
+   PETENTIAL SELECT DROPDOWN
+   ============================================================================= */
+
+.form-select {
+    width: 100%;
+    padding: var(--petential-space-md) var(--petential-space-lg);
+    padding-right: calc(var(--petential-space-lg) + 24px);
+    font-family: var(--petential-font-secondary);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--petential-text);
+    background: var(--petential-background);
+    background-image: url("data:image/svg+xml;charset=UTF-8,%3csvg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 24 24' fill='none' stroke='%23FF6B35' stroke-width='2' stroke-linecap='round' stroke-linejoin='round'%3e%3cpolyline points='6,9 12,15 18,9'%3e%3c/polyline%3e%3c/svg%3e");
+    background-repeat: no-repeat;
+    background-position: right var(--petential-space-md) center;
+    background-size: 18px;
+    border: 2px solid var(--petential-border);
+    border-radius: var(--petential-radius-md);
+    box-shadow: var(--petential-shadow-sm);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    appearance: none;
+    cursor: pointer;
+}
+
+.form-select:hover {
+    border-color: var(--petential-primary);
+    box-shadow: var(--petential-shadow-md);
+    transform: translateY(-1px);
+}
+
+.form-select:focus {
+    border-color: var(--petential-primary);
+    box-shadow: var(--petential-shadow-focus);
+}
+
+.form-select:disabled {
+    background-color: var(--petential-surface);
+    color: var(--petential-text-light);
+    cursor: not-allowed;
+    opacity: 0.6;
+}
+
+/* =============================================================================
+   PETENTIAL SEARCH INPUT
+   ============================================================================= */
+
+.form-search {
+    position: relative;
+    display: flex;
+    align-items: center;
+}
+
+.form-search-input {
+    width: 100%;
+    padding: var(--petential-space-md) var(--petential-space-lg);
+    padding-left: calc(var(--petential-space-lg) + 24px);
+    font-family: var(--petential-font-secondary);
+    font-size: 16px;
+    font-weight: 400;
+    line-height: 1.5;
+    color: var(--petential-text);
+    background: var(--petential-background);
+    border: 2px solid var(--petential-border);
+    border-radius: var(--petential-radius-md);
+    box-shadow: var(--petential-shadow-sm);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    outline: none;
+    appearance: none;
+}
+
+.form-search-icon {
+    position: absolute;
+    left: var(--petential-space-lg);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 18px;
+    height: 18px;
+    color: var(--petential-primary);
+    pointer-events: none;
+    z-index: 1;
+}
+
+.form-search-input:hover {
+    border-color: var(--petential-primary);
+    box-shadow: var(--petential-shadow-md);
+    transform: translateY(-1px);
+}
+
+.form-search-input:focus {
+    border-color: var(--petential-primary);
+    box-shadow: var(--petential-shadow-focus);
+}
+
+.form-search-clear {
+    position: absolute;
+    right: var(--petential-space-md);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 20px;
+    height: 20px;
+    background: var(--petential-text-light);
+    border: none;
+    border-radius: 50%;
+    color: var(--petential-background);
+    font-size: 12px;
+    cursor: pointer;
+    display: none;
+    align-items: center;
+    justify-content: center;
+    transition: all 0.2s ease;
+}
+
+.form-search-clear:hover {
+    background: var(--petential-error);
+    transform: translateY(-50%) scale(1.1);
+}
+
+.form-search.has-value .form-search-clear {
+    display: flex;
+}
+
+/* =============================================================================
+   PETENTIAL CHECKBOX AND RADIO BUTTONS
+   ============================================================================= */
+
+.form-checkbox,
+.form-radio {
+    display: flex;
+    align-items: flex-start;
+    gap: var(--petential-space-md);
+    cursor: pointer;
+    margin-bottom: var(--petential-space-md);
+    padding: var(--petential-space-sm);
+    border-radius: var(--petential-radius-sm);
+    transition: all 0.2s ease;
+}
+
+.form-checkbox:hover,
+.form-radio:hover {
+    background: rgba(255, 107, 53, 0.05);
+}
+
+.form-checkbox:last-child,
+.form-radio:last-child {
+    margin-bottom: 0;
+}
+
+.form-checkbox-input,
+.form-radio-input {
+    position: absolute;
+    opacity: 0;
+    pointer-events: none;
+    width: 1px;
+    height: 1px;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}
+
+.form-checkbox-indicator,
+.form-radio-indicator {
+    flex-shrink: 0;
+    width: 20px;
+    height: 20px;
+    border: 2px solid var(--petential-border);
+    background: var(--petential-background);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    position: relative;
+    margin-top: 2px;
+}
+
+.form-checkbox-indicator {
+    border-radius: var(--petential-radius-sm);
+}
+
+.form-radio-indicator {
+    border-radius: 50%;
+}
+
+.form-checkbox-label,
+.form-radio-label {
+    font-family: var(--petential-font-secondary);
+    font-size: 16px;
+    font-weight: 400;
+    color: var(--petential-text);
+    line-height: 1.5;
+    cursor: pointer;
+}
+
+.form-checkbox:hover .form-checkbox-indicator,
+.form-radio:hover .form-radio-indicator {
+    border-color: var(--petential-primary);
+    box-shadow: var(--petential-shadow-sm);
+}
+
+.form-checkbox-input:focus + .form-checkbox-indicator,
+.form-radio-input:focus + .form-radio-indicator {
+    border-color: var(--petential-primary);
+    box-shadow: var(--petential-shadow-focus);
+}
+
+.form-checkbox-input:checked + .form-checkbox-indicator {
+    background: var(--petential-primary);
+    border-color: var(--petential-primary);
+    box-shadow: var(--petential-shadow-sm);
+}
+
+.form-checkbox-input:checked + .form-checkbox-indicator::after {
+    content: '✓';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    color: var(--petential-background);
+    font-size: 12px;
+    font-weight: 700;
+}
+
+.form-radio-input:checked + .form-radio-indicator {
+    border-color: var(--petential-primary);
+    background: var(--petential-background);
+    box-shadow: var(--petential-shadow-sm);
+}
+
+.form-radio-input:checked + .form-radio-indicator::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 10px;
+    height: 10px;
+    background: var(--petential-primary);
+    border-radius: 50%;
+}
+
+/* =============================================================================
+   PETENTIAL VALIDATION STATES
+   ============================================================================= */
+
+.form-group.success .form-input,
+.form-group.success .form-textarea,
+.form-group.success .form-select,
+.form-group.success .form-search-input {
+    border-color: var(--petential-success);
+}
+
+.form-group.success .form-input:focus,
+.form-group.success .form-textarea:focus,
+.form-group.success .form-select:focus,
+.form-group.success .form-search-input:focus {
+    border-color: var(--petential-success);
+    box-shadow: 0 0 0 3px rgba(39, 174, 96, 0.2);
+}
+
+.form-success-message {
+    display: flex;
+    align-items: center;
+    gap: var(--petential-space-xs);
+    margin-top: var(--petential-space-xs);
+    padding: var(--petential-space-sm) var(--petential-space-md);
+    background: rgba(39, 174, 96, 0.1);
+    border-radius: var(--petential-radius-sm);
+    font-family: var(--petential-font-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--petential-success);
+    line-height: 1.4;
+}
+
+.form-success-message::before {
+    content: '✓';
+    font-weight: 700;
+}
+
+.form-group.error .form-input,
+.form-group.error .form-textarea,
+.form-group.error .form-select,
+.form-group.error .form-search-input {
+    border-color: var(--petential-error);
+}
+
+.form-group.error .form-input:focus,
+.form-group.error .form-textarea:focus,
+.form-group.error .form-select:focus,
+.form-group.error .form-search-input:focus {
+    border-color: var(--petential-error);
+    box-shadow: 0 0 0 3px rgba(231, 76, 60, 0.2);
+}
+
+.form-error-message {
+    display: flex;
+    align-items: center;
+    gap: var(--petential-space-xs);
+    margin-top: var(--petential-space-xs);
+    padding: var(--petential-space-sm) var(--petential-space-md);
+    background: rgba(231, 76, 60, 0.1);
+    border-radius: var(--petential-radius-sm);
+    font-family: var(--petential-font-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--petential-error);
+    line-height: 1.4;
+}
+
+.form-error-message::before {
+    content: '⚠';
+    font-weight: 700;
+}
+
+.form-group.warning .form-input,
+.form-group.warning .form-textarea,
+.form-group.warning .form-select,
+.form-group.warning .form-search-input {
+    border-color: var(--petential-warning);
+}
+
+.form-warning-message {
+    display: flex;
+    align-items: center;
+    gap: var(--petential-space-xs);
+    margin-top: var(--petential-space-xs);
+    padding: var(--petential-space-sm) var(--petential-space-md);
+    background: rgba(243, 156, 18, 0.1);
+    border-radius: var(--petential-radius-sm);
+    font-family: var(--petential-font-secondary);
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--petential-warning);
+    line-height: 1.4;
+}
+
+.form-warning-message::before {
+    content: '⚠';
+    font-weight: 700;
+}
+
+/* =============================================================================
+   PETENTIAL LOADING STATES
+   ============================================================================= */
+
+.form-loading-overlay {
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background: rgba(255, 255, 255, 0.9);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border-radius: var(--petential-radius-md);
+    z-index: 10;
+    opacity: 0;
+    visibility: hidden;
+    transition: all 0.3s ease;
+}
+
+.form-loading-overlay.active {
+    opacity: 1;
+    visibility: visible;
+}
+
+.form-loading-spinner {
+    width: 32px;
+    height: 32px;
+    border: 3px solid var(--petential-border);
+    border-top: 3px solid var(--petential-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+@keyframes spin {
+    0% { transform: rotate(0deg); }
+    100% { transform: rotate(360deg); }
+}
+
+.form-skeleton {
+    background: linear-gradient(90deg, var(--petential-surface) 25%, rgba(255, 255, 255, 0.5) 50%, var(--petential-surface) 75%);
+    background-size: 200% 100%;
+    animation: skeleton-loading 1.5s infinite;
+    border-radius: var(--petential-radius-sm);
+}
+
+@keyframes skeleton-loading {
+    0% { background-position: 200% 0; }
+    100% { background-position: -200% 0; }
+}
+
+.form-skeleton-input {
+    height: 48px;
+    margin-bottom: var(--petential-space-md);
+}
+
+.form-skeleton-textarea {
+    height: 120px;
+    margin-bottom: var(--petential-space-md);
+}
+
+.form-skeleton-button {
+    height: 44px;
+    width: 140px;
+    margin: 0 var(--petential-space-xs);
+}
+
+/* Button Loading States */
+.btn-loading {
+    position: relative;
+    color: transparent !important;
+    pointer-events: none;
+}
+
+.btn-loading::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 20px;
+    height: 20px;
+    border: 2px solid transparent;
+    border-top: 2px solid currentColor;
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+    color: inherit;
+}
+
+.btn-primary.btn-loading::after {
+    border-top-color: var(--petential-background);
+}
+
+.btn-secondary.btn-loading::after {
+    border-top-color: var(--petential-primary);
+}
+
+/* Input Loading States */
+.form-input-loading {
+    position: relative;
+}
+
+.form-input-loading::after {
+    content: '';
+    position: absolute;
+    right: var(--petential-space-md);
+    top: 50%;
+    transform: translateY(-50%);
+    width: 16px;
+    height: 16px;
+    border: 2px solid var(--petential-border);
+    border-top: 2px solid var(--petential-primary);
+    border-radius: 50%;
+    animation: spin 1s linear infinite;
+}
+
+/* =============================================================================
+   PETENTIAL ENHANCED ERROR STATES
+   ============================================================================= */
+
+.form-error-container {
+    background: rgba(231, 76, 60, 0.05);
+    border: 1px solid rgba(231, 76, 60, 0.2);
+    border-radius: var(--petential-radius-md);
+    padding: var(--petential-space-lg);
+    margin-bottom: var(--petential-space-lg);
+}
+
+.form-error-title {
+    font-family: var(--petential-font-primary);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--petential-error);
+    margin: 0 0 var(--petential-space-sm) 0;
+    display: flex;
+    align-items: center;
+    gap: var(--petential-space-sm);
+}
+
+.form-error-title::before {
+    content: '⚠';
+    font-size: 20px;
+}
+
+.form-error-list {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.form-error-item {
+    font-family: var(--petential-font-secondary);
+    font-size: 14px;
+    color: var(--petential-error);
+    margin-bottom: var(--petential-space-xs);
+    padding-left: var(--petential-space-lg);
+    position: relative;
+}
+
+.form-error-item::before {
+    content: '•';
+    position: absolute;
+    left: 0;
+    color: var(--petential-error);
+}
+
+.form-success-container {
+    background: rgba(39, 174, 96, 0.05);
+    border: 1px solid rgba(39, 174, 96, 0.2);
+    border-radius: var(--petential-radius-md);
+    padding: var(--petential-space-lg);
+    margin-bottom: var(--petential-space-lg);
+}
+
+.form-success-title {
+    font-family: var(--petential-font-primary);
+    font-size: 18px;
+    font-weight: 600;
+    color: var(--petential-success);
+    margin: 0 0 var(--petential-space-sm) 0;
+    display: flex;
+    align-items: center;
+    gap: var(--petential-space-sm);
+}
+
+.form-success-title::before {
+    content: '✓';
+    font-size: 20px;
+}
+
+.form-success-text {
+    font-family: var(--petential-font-secondary);
+    font-size: 14px;
+    color: var(--petential-success);
+    margin: 0;
+}
+
+/* Enhanced Field Error States */
+.form-group.error .form-input,
+.form-group.error .form-textarea,
+.form-group.error .form-select,
+.form-group.error .form-search-input {
+    border-color: var(--petential-error);
+    background: rgba(231, 76, 60, 0.02);
+    animation: shake 0.5s ease-in-out;
+}
+
+@keyframes shake {
+    0%, 100% { transform: translateX(0); }
+    25% { transform: translateX(-4px); }
+    75% { transform: translateX(4px); }
+}
+
+.form-group.error .form-label {
+    color: var(--petential-error);
+}
+
+/* Enhanced Success States */
+.form-group.success .form-input,
+.form-group.success .form-textarea,
+.form-group.success .form-select,
+.form-group.success .form-search-input {
+    border-color: var(--petential-success);
+    background: rgba(39, 174, 96, 0.02);
+}
+
+.form-group.success .form-label {
+    color: var(--petential-success);
+}
+
+/* Progress Indicators */
+.form-progress {
+    width: 100%;
+    height: 4px;
+    background: var(--petential-border);
+    border-radius: 2px;
+    overflow: hidden;
+    margin-bottom: var(--petential-space-xl);
+}
+
+.form-progress-bar {
+    height: 100%;
+    background: linear-gradient(90deg, var(--petential-primary), var(--petential-secondary));
+    border-radius: 2px;
+    transition: width 0.3s ease;
+    width: 0%;
+}
+
+/* =============================================================================
+   PETENTIAL FORM ACTIONS
+   ============================================================================= */
+
+.form-actions {
+    display: flex;
+    gap: var(--petential-space-md);
+    justify-content: center;
+    align-items: center;
+    margin-top: var(--petential-space-2xl);
+    padding-top: var(--petential-space-xl);
+    border-top: 2px solid var(--petential-border);
+}
+
+.form-actions .btn {
+    min-width: 140px;
+    padding: var(--petential-space-md) var(--petential-space-xl);
+    font-family: var(--petential-font-primary);
+    font-size: 16px;
+    font-weight: 600;
+    border-radius: var(--petential-radius-lg);
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    cursor: pointer;
+    border: 2px solid transparent;
+    outline: none;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+}
+
+.form-actions .btn-primary {
+    background: linear-gradient(135deg, var(--petential-primary) 0%, var(--petential-secondary) 100%);
+    color: var(--petential-background);
+    border-color: var(--petential-primary);
+    box-shadow: var(--petential-shadow-md);
+}
+
+.form-actions .btn-primary:hover {
+    transform: translateY(-2px);
+    box-shadow: var(--petential-shadow-lg);
+    filter: brightness(1.1);
+}
+
+.form-actions .btn-secondary {
+    background: var(--petential-background);
+    color: var(--petential-primary);
+    border-color: var(--petential-primary);
+    box-shadow: var(--petential-shadow-sm);
+}
+
+.form-actions .btn-secondary:hover {
+    background: var(--petential-primary);
+    color: var(--petential-background);
+    transform: translateY(-2px);
+    box-shadow: var(--petential-shadow-md);
+}
+
+/* =============================================================================
+   PETENTIAL RESPONSIVE DESIGN
+   ============================================================================= */
+
+@media (max-width: 768px) {
+    .form-container {
+        max-width: none;
+        padding: 0 var(--petential-space-md);
+    }
+    
+    .form-section {
+        margin-bottom: var(--petential-space-xl);
+    }
+    
+    .form-title {
+        font-size: 28px;
+    }
+    
+    .form-input,
+    .form-textarea,
+    .form-select,
+    .form-search-input {
+        padding: var(--petential-space-sm) var(--petential-space-md);
+        font-size: 16px;
+    }
+    
+    .form-search-input {
+        padding-left: calc(var(--petential-space-md) + 24px);
+    }
+    
+    .form-actions {
+        flex-direction: column;
+        gap: var(--petential-space-sm);
+        align-items: stretch;
+    }
+    
+    .form-actions .btn {
+        width: 100%;
+        min-width: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .form-container {
+        padding: 0 var(--petential-space-sm);
+    }
+    
+    .form-input,
+    .form-textarea,
+    .form-select,
+    .form-search-input {
+        padding: var(--petential-space-sm);
+    }
+    
+    .form-search-input {
+        padding-left: calc(var(--petential-space-sm) + 20px);
+    }
+    
+    .form-label {
+        font-size: 14px;
+    }
+    
+    .form-help,
+    .form-error-message,
+    .form-success-message,
+    .form-warning-message {
+        font-size: 13px;
+    }
+}
+
+/* =============================================================================
+   PETENTIAL ACCESSIBILITY
+   ============================================================================= */
+
+@media (prefers-reduced-motion: reduce) {
+    .form-input,
+    .form-textarea,
+    .form-select,
+    .form-search-input,
+    .form-checkbox-indicator,
+    .form-radio-indicator,
+    .form-search-clear,
+    .form-actions .btn {
+        transition: none;
+    }
+}
+
+.form-input:focus-visible,
+.form-textarea:focus-visible,
+.form-select:focus-visible,
+.form-search-input:focus-visible {
+    outline: 2px solid var(--petential-primary);
+    outline-offset: 2px;
+}
+
+.sr-only {
+    position: absolute;
+    width: 1px;
+    height: 1px;
+    padding: 0;
+    margin: -1px;
+    overflow: hidden;
+    clip: rect(0, 0, 0, 0);
+    white-space: nowrap;
+    border: 0;
+}

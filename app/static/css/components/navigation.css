@@ -1,0 +1,353 @@
+/* PETential Header Navigation - Exact Specifications */
+
+/* HEADER NAVIGATION SECTION */
+.navbar {
+    width: 100%;
+    background: #FFFFFF;
+    position: fixed;
+    top: 0;
+    left: 0;
+    right: 0;
+    z-index: 1000;
+    border-bottom: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.nav-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 12px 16px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+}
+
+/* LOGO COMPONENT */
+.nav-logo {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    text-decoration: none;
+}
+
+.nav-logo-icon {
+    width: 32px;
+    height: 32px;
+    position: relative;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+/* Paw print icon using CSS */
+.nav-logo-icon::before {
+    content: '🐾';
+    font-size: 24px;
+    display: block;
+}
+
+.nav-logo-text {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 600;
+    font-size: 24px;
+    color: #000000;
+}
+
+/* NAVIGATION MENU */
+.nav-menu {
+    display: flex;
+    gap: 40px;
+    align-items: center;
+    list-style: none;
+    margin: 0;
+    padding: 0;
+}
+
+.nav-link {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 16px;
+    font-weight: 400;
+    color: #374151;
+    text-decoration: none;
+    position: relative;
+    transition: color 0.2s ease;
+}
+
+.nav-link:hover {
+    color: #c1fd3a;
+    text-decoration: none;
+}
+
+/* Dropdown indicators for Breeds and Support */
+.nav-link.has-dropdown::after {
+    content: '';
+    display: inline-block;
+    width: 0;
+    height: 0;
+    margin-left: 6px;
+    border-left: 4px solid transparent;
+    border-right: 4px solid transparent;
+    border-top: 4px solid currentColor;
+    vertical-align: middle;
+}
+
+/* CTA BUTTON (Get started) - CORRECTED ANIMATION */
+.nav-cta {
+    /* Backgrounds */
+    background-color: #c1fd3a; /* Accent Primary */
+    
+    /* Typography */
+    color: #000000;
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-weight: 600;
+    font-size: 16px;
+    text-align: center;
+    text-decoration: none;
+    
+    /* Layout */
+    display: inline-block;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    
+    /* Effects */
+    box-shadow: 4px 4px 0px 0px #000000;
+    transform: translate(0, 0);
+    cursor: pointer;
+    
+    /* Transitions */
+    transition: background-color 200ms ease-out,
+                color 200ms ease-out,
+                box-shadow 200ms ease-out,
+                transform 200ms ease-out;
+}
+
+.nav-cta:hover {
+    background-color: #c1fd3a; /* Цвет НЕ меняется */
+    color: #000000;
+    box-shadow: 6px 6px 0px 0px #000000;
+    transform: translate(-2px, -2px);
+    text-decoration: none;
+}
+
+.nav-cta:active {
+    transform: translate(-1px, -1px);
+    box-shadow: 2px 2px 0px 0px #000000;
+}
+
+.nav-cta:focus {
+    outline: 2px solid #c1fd3a;
+    outline-offset: 2px;
+}
+
+/* MOBILE HAMBURGER MENU */
+.nav-hamburger {
+    display: none;
+    flex-direction: column;
+    justify-content: center;
+    align-items: center;
+    width: 32px;
+    height: 32px;
+    background: none;
+    border: none;
+    cursor: pointer;
+    padding: 0;
+    z-index: 1001;
+}
+
+.hamburger-line {
+    width: 20px;
+    height: 2px;
+    background-color: #000000;
+    margin: 2px 0;
+    transition: all 0.3s ease;
+    transform-origin: center;
+}
+
+.nav-hamburger.active .hamburger-line:nth-child(1) {
+    transform: rotate(45deg) translate(5px, 5px);
+}
+
+.nav-hamburger.active .hamburger-line:nth-child(2) {
+    opacity: 0;
+}
+
+.nav-hamburger.active .hamburger-line:nth-child(3) {
+    transform: rotate(-45deg) translate(7px, -6px);
+}
+
+/* MOBILE MENU OVERLAY */
+.nav-mobile-menu {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100vh;
+    background: rgba(255, 255, 255, 0.98);
+    backdrop-filter: blur(20px);
+    -webkit-backdrop-filter: blur(20px);
+    z-index: 1000;
+    opacity: 0;
+    visibility: hidden;
+    transform: translateY(-20px);
+    transition: all 0.3s ease;
+    overflow: hidden;
+}
+
+.nav-mobile-menu.active {
+    opacity: 1;
+    visibility: visible;
+    transform: translateY(0);
+}
+
+/* Mobile menu scrollable content */
+.nav-mobile-content {
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: flex-start;
+    gap: 32px;
+    overflow-y: auto;
+    overflow-x: hidden;
+    padding: 80px 20px 40px 20px;
+    -webkit-overflow-scrolling: touch;
+    scrollbar-width: none;
+    -ms-overflow-style: none;
+    overscroll-behavior: contain;
+}
+
+.nav-mobile-content::-webkit-scrollbar {
+    display: none;
+}
+
+.nav-mobile-link {
+    font-family: Inter, -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    font-size: 24px;
+    font-weight: 400;
+    color: #000000;
+    text-decoration: none;
+    padding: 16px 24px;
+    border-radius: 8px;
+    transition: all 0.2s ease;
+    text-align: center;
+    min-width: 200px;
+}
+
+.nav-mobile-link:hover {
+    color: #c1fd3a;
+    text-decoration: none;
+}
+
+.nav-mobile-cta {
+    background-color: #c1fd3a;
+    color: #000000 !important;
+    font-weight: 600;
+    margin-top: 24px;
+    box-shadow: 4px 4px 0px 0px #000000;
+    transform: translate(0, 0);
+    transition: background-color 200ms ease-out,
+                color 200ms ease-out,
+                box-shadow 200ms ease-out,
+                transform 200ms ease-out;
+}
+
+.nav-mobile-cta:hover {
+    background-color: #c1fd3a;
+    color: #000000 !important;
+    box-shadow: 6px 6px 0px 0px #000000;
+    transform: translate(-2px, -2px);
+    text-decoration: none;
+}
+
+/* RESPONSIVE NAVIGATION */
+/* Tablet breakpoint */
+@media (min-width: 810px) and (max-width: 1199px) {
+    .nav-container {
+        padding: 12px 20px;
+    }
+    
+    .nav-menu {
+        gap: 16px;
+    }
+    
+    .nav-link {
+        font-size: 14px;
+        padding: 6px 8px;
+    }
+    
+    .nav-cta {
+        padding: 10px 16px !important;
+        font-size: 14px !important;
+        white-space: nowrap;
+        min-width: 120px;
+        text-align: center;
+        flex-shrink: 0;
+        display: inline-block;
+        line-height: 1.2;
+    }
+}
+
+@media (max-width: 809px) {
+    .nav-container {
+        padding: 12px 16px;
+    }
+    
+    .nav-menu {
+        display: none;
+    }
+    
+    .nav-hamburger {
+        display: flex;
+    }
+    
+    .nav-logo-text {
+        font-size: 20px;
+    }
+    
+    .nav-logo-icon {
+        width: 28px;
+        height: 28px;
+    }
+}
+
+/* Navigation Scroll Effects */
+.navbar.scrolled {
+    background: rgba(255, 255, 255, 0.98);
+    box-shadow: 0 4px 20px rgba(8, 5, 22, 0.25);
+}
+
+/* Skip Link for Accessibility */
+.skip-link {
+    position: absolute;
+    top: -40px;
+    left: 6px;
+    background: var(--petential-dark);
+    color: var(--petential-white);
+    padding: 8px;
+    text-decoration: none;
+    border-radius: var(--radius-sm);
+    z-index: var(--z-tooltip);
+    transition: top var(--transition-fast);
+}
+
+.skip-link:focus {
+    top: 6px;
+}
+
+/* Reduced Motion Support */
+@media (prefers-reduced-motion: reduce) {
+    .navbar,
+    .nav-link,
+    .nav-cta,
+    .nav-mobile-menu,
+    .nav-mobile-link,
+    .hamburger-line {
+        transition: none;
+    }
+    
+    .nav-cta:hover,
+    .nav-mobile-cta:hover {
+        transform: none;
+    }
+}
