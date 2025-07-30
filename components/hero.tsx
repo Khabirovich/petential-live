@@ -1,7 +1,6 @@
 "use client"
 
 import { useEffect, useMemo, useState } from "react"
-import { motion } from "framer-motion"
 import Link from "next/link"
 import Image from "next/image"
 import { useLanguage } from "@/lib/i18n/context"
@@ -47,25 +46,14 @@ export default function Hero() {
               }}
             >
               {titles.map((title, index) => (
-                <motion.span
+                <span
                   key={index}
-                  className="absolute top-0 left-0 whitespace-nowrap"
-                  initial={{ opacity: index === 0 ? 1 : 0, y: index === 0 ? "0%" : "100%" }}
-                  transition={{ type: "spring", stiffness: 50 }}
-                  animate={
-                    titleNumber === index
-                      ? {
-                          y: "0%",
-                          opacity: 1,
-                        }
-                      : {
-                          y: titleNumber > index ? "-100%" : "100%",
-                          opacity: 0,
-                        }
-                  }
+                  className={`absolute top-0 left-0 whitespace-nowrap transition-all duration-500 ${
+                    titleNumber === index ? 'opacity-100 translate-y-0' : 'opacity-0 translate-y-4'
+                  }`}
                 >
                   {title}
-                </motion.span>
+                </span>
               ))}
             </span>
           </h1>
