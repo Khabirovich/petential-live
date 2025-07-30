@@ -13,6 +13,8 @@ export const en = {
 
   // Hero Section
   "hero.title": "Find your ideal furry friend",
+  "hero.titlePrefix": "Find your ideal furry",
+  "hero.animatedWords": ["friend", "companion", "partner", "love"],
   "hero.description": "Ready to welcome a new companion? Answer a few quick questions and discover dog or cat breeds that fit your lifestyle. Explore detailed profiles, get inspired, and start your journey to a perfect match—tail wags and purrs await.",
   "hero.takeQuiz": "Take quiz",
   "hero.learnMore": "Learn more",

@@ -13,6 +13,8 @@ export const es = {
 
   // Hero Section
   "hero.title": "Encuentra tu compañero peludo ideal",
+  "hero.titlePrefix": "Encuentra tu",
+  "hero.animatedWords": ["amigo", "compañero", "pareja", "amor"],
   "hero.description": "¿Listo para dar la bienvenida a un nuevo compañero? Responde algunas preguntas rápidas y descubre razas de perros o gatos que se adapten a tu estilo de vida. Explora perfiles detallados, inspírate y comienza tu viaje hacia una pareja perfecta: te esperan movimientos de cola y ronroneos.",
   "hero.takeQuiz": "Hacer quiz",
   "hero.learnMore": "Saber más",
