@@ -24,6 +24,45 @@ export const metadata: Metadata = {
   title: "PETential - Find Your Perfect Pet Match",
   description: "Find your perfect pet match with PETential's personalized quiz system for dogs and cats",
   generator: 'v0.dev',
+  metadataBase: new URL('https://petential.es'),
+  alternates: {
+    canonical: '/',
+  },
+  openGraph: {
+    title: 'PETential - Find Your Perfect Pet Match',
+    description: 'Find your perfect pet match with PETential\'s personalized quiz system for dogs and cats',
+    url: 'https://petential.es',
+    siteName: 'PETential',
+    images: [
+      {
+        url: '/images/social/og-image.png',
+        width: 576,
+        height: 576,
+        alt: 'PETential - Pet Breed Matching Platform with volunteers and animals',
+      }
+    ],
+    locale: 'en_US',
+    type: 'website',
+  },
+  twitter: {
+    card: 'summary_large_image',
+    title: 'PETential - Find Your Perfect Pet Match',
+    description: 'Find your perfect pet match with PETential\'s personalized quiz system for dogs and cats',
+    images: ['/images/social/og-image.png'],
+    creator: '@petential',
+    site: '@petential',
+  },
+  robots: {
+    index: true,
+    follow: true,
+    googleBot: {
+      index: true,
+      follow: true,
+      'max-video-preview': -1,
+      'max-image-preview': 'large',
+      'max-snippet': -1,
+    },
+  },
   icons: {
     icon: [
       { url: '/favicon.ico' },
