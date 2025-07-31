@@ -434,8 +434,26 @@ def calculate_breed_scores(pet_type, answers, dog_breeds, cat_breeds, mappings):
     breeds = dog_breeds if pet_type == 'dog' else cat_breeds
     breed_key = 'Dog Breeds' if pet_type == 'dog' else 'Cat Breeds'
     
-    # Initialize scores
+    # Initialize scores and question count tracking
     scores = {breed[breed_key]: 0 for breed in breeds}
+    questions_used = {breed[breed_key]: 0 for breed in breeds}
+    
+    # Define characteristic importance weights (higher = more important for matching)
+    characteristic_weights = {
+        'Exercise Needs': 1.5,      # Very important for lifestyle match
+        'Dog Size': 1.3,            # Important for living situation
+        'Owner Experience': 1.2,    # Important for success
+        'Kid-Friendly': 1.4,        # Critical for families
+        'Dog Friendly': 1.1,        # Important for socialization
+        'Tolerates Being Alone': 1.3, # Important for work schedules
+        'Training Level': 1.1,      # Moderate importance
+        'Grooming Level': 1.0,      # Standard importance
+        'Drooling Level': 0.8,      # Less critical
+        'Tendency To Bark Or Howl': 1.0, # Standard importance
+        'Walk Activity': 1.2,       # Important for exercise needs
+        'Guarding Level': 0.9,      # Less critical unless specifically wanted
+        'Hyperalergic (1 - no, 2 - yes)': 1.6  # Critical for allergies
+    }
     
     # Map user answers to characteristics and weight
     for answer_data in answers:
@@ -473,18 +491,59 @@ def calculate_breed_scores(pet_type, answers, dog_breeds, cat_breeds, mappings):
         for breed in breeds:
             if characteristic in breed:
                 breed_value = breed[characteristic]
-                # Calculate compatibility score (5 - abs difference)
-                compatibility = 5 - abs(breed_value - weight)
-                scores[breed[breed_key]] += compatibility
+                breed_name = breed[breed_key]
+                
+                # Improved scoring formula with nuanced compatibility calculation
+                difference = abs(breed_value - weight)
+                
+                # Nuanced scoring: rewards closer matches more significantly
+                if difference == 0:
+                    # Perfect match
+                    compatibility_score = 10.0
+                elif difference == 1:
+                    # Very close match
+                    compatibility_score = 8.5
+                elif difference == 2:
+                    # Good match
+                    compatibility_score = 6.0
+                elif difference == 3:
+                    # Fair match
+                    compatibility_score = 3.0
+                elif difference == 4:
+                    # Poor match
+                    compatibility_score = 1.0
+                else:
+                    # Very poor match
+                    compatibility_score = 0.0
+                
+                # Apply characteristic importance weight
+                importance_weight = characteristic_weights.get(characteristic, 1.0)
+                final_score = compatibility_score * importance_weight
+                
+                scores[breed_name] += final_score
+                questions_used[breed_name] += 1
     
-    # Normalize scores to percentages
-    max_possible_score = len(answers) * 5  # 5 is max compatibility per question
-    for breed in scores:
-        scores[breed] = (scores[breed] / max_possible_score) * 100
+    # Normalize scores to percentages with improved calculation
+    # Use all questions that were actually processed for each breed
+    normalized_scores = {}
+    for breed_name in scores:
+        if questions_used[breed_name] > 0:
+            # Calculate max possible score for this breed based on questions used
+            max_possible = questions_used[breed_name] * 10.0 * 1.6  # 10 max score * max weight (1.6)
+            raw_score = scores[breed_name]
+            normalized_score = (raw_score / max_possible) * 100
+            
+            # Apply bonus for having more questions answered (encourages complete profiles)
+            question_completeness_bonus = min(questions_used[breed_name] / len(answers), 1.0) * 5
+            final_score = min(normalized_score + question_completeness_bonus, 100.0)
+            
+            normalized_scores[breed_name] = final_score
+        else:
+            normalized_scores[breed_name] = 0.0
     
-    # Convert to list of dicts and sort by score
-    result = [{'name': breed, 'score': scores[breed]} for breed in scores]
-    result.sort(key=lambda x: x['score'], reverse=True)
+    # Convert to list of dicts and sort by score, then by name for consistent tiebreaking
+    result = [{'name': breed, 'score': normalized_scores[breed]} for breed in normalized_scores]
+    result.sort(key=lambda x: (-x['score'], x['name']))  # Sort by score desc, then name asc
     
     # Return top 9 breeds
     return result[:9]
