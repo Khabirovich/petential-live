@@ -477,48 +477,69 @@ def calculate_breed_scores(pet_type, answers, dog_breeds, cat_breeds, mappings):
                 # Improved scoring formula with nuanced compatibility calculation
                 difference = abs(breed_value - weight)
                 
-                # Nuanced scoring: rewards closer matches more significantly
+                # More realistic scoring system for better percentage distribution
                 if difference == 0:
-                    # Perfect match
-                    compatibility_score = 10.0
+                    # Perfect match - still high but not excessive
+                    compatibility_score = 5.0
                 elif difference == 1:
-                    # Very close match
-                    compatibility_score = 8.5
+                    # Very close match - good score
+                    compatibility_score = 4.0
                 elif difference == 2:
-                    # Good match
-                    compatibility_score = 6.0
+                    # Good match - decent score
+                    compatibility_score = 2.5
                 elif difference == 3:
-                    # Fair match
-                    compatibility_score = 3.0
-                elif difference == 4:
-                    # Poor match
+                    # Fair match - lower score
                     compatibility_score = 1.0
+                elif difference == 4:
+                    # Poor match - very low score
+                    compatibility_score = 0.2
                 else:
-                    # Very poor match
+                    # Very poor match - almost no points
                     compatibility_score = 0.0
                 
-                # Apply characteristic importance weight
+                # Apply characteristic importance weight (but cap the multiplier)
                 importance_weight = characteristic_weights.get(characteristic, 1.0)
-                final_score = compatibility_score * importance_weight
+                # Cap the weight multiplier to prevent extreme scores
+                capped_weight = min(importance_weight, 1.3)
+                final_score = compatibility_score * capped_weight
                 
                 scores[breed_name] += final_score
                 questions_used[breed_name] += 1
     
-    # Normalize scores to percentages with improved calculation
-    # Use all questions that were actually processed for each breed
+    # More realistic normalization for better percentage distribution
     normalized_scores = {}
     for breed_name in scores:
         if questions_used[breed_name] > 0:
-            # Calculate max possible score for this breed based on questions used
-            max_possible = questions_used[breed_name] * 10.0 * 1.6  # 10 max score * max weight (1.6)
+            # Calculate theoretical maximum (perfect matches on all questions)
+            theoretical_max = questions_used[breed_name] * 5.0 * 1.3  # 5 max score * max capped weight
             raw_score = scores[breed_name]
-            normalized_score = (raw_score / max_possible) * 100
             
-            # Apply bonus for having more questions answered (encourages complete profiles)
-            question_completeness_bonus = min(questions_used[breed_name] / len(answers), 1.0) * 5
-            final_score = min(normalized_score + question_completeness_bonus, 100.0)
+            # Calculate base percentage
+            base_percentage = (raw_score / theoretical_max) * 100
             
-            normalized_scores[breed_name] = final_score
+            # Realistic scaling to create proper percentage distribution
+            # Aim for: Excellent (80%+), Good (60-79%), Fair (<60%)
+            if base_percentage >= 95:
+                # Only perfect matches: 90-95%
+                final_percentage = 90 + (base_percentage - 95) * 1.0
+            elif base_percentage >= 85:
+                # Excellent matches: 80-89%
+                final_percentage = 80 + (base_percentage - 85) * 0.9
+            elif base_percentage >= 75:
+                # Good matches: 65-79%
+                final_percentage = 65 + (base_percentage - 75) * 1.4
+            elif base_percentage >= 65:
+                # Fair matches: 50-64%
+                final_percentage = 50 + (base_percentage - 65) * 1.4
+            elif base_percentage >= 50:
+                # Poor matches: 30-49%
+                final_percentage = 30 + (base_percentage - 50) * 1.27
+            else:
+                # Very poor matches: 15-29%
+                final_percentage = 15 + (base_percentage * 0.28)
+            
+            # Ensure we stay within realistic bounds
+            normalized_scores[breed_name] = max(15, min(95, final_percentage))
         else:
             normalized_scores[breed_name] = 0.0
     
