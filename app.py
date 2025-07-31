@@ -355,12 +355,43 @@ def get_results():
     # Take only top 9 breeds
     breed_scores = breed_scores[:9]
     
-    # Get breed images
+    # Images will be handled by frontend
     for breed in breed_scores:
-        if pet_type == 'dog':
-            breed['image'] = get_dog_image(breed['name'])
-        else:
-            breed['image'] = get_cat_image(breed['name'])
+        breed['image'] = ''  # Frontend will populate this
+    
+    return jsonify({
+        'pet_type': pet_type,
+        'breeds': breed_scores,
+        'high_match': breed_scores[:3],
+        'medium_match': breed_scores[3:6],
+        'low_match': breed_scores[6:9]
+    }), 200
+
+@app.route('/api/calculate-scores', methods=['POST'])
+def calculate_scores():
+    """Calculate breed scores directly from answers"""
+    data = request.json
+    pet_type = data.get('pet_type')
+    answers = data.get('answers', [])
+    
+    if not pet_type or not answers:
+        return jsonify({'error': 'Missing pet_type or answers'}), 400
+    
+    # Load data
+    dog_questions, cat_questions, dog_breeds, cat_breeds, mappings = load_data()
+    
+    # Process answers and calculate breed scores
+    breed_scores = calculate_breed_scores(pet_type, answers, dog_breeds, cat_breeds, mappings)
+    
+    # Sort breeds by score in descending order
+    breed_scores.sort(key=lambda x: x['score'], reverse=True)
+    
+    # Take only top 9 breeds
+    breed_scores = breed_scores[:9]
+    
+    # Images will be handled by frontend
+    for breed in breed_scores:
+        breed['image'] = ''  # Frontend will populate this
     
     return jsonify({
         'pet_type': pet_type,

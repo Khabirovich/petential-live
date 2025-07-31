@@ -14,7 +14,7 @@ export default function QuizPage() {
   const params = useParams();
   const petType = params.petType as 'dog' | 'cat';
   const { t } = useLanguage();
-  
+
   const {
     currentQuestion,
     totalQuestions,
@@ -43,24 +43,56 @@ export default function QuizPage() {
 
   const handleSubmitAnswer = async (answer: string, weight: string | number) => {
     const result = await submitAnswer(answer, weight);
-    
+
     if (result.completed) {
-      // Calculate actual breed matches using your data
-      const breedScores = calculateBreedScores(petType!, answers);
-      const topBreeds = breedScores.slice(0, 9);
-      
-      const results = {
-        pet_type: petType,
-        breeds: topBreeds,
-        high_match: topBreeds.slice(0, 3),
-        medium_match: topBreeds.slice(3, 6),
-        low_match: topBreeds.slice(6, 9)
-      };
-      
-      localStorage.setItem('quizResults', JSON.stringify(results));
-      router.push('/results');
+      // Get the final answers including this last one
+      const finalAnswers = [...answers, {
+        question: question?.question || '',
+        answer,
+        answer_weight: weight,
+        characteristic: question?.characteristic || '',
+      }];
+
+      try {
+        // Call backend API directly with all answers for breed scoring
+        const response = await fetch('http://localhost:5001/api/calculate-scores', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify({
+            pet_type: petType,
+            answers: finalAnswers
+          }),
+        });
+
+        if (!response.ok) {
+          throw new Error('Failed to get results from backend');
+        }
+
+        const results = await response.json();
+
+        localStorage.setItem('quizResults', JSON.stringify(results));
+        router.push('/results');
+      } catch (error) {
+        console.error('Error getting results:', error);
+        // Fallback to local calculation
+        const breedScores = calculateBreedScores(petType!, finalAnswers);
+        const topBreeds = breedScores.slice(0, 9);
+
+        const results = {
+          pet_type: petType,
+          breeds: topBreeds,
+          high_match: topBreeds.slice(0, 3),
+          medium_match: topBreeds.slice(3, 6),
+          low_match: topBreeds.slice(6, 9)
+        };
+
+        localStorage.setItem('quizResults', JSON.stringify(results));
+        router.push('/results');
+      }
     }
-    
+
     return result;
   };
 
@@ -87,7 +119,7 @@ export default function QuizPage() {
           <AlertDescription>{error}</AlertDescription>
         </Alert>
         <div className="mt-4 text-center">
-          <button 
+          <button
             onClick={resetQuiz}
             className="text-blue-600 hover:text-blue-800 underline"
           >
