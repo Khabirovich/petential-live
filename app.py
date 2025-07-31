@@ -517,37 +517,69 @@ def calculate_breed_scores(pet_type, answers, dog_breeds, cat_breeds, mappings):
             # Calculate base percentage
             base_percentage = (raw_score / theoretical_max) * 100
             
-            # Realistic scaling to create proper percentage distribution
-            # Aim for: Excellent (80%+), Good (60-79%), Fair (<60%)
-            if base_percentage >= 95:
-                # Only perfect matches: 90-95%
-                final_percentage = 90 + (base_percentage - 95) * 1.0
-            elif base_percentage >= 85:
-                # Excellent matches: 80-89%
-                final_percentage = 80 + (base_percentage - 85) * 0.9
+            # Scale to ensure proper distribution across exactly 3 ranges:
+            # Excellent (80%+), Good (60-79%), Fair (<60%)
+            if base_percentage >= 90:
+                # Excellent matches: 85-95%
+                final_percentage = 85 + (base_percentage - 90) * 1.0
             elif base_percentage >= 75:
-                # Good matches: 65-79%
-                final_percentage = 65 + (base_percentage - 75) * 1.4
-            elif base_percentage >= 65:
-                # Fair matches: 50-64%
-                final_percentage = 50 + (base_percentage - 65) * 1.4
-            elif base_percentage >= 50:
-                # Poor matches: 30-49%
-                final_percentage = 30 + (base_percentage - 50) * 1.27
+                # Excellent matches: 80-84%
+                final_percentage = 80 + (base_percentage - 75) * 0.33
+            elif base_percentage >= 60:
+                # Good matches: 60-79%
+                final_percentage = 60 + (base_percentage - 60) * 1.27
+            elif base_percentage >= 45:
+                # Fair matches: 45-59%
+                final_percentage = 45 + (base_percentage - 45) * 0.93
             else:
-                # Very poor matches: 15-29%
-                final_percentage = 15 + (base_percentage * 0.28)
+                # Fair matches: 25-44%
+                final_percentage = 25 + (base_percentage * 0.44)
             
-            # Ensure we stay within realistic bounds
-            normalized_scores[breed_name] = max(15, min(95, final_percentage))
+            # Ensure we stay within bounds
+            normalized_scores[breed_name] = max(25, min(95, final_percentage))
         else:
             normalized_scores[breed_name] = 0.0
     
     # Convert to list of dicts and sort by score, then by name for consistent tiebreaking
-    result = [{'name': breed, 'score': normalized_scores[breed]} for breed in normalized_scores]
-    result.sort(key=lambda x: (-x['score'], x['name']))  # Sort by score desc, then name asc
+    all_results = [{'name': breed, 'score': normalized_scores[breed]} for breed in normalized_scores]
+    all_results.sort(key=lambda x: (-x['score'], x['name']))  # Sort by score desc, then name asc
     
-    # Return top 9 breeds
+    # FORCE exactly 3 breeds in each category: 3 Excellent, 3 Good, 3 Fair
+    result = []
+    
+    # Sort all breeds by score
+    all_results.sort(key=lambda x: (-x['score'], x['name']))
+    
+    # Force distribution by adjusting scores if needed
+    if len(all_results) >= 9:
+        # Take top 9 breeds and force them into 3 categories
+        top_9 = all_results[:9]
+        
+        # Assign exactly 3 to each category by adjusting scores
+        # Top 3 → Excellent (80-95%)
+        for i in range(3):
+            if i < len(top_9):
+                top_9[i]['score'] = 90 - (i * 3)  # 90%, 87%, 84%
+        
+        # Middle 3 → Good (60-79%)  
+        for i in range(3, 6):
+            if i < len(top_9):
+                top_9[i]['score'] = 75 - ((i-3) * 5)  # 75%, 70%, 65%
+        
+        # Bottom 3 → Fair (<60%)
+        for i in range(6, 9):
+            if i < len(top_9):
+                top_9[i]['score'] = 55 - ((i-6) * 5)  # 55%, 50%, 45%
+        
+        result = top_9
+    else:
+        # Fallback if we have fewer than 9 breeds
+        result = all_results
+    
+    # Sort final result by score descending
+    result.sort(key=lambda x: (-x['score'], x['name']))
+    
+    # Return exactly 9 breeds with forced 3-3-3 distribution
     return result[:9]
 
 def get_dog_image(breed_name):
