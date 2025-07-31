@@ -13,11 +13,10 @@
     {
         "question": "Do you have a preference for the size of your pet?",
         "answers": {
-            "Small": 1,
-            "Slightly small": 2,
+            "Small": 2,
             "Medium": 3,
-            "Large": 4,
-            "Very Large": 5
+            "Large": 5,
+            "Any size": 3
         },
         "characteristic": "Dog Size"
     },
