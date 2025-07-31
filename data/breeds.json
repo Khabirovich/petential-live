@@ -1,6 +1,6 @@
 [
     {
-        "№": 1,
+        "\u2116": 1,
         "Dog Breeds": "Affenpinscher",
         "Dog Size": 2,
         "Owner Experience": 2,
@@ -17,7 +17,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 2,
+        "\u2116": 2,
         "Dog Breeds": "Afghan Hound",
         "Dog Size": 5,
         "Owner Experience": 3,
@@ -34,7 +34,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 3,
+        "\u2116": 3,
         "Dog Breeds": "Airedale Terrier",
         "Dog Size": 5,
         "Owner Experience": 4,
@@ -51,7 +51,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 4,
+        "\u2116": 4,
         "Dog Breeds": "Akita",
         "Dog Size": 5,
         "Owner Experience": 4,
@@ -68,7 +68,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 5,
+        "\u2116": 5,
         "Dog Breeds": "Alaskan Malamute",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -85,7 +85,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 6,
+        "\u2116": 6,
         "Dog Breeds": "American Bulldog",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -102,7 +102,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 7,
+        "\u2116": 7,
         "Dog Breeds": "American Eskimo Dog",
         "Dog Size": 4,
         "Owner Experience": 2,
@@ -119,7 +119,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 8,
+        "\u2116": 8,
         "Dog Breeds": "American Foxhound",
         "Dog Size": 5,
         "Owner Experience": 4,
@@ -136,7 +136,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 9,
+        "\u2116": 9,
         "Dog Breeds": "American Pit Bull Terrier",
         "Dog Size": 5,
         "Owner Experience": 4,
@@ -153,7 +153,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 10,
+        "\u2116": 10,
         "Dog Breeds": "American Staffordshire Terrier",
         "Dog Size": 5,
         "Owner Experience": 4,
@@ -170,7 +170,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 11,
+        "\u2116": 11,
         "Dog Breeds": "American Water Spaniel",
         "Dog Size": 4,
         "Owner Experience": 4,
@@ -187,7 +187,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 12,
+        "\u2116": 12,
         "Dog Breeds": "Anatolian Shepherd Dog",
         "Dog Size": 5,
         "Owner Experience": 4,
@@ -204,7 +204,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 13,
+        "\u2116": 13,
         "Dog Breeds": "Appenzeller Sennenhund",
         "Dog Size": 5,
         "Owner Experience": 3,
@@ -221,7 +221,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 14,
+        "\u2116": 14,
         "Dog Breeds": "Australian Cattle Dog",
         "Dog Size": 4,
         "Owner Experience": 5,
@@ -238,7 +238,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 15,
+        "\u2116": 15,
         "Dog Breeds": "Australian Shepherd",
         "Dog Size": 5,
         "Owner Experience": 4,
@@ -255,7 +255,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 16,
+        "\u2116": 16,
         "Dog Breeds": "Australian Terrier",
         "Dog Size": 3,
         "Owner Experience": 3,
@@ -272,7 +272,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 17,
+        "\u2116": 17,
         "Dog Breeds": "Basenji",
         "Dog Size": 3,
         "Owner Experience": 2,
@@ -289,7 +289,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 18,
+        "\u2116": 18,
         "Dog Breeds": "Basset Hound",
         "Dog Size": 5,
         "Owner Experience": 2,
@@ -306,7 +306,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 19,
+        "\u2116": 19,
         "Dog Breeds": "Beagle",
         "Dog Size": 3,
         "Owner Experience": 3,
@@ -323,7 +323,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 20,
+        "\u2116": 20,
         "Dog Breeds": "Bearded Collie",
         "Dog Size": 5,
         "Owner Experience": 2,
@@ -340,7 +340,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 21,
+        "\u2116": 21,
         "Dog Breeds": "Belgian Malinois",
         "Dog Size": 5,
         "Owner Experience": 3,
@@ -357,7 +357,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 22,
+        "\u2116": 22,
         "Dog Breeds": "Belgian Sheepdog",
         "Dog Size": 5,
         "Owner Experience": 3,
@@ -374,7 +374,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 23,
+        "\u2116": 23,
         "Dog Breeds": "Belgian Tervuren",
         "Dog Size": 5,
         "Owner Experience": 3,
@@ -391,7 +391,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 24,
+        "\u2116": 24,
         "Dog Breeds": "Bernese Mountain Dog",
         "Dog Size": 5,
         "Owner Experience": 4,
@@ -408,7 +408,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 26,
+        "\u2116": 26,
         "Dog Breeds": "Bichon Frise",
         "Dog Size": 2,
         "Owner Experience": 1,
@@ -425,7 +425,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 27,
+        "\u2116": 27,
         "Dog Breeds": "Havanese",
         "Dog Size": 2,
         "Owner Experience": 1,
@@ -442,7 +442,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 3
     },
     {
-        "№": 28,
+        "\u2116": 28,
         "Dog Breeds": "Bichon Maltese",
         "Dog Size": 2,
         "Owner Experience": 1,
@@ -459,7 +459,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 29,
+        "\u2116": 29,
         "Dog Breeds": "Black Russian Terrier",
         "Dog Size": 5,
         "Owner Experience": 4,
@@ -476,7 +476,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 30,
+        "\u2116": 30,
         "Dog Breeds": "Black and Tan Coonhound",
         "Dog Size": 5,
         "Owner Experience": 4,
@@ -493,7 +493,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 31,
+        "\u2116": 31,
         "Dog Breeds": "Bloodhound",
         "Dog Size": 5,
         "Owner Experience": 4,
@@ -510,7 +510,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 32,
+        "\u2116": 32,
         "Dog Breeds": "Bluetick Coonhound",
         "Dog Size": 5,
         "Owner Experience": 4,
@@ -527,7 +527,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 33,
+        "\u2116": 33,
         "Dog Breeds": "Border Collie",
         "Dog Size": 4,
         "Owner Experience": 4,
@@ -544,7 +544,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 34,
+        "\u2116": 34,
         "Dog Breeds": "Border Terrier",
         "Dog Size": 3,
         "Owner Experience": 3,
@@ -561,7 +561,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 35,
+        "\u2116": 35,
         "Dog Breeds": "Borzoi",
         "Dog Size": 5,
         "Owner Experience": 3,
@@ -578,7 +578,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 36,
+        "\u2116": 36,
         "Dog Breeds": "Boston Terrier",
         "Dog Size": 3,
         "Owner Experience": 2,
@@ -595,7 +595,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 37,
+        "\u2116": 37,
         "Dog Breeds": "Bouvier des Flandres",
         "Dog Size": 5,
         "Owner Experience": 4,
@@ -612,7 +612,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 38,
+        "\u2116": 38,
         "Dog Breeds": "Boxer",
         "Dog Size": 5,
         "Owner Experience": 3,
@@ -629,7 +629,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 39,
+        "\u2116": 39,
         "Dog Breeds": "Boykin Spaniel",
         "Dog Size": 4,
         "Owner Experience": 3,
@@ -646,7 +646,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 40,
+        "\u2116": 40,
         "Dog Breeds": "Briard",
         "Dog Size": 5,
         "Owner Experience": 3,
@@ -663,7 +663,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 41,
+        "\u2116": 41,
         "Dog Breeds": "Brittany",
         "Dog Size": 4,
         "Owner Experience": 3,
@@ -680,7 +680,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 42,
+        "\u2116": 42,
         "Dog Breeds": "Griffon Bruxellois",
         "Dog Size": 2,
         "Owner Experience": 4,
@@ -697,7 +697,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 43,
+        "\u2116": 43,
         "Dog Breeds": "Bull Terrier",
         "Dog Size": 5,
         "Owner Experience": 3,
@@ -714,7 +714,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 44,
+        "\u2116": 44,
         "Dog Breeds": "French Bulldog",
         "Dog Size": 3,
         "Owner Experience": 1,
@@ -731,7 +731,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 45,
+        "\u2116": 45,
         "Dog Breeds": "Bullmastiff",
         "Dog Size": 5,
         "Owner Experience": 4,
@@ -748,7 +748,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 46,
+        "\u2116": 46,
         "Dog Breeds": "Cairn Terrier",
         "Dog Size": 3,
         "Owner Experience": 2,
@@ -765,7 +765,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 47,
+        "\u2116": 47,
         "Dog Breeds": "Perro de Presa Canario",
         "Dog Size": 5,
         "Owner Experience": 4,
@@ -782,7 +782,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 48,
+        "\u2116": 48,
         "Dog Breeds": "Cane Corso",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -799,7 +799,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 49,
+        "\u2116": 49,
         "Dog Breeds": "Poodle (Toy)",
         "Dog Size": 2,
         "Owner Experience": 1,
@@ -816,7 +816,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 50,
+        "\u2116": 50,
         "Dog Breeds": "Cardigan Welsh Corgi",
         "Dog Size": 4,
         "Owner Experience": 2,
@@ -833,7 +833,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 51,
+        "\u2116": 51,
         "Dog Breeds": "Pug",
         "Dog Size": 3,
         "Owner Experience": 1,
@@ -850,7 +850,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 52,
+        "\u2116": 52,
         "Dog Breeds": "Cavalier King Charles Spaniel",
         "Dog Size": 3,
         "Owner Experience": 1,
@@ -867,7 +867,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 53,
+        "\u2116": 53,
         "Dog Breeds": "Chesapeake Bay Retriever",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -884,7 +884,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 54,
+        "\u2116": 54,
         "Dog Breeds": "Chihuahua",
         "Dog Size": 1,
         "Owner Experience": 2,
@@ -901,7 +901,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 55,
+        "\u2116": 55,
         "Dog Breeds": "Chinese Crested",
         "Dog Size": 3,
         "Owner Experience": 3,
@@ -918,7 +918,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 56,
+        "\u2116": 56,
         "Dog Breeds": "Chow Chow",
         "Dog Size": 5,
         "Owner Experience": 4,
@@ -935,7 +935,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 57,
+        "\u2116": 57,
         "Dog Breeds": "Clumber Spaniel",
         "Dog Size": 5,
         "Owner Experience": 1,
@@ -952,7 +952,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 58,
+        "\u2116": 58,
         "Dog Breeds": "Cocker Spaniel",
         "Dog Size": 4,
         "Owner Experience": 3,
@@ -969,7 +969,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 60,
+        "\u2116": 60,
         "Dog Breeds": "Collie",
         "Dog Size": 5,
         "Owner Experience": 2,
@@ -986,7 +986,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 61,
+        "\u2116": 61,
         "Dog Breeds": "Coton de Tulear",
         "Dog Size": 2,
         "Owner Experience": 2,
@@ -1003,7 +1003,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 62,
+        "\u2116": 62,
         "Dog Breeds": "Curly-Coated Retriever",
         "Dog Size": 5,
         "Owner Experience": 3,
@@ -1020,7 +1020,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 64,
+        "\u2116": 64,
         "Dog Breeds": "Dalmatian",
         "Dog Size": 5,
         "Owner Experience": 3,
@@ -1037,7 +1037,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 65,
+        "\u2116": 65,
         "Dog Breeds": "Dandie Dinmont Terrier",
         "Dog Size": 3,
         "Owner Experience": 2,
@@ -1054,7 +1054,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 66,
+        "\u2116": 66,
         "Dog Breeds": "Doberman Pinscher",
         "Dog Size": 5,
         "Owner Experience": 3,
@@ -1071,7 +1071,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 67,
+        "\u2116": 67,
         "Dog Breeds": "Dogo Argentino",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -1088,7 +1088,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 68,
+        "\u2116": 68,
         "Dog Breeds": "Dogue de Bordeaux",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -1105,7 +1105,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 69,
+        "\u2116": 69,
         "Dog Breeds": "Dutch Shepherd",
         "Dog Size": 5,
         "Owner Experience": 3,
@@ -1122,7 +1122,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 70,
+        "\u2116": 70,
         "Dog Breeds": "English Cocker Spaniel",
         "Dog Size": 4,
         "Owner Experience": 2,
@@ -1139,7 +1139,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 71,
+        "\u2116": 71,
         "Dog Breeds": "English Foxhound",
         "Dog Size": 5,
         "Owner Experience": 4,
@@ -1156,7 +1156,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 72,
+        "\u2116": 72,
         "Dog Breeds": "English Setter",
         "Dog Size": 5,
         "Owner Experience": 3,
@@ -1173,7 +1173,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 73,
+        "\u2116": 73,
         "Dog Breeds": "English Springer Spaniel",
         "Dog Size": 5,
         "Owner Experience": 3,
@@ -1190,7 +1190,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 74,
+        "\u2116": 74,
         "Dog Breeds": "English Toy Spaniel",
         "Dog Size": 2,
         "Owner Experience": 2,
@@ -1207,7 +1207,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 75,
+        "\u2116": 75,
         "Dog Breeds": "Entlebucher Mountain Dog",
         "Dog Size": 5,
         "Owner Experience": 4,
@@ -1224,7 +1224,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 76,
+        "\u2116": 76,
         "Dog Breeds": "Field Spaniel",
         "Dog Size": 4,
         "Owner Experience": 3,
@@ -1241,7 +1241,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 77,
+        "\u2116": 77,
         "Dog Breeds": "Finnish Lapphund",
         "Dog Size": 4,
         "Owner Experience": 2,
@@ -1258,7 +1258,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 78,
+        "\u2116": 78,
         "Dog Breeds": "Finnish Spitz",
         "Dog Size": 4,
         "Owner Experience": 3,
@@ -1275,7 +1275,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 79,
+        "\u2116": 79,
         "Dog Breeds": "Flat-Coated Retriever",
         "Dog Size": 5,
         "Owner Experience": 4,
@@ -1292,7 +1292,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 81,
+        "\u2116": 81,
         "Dog Breeds": "German Pinscher",
         "Dog Size": 4,
         "Owner Experience": 3,
@@ -1309,7 +1309,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 82,
+        "\u2116": 82,
         "Dog Breeds": "German Shepherd Dog",
         "Dog Size": 5,
         "Owner Experience": 4,
@@ -1326,7 +1326,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 83,
+        "\u2116": 83,
         "Dog Breeds": "German Shorthaired Pointer",
         "Dog Size": 5,
         "Owner Experience": 4,
@@ -1343,7 +1343,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 84,
+        "\u2116": 84,
         "Dog Breeds": "German Wirehaired Pointer",
         "Dog Size": 5,
         "Owner Experience": 3,
@@ -1360,7 +1360,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 85,
+        "\u2116": 85,
         "Dog Breeds": "Giant Schnauzer",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -1377,7 +1377,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 86,
+        "\u2116": 86,
         "Dog Breeds": "Glen of Imaal Terrier",
         "Dog Size": 4,
         "Owner Experience": 4,
@@ -1394,7 +1394,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 87,
+        "\u2116": 87,
         "Dog Breeds": "Golden Retriever",
         "Dog Size": 5,
         "Owner Experience": 3,
@@ -1411,7 +1411,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 88,
+        "\u2116": 88,
         "Dog Breeds": "Gordon Setter",
         "Dog Size": 5,
         "Owner Experience": 3,
@@ -1428,7 +1428,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 89,
+        "\u2116": 89,
         "Dog Breeds": "Great Dane",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -1445,7 +1445,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 90,
+        "\u2116": 90,
         "Dog Breeds": "Great Pyrenees",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -1462,7 +1462,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 91,
+        "\u2116": 91,
         "Dog Breeds": "Greater Swiss Mountain Dog",
         "Dog Size": 5,
         "Owner Experience": 4,
@@ -1479,7 +1479,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 92,
+        "\u2116": 92,
         "Dog Breeds": "Greyhound",
         "Dog Size": 5,
         "Owner Experience": 4,
@@ -1496,7 +1496,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 93,
+        "\u2116": 93,
         "Dog Breeds": "Harrier",
         "Dog Size": 5,
         "Owner Experience": 3,
@@ -1513,7 +1513,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 95,
+        "\u2116": 95,
         "Dog Breeds": "Siberian Husky",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -1530,7 +1530,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 96,
+        "\u2116": 96,
         "Dog Breeds": "Ibizan Hound",
         "Dog Size": 5,
         "Owner Experience": 3,
@@ -1547,7 +1547,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 97,
+        "\u2116": 97,
         "Dog Breeds": "Icelandic Sheepdog",
         "Dog Size": 4,
         "Owner Experience": 5,
@@ -1564,7 +1564,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 98,
+        "\u2116": 98,
         "Dog Breeds": "Irish Red and White Setter",
         "Dog Size": 5,
         "Owner Experience": 3,
@@ -1581,7 +1581,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 99,
+        "\u2116": 99,
         "Dog Breeds": "Irish Setter",
         "Dog Size": 5,
         "Owner Experience": 3,
@@ -1598,7 +1598,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 100,
+        "\u2116": 100,
         "Dog Breeds": "Irish Terrier",
         "Dog Size": 4,
         "Owner Experience": 4,
@@ -1615,7 +1615,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 101,
+        "\u2116": 101,
         "Dog Breeds": "Irish Water Spaniel",
         "Dog Size": 5,
         "Owner Experience": 4,
@@ -1632,7 +1632,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 102,
+        "\u2116": 102,
         "Dog Breeds": "Irish Wolfhound",
         "Dog Size": 5,
         "Owner Experience": 4,
@@ -1649,7 +1649,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 103,
+        "\u2116": 103,
         "Dog Breeds": "Italian Greyhound",
         "Dog Size": 2,
         "Owner Experience": 1,
@@ -1666,7 +1666,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 104,
+        "\u2116": 104,
         "Dog Breeds": "Jack Russell Terrier",
         "Dog Size": 3,
         "Owner Experience": 4,
@@ -1683,7 +1683,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 105,
+        "\u2116": 105,
         "Dog Breeds": "Japanese Chin",
         "Dog Size": 2,
         "Owner Experience": 2,
@@ -1700,7 +1700,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 106,
+        "\u2116": 106,
         "Dog Breeds": "Keeshond",
         "Dog Size": 4,
         "Owner Experience": 2,
@@ -1717,7 +1717,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 107,
+        "\u2116": 107,
         "Dog Breeds": "Kerry Blue Terrier",
         "Dog Size": 4,
         "Owner Experience": 4,
@@ -1734,7 +1734,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 108,
+        "\u2116": 108,
         "Dog Breeds": "Komondor",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -1751,7 +1751,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 109,
+        "\u2116": 109,
         "Dog Breeds": "Kooikerhondje",
         "Dog Size": 3,
         "Owner Experience": 3,
@@ -1768,7 +1768,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 110,
+        "\u2116": 110,
         "Dog Breeds": "Kuvasz",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -1785,7 +1785,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 111,
+        "\u2116": 111,
         "Dog Breeds": "Labrador Retriever",
         "Dog Size": 5,
         "Owner Experience": 3,
@@ -1802,7 +1802,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 112,
+        "\u2116": 112,
         "Dog Breeds": "Lagotto Romagnolo",
         "Dog Size": 4,
         "Owner Experience": 2,
@@ -1819,7 +1819,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 113,
+        "\u2116": 113,
         "Dog Breeds": "Lakeland Terrier",
         "Dog Size": 3,
         "Owner Experience": 3,
@@ -1836,7 +1836,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 114,
+        "\u2116": 114,
         "Dog Breeds": "Leonberger",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -1853,7 +1853,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 115,
+        "\u2116": 115,
         "Dog Breeds": "Lhasa Apso",
         "Dog Size": 3,
         "Owner Experience": 1,
@@ -1870,7 +1870,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 116,
+        "\u2116": 116,
         "Dog Breeds": "Lowchen",
         "Dog Size": 3,
         "Owner Experience": 2,
@@ -1887,7 +1887,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 117,
+        "\u2116": 117,
         "Dog Breeds": "Maltese",
         "Dog Size": 2,
         "Owner Experience": 1,
@@ -1904,7 +1904,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 118,
+        "\u2116": 118,
         "Dog Breeds": "Manchester Terrier",
         "Dog Size": 3,
         "Owner Experience": 3,
@@ -1921,7 +1921,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 119,
+        "\u2116": 119,
         "Dog Breeds": "Mastiff",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -1938,7 +1938,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 120,
+        "\u2116": 120,
         "Dog Breeds": "Bull Terrier (Miniature)",
         "Dog Size": 2,
         "Owner Experience": 3,
@@ -1955,7 +1955,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 121,
+        "\u2116": 121,
         "Dog Breeds": "Miniature Pinscher",
         "Dog Size": 2,
         "Owner Experience": 3,
@@ -1972,7 +1972,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 122,
+        "\u2116": 122,
         "Dog Breeds": "Miniature Schnauzer",
         "Dog Size": 3,
         "Owner Experience": 3,
@@ -1989,7 +1989,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 123,
+        "\u2116": 123,
         "Dog Breeds": "Neapolitan Mastiff",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -2006,7 +2006,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 124,
+        "\u2116": 124,
         "Dog Breeds": "Newfoundland",
         "Dog Size": 5,
         "Owner Experience": 3,
@@ -2023,7 +2023,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 125,
+        "\u2116": 125,
         "Dog Breeds": "Norfolk Terrier",
         "Dog Size": 2,
         "Owner Experience": 1,
@@ -2040,7 +2040,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 126,
+        "\u2116": 126,
         "Dog Breeds": "Norwegian Buhund",
         "Dog Size": 4,
         "Owner Experience": 3,
@@ -2057,7 +2057,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 127,
+        "\u2116": 127,
         "Dog Breeds": "Norwegian Elkhound",
         "Dog Size": 5,
         "Owner Experience": 2,
@@ -2074,7 +2074,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 128,
+        "\u2116": 128,
         "Dog Breeds": "Norwegian Lundehund",
         "Dog Size": 3,
         "Owner Experience": 5,
@@ -2091,7 +2091,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 129,
+        "\u2116": 129,
         "Dog Breeds": "Norwich Terrier",
         "Dog Size": 3,
         "Owner Experience": 3,
@@ -2108,7 +2108,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 130,
+        "\u2116": 130,
         "Dog Breeds": "Nova Scotia Duck Tolling Retriever",
         "Dog Size": 4,
         "Owner Experience": 3,
@@ -2125,7 +2125,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 131,
+        "\u2116": 131,
         "Dog Breeds": "Old English Sheepdog",
         "Dog Size": 5,
         "Owner Experience": 2,
@@ -2142,7 +2142,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 132,
+        "\u2116": 132,
         "Dog Breeds": "Otterhound",
         "Dog Size": 5,
         "Owner Experience": 2,
@@ -2159,7 +2159,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 133,
+        "\u2116": 133,
         "Dog Breeds": "Papillon",
         "Dog Size": 2,
         "Owner Experience": 1,
@@ -2176,7 +2176,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 135,
+        "\u2116": 135,
         "Dog Breeds": "White Swiss Shepherd",
         "Dog Size": 4,
         "Owner Experience": 4,
@@ -2193,7 +2193,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 136,
+        "\u2116": 136,
         "Dog Breeds": "Pekingese",
         "Dog Size": 2,
         "Owner Experience": 5,
@@ -2210,7 +2210,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 137,
+        "\u2116": 137,
         "Dog Breeds": "Pembroke Welsh Corgi",
         "Dog Size": 2,
         "Owner Experience": 5,
@@ -2227,7 +2227,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 138,
+        "\u2116": 138,
         "Dog Breeds": "Italian greyhound",
         "Dog Size": 2,
         "Owner Experience": 5,
@@ -2244,7 +2244,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 139,
+        "\u2116": 139,
         "Dog Breeds": "Chinese Crested Dog",
         "Dog Size": 2,
         "Owner Experience": 3,
@@ -2261,7 +2261,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 140,
+        "\u2116": 140,
         "Dog Breeds": "Spanish Water Dog",
         "Dog Size": 3,
         "Owner Experience": 3,
@@ -2278,7 +2278,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 2
     },
     {
-        "№": 141,
+        "\u2116": 141,
         "Dog Breeds": "Basset Bleu de Gascogne",
         "Dog Size": 4,
         "Owner Experience": 5,
@@ -2295,7 +2295,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 142,
+        "\u2116": 142,
         "Dog Breeds": "Pharaoh Hound",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -2312,24 +2312,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 143,
-        "Dog Breeds": "Miniature Pinscher",
-        "Dog Size": 2,
-        "Owner Experience": 5,
-        "Guarding Level": 2,
-        "Kid-Friendly": 5,
-        "Dog Friendly": 2,
-        "Tolerates Being Alone": 3,
-        "Drooling Level": 5,
-        "Grooming Level": 3,
-        "Training Level": 3,
-        "Tendency To Bark Or Howl": 2,
-        "Walk Activity": 3,
-        "Exercise Needs": 4,
-        "Hyperalergic (1 - no, 2 - yes)": 1
-    },
-    {
-        "№": 144,
+        "\u2116": 144,
         "Dog Breeds": "Plott",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -2346,7 +2329,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 145,
+        "\u2116": 145,
         "Dog Breeds": "Pointer",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -2363,7 +2346,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 146,
+        "\u2116": 146,
         "Dog Breeds": "Polish Lowland Sheepdog",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -2380,7 +2363,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 147,
+        "\u2116": 147,
         "Dog Breeds": "Pomeranian",
         "Dog Size": 1,
         "Owner Experience": 5,
@@ -2397,7 +2380,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 149,
+        "\u2116": 149,
         "Dog Breeds": "Poodle (Miniature)",
         "Dog Size": 4,
         "Owner Experience": 5,
@@ -2414,7 +2397,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 150,
+        "\u2116": 150,
         "Dog Breeds": "Portuguese Water Dog",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -2431,7 +2414,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 152,
+        "\u2116": 152,
         "Dog Breeds": "Puli",
         "Dog Size": 4,
         "Owner Experience": 5,
@@ -2448,7 +2431,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 153,
+        "\u2116": 153,
         "Dog Breeds": "Pyrenean Shepherd",
         "Dog Size": 4,
         "Owner Experience": 5,
@@ -2465,7 +2448,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 154,
+        "\u2116": 154,
         "Dog Breeds": "Rat Terrier",
         "Dog Size": 3,
         "Owner Experience": 5,
@@ -2482,7 +2465,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 155,
+        "\u2116": 155,
         "Dog Breeds": "Redbone Coonhound",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -2499,7 +2482,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 156,
+        "\u2116": 156,
         "Dog Breeds": "Rhodesian Ridgeback",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -2516,7 +2499,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 157,
+        "\u2116": 157,
         "Dog Breeds": "Rottweiler",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -2533,7 +2516,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 158,
+        "\u2116": 158,
         "Dog Breeds": "Saint Bernard",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -2550,7 +2533,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 159,
+        "\u2116": 159,
         "Dog Breeds": "Saluki",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -2567,7 +2550,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 160,
+        "\u2116": 160,
         "Dog Breeds": "Samoyed",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -2584,7 +2567,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 161,
+        "\u2116": 161,
         "Dog Breeds": "Schipperke",
         "Dog Size": 3,
         "Owner Experience": 5,
@@ -2601,7 +2584,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 162,
+        "\u2116": 162,
         "Dog Breeds": "Miniature schnauzer",
         "Dog Size": 3,
         "Owner Experience": 5,
@@ -2618,7 +2601,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 163,
+        "\u2116": 163,
         "Dog Breeds": "Scottish Deerhound",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -2635,7 +2618,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 164,
+        "\u2116": 164,
         "Dog Breeds": "Scottish Terrier",
         "Dog Size": 3,
         "Owner Experience": 5,
@@ -2652,7 +2635,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 165,
+        "\u2116": 165,
         "Dog Breeds": "Sealyham Terrier",
         "Dog Size": 3,
         "Owner Experience": 5,
@@ -2669,7 +2652,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 166,
+        "\u2116": 166,
         "Dog Breeds": "Chinese Shar-Pei",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -2686,7 +2669,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 167,
+        "\u2116": 167,
         "Dog Breeds": "Shetland Sheepdog",
         "Dog Size": 3,
         "Owner Experience": 5,
@@ -2703,7 +2686,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 168,
+        "\u2116": 168,
         "Dog Breeds": "Shiba Inu",
         "Dog Size": 3,
         "Owner Experience": 5,
@@ -2720,7 +2703,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 169,
+        "\u2116": 169,
         "Dog Breeds": "Shih Tzu",
         "Dog Size": 3,
         "Owner Experience": 5,
@@ -2737,24 +2720,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 170,
-        "Dog Breeds": "Siberian Husky",
-        "Dog Size": 5,
-        "Owner Experience": 5,
-        "Guarding Level": 2,
-        "Kid-Friendly": 5,
-        "Dog Friendly": 2,
-        "Tolerates Being Alone": 3,
-        "Drooling Level": 5,
-        "Grooming Level": 3,
-        "Training Level": 3,
-        "Tendency To Bark Or Howl": 2,
-        "Walk Activity": 3,
-        "Exercise Needs": 4,
-        "Hyperalergic (1 - no, 2 - yes)": 1
-    },
-    {
-        "№": 171,
+        "\u2116": 171,
         "Dog Breeds": "Silky Terrier",
         "Dog Size": 2,
         "Owner Experience": 5,
@@ -2771,7 +2737,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 172,
+        "\u2116": 172,
         "Dog Breeds": "Skye Terrier",
         "Dog Size": 4,
         "Owner Experience": 5,
@@ -2788,7 +2754,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 173,
+        "\u2116": 173,
         "Dog Breeds": "Smooth Fox Terrier",
         "Dog Size": 3,
         "Owner Experience": 5,
@@ -2805,7 +2771,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 174,
+        "\u2116": 174,
         "Dog Breeds": "Soft Coated Wheaten Terrier",
         "Dog Size": 4,
         "Owner Experience": 5,
@@ -2822,7 +2788,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 176,
+        "\u2116": 176,
         "Dog Breeds": "Spinone Italiano",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -2839,7 +2805,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 177,
+        "\u2116": 177,
         "Dog Breeds": "Staffordshire Bull Terrier",
         "Dog Size": 4,
         "Owner Experience": 5,
@@ -2856,7 +2822,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 178,
+        "\u2116": 178,
         "Dog Breeds": "Standard Schnauzer",
         "Dog Size": 4,
         "Owner Experience": 5,
@@ -2873,7 +2839,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 179,
+        "\u2116": 179,
         "Dog Breeds": "Sussex Spaniel",
         "Dog Size": 4,
         "Owner Experience": 5,
@@ -2890,7 +2856,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 180,
+        "\u2116": 180,
         "Dog Breeds": "Swedish Vallhund",
         "Dog Size": 4,
         "Owner Experience": 5,
@@ -2907,7 +2873,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 181,
+        "\u2116": 181,
         "Dog Breeds": "Dachshund",
         "Dog Size": 3,
         "Owner Experience": 5,
@@ -2924,24 +2890,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 182,
-        "Dog Breeds": "Newfoundland",
-        "Dog Size": 5,
-        "Owner Experience": 5,
-        "Guarding Level": 2,
-        "Kid-Friendly": 5,
-        "Dog Friendly": 2,
-        "Tolerates Being Alone": 3,
-        "Drooling Level": 5,
-        "Grooming Level": 3,
-        "Training Level": 3,
-        "Tendency To Bark Or Howl": 2,
-        "Walk Activity": 3,
-        "Exercise Needs": 4,
-        "Hyperalergic (1 - no, 2 - yes)": 1
-    },
-    {
-        "№": 183,
+        "\u2116": 183,
         "Dog Breeds": "Tibetan Mastiff",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -2958,7 +2907,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 184,
+        "\u2116": 184,
         "Dog Breeds": "Tibetan Spaniel",
         "Dog Size": 3,
         "Owner Experience": 5,
@@ -2975,7 +2924,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 185,
+        "\u2116": 185,
         "Dog Breeds": "Tibetan Terrier",
         "Dog Size": 3,
         "Owner Experience": 5,
@@ -2992,7 +2941,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 186,
+        "\u2116": 186,
         "Dog Breeds": "Toy Fox Terrier",
         "Dog Size": 1,
         "Owner Experience": 5,
@@ -3009,7 +2958,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 187,
+        "\u2116": 187,
         "Dog Breeds": "Treeing Walker Coonhound",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -3026,7 +2975,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 188,
+        "\u2116": 188,
         "Dog Breeds": "Vizsla",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -3043,7 +2992,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 189,
+        "\u2116": 189,
         "Dog Breeds": "Weimaraner",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -3060,7 +3009,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 190,
+        "\u2116": 190,
         "Dog Breeds": "Welsh Springer Spaniel",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -3077,7 +3026,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 191,
+        "\u2116": 191,
         "Dog Breeds": "Welsh Terrier",
         "Dog Size": 3,
         "Owner Experience": 5,
@@ -3094,7 +3043,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 192,
+        "\u2116": 192,
         "Dog Breeds": "West Highland White Terrier",
         "Dog Size": 3,
         "Owner Experience": 5,
@@ -3111,7 +3060,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 193,
+        "\u2116": 193,
         "Dog Breeds": "Whippet",
         "Dog Size": 4,
         "Owner Experience": 5,
@@ -3128,7 +3077,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 194,
+        "\u2116": 194,
         "Dog Breeds": "Wirehaired Pointing Griffon",
         "Dog Size": 5,
         "Owner Experience": 5,
@@ -3145,7 +3094,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 195,
+        "\u2116": 195,
         "Dog Breeds": "Xoloitzcuintli",
         "Dog Size": 4,
         "Owner Experience": 5,
@@ -3162,7 +3111,7 @@
         "Hyperalergic (1 - no, 2 - yes)": 1
     },
     {
-        "№": 196,
+        "\u2116": 196,
         "Dog Breeds": "English Toy Terrier",
         "Dog Size": 1,
         "Owner Experience": 5,
