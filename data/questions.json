@@ -13,21 +13,21 @@
     {
         "question": "Do you have a preference for the size of your pet?",
         "answers": {
+            "Very Small": 1,
             "Small": 2,
             "Medium": 3,
-            "Large": 5,
-            "Any size": 3
+            "Medium-Large": 4,
+            "Large": 5
         },
         "characteristic": "Dog Size"
     },
     {
         "question": "How actively are you willing to train your dog?",
         "answers": {
-            "Not willing": 1,
-            "Slightly willing": 2,
-            "Somewhat willing": 3,
-            "Willing": 4,
-            "Very willing": 5
+            "Minimal training": 2,
+            "Some training": 3,
+            "Regular training": 4,
+            "Extensive training": 5
         },
         "characteristic": "Training Level"
     },
@@ -122,8 +122,8 @@
     {
         "question": "Do you have allergies?",
         "answers": {
-            "No": 1,
-            "Yes": 5
+            "No allergies": 3,
+            "Yes, need hypoallergenic": 1
         },
         "characteristic": "Hyperalergic (1 - no, 2 - yes)"
     }
