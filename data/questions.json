@@ -1,5 +1,4 @@
 [
-
     {
         "question": "Are you a beginner or an experienced owner?",
         "answers": {
@@ -45,35 +44,24 @@
         "characteristic": "Guarding Level"
     },
     {
-        "question": "What do you envision walking with your pet to be like?",
+        "question": "How much exercise and activity does your ideal dog need?",
         "answers": {
-            "Low activity": 1,
-            "Slightly active": 2,
-            "Medium activity": 3,
-            "Active": 4,
-            "High activity": 5
-        },
-        "characteristic": "Walk Activity"
-    },
-    {
-        "question": "How much time are you willing to walk your dog?",
-        "answers": {
-            "Little time": 1,
-            "Some time": 2,
-            "Moderate time": 3,
-            "More time": 4,
-            "A lot of time": 5
+            "Very low": 1,
+            "Low": 2,
+            "Moderate": 3,
+            "High": 4,
+            "Very high": 5
         },
         "characteristic": "Exercise Needs"
     },
     {
-        "question": "How long have you been away from home?",
+        "question": "How long can your dog be alone during the day?",
         "answers": {
-            "Little time": 1,
-            "Some time": 2,
-            "Moderate time": 3,
-            "More time": 4,
-            "A lot of time": 5
+            "Very short periods": 1,
+            "Short periods": 2,
+            "Moderate periods": 3,
+            "Long periods": 4,
+            "Very long periods": 5
         },
         "characteristic": "Tolerates Being Alone"
     },

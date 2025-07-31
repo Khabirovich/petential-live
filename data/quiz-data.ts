@@ -1,14 +1,11 @@
 // Translation mapping for quiz questions and answers
 export const questionTranslationKeys: Record<string, string> = {
-  "How experienced are you with dogs?": "question.howExperiencedDogs",
-  "How much time can you dedicate to training?": "question.timeForTraining",
   "Are you a beginner or an experienced owner?": "question.beginnerOrExperienced",
   "Do you have a preference for the size of your pet?": "question.petSizePreference",
   "How actively are you willing to train your dog?": "question.willingToTrain",
   "Is it important to you that the dog has guarding qualities? ": "question.guardingQualities",
-  "What do you envision walking with your pet to be like?": "question.walkingVision",
-  "How much time are you willing to walk your dog?": "question.timeToWalk",
-  "How long have you been away from home?": "question.timeAwayFromHome",
+  "How much exercise and activity does your ideal dog need?": "question.exerciseNeeds",
+  "How long can your dog be alone during the day?": "question.aloneTime",
   "How important is it that your dog gets along with kids?": "question.dogKidsImportant",
   "How important is it that your dog gets along with other dogs?": "question.dogWithDogsImportant",
   "How much drooling can you tolerate?": "question.droolingTolerance",
@@ -70,6 +67,12 @@ export const answerTranslationKeys: Record<string, string> = {
   "Moderate time": "quizAnswer.moderateTime",
   "More time": "quizAnswer.moreTime",
   "A lot of time": "quizAnswer.alotOfTime",
+  "Very low": "quizAnswer.veryLow",
+  "Very short periods": "quizAnswer.veryShortPeriods",
+  "Short periods": "quizAnswer.shortPeriods",
+  "Moderate periods": "quizAnswer.moderatePeriods",
+  "Long periods": "quizAnswer.longPeriods",
+  "Very long periods": "quizAnswer.veryLongPeriods",
   "Yes": "answer.yes",
   "No": "answer.no",
   // Cat-specific answers
@@ -125,22 +128,12 @@ function translateAnswers(answers: Record<string, number> | string[], t: (key: s
   }
 }
 
-// ALL YOUR ACTUAL QUESTIONS FROM DATA FOLDER - EXACTLY AS THEY ARE
+// CLEANED QUESTIONS - NO DUPLICATES - MATCHES BACKEND
 export const dogQuestions: Array<{
   question: string;
   characteristic: string;
   answers: Record<string, number> | string[];
 }> = [
-    {
-      question: "How experienced are you with dogs?",
-      characteristic: "experience",
-      answers: ["Not at all", "Slightly", "Moderately", "Very", "Extremely"]
-    },
-    {
-      question: "How much time can you dedicate to training?",
-      characteristic: "training",
-      answers: ["Minimal", "Some", "Average", "Significant", "Extensive"]
-    },
     {
       question: "Are you a beginner or an experienced owner?",
       answers: {
@@ -155,8 +148,8 @@ export const dogQuestions: Array<{
     {
       question: "Do you have a preference for the size of your pet?",
       answers: {
-        "Very Small": 1,
-        "Small": 2,
+        "Small": 1,
+        "Slightly small": 2,
         "Medium": 3,
         "Large": 4,
         "Very Large": 5
@@ -186,35 +179,24 @@ export const dogQuestions: Array<{
       characteristic: "Guarding Level"
     },
     {
-      question: "What do you envision walking with your pet to be like?",
+      question: "How much exercise and activity does your ideal dog need?",
       answers: {
-        "Low activity": 1,
-        "Slightly active": 2,
-        "Medium activity": 3,
-        "Active": 4,
-        "High activity": 5
-      },
-      characteristic: "Walk Activity"
-    },
-    {
-      question: "How much time are you willing to walk your dog?",
-      answers: {
-        "Little time": 1,
-        "Some time": 2,
-        "Moderate time": 3,
-        "More time": 4,
-        "A lot of time": 5
+        "Very low": 1,
+        "Low": 2,
+        "Moderate": 3,
+        "High": 4,
+        "Very high": 5
       },
       characteristic: "Exercise Needs"
     },
     {
-      question: "How long have you been away from home?",
+      question: "How long can your dog be alone during the day?",
       answers: {
-        "Little time": 1,
-        "Some time": 2,
-        "Moderate time": 3,
-        "More time": 4,
-        "A lot of time": 5
+        "Very short periods": 1,
+        "Short periods": 2,
+        "Moderate periods": 3,
+        "Long periods": 4,
+        "Very long periods": 5
       },
       characteristic: "Tolerates Being Alone"
     },
