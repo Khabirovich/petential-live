@@ -55,7 +55,7 @@ export default function QuizPage() {
 
       try {
         // Call backend API directly with all answers for breed scoring
-        const response = await fetch('http://localhost:5001/api/calculate-scores', {
+        const response = await fetch('/api/calculate-scores', {
           method: 'POST',
           headers: {
             'Content-Type': 'application/json',
