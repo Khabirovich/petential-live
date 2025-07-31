@@ -517,26 +517,29 @@ def calculate_breed_scores(pet_type, answers, dog_breeds, cat_breeds, mappings):
             # Calculate base percentage
             base_percentage = (raw_score / theoretical_max) * 100
             
-            # Scale to ensure proper distribution across exactly 3 ranges:
-            # Excellent (80%+), Good (60-79%), Fair (<60%)
-            if base_percentage >= 90:
-                # Excellent matches: 85-95%
-                final_percentage = 85 + (base_percentage - 90) * 1.0
+            # More realistic scaling to create natural distribution
+            # Scale down the percentages to create more variety
+            if base_percentage >= 95:
+                # Only perfect matches: 85-95%
+                final_percentage = 85 + (base_percentage - 95) * 2.0
+            elif base_percentage >= 85:
+                # Very good matches: 75-84%
+                final_percentage = 75 + (base_percentage - 85) * 0.9
             elif base_percentage >= 75:
-                # Excellent matches: 80-84%
-                final_percentage = 80 + (base_percentage - 75) * 0.33
-            elif base_percentage >= 60:
-                # Good matches: 60-79%
-                final_percentage = 60 + (base_percentage - 60) * 1.27
-            elif base_percentage >= 45:
-                # Fair matches: 45-59%
-                final_percentage = 45 + (base_percentage - 45) * 0.93
+                # Good matches: 65-74%
+                final_percentage = 65 + (base_percentage - 75) * 0.9
+            elif base_percentage >= 65:
+                # Fair matches: 50-64%
+                final_percentage = 50 + (base_percentage - 65) * 1.4
+            elif base_percentage >= 50:
+                # Poor matches: 35-49%
+                final_percentage = 35 + (base_percentage - 50) * 0.93
             else:
-                # Fair matches: 25-44%
-                final_percentage = 25 + (base_percentage * 0.44)
+                # Very poor matches: 20-34%
+                final_percentage = 20 + (base_percentage * 0.28)
             
-            # Ensure we stay within bounds
-            normalized_scores[breed_name] = max(25, min(95, final_percentage))
+            # Ensure realistic bounds
+            normalized_scores[breed_name] = max(20, min(95, final_percentage))
         else:
             normalized_scores[breed_name] = 0.0
     
@@ -544,42 +547,31 @@ def calculate_breed_scores(pet_type, answers, dog_breeds, cat_breeds, mappings):
     all_results = [{'name': breed, 'score': normalized_scores[breed]} for breed in normalized_scores]
     all_results.sort(key=lambda x: (-x['score'], x['name']))  # Sort by score desc, then name asc
     
-    # FORCE exactly 3 breeds in each category: 3 Excellent, 3 Good, 3 Fair
+    # Get breeds distributed across 3 categories while preserving actual compatibility
+    excellent_breeds = [b for b in all_results if b['score'] >= 80]
+    good_breeds = [b for b in all_results if 60 <= b['score'] < 80]
+    fair_breeds = [b for b in all_results if b['score'] < 60]
+    
     result = []
     
-    # Sort all breeds by score
-    all_results.sort(key=lambda x: (-x['score'], x['name']))
+    # Try to get 3 from each category, but respect actual compatibility scores
+    result.extend(excellent_breeds[:3])
+    result.extend(good_breeds[:3])
+    result.extend(fair_breeds[:3])
     
-    # Force distribution by adjusting scores if needed
-    if len(all_results) >= 9:
-        # Take top 9 breeds and force them into 3 categories
-        top_9 = all_results[:9]
-        
-        # Assign exactly 3 to each category by adjusting scores
-        # Top 3 → Excellent (80-95%)
-        for i in range(3):
-            if i < len(top_9):
-                top_9[i]['score'] = 90 - (i * 3)  # 90%, 87%, 84%
-        
-        # Middle 3 → Good (60-79%)  
-        for i in range(3, 6):
-            if i < len(top_9):
-                top_9[i]['score'] = 75 - ((i-3) * 5)  # 75%, 70%, 65%
-        
-        # Bottom 3 → Fair (<60%)
-        for i in range(6, 9):
-            if i < len(top_9):
-                top_9[i]['score'] = 55 - ((i-6) * 5)  # 55%, 50%, 45%
-        
-        result = top_9
-    else:
-        # Fallback if we have fewer than 9 breeds
-        result = all_results
+    # If we don't have enough in any category, fill with best remaining breeds
+    while len(result) < 9:
+        for breed in all_results:
+            if breed not in result:
+                result.append(breed)
+                break
+        if len(result) >= len(all_results):  # Prevent infinite loop
+            break
     
-    # Sort final result by score descending
+    # Sort by actual compatibility score (preserve real matching)
     result.sort(key=lambda x: (-x['score'], x['name']))
     
-    # Return exactly 9 breeds with forced 3-3-3 distribution
+    # Return top 9 breeds with REAL compatibility scores
     return result[:9]
 
 def get_dog_image(breed_name):
