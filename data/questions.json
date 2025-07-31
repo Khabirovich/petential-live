@@ -1,26 +1,5 @@
 [
-    {
-        "question": "How experienced are you with dogs?",
-        "characteristic": "Owner Experience",
-        "answers": {
-            "Not at all": 1,
-            "Slightly": 2,
-            "Moderately": 3,
-            "Very": 4,
-            "Extremely": 5
-        }
-    },
-    {
-        "question": "How much time can you dedicate to training?",
-        "characteristic": "Training Level",
-        "answers": {
-            "Minimal": 1,
-            "Some": 2,
-            "Average": 3,
-            "Significant": 4,
-            "Extensive": 5
-        }
-    },
+
     {
         "question": "Are you a beginner or an experienced owner?",
         "answers": {
