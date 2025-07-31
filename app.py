@@ -46,20 +46,14 @@ def load_data():
             dog_questions = json.load(f)
             print(f"Loaded {len(dog_questions)} dog questions")
             
-            # Filter to only use questions that have proper object format answers or are in mappings
+            # All questions should now have proper object format answers
             valid_dog_questions = []
             for q in dog_questions:
-                if 'answers' in q and q['answers']:
-                    if isinstance(q['answers'], dict):
-                        # Already has proper format
-                        valid_dog_questions.append(q)
-                        print(f"✅ Using question with object answers: {q['question']}")
-                    elif isinstance(q['answers'], list):
-                        # Skip array format questions for now - they need mapping
-                        print(f"⚠️ Skipping array format question: {q['question']}")
-                        continue
+                if 'answers' in q and q['answers'] and isinstance(q['answers'], dict):
+                    valid_dog_questions.append(q)
+                    print(f"✅ Using question: {q['question']}")
                 else:
-                    print(f"⚠️ Skipping question without answers: {q.get('question', 'Unknown')}")
+                    print(f"⚠️ Skipping invalid question: {q.get('question', 'Unknown')}")
             
             dog_questions = valid_dog_questions
             print(f"Using {len(dog_questions)} valid dog questions")
@@ -461,31 +455,18 @@ def calculate_breed_scores(pet_type, answers, dog_breeds, cat_breeds, mappings):
         answer = answer_data.get('answer')
         characteristic = answer_data.get('characteristic')
         
-        # Use the weight directly if available
+        # Use the weight directly from questions.json (single source of truth)
         answer_weight = answer_data.get('answer_weight')
         if answer_weight is not None:
             try:
                 weight = int(answer_weight)
-                print(f"Using direct weight for '{answer}': {weight}")
+                print(f"Using weight for '{answer}': {weight}")
             except (ValueError, TypeError):
                 print(f"Invalid weight format: {answer_weight}, skipping answer")
                 continue
         else:
-            # Otherwise look it up in mappings
-            if not mappings.empty:
-                weight_row = mappings[(mappings['Question'] == question) & 
-                                    (mappings['Answer'] == answer) & 
-                                    (mappings['Characteristic'] == characteristic)]
-                
-                if not weight_row.empty:
-                    weight = weight_row.iloc[0]['Weight']
-                    print(f"Found mapping weight for '{answer}': {weight}")
-                else:
-                    print(f"No weight found in mappings for: {answer_data}")
-                    continue
-            else:
-                print(f"No mappings available, skipping answer: {answer_data}")
-                continue
+            print(f"No weight found for answer: {answer_data}")
+            continue
         
         # Update score for each breed based on characteristic and weight
         for breed in breeds:
