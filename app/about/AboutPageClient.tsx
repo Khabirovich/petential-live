@@ -82,43 +82,37 @@ export default function AboutPageClient() {
                 {t('about.mission.text2')}
               </p>
             </div>
-            <div className="card-modern">
-              <div className="text-center">
-                <div 
-                  style={{
-                    width: "64px",
-                    height: "64px",
-                    background: "var(--petential-primary)",
-                    borderRadius: "50%",
-                    display: "flex",
-                    alignItems: "center",
-                    justifyContent: "center",
-                    margin: "0 auto var(--spacing-md) auto"
-                  }}
-                >
-                  <span style={{ fontSize: "32px" }}>🐾</span>
-                </div>
-                <h3 
-                  style={{
-                    fontFamily: "var(--font-heading)",
-                    fontSize: "var(--font-size-h3)",
-                    fontWeight: "var(--font-weight-medium)",
-                    color: "var(--petential-dark)",
-                    marginBottom: "var(--spacing-sm)"
-                  }}
-                >
-                  {t('about.smartMatching.title')}
-                </h3>
-                <p 
-                  style={{
-                    fontSize: "var(--font-size-body)",
-                    color: "var(--petential-haiti-60)",
-                    margin: 0
-                  }}
-                >
-                  {t('about.smartMatching.description')}
+            <div 
+              style={{
+                borderRadius: "var(--radius-xl)",
+                overflow: "hidden",
+                boxShadow: "0 10px 25px rgba(0, 0, 0, 0.1)",
+                background: "white"
+              }}
+            >
+              <video
+                width="100%"
+                height="auto"
+                controls
+                autoPlay
+                muted
+                loop
+                preload="metadata"
+                style={{
+                  display: "block",
+                  maxWidth: "100%",
+                  height: "auto"
+                }}
+                poster="/images/placeholder.jpg"
+              >
+                <source src="/_version_v3_202508011653_dlfpj.mp4" type="video/mp4" />
+                <p style={{ padding: "var(--spacing-lg)", textAlign: "center", color: "var(--petential-haiti-60)" }}>
+                  Your browser doesn't support video playback. 
+                  <a href="/_version_v3_202508011653_dlfpj.mp4" style={{ color: "var(--petential-primary)" }}>
+                    Download the video
+                  </a> to watch it.
                 </p>
-              </div>
+              </video>
             </div>
           </div>
 
