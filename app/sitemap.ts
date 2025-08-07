@@ -19,6 +19,7 @@ export default function sitemap(): MetadataRoute.Sitemap {
     '/pet-care-guide',
     '/training-tips',
     '/nutrition-guide',
+    '/how-to-choose-pet',
     '/privacy',
     '/terms',
     '/cookies'

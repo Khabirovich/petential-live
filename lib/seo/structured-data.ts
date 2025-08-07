@@ -57,7 +57,7 @@ export function generateBreadcrumbSchema(items: Array<{ name: string; url: strin
 
 export function generateQuizSchema(petType: 'dog' | 'cat') {
   const petTypeLabel = petType === 'dog' ? 'Dog' : 'Cat';
-  
+
   return {
     "@context": "https://schema.org",
     "@type": "Quiz",
@@ -80,7 +80,7 @@ export function generateQuizSchema(petType: 'dog' | 'cat') {
 
 export function generateBreedSchema(breedName: string, petType: 'dog' | 'cat', breedData: any) {
   const petTypeLabel = petType === 'dog' ? 'Dog' : 'Cat';
-  
+
   return {
     "@context": "https://schema.org",
     "@type": "Article",
@@ -149,7 +149,7 @@ export function generateHowToSchema() {
         "name": "Internet connection"
       },
       {
-        "@type": "HowToSupply", 
+        "@type": "HowToSupply",
         "name": "5-10 minutes of time"
       }
     ],

@@ -173,7 +173,7 @@ export default function Navigation() {
                   </DropdownMenuItem>
                   <DropdownMenuItem asChild>
                     <Link
-                      href="/nutrition-guide"
+                      href="/how-to-choose-pet"
                       className="w-full flex items-center rounded-md transition-colors duration-200"
                       style={{
                         padding: "12px 16px",
@@ -291,7 +291,7 @@ export default function Navigation() {
             <Link href="/training-tips" className="nav-mobile-link" onClick={toggleMobileMenu}>
               {t('nav.guides.trainingTips')}
             </Link>
-            <Link href="/nutrition-guide" className="nav-mobile-link" onClick={toggleMobileMenu}>
+            <Link href="/how-to-choose-pet" className="nav-mobile-link" onClick={toggleMobileMenu}>
               {t('nav.guides.nutritionGuide')}
             </Link>
             <button onClick={() => { setLanguage('en'); toggleMobileMenu() }} className="nav-mobile-link">

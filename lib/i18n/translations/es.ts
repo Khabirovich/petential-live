@@ -9,7 +9,7 @@ export const es = {
   "nav.guides": "Guías",
   "nav.guides.petCareGuide": "Guía de Cuidado de Mascotas",
   "nav.guides.trainingTips": "Consejos de Entrenamiento",
-  "nav.guides.nutritionGuide": "Guía de Nutrición",
+  "nav.guides.nutritionGuide": "Cómo Elegir Mascota",
 
   // Hero Section
   "hero.title": "Encuentra tu compañero peludo ideal",
@@ -93,7 +93,7 @@ export const es = {
   "footer.petCareGuide": "Guía de Cuidado de Mascotas",
   "footer.trainingTips": "Consejos de Entrenamiento",
   "footer.healthWellness": "Salud y Bienestar",
-  "footer.nutritionGuide": "Guía de Nutrición",
+  "footer.nutritionGuide": "Cómo Elegir Mascota",
   "footer.blog": "Blog",
   "footer.support": "Soporte",
   "footer.contactUs": "Contáctanos",
@@ -209,7 +209,7 @@ export const es = {
   "features.feature3.title": "Orientación Experta",
   "features.feature3.description": "Obtén consejos profesionales y tips de veterinarios y expertos en cuidado de mascotas para asegurar una adopción exitosa.",
   "features.cta": "Comienza Tu Viaje",
-  
+
   // Testimonials Section
   "testimonials.title": "Historias reales de familias felices",
   "testimonials.subtitle": "Historias reales de familias felices con mascotas",
@@ -225,7 +225,7 @@ export const es = {
   "testimonials.testimonial4.quote": "El proceso fue acogedor y fácil. Encontramos un compañero que realmente pertenece a nuestra familia.",
   "testimonials.testimonial4.author": "Alex Rivera",
   "testimonials.testimonial4.description": "Padre y defensor de animales",
-  
+
   // FAQ Section
   "faq.title": "Preguntas Frecuentes",
   "faq.subtitle": "Respuestas para tu búsqueda de mascota",
@@ -238,7 +238,7 @@ export const es = {
   "faq.answer3": "Absolutamente. Ya sea que ames perros, gatos, o ambos, encontrarás emparejamientos personalizados e información útil para cada amigo peludo.",
   "faq.question4": "¿Necesito experiencia con mascotas?",
   "faq.answer4": "¡No se necesita experiencia! Nuestra plataforma es para todos, desde principiantes hasta amantes de mascotas de toda la vida. Te guiaremos en cada paso del camino.",
-  
+
   // Insights Section
   "insights.title": "Nuevos insights para cada amante de mascotas",
   "insights.subtitle": "Últimos consejos y recomendaciones para dueños de mascotas",
@@ -252,7 +252,7 @@ export const es = {
   "insights.insight3.description": "Escucha historias y respuestas prácticas de nuestra comunidad y expertos en cuidado de mascotas—no estás solo en este viaje.",
   "insights.insight4.title": "Historias emotivas, emparejamientos felices",
   "insights.insight4.description": "Inspírate con cuentos edificantes y consejos útiles de personas que han encontrado sus amigos perfectos de cuatro patas.",
-  
+
   // CTA Section
   "cta.title": "¿Listo para encontrar tu compañero perfecto?",
   "cta.subtitle": "Únete a miles de dueños de mascotas que encontraron su compañero ideal a través del sistema de emparejamiento avanzado de PETential.",
@@ -262,7 +262,7 @@ export const es = {
   "cta.features.feature1": "Quiz rápido de 5 minutos",
   "cta.features.feature2": "Emparejamientos personalizados de razas",
   "cta.features.feature3": "Recomendaciones expertas",
-  
+
   // Common
   "common.loading": "Cargando...",
   "common.loadingArticle": "Cargando artículo...",
@@ -522,11 +522,291 @@ export const es = {
   "insurance.segur.coverage": "Accidentes, enfermedades, atención de rutina",
   "insurance.segur.additional": "Línea de ayuda veterinaria, asistencia de emergencia",
 
+  // How to Choose Pet Page
+  "howToChoosePet.title": "Cómo elegir y comprar una mascota - consejo de expertos",
+  "howToChoosePet.subtitle": "¡Comprar una mascota - gran alegría!",
+  "howToChoosePet.description": "Nuestras recomendaciones te ayudarán a prepararte para tu nuevo rol y aprender todos los detalles con anticipación.",
+  "howToChoosePet.choosePet": "Elige tu mascota, y nosotros te ayudaremos con el resto",
+  "howToChoosePet.kitten": "Gatito",
+  "howToChoosePet.puppy": "Cachorro",
+  "howToChoosePet.howToChooseKitten": "Cómo elegir un gatito",
+  "howToChoosePet.howToChoosePuppy": "Cómo elegir un cachorro",
+  "howToChoosePet.step1Title": "Primero, determina el propósito de tener una mascota",
+  "howToChoosePet.step1Text": "¿Buscas un amigo para tu alma, quieres dedicarte a la cría de mascotas para venta, o planeas participar en exposiciones y competencias profesionales?",
+  "howToChoosePet.step2Title": "Familiarízate con las características de la raza de tu futura mascota",
+  "howToChoosePet.step2Text": "Debes hacer coincidir el temperamento, nivel de actividad y muchos otros factores que asegurarán una vida larga y feliz juntos.",
+  "howToChoosePet.step3Title": "Elige un criador confiable",
+  "howToChoosePet.step3Text": "Para evitar ser víctima de vendedores sin escrúpulos, usa las recomendaciones de nuestra lista de verificación.",
+  "howToChoosePet.whatDeterminesKittenPrices": "Qué determina los precios de los gatitos",
+  "howToChoosePet.whatDeterminesPuppyPrices": "Qué determina los precios de los cachorros",
+  "howToChoosePet.priceDependsOnClass": "El precio depende de la clase a la que pertenece la mascota",
+  "howToChoosePet.pet": "Mascota",
+  "howToChoosePet.breed": "Raza",
+  "howToChoosePet.show": "Exposición",
+  "howToChoosePet.petClass": "Mascota (del inglés pet — mascota doméstica)",
+  "howToChoosePet.petClassDesc": "Las mascotas más asequibles que se convertirán en mascotas familiares. Los gatitos/cachorros de clase mascota no están destinados para reproducción posterior y participación en carreras de exposición.",
+  "howToChoosePet.breedClass": "Raza (del inglés breed — descendencia, raza)",
+  "howToChoosePet.breedClassDesc": "Mascotas genéticamente puras para reproducción que corresponden completamente a la raza. Los gatitos/cachorros de esta clase no son adecuados para exposiciones.",
+  "howToChoosePet.showClass": "Exposición (del inglés show — exposición, espectáculo)",
+  "howToChoosePet.showClassDesc": "La clase más alta de mascotas con genética y fenotipo impecables. Estos son súper campeones que pueden participar en exposiciones y ganar medallas.",
+  "howToChoosePet.pricesWithWithoutDocs": "Los precios de gatitos/cachorros con y sin documentos difieren significativamente",
+  "howToChoosePet.withDocsTitle": "La cría y mantenimiento de gatitos/cachorros de raza pura requiere gran esfuerzo e inversión financiera.",
+  "howToChoosePet.withDocsDesc": "Una mascota con documentos oficiales y pedigrí, así como salud psicológica y física confirmada, cuesta más.",
+  "howToChoosePet.withoutDocsTitle": "Si no hay documentos, puedes convertirte en víctima de vendedores sin escrúpulos.",
+  "howToChoosePet.withoutDocsDesc": "Los signos externos de la mascota aparecen a los 4-6 meses de edad. Para este momento, el gatito/cachorro puede adquirir rasgos de una raza completamente diferente.",
+  "howToChoosePet.expertAdvice": "Consejo de Expertos",
+  "howToChoosePet.expertAdviceKitten": "Si no sabes cómo elegir un gatito, nuestro artículo puede ayudarte. Te contaremos sobre los criterios principales para elegir tu futura mascota y dónde conseguirla. Las recomendaciones dentro serán útiles para todos los que sueñan con tener su primera mascota.",
+  "howToChoosePet.expertAdvicePuppy": "En nuestro artículo, los expertos de Petential te dicen cómo elegir un cachorro y a qué prestar atención al elegir una mascota. Los consejos y recomendaciones recopilados serán útiles para todos los dueños novatos que sueñan con adquirir su primer perro en la vida, pero no saben exactamente por dónde empezar.",
+  "howToChoosePet.backToHome": "← Volver al Inicio",
+  "howToChoosePet.expertAdvice.contents": "Contenido del Artículo:",
+  "howToChoosePet.expertAdvice.kitten.content1": "• ¿Qué considerar antes de elegir un gatito?",
+  "howToChoosePet.expertAdvice.kitten.content2": "• ¿Cómo elegir correctamente un gatito?",
+  "howToChoosePet.expertAdvice.kitten.content3": "• ¿Cuándo está listo un gatito para mudarse?",
+  "howToChoosePet.expertAdvice.kitten.content4": "• Gatito de refugio o de la calle",
+  "howToChoosePet.expertAdvice.kitten.content5": "• Recomendaciones para nuevos dueños",
+  "howToChoosePet.expertAdvice.kitten.content6": "• Cómo elegir y comprar un gatito - lista de verificación",
+  "howToChoosePet.expertAdvice.analysis": "Un análisis claro en la etapa preparatoria te permitirá sopesar todos los pros y contras, así como discutir posibles matices con otros miembros de la familia. Esto te ayudará a llegar a una opinión unánime que satisfaga a todos los miembros del hogar. Por lo tanto, asegúrate de obtener apoyo de tus seres queridos y familiarizarte con los consejos enumerados a continuación.",
+  "howToChoosePet.expertAdvice.whatToConsiderKitten": "¿Qué considerar antes de elegir un gatito?",
+  "howToChoosePet.expertAdvice.healthCheck": "Antes de comprar un gatito, necesitas asegurarte de que esté saludable. La buena salud se indicará por la ausencia de secreción de los ojos y nariz, pelaje brillante, actividad, curiosidad y juguetón. Estas cualidades son características de todos los animales jóvenes y saludables.",
+  "howToChoosePet.expertAdvice.importantPoints": "Arriba listamos los puntos más importantes, pero esto está lejos de ser todo lo que necesitas saber antes de comprar un gatito. Por lo tanto, presta atención a las siguientes recomendaciones:",
+  "howToChoosePet.expertAdvice.checklist.item1": "<strong>Haz una lista de criterios importantes para ti.</strong> Elige la raza, género, clase, edad y tipo de pelaje de tu futura mascota, basándote en tus preferencias y capacidades.",
+  "howToChoosePet.expertAdvice.checklist.item2": "<strong>Encuentra un buen criador.</strong> Estudia las reseñas disponibles e infórmate sobre la disponibilidad de pedigrís y papeles de registro para los animales.",
+  "howToChoosePet.expertAdvice.checklist.item3": "<strong>Organiza una reunión con el criador.</strong> Antes de comprar un gatito, evalúa sus condiciones de vida, comportamiento y apariencia.",
+  "howToChoosePet.expertAdvice.checklist.item4": "<strong>Asegúrate de que la mascota esté lista para mudarse.</strong> Al momento de la separación de la madre, tu nueva mascota debe tener al menos 3 meses de edad.",
+  "howToChoosePet.expertAdvice.checklist.item5": "<strong>Considera la posibilidad de tener una mascota de refugio.</strong> Si la raza no te importa - toma un gato de un refugio o cuidado de acogida voluntario, pero asegúrate de estudiar todos los matices existentes.",
+
+  // Puppy-specific Spanish translations
+  "howToChoosePet.expertAdvice.puppy.content1": "• ¿Qué considerar antes de elegir un cachorro?",
+  "howToChoosePet.expertAdvice.puppy.content2": "• ¿Qué considerar al elegir?",
+  "howToChoosePet.expertAdvice.puppy.content3": "• Cómo elegir correctamente un cachorro - 5 pasos",
+  "howToChoosePet.expertAdvice.puppy.content4": "• ¿Cuándo tomar un cachorro?",
+  "howToChoosePet.expertAdvice.puppy.content5": "• Mascotas de la calle o refugio",
+  "howToChoosePet.expertAdvice.puppy.content6": "• Consejos para futuros dueños",
+  "howToChoosePet.expertAdvice.puppy.content7": "• Cómo elegir un cachorro - lista de verificación",
+  "howToChoosePet.expertAdvice.whatToConsiderPuppy": "¿Qué considerar antes de elegir un cachorro?",
+  "howToChoosePet.expertAdvice.puppy.healthCheck": "Antes de comprar un cachorro, necesitas asegurarte de que esté saludable. La buena salud se indicará por la ausencia de secreción de los ojos y nariz, pelaje brillante, actividad, curiosidad y juguetón. Estas cualidades son características de todos los animales jóvenes y saludables.",
+  "howToChoosePet.expertAdvice.puppy.importantPoints": "Arriba listamos los puntos más importantes, pero esto está lejos de ser todo lo que necesitas saber antes de comprar un cachorro. Por lo tanto, presta atención a las siguientes recomendaciones:",
+  "howToChoosePet.expertAdvice.puppy.analysis": "Antes de comprar una mascota, debes evaluar tus capacidades financieras y el tiempo que estás dispuesto a dedicar a criar, entrenar, mantener y cuidar a un nuevo miembro de la familia. Al final, todos deben sentirse bien: tanto tú como tu futura mascota. Por lo tanto, asegúrate de involucrar a todos los miembros de tu familia en la toma de decisiones.",
+  "howToChoosePet.expertAdvice.puppy.checklist.item1": "<strong>Haz una lista de criterios importantes para ti.</strong> Elige la raza, género, clase, edad y tipo de pelaje de tu futura mascota, basándote en tus preferencias y capacidades.",
+  "howToChoosePet.expertAdvice.puppy.checklist.item2": "<strong>Encuentra un buen criador.</strong> Estudia las reseñas disponibles e infórmate sobre la disponibilidad de pedigrís y papeles de registro para los animales.",
+  "howToChoosePet.expertAdvice.puppy.checklist.item3": "<strong>Organiza una reunión con el criador.</strong> Antes de comprar un cachorro, evalúa sus condiciones de vida, comportamiento y apariencia.",
+  "howToChoosePet.expertAdvice.puppy.checklist.item4": "<strong>Asegúrate de que la mascota esté lista para mudarse.</strong> Al momento de la separación de la madre, tu nueva mascota debe tener al menos 3 meses de edad.",
+  "howToChoosePet.expertAdvice.puppy.checklist.item5": "<strong>Considera la posibilidad de tener una mascota de refugio.</strong> Si la raza no te importa - toma un perro de un refugio o cuidado de acogida voluntario, pero asegúrate de estudiar todos los matices existentes.",
+
+  // Alt text translations
+  "howToChoosePet.altText.cuteKitten": "Gatito adorable",
+  "howToChoosePet.altText.cutePuppy": "Cachorro adorable",
+
+  // Article content translations
+  "howToChoosePet.article.dontFocusExclusively": "No te enfoques exclusivamente en la apariencia. La mascota, como tú, debe sentirse cómoda en tu familia. Por lo tanto, primero necesitas entender si realmente se adaptan el uno al otro. Para esto, necesitas considerar tu estilo de vida, ocupación general, composición familiar y la presencia de otras mascotas.",
+  "howToChoosePet.article.choosingBreed": "Eligiendo una raza",
+  "howToChoosePet.article.beforeChoosingKitten": "Antes de elegir un gatito, necesitas decidir sobre su raza. Con animales de la calle o refugio, todo es mucho más simple. Aquí tu corazón te guiará.",
+  "howToChoosePet.article.purebred": "Si sueñas con un gato de raza pura - trata de aprender tanta información como sea posible sobre la raza que te llamó la atención:",
+  "howToChoosePet.article.characterTemperament": "Carácter y temperamento",
+  "howToChoosePet.article.careFeatures": "Características de cuidado y mantenimiento",
+  "howToChoosePet.article.activityLevel": "Nivel de actividad",
+  "howToChoosePet.article.checklistItem1": "Asegúrate de tener un pedigrí, pasaporte veterinario y acuerdo de compra antes de cerrar el trato.",
+  "howToChoosePet.article.checklistItem2": "Compra todos los artículos necesarios de cuidado y mantenimiento con anticipación.",
+  "howToChoosePet.article.checklistItem3": "Tómate una semana libre o vacaciones para facilitar el proceso de adaptación y no dejar solo a tu nueva mascota.",
+  "howToChoosePet.article.checklistItem4": "Pide al criador algo con el aroma de la madre gata.",
+  "howToChoosePet.article.finalNote": "No olvides que una mascota doméstica es un miembro de pleno derecho de la familia. Su crianza, cuidado y mantenimiento imponen una gran responsabilidad, pero son más que compensados por emociones agradables regulares en el proceso de comunicación.",
+  "howToChoosePet.article.keyFactors": "Ten en cuenta todos los factores clave. Si estás interesado en una mascota de raza pura - asegúrate de familiarizarte con las características de su raza de carácter y temperamento. Además, vale la pena considerar el género, ya que los machos y las hembras tienen algunas diferencias en comportamiento y mantenimiento.",
+  "howToChoosePet.article.petCorner": "Determina un lugar para el rincón personal de la mascota. Esta no debe ser una habitación de paso.",
+  "howToChoosePet.article.buyNecessary": "Compra todo lo necesario. La lista obligatoria incluye tazones, ropa de cama, pañales y otras cosas para paseos, cuidado y mantenimiento.",
+  "howToChoosePet.article.carrier": "Elige un transportador conveniente y organiza un viaje en auto. El ruido del transporte público puede aumentar el estrés.",
+  "howToChoosePet.article.brand": "Asegúrate de que haya una marca. Se coloca en la ingle o en la oreja.",
+
+  // Additional article content translations
+  "howToChoosePet.article.choosingBreeder": "Eligiendo un criador",
+  "howToChoosePet.article.breederMeeting": "Si los criterios principales para tu futura mascota han sido determinados exitosamente - procede a elegir un criador. Después de encontrar uno, necesitarás organizar una reunión con ellos y visitar personalmente su criadero (o casa). La comunicación en vivo, a diferencia de comprar por fotos, te permite evaluar todos los animales en dinámicas y familiarizarte personalmente con sus condiciones de vida.",
+  "howToChoosePet.article.healthyKitten": "Un gatito saludable debe tener:",
+  "howToChoosePet.article.healthyPuppy": "Un cachorro saludable debe tener:",
+  "howToChoosePet.article.clearEyes": "Ojos claros y brillantes sin secreción",
+  "howToChoosePet.article.cleanNose": "Nariz limpia sin secreción",
+  "howToChoosePet.article.shinyCoat": "Pelaje brillante y limpio",
+  "howToChoosePet.article.activePlayful": "Comportamiento activo y juguetón",
+  "howToChoosePet.article.goodAppetite": "Buen apetito",
+  "howToChoosePet.article.normalWeight": "Peso normal para la edad",
+  "howToChoosePet.article.socialBehavior": "Comportamiento social con hermanos",
+  "howToChoosePet.article.noFear": "Sin miedo excesivo a los humanos",
+  "howToChoosePet.article.whenReady": "¿Cuándo está listo un gatito para mudarse?",
+  "howToChoosePet.article.whenReadyPuppy": "¿Cuándo está listo un cachorro para mudarse?",
+  "howToChoosePet.article.minimumAge": "La edad mínima para separar un gatito de su madre es de 12 semanas (3 meses). A esta edad, el gatito ya está completamente destetado, ha recibido las vacunas básicas y ha aprendido habilidades sociales importantes de su madre y hermanos.",
+  "howToChoosePet.article.minimumAgePuppy": "La edad mínima para separar un cachorro de su madre es de 8-12 semanas. A esta edad, el cachorro ya está completamente destetado, ha recibido las vacunas básicas y ha aprendido habilidades sociales importantes de su madre y hermanos.",
+  "howToChoosePet.article.shelterPets": "Mascotas de refugio o de la calle",
+  "howToChoosePet.article.shelterBenefits": "Adoptar de un refugio tiene muchos beneficios: salvas una vida, los animales suelen estar esterilizados y vacunados, y el costo es mucho menor. Sin embargo, es importante estar preparado para posibles problemas de salud o comportamiento.",
+  "howToChoosePet.article.newOwnerTips": "Consejos para nuevos dueños",
+  "howToChoosePet.article.patience": "Ten paciencia durante el período de adaptación",
+  "howToChoosePet.article.routine": "Establece una rutina desde el primer día",
+  "howToChoosePet.article.vetVisit": "Programa una visita al veterinario dentro de la primera semana",
+  "howToChoosePet.article.safeSpace": "Crea un espacio seguro para tu nueva mascota",
+  "howToChoosePet.article.gradualIntroduction": "Introduce gradualmente a tu mascota a nuevos ambientes y personas",
+  "howToChoosePet.article.qualityFood": "Invierte en comida de alta calidad",
+  "howToChoosePet.article.training": "Comienza el entrenamiento básico temprano",
+  "howToChoosePet.article.socialization": "Socializa a tu mascota con otros animales y personas",
+
+  // More detailed article content
+  "howToChoosePet.article.genderConsideration": "Consideración del género",
+  "howToChoosePet.article.maleTraits": "Los machos tienden a ser más grandes, juguetones y territoriales",
+  "howToChoosePet.article.femaleTraits": "Las hembras suelen ser más independientes y menos territoriales",
+  "howToChoosePet.article.spayNeuter": "La esterilización puede afectar el comportamiento independientemente del género",
+  "howToChoosePet.article.livingSpace": "Espacio de vida",
+  "howToChoosePet.article.apartmentSuitable": "Algunas razas son más adecuadas para apartamentos",
+  "howToChoosePet.article.yardRequired": "Otras razas requieren un patio o más espacio",
+  "howToChoosePet.article.exerciseNeeds": "Considera las necesidades de ejercicio de la raza",
+  "howToChoosePet.article.timeCommitment": "Compromiso de tiempo",
+  "howToChoosePet.article.dailyCare": "Cuidado diario (alimentación, aseo, ejercicio)",
+  "howToChoosePet.article.training": "Tiempo para entrenamiento y socialización",
+  "howToChoosePet.article.vetVisits": "Visitas regulares al veterinario",
+  "howToChoosePet.article.grooming": "Necesidades de aseo según la raza",
+  "howToChoosePet.article.financialConsiderations": "Consideraciones financieras",
+  "howToChoosePet.article.initialCosts": "Costos iniciales (mascota, suministros, vacunas)",
+  "howToChoosePet.article.ongoingCosts": "Costos continuos (comida, cuidado veterinario, aseo)",
+  "howToChoosePet.article.emergencyCosts": "Costos de emergencia (problemas de salud inesperados)",
+  "howToChoosePet.article.insurance": "Considera el seguro para mascotas",
+  "howToChoosePet.article.familyConsiderations": "Consideraciones familiares",
+  "howToChoosePet.article.allergies": "Alergias de los miembros de la familia",
+  "howToChoosePet.article.childrenSafety": "Seguridad con niños pequeños",
+  "howToChoosePet.article.otherPets": "Compatibilidad con otras mascotas",
+  "howToChoosePet.article.lifestyle": "Compatibilidad con el estilo de vida familiar",
+
+  // All remaining article content translations
+  "howToChoosePet.article.dontFocusExclusively": "No te enfoques exclusivamente en la apariencia. La mascota, como tú, debe sentirse cómoda en tu familia. Por lo tanto, primero necesitas entender si realmente se adaptan el uno al otro. Para esto, necesitas considerar tu estilo de vida, ocupación general, composición familiar y la presencia de otras mascotas.",
+  "howToChoosePet.article.choosingBreed": "Eligiendo una raza",
+  "howToChoosePet.article.beforeChoosingKitten": "Antes de elegir un gatito, necesitas decidir sobre su raza. Con animales de la calle o refugio, todo es mucho más simple. Aquí tu corazón te guiará.",
+  "howToChoosePet.article.purebred": "Si sueñas con un gato de raza pura - trata de aprender tanta información como sea posible sobre la raza que te llamó la atención:",
+  "howToChoosePet.article.characterTemperament": "Carácter y temperamento",
+  "howToChoosePet.article.careFeatures": "Características de cuidado y mantenimiento",
+  "howToChoosePet.article.activityLevel": "Nivel de actividad",
+  "howToChoosePet.article.breedingCriteria": "Si los criterios principales para tu futura mascota han sido determinados exitosamente - procede a elegir un criador. Después de encontrar uno, necesitarás organizar una reunión con ellos y visitar personalmente su criadero (o casa). La comunicación en vivo, a diferencia de comprar por fotos, te permite evaluar todos los animales en dinámicas y familiarizarte personalmente con sus condiciones de vida.",
+  "howToChoosePet.article.choosingBreeder": "Eligiendo un criador",
+  "howToChoosePet.article.pedigreeCheck": "Asegúrate de tener un pedigrí, pasaporte veterinario y acuerdo de compra antes de cerrar el trato.",
+  "howToChoosePet.article.buyNecessaryItems": "Compra todos los artículos necesarios de cuidado y mantenimiento con anticipación.",
+  "howToChoosePet.article.takeTimeOff": "Tómate una semana libre o vacaciones para facilitar el proceso de adaptación y no dejar solo a tu nueva mascota.",
+  "howToChoosePet.article.motherScent": "Pide al criador algo con el aroma de la madre gata.",
+  "howToChoosePet.article.transportCarrier": "Transporta la mascota estrictamente en un transportador y usa un auto si es posible.",
+  "howToChoosePet.article.vetVisitFirst": "Para evitar infecciones, no traigas un animal de la calle a casa antes de visitar la clínica veterinaria.",
+  "howToChoosePet.article.familyMember": "No olvides que una mascota doméstica es un miembro de pleno derecho de la familia. Su crianza, cuidado y mantenimiento imponen una gran responsabilidad, pero son más que compensados por emociones agradables regulares en el proceso de comunicación.",
+  "howToChoosePet.article.preparatoryStage": "Presta atención a la etapa preparatoria. Compra todas las cosas necesarias que tu mascota necesitará inmediatamente después de mudarse, y proporciona apoyo integral durante la etapa de adaptación. Gracias a tu amor y cuidado, la pequeña mascota se acostumbrará a las nuevas condiciones mucho más rápido y definitivamente corresponderá a tus sentimientos.",
+  "howToChoosePet.article.keyFactors": "Ten en cuenta todos los factores clave. Si estás interesado en una mascota de raza pura - asegúrate de familiarizarte con las características de su raza de carácter y temperamento. Además, vale la pena considerar el género, ya que los machos y las hembras tienen algunas diferencias en comportamiento y mantenimiento.",
+  "howToChoosePet.article.petCorner": "Determina un lugar para el rincón personal de la mascota. Esta no debe ser una habitación de paso.",
+  "howToChoosePet.article.buyEverything": "Compra todo lo necesario. La lista obligatoria incluye tazones, ropa de cama, pañales y otras cosas para paseos, cuidado y mantenimiento.",
+  "howToChoosePet.article.carrierTrip": "Elige un transportador conveniente y organiza un viaje en auto. El ruido del transporte público puede aumentar el estrés.",
+  "howToChoosePet.article.checkBrand": "Asegúrate de que haya una marca. Se coloca en la ingle o en la oreja.",
+  "howToChoosePet.article.findVet": "Encuentra un buen veterinario. Te guiarán sobre las vacunas necesarias y seleccionarán el programa de vacunación óptimo y el tratamiento de parásitos.",
+  "howToChoosePet.article.dontRush": "No te apresures con la compra. Mudarse a un nuevo hogar solo está permitido después de 3 meses de vida. A una edad más temprana, la mascota aún no está lista para mudarse, pero con el acuerdo del criador, puedes reservar una mascota potencial antes de que salga a la venta.",
+  "howToChoosePet.article.shelterOption": "Piensa en la posibilidad de dar una nueva vida a un animal sin hogar. Elegir un cachorro de un refugio tiene una serie de matices. Lo mismo se aplica a los animales de la calle. Por lo tanto, antes de tomar una decisión, debes evaluar todos los riesgos.",
+  "howToChoosePet.article.thoroughPreparation": "No olvides la preparación minuciosa. Compra todas las cosas necesarias para tu mascota y piensa en el camino a casa. Trata de excluir estar solo en los primeros 7 días después de mudarse. Una mascota rodeada de tu atención y apoyo integral se recuperará del estrés mucho más rápido y ganará confianza en ti.",
+
+  // All remaining hardcoded text translations
+  "howToChoosePet.article.privateBreeder": "Una persona privada puede criar gatos directamente en su apartamento. Esto no está prohibido. Lo principal es asegurarse de que dentro de la habitación esté limpio, seco, cálido y suficientemente espacioso. El mantenimiento abarrotado es un camino directo al desarrollo de infecciones y enfermedades parasitarias.",
+  "howToChoosePet.article.considerCosts": "Considera los costos de mantenimiento, alimentación y compra de elementos esenciales.",
+  "howToChoosePet.article.workHobbies": "Asegúrate de que tu trabajo y pasatiempos no causen soledad constante para tu mascota.",
+  "howToChoosePet.article.physicalMental": "Asegúrate de poder proporcionar la necesidad de ejercicio físico y mental.",
+  "howToChoosePet.article.livingConditions": "Proporciona condiciones de vida decentes.",
+  "howToChoosePet.article.breedSuitability": "Verifica qué tan adecuada es la raza elegida para tu familia, cómo interactuará con tus hijos y otras mascotas, basándose en sus características.",
+  "howToChoosePet.article.purebredPuppy": "Primero, necesitas entender cómo elegir un cachorro de raza pura. En este caso, se recomienda considerar las siguientes características:",
+  "howToChoosePet.article.breedingEvaluation": "Antes de comprar un cachorro, evalúa las condiciones de mantenimiento de los perros, comunícate con el criador y asegúrate de que haya todos los documentos y certificados necesarios.",
+  "howToChoosePet.article.contactClub": "Contacta al club. Aquí puedes encontrar información actualizada sobre todos los criadores registrados.",
+  "howToChoosePet.article.readReviews": "Lee reseñas de otros compradores. Deben buscarse en recursos de terceros, no en el sitio web personal del criador.",
+  "howToChoosePet.article.commercialActivity": "Asegúrate de que la actividad comercial esté registrada. La cría es un trabajo complejo y bastante oficial.",
+  "howToChoosePet.article.mandatoryDocuments": "Pregunta sobre la disponibilidad de documentos obligatorios para perros. Al registrarse en el libro de cría, se emiten métricas para todos los animales.",
+  "howToChoosePet.article.titlesWorking": "Pregunta sobre títulos y diplomas de trabajo de animales reproductores. Los padres de la camada que participan en apareamientos oficiales participan regularmente en exposiciones.",
+  "howToChoosePet.article.followingTips": "Presta atención a los siguientes consejos:",
+  "howToChoosePet.article.readyToBuy": "Asegúrate de estar listo para comprar. Una mascota requiere tiempo y gastos adicionales. No puede comprarse basándose solo en emociones.",
+  "howToChoosePet.article.evaluateSuitability": "Evalúa qué tan adecuado es el cachorro potencial para tu familia. Compara las características de las razas que te gustan, estudia la diferencia entre machos y hembras, piensa en planes futuros y asegúrate de tener en cuenta tu estilo de vida.",
+  "howToChoosePet.article.conscientiousBreeder": "Encuentra un criador concienzudo. Tal persona te dirá cómo elegir un cachorro correctamente y evitar errores. Organiza una reunión con ellos para evaluar independientemente las condiciones de mantenimiento y conocer a todos los animales.",
+
+  // All remaining hardcoded English text translations
+  "howToChoosePet.article.neuteringBehavior": "La castración reduce significativamente la tendencia a dejar marcas, así como otras manifestaciones de comportamiento sexual. Lo principal es no sobrealimentar a la mascota castrada y asegurarse de monitorear el cumplimiento del régimen de bebida.",
+  "howToChoosePet.article.showClass": "En este caso, comienza desde la clase seleccionada o tus capacidades financieras. La clase de exposición solo puede determinarse después de mostrar en una exposición. Por lo tanto, necesitas esperar hasta que la mascota tenga 6 meses de edad.",
+  "howToChoosePet.article.personalMeeting": "Al conocer personalmente a la camada, también puedes confiar en tus propios sentimientos. Si una de las mascotas se interesa en ti y te invita a jugar, o trata de subirse a tus brazos, entonces es poco probable que consideres a alguien más. Tal comportamiento es una buena señal, ya que habla de la amabilidad y afecto del animal.",
+  "howToChoosePet.article.warySigns": "Debes estar alerta si están presentes los siguientes síntomas:",
+  "howToChoosePet.article.chooseImmediately": "Puedes elegir un gatito casi inmediatamente después del nacimiento, pero no necesitas llevarlo a tu familia tan temprano. La mudanza prematura está llena de problemas de salud, y no solo físicos, sino también mentales.",
+  "howToChoosePet.article.savingLife": "Eligiendo entre estas opciones, salvas la vida de alguien. Pero no deberías tomar una decisión sin considerar todos los matices existentes.",
+  "howToChoosePet.article.readyDifficulties": "Si estás listo para posibles dificultades - comienza desde la situación. Tal vez ya tienes a alguien en mente que vagó por tu entrada. Puedes familiarizarte con ofertas de refugios en sitios web de adopción de mascotas.",
+  "howToChoosePet.article.notWhim": "No puedes tomar una mascota exclusivamente basándote en caprichos o tendencias modernas. Es necesario entender que tu nueva mascota es un ser vivo con sus propias necesidades y una gran responsabilidad.",
+  "howToChoosePet.article.comfortableLife": "Para asegurar una vida cómoda para un perro, necesitas:",
+  "howToChoosePet.article.sizeConsideration": "Tamaño. Esto puede ser una raza muy grande o una enana. La primera opción requerirá más espacio en la casa.",
+  "howToChoosePet.article.coatType": "Tipo de pelaje. Determina no solo la apariencia, sino también la complejidad del cuidado.",
+  "howToChoosePet.article.friendliness": "Amabilidad. Si tienes poca experiencia en entrenamiento de perros y tienes otras mascotas o niños, entonces no deberías elegir un cachorro dominante y demasiado independiente.",
+  "howToChoosePet.article.breedGroup": "Afiliación al grupo de raza. Es importante considerar a qué grupo de perros pertenece la raza elegida.",
+  "howToChoosePet.article.genderImportant": "Al elegir un cachorro, es importante tener en cuenta su género. La diferencia más obvia entre hembras y machos es la apariencia. Los machos son notablemente más grandes y tienen un exterior más impresionante.",
+  "howToChoosePet.article.fiveSteps": "Si has determinado todos los puntos anteriores, entonces es hora de comenzar a buscar un criador. Antes de la compra directa, necesitas tomar 5 pasos más: elegir un lugar para comprar una mascota, organizar una reunión, evaluar las condiciones de mantenimiento de los perros, comunicarte con el criador y asegurarte de que haya todos los documentos y certificados necesarios.",
+  "howToChoosePet.article.lookingBreeder": "Al buscar un criador, necesitas:",
+  "howToChoosePet.article.shelterChoice": "Si la afiliación de raza no es importante para ti, entonces un cachorro puede ser elegido de un refugio. De esta manera, puedes ayudar al menos a un animal sin hogar.",
+  "howToChoosePet.article.recommendationsNot": "Las recomendaciones listadas arriba están lejos de ser todo lo que necesitas saber al comprar un cachorro. Además de la selección directa, necesitas considerar una serie de otros matices para tener tiempo de preparar un lugar separado para tu nueva mascota y organizar la mudanza más cómoda a tu hogar.",
+  "howToChoosePet.pricing.kitten.title": "Qué determina los precios de los gatitos",
+  "howToChoosePet.pricing.puppy.title": "Qué determina los precios de los cachorros",
+  "howToChoosePet.pricing.puppy.pet.description": "Los cachorros más asequibles que se convertirán en mascotas familiares. Los cachorros de clase mascota no están destinados para reproducción posterior y participación en carreras de exposición.",
+  "howToChoosePet.pricing.puppy.breed.description": "Cachorros genéticamente puros para reproducción que corresponden completamente a la raza. Los cachorros de esta clase no son adecuados para exposiciones.",
+  "howToChoosePet.pricing.puppy.show.description": "La clase más alta de cachorros con genética y fenotipo impecables. Estos son súper campeones que pueden participar en exposiciones y ganar medallas.",
+  "howToChoosePet.pricing.puppy.comparison.title": "Los precios de los cachorros con y sin documentos difieren significativamente",
+  "howToChoosePet.pricing.puppy.withDocuments.title": "La cría y mantenimiento de cachorros de raza pura requiere gran esfuerzo e inversión financiera.",
+  "howToChoosePet.pricing.puppy.withDocuments.description": "Un cachorro con documentos oficiales y pedigrí, así como salud psicológica y física confirmada, cuesta más.",
+  "howToChoosePet.pricing.puppy.withoutDocuments.title": "Si no hay documentos, puedes convertirte en víctima de vendedores sin escrúpulos.",
+  "howToChoosePet.pricing.puppy.withoutDocuments.description": "Los signos externos del cachorro aparecen a los 4-6 meses de edad. Para este momento, el cachorro puede adquirir rasgos de una raza completamente diferente.",
+  "howToChoosePet.pricing.classDescription": "El precio depende de la clase a la que pertenece la mascota",
+  "howToChoosePet.pricing.pet": "Mascota",
+  "howToChoosePet.pricing.breed": "Raza",
+  "howToChoosePet.pricing.show": "Exposición",
+  "howToChoosePet.pricing.pet.title": "Mascota (del inglés pet — mascota doméstica)",
+  "howToChoosePet.pricing.pet.description": "Las mascotas más asequibles que se convertirán en mascotas familiares. Los gatitos de clase mascota no están destinados para reproducción posterior y participación en carreras de exposición.",
+  "howToChoosePet.pricing.breed.title": "Raza (del inglés breed — descendencia, raza)",
+  "howToChoosePet.pricing.breed.description": "Mascotas genéticamente puras para reproducción que corresponden completamente a la raza. Los gatitos de esta clase no son adecuados para exposiciones.",
+  "howToChoosePet.pricing.show.title": "Exposición (del inglés show — exposición, espectáculo)",
+  "howToChoosePet.pricing.show.description": "La clase más alta de mascotas con genética y fenotipo impecables. Estos son súper campeones que pueden participar en exposiciones y ganar medallas.",
+  "howToChoosePet.pricing.comparison.title": "Los precios de los gatitos con y sin documentos difieren significativamente",
+  "howToChoosePet.pricing.withDocuments.title": "La cría y mantenimiento de gatitos de raza pura requiere gran esfuerzo e inversión financiera.",
+  "howToChoosePet.pricing.withDocuments.description": "Una mascota con documentos oficiales y pedigrí, así como salud psicológica y física confirmada, cuesta más.",
+  "howToChoosePet.pricing.withoutDocuments.title": "Si no hay documentos, puedes convertirte en víctima de vendedores sin escrúpulos.",
+  "howToChoosePet.pricing.withoutDocuments.description": "Los signos externos de la mascota aparecen a los 4-6 meses de edad. Para este momento, el gatito puede adquirir rasgos de una raza completamente diferente.",
+  "howToChoosePet.expertAdvice.title": "Consejo de Expertos",
+  "howToChoosePet.expertAdvice.kitten.intro": "Si no sabes cómo elegir un gatito, nuestro artículo puede ayudarte. Te contaremos sobre los criterios principales para elegir tu futura mascota y dónde conseguirla. Las recomendaciones dentro serán útiles para todos los que sueñan con tener su primera mascota.",
+  "howToChoosePet.expertAdvice.puppy.intro": "Si no sabes cómo elegir un cachorro, nuestro artículo puede ayudarte. Te contaremos sobre los criterios principales para elegir tu futura mascota y dónde conseguirla. Las recomendaciones dentro serán útiles para todos los que sueñan con tener su primera mascota.",
+  "howToChoosePet.expertAdvice.contents": "Contenido del Artículo:",
+  "howToChoosePet.expertAdvice.kitten.content1": "• ¿Qué considerar antes de elegir un gatito?",
+  "howToChoosePet.expertAdvice.kitten.content2": "• ¿Cómo elegir correctamente un gatito?",
+  "howToChoosePet.expertAdvice.kitten.content3": "• ¿Cuándo está listo un gatito para mudarse?",
+  "howToChoosePet.expertAdvice.kitten.content4": "• Gatito de refugio o de la calle",
+  "howToChoosePet.expertAdvice.kitten.content5": "• Recomendaciones para nuevos dueños",
+  "howToChoosePet.expertAdvice.kitten.content6": "• Cómo elegir y comprar un gatito - lista de verificación",
+  "howToChoosePet.expertAdvice.puppy.content1": "• ¿Qué considerar antes de elegir un cachorro?",
+  "howToChoosePet.expertAdvice.puppy.content2": "• ¿Qué considerar al elegir?",
+  "howToChoosePet.expertAdvice.puppy.content3": "• Cómo elegir correctamente un cachorro - 5 pasos",
+  "howToChoosePet.expertAdvice.puppy.content4": "• ¿Cuándo tomar un cachorro?",
+  "howToChoosePet.expertAdvice.puppy.content5": "• Mascotas de la calle o refugio",
+  "howToChoosePet.expertAdvice.puppy.content6": "• Consejos para futuros dueños",
+  "howToChoosePet.expertAdvice.puppy.content7": "• Cómo elegir un cachorro - lista de verificación",
+  "howToChoosePet.expertAdvice.analysis": "Un análisis claro en la etapa preparatoria te permitirá sopesar todos los pros y contras, así como discutir posibles matices con otros miembros de la familia. Esto te ayudará a llegar a una opinión unánime que satisfaga a todos los miembros del hogar. Por lo tanto, asegúrate de obtener apoyo de tus seres queridos y familiarizarte con los consejos enumerados a continuación.",
+  "howToChoosePet.expertAdvice.preparation": "Preparación para la llegada de tu nueva mascota",
+  "howToChoosePet.expertAdvice.preparation.description": "Antes de traer a tu nueva mascota a casa, es importante preparar el ambiente y tener todo lo necesario para su comodidad y bienestar.",
+  "howToChoosePet.expertAdvice.health": "Salud y cuidados veterinarios",
+  "howToChoosePet.expertAdvice.health.description": "Establecer una rutina de cuidados veterinarios desde el principio es crucial para la salud a largo plazo de tu mascota. Incluye vacunas, desparasitación y chequeos regulares.",
+  "howToChoosePet.expertAdvice.training": "Entrenamiento y socialización",
+  "howToChoosePet.expertAdvice.training.description": "El entrenamiento temprano y la socialización adecuada son fundamentales para desarrollar un comportamiento saludable y una relación armoniosa con tu mascota.",
+  "howToChoosePet.expertAdvice.nutrition": "Nutrición adecuada",
+  "howToChoosePet.expertAdvice.nutrition.description": "Una alimentación balanceada y apropiada para la edad y tamaño de tu mascota es esencial para su crecimiento saludable y bienestar general.",
+  "howToChoosePet.expertAdvice.environment": "Creando un ambiente seguro",
+  "howToChoosePet.expertAdvice.environment.description": "Adaptar tu hogar para que sea seguro y cómodo para tu nueva mascota requiere considerar varios factores de seguridad y comodidad.",
+  "howToChoosePet.altText.cuteKitten": "Gatito adorable",
+  "howToChoosePet.altText.cutePuppy": "Cachorro adorable",
+  "howToChoosePet.expertAdvice.beforeBuying": "Antes de comprar una mascota, debes evaluar tus capacidades financieras y el tiempo que estás dispuesto a dedicar a criar, entrenar, mantener y cuidar a un nuevo miembro de la familia. Al final, todos deben sentirse bien: tanto tú como tu futura mascota. Por lo tanto, asegúrate de involucrar a todos los miembros de tu familia en la toma de decisiones.",
+  "howToChoosePet.expertAdvice.whatToConsiderKitten": "¿Qué considerar antes de elegir un gatito?",
+  "howToChoosePet.expertAdvice.whatToConsiderPuppy": "¿Qué considerar antes de elegir un cachorro?",
+  "howToChoosePet.expertAdvice.healthCheck": "Antes de comprar un gatito, necesitas asegurarte de que esté saludable. La buena salud se indicará por la ausencia de secreción de los ojos y nariz, pelaje brillante, actividad, curiosidad y juguetón. Estas cualidades son características de todos los animales jóvenes y saludables.",
+  "howToChoosePet.expertAdvice.importantPoints": "Arriba listamos los puntos más importantes, pero esto está lejos de ser todo lo que necesitas saber antes de comprar un gatito. Por lo tanto, presta atención a las siguientes recomendaciones:",
+  "howToChoosePet.expertAdvice.checklist.item1": "Haz una lista de criterios importantes para ti. Elige la raza, género, clase, edad y tipo de pelaje de tu futura mascota, basándote en tus preferencias y capacidades.",
+  "howToChoosePet.expertAdvice.checklist.item2": "Encuentra un buen criador. Estudia las reseñas disponibles e infórmate sobre la disponibilidad de pedigrís y papeles de registro para los animales.",
+  "howToChoosePet.expertAdvice.checklist.item3": "Organiza una reunión con el criador. Antes de comprar un gatito, evalúa sus condiciones de vida, comportamiento y apariencia.",
+  "howToChoosePet.expertAdvice.checklist.item4": "Asegúrate de que la mascota esté lista para mudarse. Al momento de la separación de la madre, tu nueva mascota debe tener al menos 3 meses de edad.",
+  "howToChoosePet.expertAdvice.checklist.item5": "Considera la posibilidad de tener una mascota de refugio. Si la raza no te importa - toma un gato de un refugio o cuidado de acogida voluntario, pero asegúrate de estudiar todos los matices existentes.",
+
   // Pet Care Guide Page
   "petCareGuide.title": "Guía Completa del Cuidado de Mascotas",
   "petCareGuide.subtitle": "Todo lo que necesitas saber para mantener a tu compañero peludo feliz y saludable",
   "petCareGuide.description": "Desde tus primeros días juntos hasta las rutinas de cuidado diario, esta guía integral cubre todos los aspectos esenciales de la tenencia responsable de mascotas.",
-  
+
   // First Days Section
   "petCareGuide.firstDays.title": "Primeros Días con tu Mascota",
   "petCareGuide.firstDays.description": "Preparativos esenciales y artículos para dar la bienvenida a tu nuevo compañero",
@@ -570,20 +850,20 @@ export const es = {
   "trainingTips.title": "Consejos y Técnicas de Entrenamiento",
   "trainingTips.subtitle": "Consejos expertos para entrenar a tu perro o gato con métodos de refuerzo positivo",
   "trainingTips.description": "Construye un vínculo más fuerte con tu mascota a través de técnicas de entrenamiento efectivas. Elige el tipo de mascota a continuación para obtener orientación personalizada.",
-  
+
   // Tab Navigation
   "trainingTips.dogTab": "Entrenamiento de Perros",
   "trainingTips.catTab": "Entrenamiento de Gatos",
-  
+
   // Personalized Section
   "trainingTips.personalized.title": "Entrenamiento Personalizado para tu Raza",
   "trainingTips.personalized.noResult": "¡Realiza nuestro cuestionario para obtener consejos de entrenamiento específicos para la raza adaptados a tu mascota!",
   "trainingTips.personalized.takeQuiz": "Realizar Cuestionario para Consejos Personalizados",
-  
+
   // Basic Commands Section
   "trainingTips.basicCommands.title": "Comandos Básicos",
   "trainingTips.basicCommands.description": "Comandos esenciales que toda mascota debería conocer",
-  
+
   // Dog Commands
   "trainingTips.dogCommands.sit.title": "Enseñar 'Sentado'",
   "trainingTips.dogCommands.sit.steps": "1. Sostén un premio cerca de la nariz de tu perro\n2. Levanta lentamente el premio sobre su cabeza\n3. Mientras su cabeza sigue el premio, su trasero tocará naturalmente el suelo\n4. En el momento que se siente, di '¡Sentado!' y dale el premio\n5. Repite 5-10 veces diarias en sesiones cortas\n6. Practica sin premios una vez dominado",
@@ -595,7 +875,7 @@ export const es = {
   "trainingTips.dogCommands.down.steps": "1. Comienza con tu perro en posición 'sentado'\n2. Sostén un premio en su nariz\n3. Baja lentamente el premio al suelo\n4. Mueve el premio alejándolo de él por el suelo\n5. Mientras lo sigue, se echará naturalmente\n6. Di '¡Echado!' y recompensa inmediatamente\n7. Practica hasta que responda solo al comando de voz",
   "trainingTips.dogCommands.no.title": "Enseñar 'No'",
   "trainingTips.dogCommands.no.steps": "1. Usa una voz firme y calmada (nunca grites)\n2. Di 'No' una vez al sorprender comportamiento no deseado\n3. Redirige inmediatamente al comportamiento apropiado\n4. Recompensa el comportamiento correcto\n5. Sé consistente - toda la familia usa el mismo comando\n6. Hazlo en el momento correcto - corrige durante la acción, no después",
-  
+
   // Cat Training
   "trainingTips.catTraining.litter.title": "Entrenamiento de Caja de Arena",
   "trainingTips.catTraining.litter.steps": "1. Elige una ubicación tranquila y accesible\n2. Usa arena sin perfume y aglomerante inicialmente\n3. Mantén la caja limpia - recoge diariamente\n4. Muestra la caja a tu gatito después de las comidas\n5. Colócalo suavemente en la caja si comienza a agacharse en otro lugar\n6. Nunca castigues accidentes - limpia a fondo\n7. Proporciona una caja por gato más una extra",
@@ -603,66 +883,99 @@ export const es = {
   "trainingTips.catTraining.scratching.steps": "1. Coloca rascadores cerca de las áreas de descanso\n2. Usa hierba gatera o premios para atraerlos al rascador\n3. Guía suavemente sus patas en movimiento de rascado\n4. Elogia y recompensa cuando usen el rascador\n5. Cubre temporalmente los muebles con texturas menos atractivas\n6. Corta las uñas regularmente para reducir el daño\n7. Proporciona opciones de rascado verticales y horizontales",
   "trainingTips.catTraining.carrier.title": "Introducción al Transportín",
   "trainingTips.catTraining.carrier.steps": "1. Deja el transportín como mueble normal\n2. Coloca premios y juguetes favoritos adentro\n3. Alimenta cerca o dentro del transportín\n4. Déjalos explorar a su propio ritmo\n5. Cierra la puerta brevemente mientras comen (una vez cómodos)\n6. Haz viajes cortos en auto alrededor de la cuadra\n7. Siempre asocia el transportín con experiencias positivas",
-  
+
   // Socialization Section
   "trainingTips.socialization.title": "Socialización",
   "trainingTips.socialization.description": "Ayuda a tu mascota a volverse confiada y bien adaptada",
-  
+
   "trainingTips.socialization.people.title": "Conocer Personas",
   "trainingTips.socialization.people.content": "• Comienza con miembros de la familia tranquilos y pacientes\n• Pide a las visitas que ignoren a tu mascota inicialmente\n• Deja que tu mascota se acerque a su propio ritmo\n• Recompensa el comportamiento calmado y amigable con premios\n• Expón a personas de diferentes edades y apariencias\n• Practica en diferentes ambientes (casa, parque, calle)\n• Mantén las interacciones positivas y sin estrés",
-  
+
   "trainingTips.socialization.animals.title": "Otros Animales",
   "trainingTips.socialization.animals.content": "• Comienza con animales tranquilos y bien socializados\n• Mantén los encuentros iniciales cortos y supervisados\n• Usa refuerzo positivo para comportamiento amigable\n• Mantén distancia segura hasta establecer comodidad\n• Observa señales de estrés (jadeo, esconderse, agresión)\n• Aumenta gradualmente el tiempo de interacción\n• Siempre proporciona rutas de escape para tu mascota",
-  
+
   "trainingTips.socialization.environment.title": "Adaptación Ambiental",
   "trainingTips.socialization.environment.content": "• Expón a varios sonidos gradualmente (tráfico, electrodomésticos, tormentas)\n• Visita diferentes lugares regularmente\n• Practica caminar en varias superficies\n• Introduce nuevos objetos y experiencias lentamente\n• Usa premios y elogios para reacciones calmadas\n• Comienza con versiones menos intensas de estímulos\n• Construye confianza a través de asociaciones positivas",
-  
+
   "trainingTips.socialization.age.title": "Consejos Específicos por Edad",
   "trainingTips.socialization.age.puppy": "Cachorros (8-16 semanas): Período crítico de socialización. Expón a tantas experiencias positivas como sea posible mientras mantienes la seguridad.",
   "trainingTips.socialization.age.kitten": "Gatitos (3-14 semanas): Maneja con suavidad y frecuencia. Introduce a sonidos domésticos, personas y experiencias seguras.",
   "trainingTips.socialization.age.adult": "Mascotas adultas: Ve más lento y sé más paciente. Usa premios de alto valor y mantén sesiones más cortas para prevenir abrumar.",
-  
+
   // Problem Solving Section
   "trainingTips.problemSolving.title": "Resolución de Problemas",
   "trainingTips.problemSolving.description": "Aborda problemas de comportamiento comunes con métodos positivos",
-  
+
   "trainingTips.problems.barking.title": "Ladrido Excesivo",
   "trainingTips.problems.barking.solution": "• Identifica el desencadenante (aburrimiento, atención, miedo)\n• No grites - esto refuerza el comportamiento\n• Redirige la atención a una actividad silenciosa\n• Recompensa el comportamiento silencioso inmediatamente\n• Proporciona estimulación mental y física adecuada\n• Usa entrenamiento de comando 'silencio'\n• Considera ayuda profesional para problemas persistentes",
-  
+
   "trainingTips.problems.chewing.title": "Masticado Destructivo",
   "trainingTips.problems.chewing.solution": "• Proporciona juguetes para masticar apropiados\n• Haz tu hogar a prueba de cachorros (retira objetos tentadores)\n• Ejercita a tu perro adecuadamente\n• Usa spray de manzana amarga en muebles\n• Redirige a objetos apropiados cuando lo sorprendas masticando\n• No castigues después del hecho\n• Asegúrate de que no esté ansioso o aburrido",
-  
+
   "trainingTips.problems.jumping.title": "Saltar sobre Personas",
   "trainingTips.problems.jumping.solution": "• Ignora completamente el comportamiento de saltar\n• Voltéate y evita el contacto visual\n• Solo da atención cuando todas las patas estén en el suelo\n• Entrena un comportamiento alternativo como 'sentado' para saludos\n• Pide a las visitas que sigan el mismo protocolo\n• Practica con miembros de la familia regularmente\n• Sé paciente y consistente",
-  
+
   "trainingTips.problems.catLitter.title": "Evitar la Caja de Arena",
   "trainingTips.problems.catLitter.solution": "• Descarta primero problemas médicos\n• Mantén las cajas extremadamente limpias\n• Prueba diferentes tipos de arena\n• Asegura suficientes cajas (una por gato más una)\n• Verifica la ubicación de la caja (tranquila, accesible)\n• Limpia accidentes con limpiador enzimático\n• Reduce el estrés en el hogar",
-  
+
   "trainingTips.problems.catAggression.title": "Agresión Felina",
   "trainingTips.problems.catAggression.solution": "• Nunca castigues el comportamiento agresivo\n• Da a tu gato espacio y rutas de escape\n• Identifica desencadenantes y evítalos inicialmente\n• Usa juguetes interactivos para redirigir energía\n• Asegura recursos adecuados (comida, agua, arena)\n• Considera difusores de feromonas\n• Consulta al veterinario para descartar dolor o enfermedad",
-  
+
   "trainingTips.professional.title": "Cuándo Contactar a un Profesional",
   "trainingTips.professional.signs": "• Agresión hacia personas u otros animales\n• Comportamiento destructivo que no mejora\n• Ansiedad severa o miedos\n• Problemas persistentes de entrenamiento en casa después de 6 meses\n• Cualquier comportamiento que amenace la seguridad\n• Cuando te sientes abrumado o frustrado\n• Para necesidades de entrenamiento especializadas",
   "trainingTips.professional.benefits": "Los entrenadores profesionales pueden proporcionar soluciones personalizadas, resultados más rápidos y prevenir que los problemas empeoren. ¡No dudes en buscar ayuda temprano!",
-  
+
   // CTA Section
   "trainingTips.cta.title": "¿Listo para Encontrar tu Compañero de Entrenamiento Perfecto?",
   "trainingTips.cta.subtitle": "Realiza nuestro cuestionario para descubrir qué raza de mascota coincide con tu experiencia de entrenamiento y estilo de vida",
   "trainingTips.cta.button": "Realizar Cuestionario",
 
-  // Nutrition Guide Page
-  "nutritionGuide.title": "Guía Completa de Nutrición para Mascotas",
-  "nutritionGuide.subtitle": "Orientación experta sobre alimentación de tu perro o gato para una salud y bienestar óptimos",
+  // How to Choose Pet Page
+  "howToChoosePet.title": "Cómo elegir y comprar una mascota - consejos de expertos",
+  "howToChoosePet.subtitle": "¡Comprar una mascota - gran alegría!",
+  "howToChoosePet.description": "Nuestras recomendaciones te ayudarán a prepararte para tu nuevo rol y aprender todos los detalles con anticipación.",
+  "howToChoosePet.choosePet": "Elige tu mascota, y nosotros te ayudaremos con el resto",
+  "howToChoosePet.kitten": "Gatito",
+  "howToChoosePet.puppy": "Cachorro",
+  "howToChoosePet.howToChooseKitten": "Cómo elegir un gatito",
+  "howToChoosePet.howToChoosePuppy": "Cómo elegir un cachorro",
+  "howToChoosePet.step1Title": "Primero, determina el propósito de tener una mascota",
+  "howToChoosePet.step1Text": "¿Buscas un amigo para tu alma, quieres dedicarte a la cría de mascotas para la venta, o planeas participar en exposiciones y competencias profesionales?",
+  "howToChoosePet.step2Title": "Familiarízate con las características de la raza de tu futura mascota",
+  "howToChoosePet.step2Text": "Debes hacer coincidir el temperamento, nivel de actividad y muchos otros factores que asegurarán una vida larga y feliz juntos.",
+  "howToChoosePet.step3Title": "Elige un criador confiable",
+  "howToChoosePet.step3Text": "Para evitar convertirte en víctima de vendedores sin escrúpulos, usa las recomendaciones de nuestra lista de verificación.",
+  "howToChoosePet.whatDeterminesKittenPrices": "Qué determina los precios de los gatitos",
+  "howToChoosePet.whatDeterminesPuppyPrices": "Qué determina los precios de los cachorros",
+  "howToChoosePet.priceDependsOnClass": "El precio depende de la clase a la que pertenece la mascota",
+  "howToChoosePet.pet": "Mascota",
+  "howToChoosePet.breed": "Raza",
+  "howToChoosePet.show": "Exposición",
+  "howToChoosePet.petClass": "Mascota (del inglés pet — mascota doméstica)",
+  "howToChoosePet.petClassDesc": "Las mascotas más asequibles que se convertirán en mascotas familiares. Los gatitos/cachorros de clase mascota no están destinados para la cría posterior y participación en carreras de exposición.",
+  "howToChoosePet.breedClass": "Raza (del inglés breed — descendencia, raza)",
+  "howToChoosePet.breedClassDesc": "Mascotas genéticamente puras para la cría que corresponden completamente a la raza. Los gatitos/cachorros de esta clase no son adecuados para exposiciones.",
+  "howToChoosePet.showClass": "Exposición (del inglés show — exposición, espectáculo)",
+  "howToChoosePet.showClassDesc": "La clase más alta de mascotas con genética y fenotipo impecables. Estos son súper campeones que pueden participar en exposiciones y ganar medallas.",
+  "howToChoosePet.pricesWithWithoutDocs": "Los precios para gatitos/cachorros con y sin documentos difieren significativamente",
+  "howToChoosePet.withDocsTitle": "La cría y mantenimiento de gatitos/cachorros de raza pura requiere gran esfuerzo e inversión financiera.",
+  "howToChoosePet.withDocsDesc": "Una mascota con documentos oficiales y pedigrí, así como salud psicológica y física confirmada, cuesta más.",
+  "howToChoosePet.withoutDocsTitle": "Si no hay documentos, puedes convertirte en víctima de vendedores sin escrúpulos.",
+  "howToChoosePet.withoutDocsDesc": "Los signos externos de la mascota aparecen a los 4-6 meses de edad. Para este momento, el gatito/cachorro puede adquirir rasgos de una raza completamente diferente.",
+  "howToChoosePet.expertAdvice": "Consejos de Expertos",
+  "howToChoosePet.expertAdviceKitten": "Si no sabes cómo elegir un gatito, nuestro artículo puede ayudarte. Te contaremos sobre los principales criterios para elegir tu futura mascota y dónde obtenerla. Las recomendaciones incluidas serán útiles para todos los que sueñan con tener su primera mascota.",
+  "howToChoosePet.expertAdvicePuppy": "En nuestro artículo, los expertos de Petential te dicen cómo elegir un cachorro y a qué prestar atención al elegir una mascota. Los consejos y recomendaciones recopilados serán útiles para todos los propietarios novatos que sueñan con adquirir su primer perro en su vida, pero no saben exactamente por dónde empezar.",
+  "howToChoosePet.backToHome": "← Volver al Inicio",
   "nutritionGuide.description": "La nutrición adecuada es la base de la salud de tu mascota. Elige tu tipo de mascota a continuación para obtener orientación nutricional específica para la especie.",
-  
+
   // Tab Navigation
   "nutritionGuide.dogTab": "Nutrición Canina",
   "nutritionGuide.catTab": "Nutrición Felina",
-  
+
   // Essential Nutrients Section
   "nutritionGuide.nutrients.title": "Nutrientes Esenciales",
   "nutritionGuide.nutrients.description": "Comprender lo que tu mascota necesita para una salud óptima",
-  
+
   // Dog Nutrients
   "nutritionGuide.dogNutrients.protein.title": "Proteína",
   "nutritionGuide.dogNutrients.protein.content": "• 18-25% de la dieta para perros adultos\n• Construye y repara músculos, órganos y tejidos\n• Fuentes: Pollo, carne, pescado, cordero, huevos\n• Mayores necesidades durante crecimiento, embarazo y enfermedad\n• Las proteínas completas contienen todos los aminoácidos esenciales",
@@ -674,7 +987,7 @@ export const es = {
   "nutritionGuide.dogNutrients.vitamins.content": "• Vitamina A: Visión y función inmune\n• Vitaminas B: Metabolismo energético\n• Vitamina D: Salud ósea\n• Calcio y fósforo: Huesos y dientes fuertes\n• Hierro: Transporte de oxígeno en la sangre",
   "nutritionGuide.dogNutrients.water.title": "Agua",
   "nutritionGuide.dogNutrients.water.content": "• Nutriente más importante\n• 60-70% del peso corporal del perro adulto\n• Agua fresca debe estar siempre disponible\n• Aumentar la ingesta durante clima cálido\n• Monitorear cambios en hábitos de bebida",
-  
+
   // Cat Nutrients
   "nutritionGuide.catNutrients.protein.title": "Proteína (Necesidades Mayores)",
   "nutritionGuide.catNutrients.protein.content": "• 26-35% de la dieta para gatos adultos\n• Los gatos son carnívoros obligados\n• Necesitan más proteína que los perros\n• Debe provenir de fuentes animales\n• Esencial para mantener masa muscular",
@@ -686,53 +999,53 @@ export const es = {
   "nutritionGuide.catNutrients.vitamins.content": "• Vitamina A: Los gatos no pueden convertir beta-caroteno\n• Vitaminas B: Necesidades mayores que los perros\n• Niacina: No pueden sintetizar del triptófano\n• Calcio/fósforo: La proporción adecuada es crucial\n• Magnesio: Debe limitarse para la salud urinaria",
   "nutritionGuide.catNutrients.water.title": "Agua",
   "nutritionGuide.catNutrients.water.content": "• A menudo obtienen agua de las presas en estado salvaje\n• Pueden no beber suficiente de los tazones\n• La comida húmeda ayuda a aumentar la ingesta de agua\n• La deshidratación puede causar problemas renales\n• Múltiples fuentes de agua fomentan el consumo",
-  
+
   // Life Stage Feeding Section
   "nutritionGuide.lifeStage.title": "Alimentación por Etapa de Vida",
   "nutritionGuide.lifeStage.description": "Las necesidades nutricionales cambian a lo largo de la vida de tu mascota",
-  
+
   "nutritionGuide.lifeStage.puppy.title": "Cachorro/Gatito (Crecimiento)",
   "nutritionGuide.lifeStage.puppy.content": "• Mayores necesidades de calorías y proteínas\n• Alimentar con fórmulas específicas para cachorros/gatitos\n• Razas pequeñas: 4 comidas/día hasta 6 meses\n• Razas grandes: 3 comidas/día hasta 6 meses\n• Alimentación libre no recomendada\n• Monitorear tasa de crecimiento y condición corporal",
-  
+
   "nutritionGuide.lifeStage.adult.title": "Adulto (Mantenimiento)",
   "nutritionGuide.lifeStage.adult.content": "• Nutrición equilibrada para actividades diarias\n• 2 comidas por día es ideal\n• Ajustar porciones según nivel de actividad\n• Monitorear peso y condición corporal\n• Enfoque de calidad sobre cantidad\n• Horarios regulares de comida ayudan a la digestión",
-  
+
   "nutritionGuide.lifeStage.senior.title": "Senior (7+ años)",
   "nutritionGuide.lifeStage.senior.content": "• A menudo necesitan menos calorías\n• Pueden necesitar alimentos más fáciles de digerir\n• Proteína de alta calidad importante\n• Suplementos para articulaciones beneficiosos\n• Chequeos veterinarios nutricionales más frecuentes\n• Vigilar problemas dentales que afecten la alimentación",
-  
+
   // Feeding Guidelines Section
   "nutritionGuide.guidelines.title": "Pautas de Alimentación",
   "nutritionGuide.guidelines.description": "Consejos prácticos para rutinas de alimentación diaria",
-  
+
   "nutritionGuide.guidelines.portions.title": "Tamaños de Porción",
   "nutritionGuide.guidelines.portions.content": "• Seguir la guía de alimentación del paquete como punto de partida\n• Ajustar según la condición corporal de tu mascota\n• Mascotas activas necesitan más, sedentarias necesitan menos\n• Usar tazas medidoras, no estimaciones\n• La puntuación de condición corporal es más importante que el peso\n• Consultar al veterinario si no estás seguro sobre las porciones",
-  
+
   "nutritionGuide.guidelines.schedule.title": "Horarios de Alimentación",
   "nutritionGuide.guidelines.schedule.content": "• Cachorros menores de 6 meses: 3-4 comidas diarias\n• Perros adultos: 2 comidas diarias\n• Gatitos menores de 6 meses: 3-4 comidas diarias\n• Gatos adultos: 2-3 comidas diarias\n• El tiempo consistente ayuda a la digestión\n• Permitir 30 minutos para las comidas, luego retirar la comida",
-  
+
   "nutritionGuide.guidelines.treats.title": "Premios y Extras",
   "nutritionGuide.guidelines.treats.content": "• Máximo 10% de las calorías diarias\n• Usar para entrenamiento y vinculación\n• Elegir opciones saludables y apropiadas para la especie\n• Frutas/verduras: Solo pequeñas cantidades\n• Evitar chocolate, uvas, cebollas, ajo\n• Los restos de comida pueden desequilibrar la dieta",
-  
+
   // Food Selection Section
   "nutritionGuide.selection.title": "Consejos de Selección de Alimentos",
   "nutritionGuide.selection.description": "Cómo elegir el mejor alimento para tu mascota",
-  
+
   "nutritionGuide.selection.labels.title": "Lectura de Etiquetas",
   "nutritionGuide.selection.labels.content": "• Buscar declaración 'Completo y Equilibrado'\n• La declaración de prueba de alimentación AAFCO es ideal\n• Ingredientes listados por peso (más pesado primero)\n• La fuente de proteína nombrada debe ser el primer ingrediente\n• Evitar alimentos con rellenos excesivos\n• El análisis garantizado muestra niveles mínimos/máximos",
-  
+
   "nutritionGuide.selection.quality.title": "Indicadores de Calidad",
   "nutritionGuide.selection.quality.content": "• Fabricante de buena reputación con buena historia\n• Hecho en instalaciones con controles de calidad\n• Transparente sobre abastecimiento y pruebas\n• Apropiado para la etapa de vida de tu mascota\n• Sin retiros recientes o problemas de seguridad\n• Participación de nutricionista veterinario en la formulación",
-  
+
   "nutritionGuide.selection.mistakes.title": "Errores Comunes",
   "nutritionGuide.selection.mistakes.content": "• Alimentar el mismo alimento a perros y gatos\n• Elegir basándose solo en el precio\n• Cambios frecuentes de dieta sin transición\n• Ignorar cambios en la condición corporal\n• Sobre-suplementar dietas equilibradas\n• Seguir dietas de moda sin respaldo científico",
-  
+
   // Foods to Avoid
   "nutritionGuide.avoid.title": "Alimentos a Evitar",
   "nutritionGuide.avoid.toxic": "Alimentos Tóxicos",
   "nutritionGuide.avoid.toxicList": "• Chocolate (especialmente chocolate negro)\n• Uvas y pasas\n• Cebollas y ajo\n• Xilitol (edulcorante artificial)\n• Nueces de macadamia\n• Aguacate (especialmente para aves)\n• Alcohol\n• Cafeína",
   "nutritionGuide.avoid.problematic": "Alimentos Problemáticos",
   "nutritionGuide.avoid.problematicList": "• Alimentos altos en grasa (pueden causar pancreatitis)\n• Huesos que pueden astillarse (huesos de ave cocidos)\n• Premios excesivos o restos de mesa\n• Alimentos con colores/conservantes artificiales\n• Dietas crudas sin preparación adecuada\n• Alimentos genéricos o de marca de tienda con mal control de calidad",
-  
+
   // CTA Section
   "nutritionGuide.cta.title": "¿Listo para Encontrar tu Mascota Perfecta?",
   "nutritionGuide.cta.subtitle": "Realiza nuestro cuestionario para descubrir qué raza de mascota coincide con tu estilo de vida y capacidades de cuidado",
@@ -816,5 +1129,368 @@ export const es = {
     
     <h2>Contáctanos</h2>
     <p>Si tienes preguntas sobre nuestro uso de cookies, contáctanos en cookies@petential.com.</p>
-  `
+  `,
+
+  // How to Choose Pet Article Content - KITTEN ARTICLE
+  "howToChoosePet.article.choosingBreed": "Eligiendo una raza",
+  "howToChoosePet.article.beforeChoosingKitten": "Antes de elegir un gatito, necesitas decidir sobre su raza. Con animales de la calle o refugio, todo es mucho más simple. Aquí tu corazón te guiará.",
+  "howToChoosePet.article.purebred": "Si sueñas con un gato de raza pura - trata de aprender tanta información como sea posible sobre la raza que te llamó la atención:",
+  "howToChoosePet.article.characterTemperament": "Carácter y temperamento",
+  "howToChoosePet.article.careFeatures": "Características de cuidado y mantenimiento",
+  "howToChoosePet.article.activityLevel": "Nivel de actividad",
+  "howToChoosePet.article.childrenConsideration": "Cuando tienes niños, especialmente muy pequeños, se debe dar preferencia a los representantes más amigables y pacientes. Si tienes otros animales - verifica su compatibilidad con el posible miembro de la familia.",
+  "howToChoosePet.article.busynessLevel": "Otro punto importante es el nivel de ocupación. Los gatos Sphynx y Oriental extremadamente sociables no tolerarán la soledad prolongada, a diferencia de los gatos British Shorthair y Russian Blue más independientes.",
+
+  "howToChoosePet.article.choosingGender": "Eligiendo género",
+  "howToChoosePet.article.genderDifferences": "Las diferencias de género son notables no solo en la apariencia, sino también en las características de comportamiento y cuidado. Los criadores a menudo notan que las hembras son más dóciles, obedientes y limpias. Su tamaño suele ser menor. Pero hay un matiz importante: la presencia de ciclos de celo.",
+  "howToChoosePet.article.maleCharacteristics": "Los machos se distinguen por su apariencia más grande y brillante. Esta característica es característica de todos los machos. Los chicos naturalmente más grandes también son conocidos por su amor a la libertad. Durante la temporada de apareamiento, pueden marcar territorio y tratar de escapar de casa. El olor de su orina es más fuerte. Debido a las características estructurales del sistema urinario, también hay una tendencia a la urolitiasis. Se recomienda castrar a los gatos domésticos de los cuales no se planea descendencia. Esta operación elimina el fuerte olor de la orina, la tendencia a dejar marcas, así como otras manifestaciones de comportamiento sexual. Lo principal es no sobrealimentar a la mascota castrada y asegurarse de monitorear el cumplimiento del régimen de bebida.",
+  "howToChoosePet.article.femaleCharacteristics": "Después de la maduración sexual, la gata puede 'informarte' sobre esto con vocalización frecuente, especialmente por la noche. Es mejor esterilizar a las mascotas domésticas de las cuales no se planea descendencia y no creer en el mito de que 'una gata necesita dar a luz al menos una vez por salud'.",
+
+  "howToChoosePet.article.choosingClass": "Eligiendo clase",
+  "howToChoosePet.article.exteriorKnowledge": "No todos los compradores saben cómo elegir un gatito por exterior. El cumplimiento del estándar es un punto muy importante que determina el valor de una mascota en particular. Se verifica durante el registro de la camada y en las exposiciones.",
+  "howToChoosePet.article.classRecommendation": "Si necesitas una mascota doméstica ordinaria - siéntete libre de tomar clase mascota. Las mascotas de raza y exposición son adecuadas para la cría. La segunda opción es la más prestigiosa, ya que no tiene defectos externos y de comportamiento, pero su costo de criadores responsables será significativamente mayor.",
+
+  "howToChoosePet.article.choosingAge": "Eligiendo edad",
+  "howToChoosePet.article.showClassAge": "En este caso, comienza desde la clase seleccionada o tus capacidades financieras. La clase de exposición solo puede determinarse después de mostrar en una exposición. Por lo tanto, necesitas esperar hasta que la mascota tenga 6 meses de edad.",
+  "howToChoosePet.article.minimumAge": "La edad mínima para adquirir clase mascota y raza es de 3 meses. A medida que maduran, su precio puede volverse menor.",
+  "howToChoosePet.article.rejectedPets": "Por separado, vale la pena mencionar las mascotas rechazadas que no se establecieron en la familia anterior, perdieron a su dueño, o aquellas que el criador retiró de la cría y castró. Su edad ya puede ser bastante grande. Tales animales pueden darse no solo más baratos, sino también gratis.",
+
+  "howToChoosePet.article.choosingCoatType": "Eligiendo tipo de pelaje",
+  "howToChoosePet.article.coatCharacteristics": "Un gatito puede elegirse por las características de su pelaje. Esto determinará el cuidado del animal, es decir, la frecuencia del cepillado.",
+  "howToChoosePet.article.coatTypes": "El pelaje en los gatos puede ser:",
+  "howToChoosePet.article.coatType1": "Corto, semi-largo, largo",
+  "howToChoosePet.article.coatType2": "Con subpelo y sin él",
+  "howToChoosePet.article.coatType3": "Esponjoso y liso",
+  "howToChoosePet.article.coatType4": "Rizado",
+  "howToChoosePet.article.coatType5": "Ausente",
+  "howToChoosePet.article.hairlessBreeds": "La última opción es característica de las razas sin pelo.",
+
+  "howToChoosePet.article.howToProperlyChoose": "¿Cómo elegir correctamente un gatito?",
+  "howToChoosePet.article.breederMeeting": "Si los criterios principales para tu futura mascota han sido determinados exitosamente - procede a elegir un criador. Después de encontrar uno, necesitarás organizar una reunión con ellos y visitar personalmente su criadero (o casa). La comunicación en vivo, a diferencia de comprar por fotos, te permite evaluar todos los animales en dinámicas y familiarizarte personalmente con sus condiciones de vida.",
+
+  "howToChoosePet.article.choosingBreeder": "Eligiendo un criador",
+  "howToChoosePet.article.breedingDocuments": "La compra de un gatito debe realizarse de criadores listos para transferir documentos básicos de cría: métricas y pedigrís. Su presencia es una garantía de pertenencia a la raza que te llamó la atención.",
+  "howToChoosePet.article.breederOptions": "Se puede dar preferencia a una de dos opciones:",
+  "howToChoosePet.article.cattery": "Criadero. El criador tiene educación especial y varios animales reproductores. Mantienen su propio libro de cría, conocen bien la raza y pueden ofrecer opciones más variadas para futuros propietarios.",
+  "howToChoosePet.article.privatePerson": "Persona privada. No se requiere educación especial. Solo hay un animal reproductor. El registro de la camada se realiza a través de un club de raza. La elección es menos variada, por lo que algunos colores raros suelen estar ausentes. Puede ser una opción más riesgosa, ya que un aficionado puede resultar bajo la apariencia de un criador que no se dedica a la cría de raza pura.",
+  "howToChoosePet.article.readReviews": "Adicionalmente, se recomienda leer reseñas de otros compradores. Se pueden encontrar en foros dedicados a la raza.",
+
+  "howToChoosePet.article.visitingPlace": "Visitando el lugar de mantenimiento",
+  "howToChoosePet.article.catteryPrestige": "Un criadero es un establecimiento más prestigioso. Aquí se mantiene un gran número de animales.",
+  "howToChoosePet.article.privateBreeder": "Una persona privada puede criar gatos directamente en su apartamento. Esto no está prohibido. Lo principal es asegurarse de que dentro de la habitación esté limpio, seco, cálido y suficientemente espacioso. El mantenimiento abarrotado es un camino directo al desarrollo de infecciones y enfermedades parasitarias.",
+
+  "howToChoosePet.article.kittenBehavior": "Comportamiento del gatito",
+  "howToChoosePet.article.experiencedBreeder": "Un criador experimentado y concienzudo te dirá con gusto cómo elegir correctamente un gatito teniendo en cuenta tus preferencias. Tal persona escuchará cuidadosamente todos tus deseos y ayudará a determinar el tipo de temperamento apropiado.",
+  "howToChoosePet.article.personalMeeting": "Al conocer personalmente a la camada, también puedes confiar en tus propios sentimientos. Si una de las mascotas se interesa en ti y te invita a jugar, o trata de subirse a tus brazos, entonces es poco probable que consideres a alguien más. Tal comportamiento es una buena señal, ya que habla de la amabilidad y afecto del animal.",
+
+  "howToChoosePet.article.petExamination": "Examen de la mascota",
+  "howToChoosePet.article.warySigns": "Debes estar alerta si están presentes los siguientes síntomas:",
+  "howToChoosePet.article.symptom1": "Salivación intensa",
+  "howToChoosePet.article.symptom2": "Secreción de nariz, ojos u oídos",
+  "howToChoosePet.article.symptom3": "Abertura anal sucia",
+  "howToChoosePet.article.symptom4": "Presencia de calvas en el pelaje",
+  "howToChoosePet.article.symptom5": "Delgadez pronunciada",
+  "howToChoosePet.article.symptom6": "Vientre agrandado",
+  "howToChoosePet.article.symptom7": "Tos o estornudos",
+  "howToChoosePet.article.symptom8": "Trastornos de coordinación",
+  "howToChoosePet.article.symptom9": "Sacudida de cabeza y orejas",
+  "howToChoosePet.article.healthProblems": "Todo lo anterior indica problemas serios de salud. Si se detecta al menos uno de estos síntomas, es mejor rechazar la compra.",
+
+  "howToChoosePet.article.whenReadyToMove": "¿Cuándo está listo un gatito para mudarse?",
+  "howToChoosePet.article.separationStress": "La separación de la madre es un gran estrés, pero los animales mayores de 3 meses pueden lidiar con él. A una edad más temprana, además del calor materno, también necesitan leche. Con ella, reciben nutrientes necesarios para el crecimiento adecuado, así como inmunidad pasiva que protege contra infecciones.",
+  "howToChoosePet.article.chooseImmediately": "Puedes elegir un gatito casi inmediatamente después del nacimiento, pero no necesitas llevarlo a tu familia tan temprano. La mudanza prematura está llena de problemas de salud, y no solo físicos, sino también mentales.",
+  "howToChoosePet.article.artificialFeeding": "La única excepción son los bebés transferidos a la alimentación con mezclas de leche artificial. Pero el cuidado de tales bebés es mejor confiarlo a un criador experimentado.",
+
+  "howToChoosePet.article.shelterOrStreet": "Gatito de refugio o de la calle",
+  "howToChoosePet.article.savingLife": "Eligiendo entre estas opciones, salvas la vida de alguien. Pero no deberías tomar una decisión sin considerar todos los matices existentes.",
+  "howToChoosePet.article.shelterFeatures": "Los animales de refugios tienen las siguientes características:",
+  "howToChoosePet.article.infectionRisk": "Alta probabilidad de infección o parásitos. Debido a condiciones de hacinamiento o estancia prolongada en la calle.",
+  "howToChoosePet.article.humanDistrust": "Desconfianza hacia las personas. Se desarrolla ya sea debido a la falta de experiencia comunicándose con personas, o debido a la experiencia negativa de tal contacto. Comprar a través de un criador te ahorra la necesidad de domesticar un gatito que puede tener trastornos de comportamiento.",
+  "howToChoosePet.article.litterAdaptation": "Adaptación más larga a la caja de arena. Usualmente característico de animales de la calle. Los voluntarios del refugio, por regla general, entrenan a sus pupilos ellos mismos e incluso los vacunan.",
+  "howToChoosePet.article.readyDifficulties": "Si estás listo para posibles dificultades - comienza desde la situación. Tal vez ya tienes a alguien en mente que vagó por tu entrada. Puedes familiarizarte con ofertas de refugios en sitios web de adopción de mascotas.",
+
+  "howToChoosePet.article.recommendationsNewOwners": "Recomendaciones para nuevos propietarios",
+  "howToChoosePet.article.checklistItem1": "Asegúrate de tener un pedigrí, pasaporte veterinario y acuerdo de compra antes de cerrar el trato.",
+  "howToChoosePet.article.checklistItem2": "Compra todos los artículos necesarios de cuidado y mantenimiento con anticipación.",
+  "howToChoosePet.article.checklistItem3": "Tómate una semana libre o vacaciones para facilitar el proceso de adaptación y no dejar solo a tu nueva mascota.",
+  "howToChoosePet.article.checklistItem4": "Pide al criador algo con el aroma de la madre gata.",
+  "howToChoosePet.article.checklistItem5": "Transporta la mascota estrictamente en un transportador y usa un auto si es posible.",
+  "howToChoosePet.article.checklistItem6": "Para evitar infecciones, no traigas un animal de la calle a casa antes de visitar la clínica veterinaria.",
+  "howToChoosePet.article.checklistItem7": "Cuida la esterilización/castración obligatoria y el tratamiento antiparasitario.",
+  "howToChoosePet.article.familyMember": "No olvides que una mascota doméstica es un miembro de pleno derecho de la familia. Su crianza, cuidado y mantenimiento imponen una gran responsabilidad, pero son más que compensados por emociones agradables regulares en el proceso de comunicación.",
+
+  "howToChoosePet.article.buyingChecklist": "Cómo elegir y comprar un gatito - lista de verificación",
+
+  // PUPPY ARTICLE CONTENT
+  "howToChoosePet.expertAdvice.puppy.content1": "• ¿Qué considerar antes de elegir un cachorro?",
+  "howToChoosePet.expertAdvice.puppy.content2": "• ¿Qué considerar al elegir?",
+  "howToChoosePet.expertAdvice.puppy.content3": "• Cómo elegir correctamente un cachorro - 5 pasos",
+  "howToChoosePet.expertAdvice.puppy.content4": "• ¿Cuándo tomar un cachorro?",
+  "howToChoosePet.expertAdvice.puppy.content5": "• Mascotas de la calle o refugio",
+  "howToChoosePet.expertAdvice.puppy.content6": "• Consejos para futuros dueños",
+  "howToChoosePet.expertAdvice.puppy.content7": "• Cómo elegir un cachorro - lista de verificación",
+  "howToChoosePet.expertAdvice.puppy.analysis": "Antes de comprar una mascota, debes evaluar tus capacidades financieras y el tiempo que estás dispuesto a dedicar a criar, entrenar, mantener y cuidar a un nuevo miembro de la familia. Al final, todos deben sentirse bien: tanto tú como tu futura mascota. Por lo tanto, asegúrate de involucrar a todos los miembros de tu familia en la toma de decisiones.",
+  "howToChoosePet.expertAdvice.whatToConsiderPuppy": "¿Qué considerar antes de elegir un cachorro?",
+
+  "howToChoosePet.article.comfortableLife": "Para asegurar una vida cómoda para un perro, necesitas:",
+  "howToChoosePet.article.considerCosts": "Considera los costos de mantenimiento, alimentación y compra de elementos esenciales.",
+  "howToChoosePet.article.workHobbies": "Asegúrate de que tu trabajo y pasatiempos no causen soledad constante para tu mascota.",
+  "howToChoosePet.article.physicalMental": "Asegúrate de poder proporcionar la necesidad de ejercicio físico y mental.",
+  "howToChoosePet.article.livingConditions": "Proporciona condiciones de vida decentes.",
+  "howToChoosePet.article.breedSuitability": "Verifica qué tan adecuada es la raza elegida para tu familia, cómo interactuará con tus hijos y otras mascotas, basándose en sus características.",
+
+  "howToChoosePet.article.purebredPuppy": "Primero, necesitas entender cómo elegir un cachorro de raza pura. En este caso, se recomienda considerar las siguientes características:",
+  "howToChoosePet.article.sizeConsideration": "Tamaño. Esto puede ser una raza muy grande o una enana. La primera opción requerirá más espacio en la casa.",
+  "howToChoosePet.article.coatType": "Tipo de pelaje. Determina no solo la apariencia, sino también la complejidad del cuidado.",
+  "howToChoosePet.article.friendliness": "Amabilidad. Si tienes poca experiencia en entrenamiento de perros y tienes otras mascotas o niños, entonces no deberías elegir un cachorro dominante y demasiado independiente.",
+  "howToChoosePet.article.breedGroup": "Afiliación al grupo de raza. Es importante considerar a qué grupo de perros pertenece la raza elegida.",
+
+  "howToChoosePet.article.genderImportant": "Al elegir un cachorro, es importante tener en cuenta su género. La diferencia más obvia entre hembras y machos es la apariencia. Los machos son notablemente más grandes y tienen un exterior más impresionante.",
+
+  "howToChoosePet.article.fiveSteps": "Cómo elegir correctamente un cachorro - 5 pasos",
+  "howToChoosePet.article.breedingEvaluation": "Antes de comprar un cachorro, evalúa las condiciones de mantenimiento de los perros, comunícate con el criador y asegúrate de que haya todos los documentos y certificados necesarios.",
+  "howToChoosePet.article.dontSaveMoney": "Si decidiste elegir un cachorro de raza pura - no trates de ahorrar dinero. Comprar tal mascota a través de anuncios dudosos con precios sospechosamente bajos está lleno de engaños.",
+
+  "howToChoosePet.article.lookingBreeder": "Al buscar un criador, necesitas:",
+  "howToChoosePet.article.contactClub": "Contacta al club. Aquí puedes encontrar información actualizada sobre todos los criadores registrados.",
+  "howToChoosePet.article.readReviews": "Lee reseñas de otros compradores. Deben buscarse en recursos de terceros, no en el sitio web personal del criador.",
+  "howToChoosePet.article.commercialActivity": "Asegúrate de que la actividad comercial esté registrada. La cría es un trabajo complejo y bastante oficial.",
+  "howToChoosePet.article.mandatoryDocuments": "Pregunta sobre la disponibilidad de documentos obligatorios para perros. Al registrarse en el libro de cría, se emiten métricas para todos los animales.",
+  "howToChoosePet.article.titlesWorking": "Pregunta sobre títulos y diplomas de trabajo de animales reproductores. Los padres de la camada que participan en apareamientos oficiales participan regularmente en exposiciones.",
+
+  "howToChoosePet.article.whenTakePuppy": "¿Cuándo tomar un cachorro?",
+  "howToChoosePet.article.optimalAge": "La edad óptima no es antes de los 3 meses. Mudarse a una nueva familia a una edad más temprana no se recomienda, ya que el cachorro no habrá recibido todas las vacunas necesarias.",
+
+  "howToChoosePet.article.shelterChoice": "Si la afiliación de raza no es importante para ti, entonces un cachorro puede ser elegido de un refugio. De esta manera, puedes ayudar al menos a un animal sin hogar.",
+
+  "howToChoosePet.article.recommendationsNot": "Las recomendaciones listadas arriba están lejos de ser todo lo que necesitas saber al comprar un cachorro. Además de la selección directa, necesitas considerar una serie de otros matices para tener tiempo de preparar un lugar separado para tu nueva mascota y organizar la mudanza más cómoda a tu hogar.",
+
+  "howToChoosePet.article.followingTips": "Presta atención a los siguientes consejos:",
+  "howToChoosePet.article.readyToBuy": "Asegúrate de estar listo para comprar. Una mascota requiere tiempo y gastos adicionales. No puede comprarse basándose solo en emociones.",
+  "howToChoosePet.article.evaluateSuitability": "Evalúa qué tan adecuado es el cachorro potencial para tu familia. Compara las características de las razas que te gustan, estudia la diferencia entre machos y hembras, piensa en planes futuros y asegúrate de tener en cuenta tu estilo de vida.",
+  "howToChoosePet.article.conscientiousBreeder": "Encuentra un criador concienzudo. Tal persona te dirá cómo elegir un cachorro correctamente y evitar errores. Organiza una reunión con ellos para evaluar independientemente las condiciones de mantenimiento y conocer a todos los animales.",
+  "howToChoosePet.article.dontRushPurchase": "No te apresures con la compra. La mudanza a un nuevo hogar solo se permite después de los 3 meses de vida. A una edad más temprana, la mascota aún no está lista para mudarse, pero con el acuerdo del criador, puedes reservar una mascota potencial antes de que salga a la venta.",
+  "howToChoosePet.article.homelessAnimal": "Piensa en la posibilidad de dar una nueva vida a un animal sin hogar. Elegir un cachorro de un refugio tiene una serie de matices. Lo mismo se aplica a los animales de la calle. Por lo tanto, antes de tomar una decisión, debes evaluar todos los riesgos.",
+
+  "howToChoosePet.article.puppyChecklist": "Cómo elegir un cachorro - lista de verificación",
+
+  // Additional hardcoded content that needs translation keys
+  "howToChoosePet.article.choosingBreedTitle": "Eligiendo una raza",
+  "howToChoosePet.article.beforeChoosingKittenText": "Antes de elegir un gatito, necesitas decidir sobre su raza. Con animales de la calle o refugio, todo es mucho más simple. Aquí tu corazón te guiará.",
+  "howToChoosePet.article.purebredCatText": "Si sueñas con un gato de raza pura - trata de aprender tanta información como sea posible sobre la raza que te llamó la atención:",
+  "howToChoosePet.article.characterTemperamentText": "Carácter y temperamento",
+  "howToChoosePet.article.careFeaturesText": "Características de cuidado y mantenimiento",
+  "howToChoosePet.article.activityLevelText": "Nivel de actividad",
+  "howToChoosePet.article.childrenConsiderationText": "Cuando tienes niños, especialmente muy pequeños, se debe dar preferencia a los representantes más amigables y pacientes. Si tienes otros animales - verifica su compatibilidad con el posible miembro de la familia.",
+  "howToChoosePet.article.busynessLevelText": "Otro punto importante es el nivel de ocupación. Los gatos Sphynx y Oriental extremadamente sociables no tolerarán la soledad prolongada, a diferencia de los gatos British Shorthair y Russian Blue más independientes.",
+
+  "howToChoosePet.article.choosingGenderTitle": "Eligiendo género",
+  "howToChoosePet.article.genderDifferencesText": "Las diferencias de género son notables no solo en la apariencia, sino también en las características de comportamiento y cuidado. Los criadores a menudo notan que las hembras son más dóciles, obedientes y limpias. Su tamaño suele ser menor. Pero hay un matiz importante: la presencia de ciclos de celo.",
+  "howToChoosePet.article.maleCharacteristicsText": "Los machos se distinguen por su apariencia más grande y brillante. Esta característica es característica de todos los machos. Los chicos naturalmente más grandes también son conocidos por su amor a la libertad. Durante la temporada de apareamiento, pueden marcar territorio y tratar de escapar de casa. El olor de su orina es más fuerte. Debido a las características estructurales del sistema urinario, también hay una tendencia a la urolitiasis. Se recomienda castrar a los gatos domésticos de los cuales no se planea descendencia. Esta operación elimina el fuerte olor de la orina, la tendencia a dejar marcas, así como otras manifestaciones de comportamiento sexual. Lo principal es no sobrealimentar a la mascota castrada y asegurarse de monitorear el cumplimiento del régimen de bebida.",
+  "howToChoosePet.article.femaleCharacteristicsText": "Después de la maduración sexual, la gata puede 'informarte' sobre esto con vocalización frecuente, especialmente por la noche. Es mejor esterilizar a las mascotas domésticas de las cuales no se planea descendencia y no creer en el mito de que 'una gata necesita dar a luz al menos una vez por salud'.",
+
+  "howToChoosePet.article.choosingClassTitle": "Eligiendo clase",
+  "howToChoosePet.article.exteriorKnowledgeText": "No todos los compradores saben cómo elegir un gatito por exterior. El cumplimiento del estándar es un punto muy importante que determina el valor de una mascota en particular. Se verifica durante el registro de la camada y en las exposiciones.",
+  "howToChoosePet.article.classRecommendationText": "Si necesitas una mascota doméstica ordinaria - siéntete libre de tomar clase mascota. Las mascotas de raza y exposición son adecuadas para la cría. La segunda opción es la más prestigiosa, ya que no tiene defectos externos y de comportamiento, pero su costo de criadores responsables será significativamente mayor.",
+
+  "howToChoosePet.article.choosingAgeTitle": "Eligiendo edad",
+  "howToChoosePet.article.showClassAgeText": "En este caso, comienza desde la clase seleccionada o tus capacidades financieras. La clase de exposición solo puede determinarse después de mostrar en una exposición. Por lo tanto, necesitas esperar hasta que la mascota tenga 6 meses de edad.",
+  "howToChoosePet.article.minimumAgeText": "La edad mínima para adquirir clase mascota y raza es de 3 meses. A medida que maduran, su precio puede volverse menor.",
+  "howToChoosePet.article.rejectedPetsText": "Por separado, vale la pena mencionar las mascotas rechazadas que no se establecieron en la familia anterior, perdieron a su dueño, o aquellas que el criador retiró de la cría y castró. Su edad ya puede ser bastante grande. Tales animales pueden darse no solo más baratos, sino también gratis.",
+
+  "howToChoosePet.article.choosingCoatTypeTitle": "Eligiendo tipo de pelaje",
+  "howToChoosePet.article.coatCharacteristicsText": "Un gatito puede elegirse por las características de su pelaje. Esto determinará el cuidado del animal, es decir, la frecuencia del cepillado.",
+  "howToChoosePet.article.coatTypesText": "El pelaje en los gatos puede ser:",
+  "howToChoosePet.article.coatType1Text": "Corto, semi-largo, largo",
+  "howToChoosePet.article.coatType2Text": "Con subpelo y sin él",
+  "howToChoosePet.article.coatType3Text": "Esponjoso y liso",
+  "howToChoosePet.article.coatType4Text": "Rizado",
+  "howToChoosePet.article.coatType5Text": "Ausente",
+  "howToChoosePet.article.hairlessBreedsText": "La última opción es característica de las razas sin pelo.",
+
+  "howToChoosePet.article.howToProperlyChooseTitle": "¿Cómo elegir correctamente un gatito?",
+  "howToChoosePet.article.breederMeetingText": "Si los criterios principales para tu futura mascota han sido determinados exitosamente - procede a elegir un criador. Después de encontrar uno, necesitarás organizar una reunión con ellos y visitar personalmente su criadero (o casa). La comunicación en vivo, a diferencia de comprar por fotos, te permite evaluar todos los animales en dinámicas y familiarizarte personalmente con sus condiciones de vida.",
+
+  "howToChoosePet.article.choosingBreederTitle": "Eligiendo un criador",
+  "howToChoosePet.article.breedingDocumentsText": "La compra de un gatito debe realizarse de criadores listos para transferir documentos básicos de cría: métricas y pedigrís. Su presencia es una garantía de pertenencia a la raza que te llamó la atención.",
+  "howToChoosePet.article.breederOptionsText": "Se puede dar preferencia a una de dos opciones:",
+  "howToChoosePet.article.catteryLabel": "Criadero:",
+  "howToChoosePet.article.catteryText": "El criador tiene educación especial y varios animales reproductores. Mantienen su propio libro de cría, conocen bien la raza y pueden ofrecer opciones más variadas para futuros propietarios.",
+  "howToChoosePet.article.privatePersonLabel": "Persona privada:",
+  "howToChoosePet.article.privatePersonText": "No se requiere educación especial. Solo hay un animal reproductor. El registro de la camada se realiza a través de un club de raza. La elección es menos variada, por lo que algunos colores raros suelen estar ausentes. Puede ser una opción más riesgosa, ya que un aficionado puede resultar bajo la apariencia de un criador que no se dedica a la cría de raza pura.",
+  "howToChoosePet.article.readReviewsText": "Adicionalmente, se recomienda leer reseñas de otros compradores. Se pueden encontrar en foros dedicados a la raza.",
+
+  "howToChoosePet.article.visitingPlaceTitle": "Visitando el lugar de mantenimiento",
+  "howToChoosePet.article.catteryPrestigeText": "Un criadero es un establecimiento más prestigioso. Aquí se mantiene un gran número de animales.",
+  "howToChoosePet.article.privateBreederText": "Una persona privada puede criar gatos directamente en su apartamento. Esto no está prohibido. Lo principal es asegurarse de que dentro de la habitación esté limpio, seco, cálido y suficientemente espacioso. El mantenimiento abarrotado es un camino directo al desarrollo de infecciones y enfermedades parasitarias.",
+
+  "howToChoosePet.article.kittenBehaviorTitle": "Comportamiento del gatito",
+  "howToChoosePet.article.experiencedBreederText": "Un criador experimentado y concienzudo te dirá con gusto cómo elegir correctamente un gatito teniendo en cuenta tus preferencias. Tal persona escuchará cuidadosamente todos tus deseos y ayudará a determinar el tipo de temperamento apropiado.",
+  "howToChoosePet.article.personalMeetingText": "Al conocer personalmente a la camada, también puedes confiar en tus propios sentimientos. Si una de las mascotas se interesa en ti y te invita a jugar, o trata de subirse a tus brazos, entonces es poco probable que consideres a alguien más. Tal comportamiento es una buena señal, ya que habla de la amabilidad y afecto del animal.",
+
+  "howToChoosePet.article.petExaminationTitle": "Examen de la mascota",
+  "howToChoosePet.article.warySignsText": "Debes estar alerta si están presentes los siguientes síntomas:",
+  "howToChoosePet.article.symptom1Text": "Salivación intensa",
+  "howToChoosePet.article.symptom2Text": "Secreción de nariz, ojos u oídos",
+  "howToChoosePet.article.symptom3Text": "Abertura anal sucia",
+  "howToChoosePet.article.symptom4Text": "Presencia de calvas en el pelaje",
+  "howToChoosePet.article.symptom5Text": "Delgadez pronunciada",
+  "howToChoosePet.article.symptom6Text": "Vientre agrandado",
+  "howToChoosePet.article.symptom7Text": "Tos o estornudos",
+  "howToChoosePet.article.symptom8Text": "Trastornos de coordinación",
+  "howToChoosePet.article.symptom9Text": "Sacudida de cabeza y orejas",
+  "howToChoosePet.article.healthProblemsText": "Todo lo anterior indica problemas serios de salud. Si se detecta al menos uno de estos síntomas, es mejor rechazar la compra.",
+
+  "howToChoosePet.article.whenReadyToMoveTitle": "¿Cuándo está listo un gatito para mudarse?",
+  "howToChoosePet.article.separationStressText": "La separación de la madre es un gran estrés, pero los animales mayores de 3 meses pueden lidiar con él. A una edad más temprana, además del calor materno, también necesitan leche. Con ella, reciben nutrientes necesarios para el crecimiento adecuado, así como inmunidad pasiva que protege contra infecciones.",
+  "howToChoosePet.article.chooseImmediatelyText": "Puedes elegir un gatito casi inmediatamente después del nacimiento, pero no necesitas llevarlo a tu familia tan temprano. La mudanza prematura está llena de problemas de salud, y no solo físicos, sino también mentales.",
+  "howToChoosePet.article.artificialFeedingText": "La única excepción son los bebés transferidos a la alimentación con mezclas de leche artificial. Pero el cuidado de tales bebés es mejor confiarlo a un criador experimentado.",
+
+  "howToChoosePet.article.shelterOrStreetTitle": "Gatito de refugio o de la calle",
+  "howToChoosePet.article.savingLifeText": "Eligiendo entre estas opciones, salvas la vida de alguien. Pero no deberías tomar una decisión sin considerar todos los matices existentes.",
+  "howToChoosePet.article.shelterFeaturesText": "Los animales de refugios tienen las siguientes características:",
+  "howToChoosePet.article.infectionRiskLabel": "Alta probabilidad de infección o parásitos:",
+  "howToChoosePet.article.infectionRiskText": "Debido a condiciones de hacinamiento o estancia prolongada en la calle.",
+  "howToChoosePet.article.humanDistrustLabel": "Desconfianza hacia las personas:",
+  "howToChoosePet.article.humanDistrustText": "Se desarrolla ya sea debido a la falta de experiencia comunicándose con personas, o debido a la experiencia negativa de tal contacto. Comprar a través de un criador te ahorra la necesidad de domesticar un gatito que puede tener trastornos de comportamiento.",
+  "howToChoosePet.article.litterAdaptationLabel": "Adaptación más larga a la caja de arena:",
+  "howToChoosePet.article.litterAdaptationText": "Usualmente característico de animales de la calle. Los voluntarios del refugio, por regla general, entrenan a sus pupilos ellos mismos e incluso los vacunan.",
+  "howToChoosePet.article.readyDifficultiesText": "Si estás listo para posibles dificultades - comienza desde la situación. Tal vez ya tienes a alguien en mente que vagó por tu entrada. Puedes familiarizarte con ofertas de refugios en sitios web de adopción de mascotas.",
+
+  "howToChoosePet.article.recommendationsNewOwnersTitle": "Recomendaciones para nuevos propietarios",
+  "howToChoosePet.article.checklistItem1Text": "Asegúrate de tener un pedigrí, pasaporte veterinario y acuerdo de compra antes de cerrar el trato.",
+  "howToChoosePet.article.checklistItem2Text": "Compra todos los artículos necesarios de cuidado y mantenimiento con anticipación.",
+  "howToChoosePet.article.checklistItem3Text": "Tómate una semana libre o vacaciones para facilitar el proceso de adaptación y no dejar solo a tu nueva mascota.",
+  "howToChoosePet.article.checklistItem4Text": "Pide al criador algo con el aroma de la madre gata.",
+  "howToChoosePet.article.checklistItem5Text": "Transporta la mascota estrictamente en un transportador y usa un auto si es posible.",
+  "howToChoosePet.article.checklistItem6Text": "Para evitar infecciones, no traigas un animal de la calle a casa antes de visitar la clínica veterinaria.",
+  "howToChoosePet.article.checklistItem7Text": "Cuida la esterilización/castración obligatoria y el tratamiento antiparasitario.",
+  "howToChoosePet.article.familyMemberText": "No olvides que una mascota doméstica es un miembro de pleno derecho de la familia. Su crianza, cuidado y mantenimiento imponen una gran responsabilidad, pero son más que compensados por emociones agradables regulares en el proceso de comunicación.",
+
+  "howToChoosePet.article.buyingChecklistTitle": "Cómo elegir y comprar un gatito - lista de verificación",
+
+  // PUPPY SPECIFIC CONTENT
+  "howToChoosePet.article.notWhimText": "No puedes tomar una mascota exclusivamente basándose en caprichos o tendencias modernas. Es necesario entender que tu nueva mascota es un ser vivo con sus propias necesidades y una gran responsabilidad.",
+  "howToChoosePet.article.comfortableLifeText": "Para asegurar una vida cómoda para un perro, necesitas:",
+  "howToChoosePet.article.considerCostsText": "Considera los costos de mantenimiento, alimentación y compra de elementos esenciales.",
+  "howToChoosePet.article.workHobbiesText": "Asegúrate de que tu trabajo y pasatiempos no causen soledad constante para tu mascota.",
+  "howToChoosePet.article.physicalMentalText": "Asegúrate de poder proporcionar la necesidad de ejercicio físico y mental.",
+  "howToChoosePet.article.livingConditionsText": "Proporciona condiciones de vida decentes.",
+  "howToChoosePet.article.breedSuitabilityText": "Verifica qué tan adecuada es la raza elegida para tu familia, cómo interactuará con tus hijos y otras mascotas, basándose en sus características.",
+
+  // Puppy choosing considerations section
+  "howToChoosePet.article.whatToConsiderChoosingTitle": "¿Qué considerar al elegir?",
+  "howToChoosePet.article.keyFactorsText": "Ten en cuenta todos los factores clave. Si estás interesado en una mascota de raza pura - asegúrate de familiarizarte con las características de su raza de carácter y temperamento. Además, vale la pena considerar el género, ya que los machos y las hembras tienen algunas diferencias en comportamiento y mantenimiento.",
+  "howToChoosePet.article.breedTitle": "Raza",
+  "howToChoosePet.article.purebredPuppyText": "Primero, necesitas entender cómo elegir un cachorro de raza pura. En este caso, se recomienda considerar las siguientes características:",
+  "howToChoosePet.article.sizeLabel": "Tamaño:",
+  "howToChoosePet.article.sizeText": "Puede ser una raza muy grande o una enana. La primera opción requerirá más espacio en la casa.",
+  "howToChoosePet.article.coatTypeLabel": "Tipo de pelaje:",
+  "howToChoosePet.article.coatTypeText": "Determina no solo la apariencia, sino también la complejidad del cuidado.",
+  "howToChoosePet.article.friendlinessLabel": "Amigabilidad:",
+  "howToChoosePet.article.friendlinessText": "Si tienes poca experiencia en entrenamiento de perros y tienes otras mascotas o niños, entonces no deberías elegir un cachorro dominante y demasiado independiente.",
+  "howToChoosePet.article.breedGroupLabel": "Afiliación al grupo de raza:",
+  "howToChoosePet.article.breedGroupText": "Es importante considerar a qué grupo de perros pertenece la raza elegida.",
+
+  // Gender section
+  "howToChoosePet.article.genderTitle": "Género",
+  "howToChoosePet.article.genderImportanceText": "Al elegir un cachorro, es importante tener en cuenta su género. La diferencia más obvia entre hembras y machos es la apariencia. Los machos son notablemente más grandes y tienen un exterior más impresionante.",
+  "howToChoosePet.article.neuteringText": "Los problemas relacionados con el comportamiento sexual se pueden resolver con la castración. Puede recomendarse para mascotas que no participan en el trabajo de cría.",
+
+  // Five steps section
+  "howToChoosePet.article.fiveStepsTitle": "Cómo elegir correctamente un cachorro - 5 pasos",
+  "howToChoosePet.article.fiveStepsIntroText": "Si has determinado todos los puntos anteriores, entonces es hora de comenzar a buscar un criador. Antes de la compra directa, necesitas dar 5 pasos más: elegir un lugar para comprar una mascota, organizar una reunión, evaluar las condiciones de mantenimiento de los perros, comunicarte con el criador y asegurarte de que haya todos los documentos y certificados necesarios.",
+  "howToChoosePet.article.conscientiousBreederTitle": "Elige un criador concienzudo",
+  "howToChoosePet.article.dontSaveMoneyText": "Si decidiste elegir un cachorro de raza pura - no trates de ahorrar dinero. Comprar tal mascota a través de anuncios dudosos con precios sospechosamente bajos está lleno de engaños.",
+
+  // Breeder search requirements
+  "howToChoosePet.article.breederSearchIntroText": "Al buscar un criador, necesitas:",
+  "howToChoosePet.article.contactClubLabel": "Contactar al club:",
+  "howToChoosePet.article.contactClubText": "Aquí puedes encontrar información actualizada sobre todos los criadores registrados.",
+  "howToChoosePet.article.readReviewsLabel": "Leer reseñas de otros compradores:",
+  "howToChoosePet.article.readReviewsText": "Deben buscarse en recursos de terceros, no en el sitio web personal del criador.",
+  "howToChoosePet.article.commercialActivityLabel": "Asegurarse de que la actividad comercial esté registrada:",
+  "howToChoosePet.article.commercialActivityText": "La cría es un trabajo complejo y bastante oficial.",
+  "howToChoosePet.article.mandatoryDocumentsLabel": "Preguntar sobre la disponibilidad de documentos obligatorios para perros:",
+  "howToChoosePet.article.mandatoryDocumentsText": "Al registrarse en el libro de cría, se emiten métricas para todos los animales.",
+  "howToChoosePet.article.titlesAndDiplomasLabel": "Preguntar sobre títulos y diplomas de trabajo de animales reproductores:",
+  "howToChoosePet.article.titlesAndDiplomasText": "Los padres de la camada que participan en apareamientos oficiales participan regularmente en exposiciones.",
+
+  // When to take a puppy section
+  "howToChoosePet.article.whenTakePuppyTitle": "¿Cuándo tomar un cachorro?",
+  "howToChoosePet.article.optimalAgeText": "La edad óptima no es antes de los 3 meses. Mudarse a una nueva familia a una edad más temprana no se recomienda, ya que el cachorro no habrá recibido todas las vacunas necesarias.",
+  "howToChoosePet.article.lactationText": "La lactancia gradualmente comienza a disminuir a las 4 semanas. A las 6-8 semanas, los cachorros ya comen independientemente, pero no se entregan debido a la campaña de vacunación y cuarentena. A los 3 meses ya no se alimentan de leche.",
+
+  // Shelter pets section
+  "howToChoosePet.article.shelterPetsTitle": "Mascotas de la calle o refugio",
+  "howToChoosePet.article.shelterChoiceText": "Si la afiliación de raza no es importante para ti, entonces se puede elegir un cachorro de un refugio. De esta manera, puedes ayudar al menos a un animal sin hogar.",
+  "howToChoosePet.article.shelterLoyaltyText": "A pesar de una serie de dificultades, los perros de refugios a menudo resultan ser muy leales e inteligentes. Se apegan perfectamente a su nuevo dueño.",
+
+  // Advice for future owners section
+  "howToChoosePet.article.adviceFutureOwnersTitle": "Consejos para futuros dueños",
+  "howToChoosePet.article.adviceIntroText": "Las recomendaciones enumeradas arriba están lejos de ser todo lo que necesitas saber al comprar un cachorro. Además de la selección directa, necesitas considerar una serie de otros matices para tener tiempo de preparar un lugar separado para tu nueva mascota y organizar la mudanza más cómoda a tu hogar.",
+  "howToChoosePet.article.payAttentionText": "Presta atención a los siguientes consejos:",
+  "howToChoosePet.article.personalCornerLabel": "Determina un lugar para el rincón personal de la mascota:",
+  "howToChoosePet.article.personalCornerText": "Esta no debe ser una habitación de paso.",
+  "howToChoosePet.article.buyNecessaryLabel": "Compra todo lo necesario:",
+  "howToChoosePet.article.buyNecessaryText": "La lista obligatoria incluye tazones, ropa de cama, pañales y otras cosas para paseos, cuidado y mantenimiento.",
+  "howToChoosePet.article.carrierTripLabel": "Elige un transportador conveniente y organiza un viaje en auto:",
+  "howToChoosePet.article.carrierTripText": "El ruido del transporte público puede aumentar el estrés.",
+  "howToChoosePet.article.makeSureBrandLabel": "Asegúrate de que haya una marca:",
+  "howToChoosePet.article.makeSureBrandText": "Se coloca en la ingle o en la oreja.",
+  "howToChoosePet.article.findVeterinarianLabel": "Encuentra un buen veterinario:",
+  "howToChoosePet.article.findVeterinarianText": "Te guiarán sobre las vacunas necesarias y seleccionarán el horario de vacunación óptimo y el tratamiento de parásitos.",
+
+  // Final checklist section
+  "howToChoosePet.article.puppyChecklistTitle": "Cómo elegir un cachorro - lista de verificación",
+  "howToChoosePet.article.readyToBuyLabel": "Asegúrate de estar listo para comprar:",
+  "howToChoosePet.article.readyToBuyText": "Una mascota requiere tiempo y gastos adicionales. No se puede comprar basándose solo en emociones.",
+  "howToChoosePet.article.evaluateSuitabilityLabel": "Evalúa qué tan adecuado es el cachorro potencial para tu familia:",
+  "howToChoosePet.article.evaluateSuitabilityText": "Compara las características de las razas que te gustan, estudia la diferencia entre machos y hembras, piensa en planes futuros y asegúrate de tener en cuenta tu estilo de vida.",
+  "howToChoosePet.article.findConscientiousLabel": "Encuentra un criador concienzudo:",
+  "howToChoosePet.article.findConscientiousText": "Tal persona te dirá cómo elegir un cachorro correctamente y evitar errores. Organiza una reunión con ellos para evaluar independientemente las condiciones de mantenimiento y conocer a todos los animales.",
+  "howToChoosePet.article.dontRushLabel": "No te apresures con la compra:",
+  "howToChoosePet.article.dontRushText": "Mudarse a un nuevo hogar solo se permite después de 3 meses de vida. A una edad más temprana, la mascota aún no está lista para mudarse, pero con el acuerdo del criador, puedes reservar una mascota potencial antes de que salga a la venta.",
+  "howToChoosePet.article.homelessAnimalLabel": "Piensa en la posibilidad de dar una nueva vida a un animal sin hogar:",
+  "howToChoosePet.article.homelessAnimalText": "Elegir un cachorro de un refugio tiene una serie de matices. Lo mismo se aplica a los animales de la calle. Por lo tanto, antes de tomar una decisión, debes evaluar todos los riesgos.",
+  "howToChoosePet.article.thoroughPrepLabel": "No olvides la preparación minuciosa:",
+  "howToChoosePet.article.thoroughPrepText": "Compra todas las cosas necesarias para tu mascota y piensa en el camino a casa. Trata de excluir estar solo en los primeros 7 días después de la mudanza. Una mascota rodeada de tu atención y apoyo integral se recuperará del estrés mucho más rápido y ganará confianza en ti.",
+  "howToChoosePet.article.sizeConsiderationText": "Tamaño. Esto puede ser una raza muy grande o una enana. La primera opción requerirá más espacio en la casa.",
+  "howToChoosePet.article.coatTypeText": "Tipo de pelaje. Determina no solo la apariencia, sino también la complejidad del cuidado.",
+  "howToChoosePet.article.friendlinessText": "Amabilidad. Si tienes poca experiencia en entrenamiento de perros y tienes otras mascotas o niños, entonces no deberías elegir un cachorro dominante y demasiado independiente.",
+  "howToChoosePet.article.breedGroupText": "Afiliación al grupo de raza. Es importante considerar a qué grupo de perros pertenece la raza elegida.",
+
+  "howToChoosePet.article.genderImportantText": "Al elegir un cachorro, es importante tener en cuenta su género. La diferencia más obvia entre hembras y machos es la apariencia. Los machos son notablemente más grandes y tienen un exterior más impresionante.",
+
+  "howToChoosePet.article.fiveStepsTitle": "Cómo elegir correctamente un cachorro - 5 pasos",
+  "howToChoosePet.article.breedingEvaluationText": "Antes de comprar un cachorro, evalúa las condiciones de mantenimiento de los perros, comunícate con el criador y asegúrate de que haya todos los documentos y certificados necesarios.",
+  "howToChoosePet.article.dontSaveMoneyText": "Si decidiste elegir un cachorro de raza pura - no trates de ahorrar dinero. Comprar tal mascota a través de anuncios dudosos con precios sospechosamente bajos está lleno de engaños.",
+
+  "howToChoosePet.article.lookingBreederText": "Al buscar un criador, necesitas:",
+  "howToChoosePet.article.contactClubText": "Contacta al club. Aquí puedes encontrar información actualizada sobre todos los criadores registrados.",
+  "howToChoosePet.article.readReviewsText2": "Lee reseñas de otros compradores. Deben buscarse en recursos de terceros, no en el sitio web personal del criador.",
+  "howToChoosePet.article.commercialActivityText": "Asegúrate de que la actividad comercial esté registrada. La cría es un trabajo complejo y bastante oficial.",
+  "howToChoosePet.article.mandatoryDocumentsText": "Pregunta sobre la disponibilidad de documentos obligatorios para perros. Al registrarse en el libro de cría, se emiten métricas para todos los animales.",
+  "howToChoosePet.article.titlesWorkingText": "Pregunta sobre títulos y diplomas de trabajo de animales reproductores. Los padres de la camada que participan en apareamientos oficiales participan regularmente en exposiciones.",
+
+  "howToChoosePet.article.whenTakePuppyTitle": "¿Cuándo tomar un cachorro?",
+  "howToChoosePet.article.optimalAgeText": "La edad óptima no es antes de los 3 meses. Mudarse a una nueva familia a una edad más temprana no se recomienda, ya que el cachorro no habrá recibido todas las vacunas necesarias.",
+
+  "howToChoosePet.article.shelterChoiceText": "Si la afiliación de raza no es importante para ti, entonces un cachorro puede ser elegido de un refugio. De esta manera, puedes ayudar al menos a un animal sin hogar.",
+
+  "howToChoosePet.article.recommendationsNotText": "Las recomendaciones listadas arriba están lejos de ser todo lo que necesitas saber al comprar un cachorro. Además de la selección directa, necesitas considerar una serie de otros matices para tener tiempo de preparar un lugar separado para tu nueva mascota y organizar la mudanza más cómoda a tu hogar.",
+
+  "howToChoosePet.article.followingTipsText": "Presta atención a los siguientes consejos:",
+  "howToChoosePet.article.readyToBuyText": "Asegúrate de estar listo para comprar. Una mascota requiere tiempo y gastos adicionales. No puede comprarse basándose solo en emociones.",
+  "howToChoosePet.article.evaluateSuitabilityText": "Evalúa qué tan adecuado es el cachorro potencial para tu familia. Compara las características de las razas que te gustan, estudia la diferencia entre machos y hembras, piensa en planes futuros y asegúrate de tener en cuenta tu estilo de vida.",
+  "howToChoosePet.article.conscientiousBreederText": "Encuentra un criador concienzudo. Tal persona te dirá cómo elegir un cachorro correctamente y evitar errores. Organiza una reunión con ellos para evaluar independientemente las condiciones de mantenimiento y conocer a todos los animales.",
+  "howToChoosePet.article.dontRushPurchaseText": "No te apresures con la compra. La mudanza a un nuevo hogar solo se permite después de los 3 meses de vida. A una edad más temprana, la mascota aún no está lista para mudarse, pero con el acuerdo del criador, puedes reservar una mascota potencial antes de que salga a la venta.",
+  "howToChoosePet.article.homelessAnimalText": "Piensa en la posibilidad de dar una nueva vida a un animal sin hogar. Elegir un cachorro de un refugio tiene una serie de matices. Lo mismo se aplica a los animales de la calle. Por lo tanto, antes de tomar una decisión, debes evaluar todos los riesgos.",
+
+  "howToChoosePet.article.puppyChecklistTitle": "Cómo elegir un cachorro - lista de verificación",
+
+  // Additional missing translations
+  "howToChoosePet.article.preparatoryStageText": "Presta atención a la etapa preparatoria. Compra todas las cosas necesarias que tu mascota necesitará inmediatamente después de mudarse, y proporciona apoyo integral durante la etapa de adaptación. Gracias a tu amor y cuidado, la pequeña mascota se acostumbrará a las nuevas condiciones mucho más rápido y definitivamente corresponderá a tus sentimientos."
 }
+
+export default es
