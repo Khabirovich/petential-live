@@ -35,11 +35,10 @@ export default function Hero() {
         <div className="hero-content">
           {/* MAIN HEADING */}
           <h1 className="hero-heading">
-            {t('hero.titlePrefix')}{" "}
+            <span className="hero-title-prefix">{t('hero.titlePrefix')}</span>{" "}
             <span 
-              className="relative inline-block"
+              className="relative animated-text-container"
               style={{ 
-                minWidth: "280px", 
                 height: "1.2em", 
                 display: "inline-block",
                 verticalAlign: "baseline"
