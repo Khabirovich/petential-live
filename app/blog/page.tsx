@@ -39,7 +39,7 @@ export default function BlogPage() {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen" style={{ background: "var(--bg-gradient-hero)" }}>
+      <div className="min-h-screen">
         <section className="section-modern">
           <div className="container">
             <div className="text-center">
@@ -51,7 +51,7 @@ export default function BlogPage() {
     )
   }
   return (
-    <div className="min-h-screen" style={{ background: "var(--bg-gradient-hero)" }}>
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="section-modern-first">
         <div className="container">

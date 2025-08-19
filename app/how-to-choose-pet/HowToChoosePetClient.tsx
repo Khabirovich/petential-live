@@ -10,7 +10,7 @@ export default function HowToChoosePetClient() {
   const [selectedClass, setSelectedClass] = useState<'pet' | 'breed' | 'show'>('pet')
 
   return (
-    <div className="min-h-screen" style={{ background: "var(--bg-gradient-hero)" }}>
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="section-modern-first">
         <div className="container">

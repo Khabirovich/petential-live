@@ -6,7 +6,7 @@ import { useLanguage } from "@/lib/i18n/context"
 export default function AboutPageClient() {
   const { t } = useLanguage()
   return (
-    <div className="min-h-screen" style={{ background: "var(--bg-gradient-hero)" }}>
+    <div className="min-h-screen">
       {/* Hero Section */}
       <section className="section-modern-first">
         <div className="container">

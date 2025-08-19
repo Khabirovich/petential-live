@@ -66,6 +66,62 @@ export default function RootLayout({
         <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
       </head>
       <body className={`${dmSans.variable} ${roboto.variable} antialiased`}>
+        {/* Background accents (brand greens, subtle on light) */}
+        <div 
+          className="fixed inset-0 pointer-events-none overflow-hidden"
+          style={{
+            zIndex: -1,
+            width: '100vw',
+            height: '100vh',
+            top: 0,
+            left: 0,
+            position: 'fixed'
+          }}
+        >
+          <div 
+            className="absolute rounded-full blur-3xl" 
+            style={{
+              top: '-8rem',
+              left: '-6rem',
+              width: '20rem',
+              height: '20rem',
+              background: 'linear-gradient(to top right, #d4fe77, #c1fd3a, #b3e834)',
+              opacity: 0.5
+            }}
+          ></div>
+          <div 
+            className="absolute rounded-full blur-3xl" 
+            style={{
+              top: '50%',
+              right: '-10rem',
+              width: '28rem',
+              height: '28rem',
+              transform: 'translateY(-50%)',
+              background: 'linear-gradient(to bottom right, #c1fd3a, #d4fe77, #b3e834)',
+              opacity: 0.35
+            }}
+          ></div>
+          <div 
+            className="absolute rounded-full blur-3xl" 
+            style={{
+              bottom: '-6rem',
+              left: '50%',
+              width: '18rem',
+              height: '18rem',
+              transform: 'translateX(-50%)',
+              background: 'linear-gradient(to top, #d4fe77, transparent)',
+              opacity: 0.3
+            }}
+          ></div>
+          <div 
+            className="absolute inset-0" 
+            style={{
+              background: 'radial-gradient(1200px 600px at 50% -100px, rgba(193,253,58,0.08), rgba(255,255,255,0))',
+              opacity: 1
+            }}
+          ></div>
+        </div>
+        
         <LanguageProvider>
           <Navigation />
           <main>{children}</main>

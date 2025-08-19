@@ -6,7 +6,7 @@ export default function CookiePolicyPage() {
   const { t } = useLanguage()
 
   return (
-    <div className="min-h-screen" style={{ background: "var(--bg-gradient-hero)" }}>
+    <div className="min-h-screen">
       <section className="section-modern-first">
         <div className="container">
           <div style={{ maxWidth: "800px", margin: "0 auto" }}>

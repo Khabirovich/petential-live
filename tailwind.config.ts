@@ -13,6 +13,14 @@ const config: Config = {
   theme: {
   	extend: {
   		colors: {
+  			// PETential brand colors
+  			'petential-primary': '#c1fd3a',
+  			'petential-primary-hover': '#b3e834',
+  			'petential-honeysuckle': '#d4fe77',
+  			'petential-dark': '#080516',
+  			'petential-white': '#ffffff',
+  			'petential-alabaster': '#f9f8f9',
+  			
   			background: 'hsl(var(--background))',
   			foreground: 'hsl(var(--foreground))',
   			card: {

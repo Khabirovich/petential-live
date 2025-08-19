@@ -59,7 +59,7 @@ export default function BlogArticlePage({ params }: BlogArticlePageProps) {
 
   if (isLoading) {
     return (
-      <div className="min-h-screen" style={{ background: "var(--bg-gradient-hero)" }}>
+      <div className="min-h-screen">
         <section className="section-modern">
           <div className="container">
             <div className="text-center">
@@ -73,7 +73,7 @@ export default function BlogArticlePage({ params }: BlogArticlePageProps) {
 
   if (!isLoading && !article) {
     return (
-      <div className="min-h-screen" style={{ background: "var(--bg-gradient-hero)" }}>
+      <div className="min-h-screen">
         <section className="section-modern">
           <div className="container">
             <div className="text-center">
@@ -113,7 +113,7 @@ export default function BlogArticlePage({ params }: BlogArticlePageProps) {
   }
 
   return (
-    <div className="min-h-screen" style={{ background: "var(--bg-gradient-hero)" }}>
+    <div className="min-h-screen">
       {/* Article Header */}
       <section className="section-modern-first">
         <div className="container">
