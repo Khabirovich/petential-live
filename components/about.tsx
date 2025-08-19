@@ -33,28 +33,132 @@ export default function About() {
           }}
         >
           <div className="card-modern">
-
-
-            <div style={{ marginBottom: "var(--spacing-xl)" }}>
-              <h3
-                style={{
-                  fontFamily: "var(--font-heading)",
-                  fontSize: "var(--font-size-h3)",
-                  fontWeight: "var(--font-weight-medium)",
-                  color: "var(--petential-dark)",
-                  marginBottom: "var(--spacing-md)",
-                }}
-              >
-                {t('about.howItWorks.step1.title')}
-              </h3>
+            {/* Step 1 */}
+            <div style={{ marginBottom: "var(--spacing-lg)" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "var(--spacing-md)", marginBottom: "var(--spacing-sm)" }}>
+                <div
+                  style={{
+                    width: "32px",
+                    height: "32px",
+                    background: "var(--petential-primary)",
+                    borderRadius: "50%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: "var(--font-size-body)",
+                    fontWeight: "var(--font-weight-bold)",
+                    color: "var(--petential-dark)",
+                  }}
+                >
+                  1
+                </div>
+                <h3
+                  style={{
+                    fontFamily: "var(--font-heading)",
+                    fontSize: "var(--font-size-h4)",
+                    fontWeight: "var(--font-weight-medium)",
+                    color: "var(--petential-dark)",
+                    margin: 0,
+                  }}
+                >
+                  {t('about.howItWorks.step1.title')}
+                </h3>
+              </div>
               <p
                 style={{
-                  fontSize: "var(--font-size-body)",
+                  fontSize: "var(--font-size-small)",
                   color: "var(--petential-haiti-60)",
                   lineHeight: "var(--line-height-normal)",
+                  margin: 0,
                 }}
               >
                 {t('about.howItWorks.step1.description')}
+              </p>
+            </div>
+
+            {/* Step 2 */}
+            <div style={{ marginBottom: "var(--spacing-lg)" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "var(--spacing-md)", marginBottom: "var(--spacing-sm)" }}>
+                <div
+                  style={{
+                    width: "32px",
+                    height: "32px",
+                    background: "var(--petential-primary)",
+                    borderRadius: "50%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: "var(--font-size-body)",
+                    fontWeight: "var(--font-weight-bold)",
+                    color: "var(--petential-dark)",
+                  }}
+                >
+                  2
+                </div>
+                <h3
+                  style={{
+                    fontFamily: "var(--font-heading)",
+                    fontSize: "var(--font-size-h4)",
+                    fontWeight: "var(--font-weight-medium)",
+                    color: "var(--petential-dark)",
+                    margin: 0,
+                  }}
+                >
+                  {t('about.howItWorks.step2.title')}
+                </h3>
+              </div>
+              <p
+                style={{
+                  fontSize: "var(--font-size-small)",
+                  color: "var(--petential-haiti-60)",
+                  lineHeight: "var(--line-height-normal)",
+                  margin: 0,
+                }}
+              >
+                {t('about.howItWorks.step2.description')}
+              </p>
+            </div>
+
+            {/* Step 3 */}
+            <div style={{ marginBottom: "var(--spacing-xl)" }}>
+              <div style={{ display: "flex", alignItems: "center", gap: "var(--spacing-md)", marginBottom: "var(--spacing-sm)" }}>
+                <div
+                  style={{
+                    width: "32px",
+                    height: "32px",
+                    background: "var(--petential-primary)",
+                    borderRadius: "50%",
+                    display: "flex",
+                    alignItems: "center",
+                    justifyContent: "center",
+                    fontSize: "var(--font-size-body)",
+                    fontWeight: "var(--font-weight-bold)",
+                    color: "var(--petential-dark)",
+                  }}
+                >
+                  3
+                </div>
+                <h3
+                  style={{
+                    fontFamily: "var(--font-heading)",
+                    fontSize: "var(--font-size-h4)",
+                    fontWeight: "var(--font-weight-medium)",
+                    color: "var(--petential-dark)",
+                    margin: 0,
+                  }}
+                >
+                  {t('about.howItWorks.step3.title')}
+                </h3>
+              </div>
+              <p
+                style={{
+                  fontSize: "var(--font-size-small)",
+                  color: "var(--petential-haiti-60)",
+                  lineHeight: "var(--line-height-normal)",
+                  margin: 0,
+                }}
+              >
+                {t('about.howItWorks.step3.description')}
               </p>
             </div>
 
