@@ -151,6 +151,13 @@ body {
   color: var(--petential-dark);
 }
 
+/* Global card styling with lime green border */
+.bg-card,
+[class*="bg-card"] {
+  background: rgba(255, 255, 255, 0.9) !important;
+  border: 1px solid #c1fd3a !important;
+}
+
 /* Hero Section - Original PETential Style */
 .hero-section {
   /* background: var(--bg-gradient-hero); */
@@ -398,6 +405,8 @@ body {
 
 .card-modern {
   /* background: white; */
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #c1fd3a;
   border-radius: var(--radius-xl);
   padding: var(--spacing-2xl);
   box-shadow: var(--shadow-card);
@@ -869,6 +878,8 @@ body {
 
 .faq-item {
   /* background: white; */
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #c1fd3a;
   border-radius: var(--radius-lg);
   box-shadow: var(--shadow-card);
   overflow: hidden;
@@ -1011,6 +1022,8 @@ body {
 
 .insights-card {
   /* background: white; */
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #c1fd3a;
   border-radius: var(--radius-xl);
   box-shadow: var(--shadow-card);
   overflow: hidden;
@@ -1167,6 +1180,8 @@ body {
 
 .breed-card {
   /* background: white; */
+  background: rgba(255, 255, 255, 0.9);
+  border: 1px solid #c1fd3a;
   border-radius: var(--radius-xl);
   overflow: hidden;
   box-shadow: var(--shadow-card);
