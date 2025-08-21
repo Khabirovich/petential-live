@@ -39,10 +39,25 @@ export default function CreateArticlePage() {
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
     if (file) {
+      // Check file size (500KB = 500,000 bytes)
+      if (file.size > 500000) {
+        alert('⚠️ Image Too Large\n\nPlease select an image smaller than 500KB.\n\nCurrent size: ' + Math.round(file.size / 1024) + 'KB')
+        e.target.value = '' // Clear the input
+        return
+      }
+      
       setSelectedImage(file)
       const reader = new FileReader()
       reader.onload = (e) => {
-        setImagePreview(e.target?.result as string)
+        const result = e.target?.result as string
+        // Double-check base64 size
+        if (result && result.length > 700000) { // Base64 is ~33% larger than file size
+          alert('⚠️ Image Still Too Large\n\nThe processed image is still too large. Please use a smaller image.')
+          setSelectedImage(null)
+          setImagePreview('')
+          return
+        }
+        setImagePreview(result)
       }
       reader.readAsDataURL(file)
     }
@@ -86,7 +101,17 @@ export default function CreateArticlePage() {
       router.push('/admin/dashboard')
     } catch (error) {
       console.error('Error creating article:', error)
-      alert('Failed to create article. Please try again with a smaller image if you uploaded one.')
+      const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred'
+      
+      if (errorMessage.includes('Image is too large')) {
+        alert('❌ Image Too Large\n\nPlease use an image smaller than 500KB. You can:\n• Resize your image\n• Use a different image\n• Or proceed without an image')
+      } else if (errorMessage.includes('Network')) {
+        alert('❌ Network Error\n\nPlease check your internet connection and try again.')
+      } else if (errorMessage.includes('Failed to save')) {
+        alert('❌ Save Error\n\n' + errorMessage + '\n\nPlease try again or contact support if the problem persists.')
+      } else {
+        alert('❌ Error Creating Article\n\n' + errorMessage + '\n\nPlease try again with a smaller image if you uploaded one.')
+      }
     } finally {
       setIsSubmitting(false)
     }
@@ -351,6 +376,13 @@ export default function CreateArticlePage() {
                     >
                       Article Image
                     </label>
+                    <p style={{
+                      fontSize: "var(--font-size-sm)",
+                      color: "var(--petential-sage)",
+                      marginBottom: "var(--spacing-sm)"
+                    }}>
+                      📷 Optional: Upload an image (max 500KB). Supported formats: JPG, PNG, WebP
+                    </p>
                     <input
                       type="file"
                       id="image"

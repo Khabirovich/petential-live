@@ -115,6 +115,21 @@ export async function POST(request: NextRequest) {
     // Check if article with this slug already exists - if so, update instead of creating
     const existingArticle = blogData.articles.find(article => article.id === slug)
     if (existingArticle) {
+      // Handle image processing for updates
+      let processedImage = existingArticle.image || '/images/placeholder-pet.svg'
+      if (image) {
+        if (image.startsWith('data:image/')) {
+          if (image.length > 500000) { // 500KB limit
+            console.warn('Image too large, keeping existing image')
+            processedImage = existingArticle.image || '/images/placeholder-pet.svg'
+          } else {
+            processedImage = image
+          }
+        } else {
+          processedImage = image
+        }
+      }
+      
       // Update existing article instead of failing
       const updatedArticle: BlogArticle = {
         ...existingArticle,
@@ -124,7 +139,7 @@ export async function POST(request: NextRequest) {
         author,
         category: category || 'Pet Care',
         readTime: readTime || '5 min read',
-        image: image || existingArticle.image || '/images/placeholder-pet.svg',
+        image: processedImage,
         tags: Array.isArray(tags) ? tags : (tags ? tags.split(',').map((tag: string) => tag.trim()).filter((tag: string) => tag) : [])
       }
       
@@ -140,6 +155,19 @@ export async function POST(request: NextRequest) {
       })
     }
     
+    // Handle image processing
+    let processedImage = image || '/images/placeholder-pet.svg'
+    
+    // If image is base64 and too large, compress it or use placeholder
+    if (image && image.startsWith('data:image/')) {
+      if (image.length > 500000) { // 500KB limit
+        console.warn('Image too large, using placeholder')
+        processedImage = '/images/placeholder-pet.svg'
+      } else {
+        processedImage = image
+      }
+    }
+    
     // Create new article
     const newArticle: BlogArticle = {
       id: slug,
@@ -150,7 +178,7 @@ export async function POST(request: NextRequest) {
       publishDate: new Date().toISOString().split('T')[0],
       readTime: readTime || '5 min read',
       category: category || 'Pet Care',
-      image: image || '/images/placeholder-pet.svg',
+      image: processedImage,
       tags: Array.isArray(tags) ? tags : (tags ? tags.split(',').map((tag: string) => tag.trim()).filter((tag: string) => tag) : [])
     }
     
@@ -201,6 +229,21 @@ export async function PUT(request: NextRequest) {
       )
     }
     
+    // Handle image processing for PUT updates
+    let processedImage = blogData.articles[articleIndex].image || '/images/placeholder-pet.svg'
+    if (image) {
+      if (image.startsWith('data:image/')) {
+        if (image.length > 500000) { // 500KB limit
+          console.warn('Image too large, keeping existing image')
+          processedImage = blogData.articles[articleIndex].image || '/images/placeholder-pet.svg'
+        } else {
+          processedImage = image
+        }
+      } else {
+        processedImage = image
+      }
+    }
+    
     // Update article
     const updatedArticle: BlogArticle = {
       id,
@@ -211,7 +254,7 @@ export async function PUT(request: NextRequest) {
       publishDate: blogData.articles[articleIndex].publishDate, // Keep original publish date
       readTime: readTime || '5 min read',
       category: category || 'Pet Care',
-      image: image || '/images/placeholder-pet.svg',
+      image: processedImage,
       tags: Array.isArray(tags) ? tags : (tags ? tags.split(',').map((tag: string) => tag.trim()).filter((tag: string) => tag) : [])
     }
     

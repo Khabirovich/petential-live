@@ -273,15 +273,43 @@ export async function addBlogArticle(article: BlogArticle): Promise<void> {
   if (typeof window === 'undefined') return
   
   try {
-    // Compress image if it's base64 and too large
+    // Handle image processing
     let processedArticle = { ...article }
-    if (article.image && article.image.startsWith('data:image/') && article.image.length > 100000) {
-      try {
-        const compressed = await compressBase64Image(article.image, 0.6)
-        processedArticle.image = compressed
-      } catch (error) {
-        console.warn('Failed to compress image for article:', article.id, error)
-        // Use original image if compression fails
+    
+    if (article.image && article.image.startsWith('data:image/')) {
+      // Check image size
+      if (article.image.length > 500000) { // 500KB limit
+        console.warn('Image is too large (>500KB), using placeholder instead')
+        processedArticle.image = '/images/placeholder-pet.svg'
+        
+        // Show user-friendly notification
+        const notification = document.createElement('div')
+        notification.style.cssText = `
+          position: fixed; top: 20px; right: 20px; z-index: 10000;
+          background: #ff9800; color: white; padding: 15px 20px;
+          border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+          font-family: Arial, sans-serif; font-size: 14px; max-width: 300px;
+        `
+        notification.innerHTML = `
+          <strong>⚠️ Image Too Large</strong><br>
+          Using placeholder image. Please use images under 500KB.
+        `
+        document.body.appendChild(notification)
+        setTimeout(() => {
+          if (document.body.contains(notification)) {
+            document.body.removeChild(notification)
+          }
+        }, 5000)
+      } else if (article.image.length > 100000) {
+        // Try to compress images larger than 100KB
+        try {
+          const compressed = await compressBase64Image(article.image, 0.6)
+          processedArticle.image = compressed
+          console.log('Successfully compressed image')
+        } catch (error) {
+          console.warn('Failed to compress image, using original:', error)
+          // Keep original image if compression fails
+        }
       }
     }
     
@@ -295,7 +323,8 @@ export async function addBlogArticle(article: BlogArticle): Promise<void> {
     })
     
     if (!response.ok) {
-      throw new Error(`Failed to create article: ${response.status}`)
+      const errorText = await response.text()
+      throw new Error(`Failed to create article (${response.status}): ${errorText}`)
     }
     
     const data = await response.json()
@@ -303,13 +332,24 @@ export async function addBlogArticle(article: BlogArticle): Promise<void> {
       throw new Error(data.message || 'Failed to create article')
     }
     
+    console.log('✅ Article created successfully:', data.message)
+    
     // Update local cache
     const currentArticles = await getBlogArticles()
     localStorage.setItem('blog-articles-cache', JSON.stringify(currentArticles))
     
   } catch (error) {
     console.error('Error adding blog article:', error)
-    throw error
+    
+    // Show user-friendly error message
+    const errorMessage = error instanceof Error ? error.message : 'Unknown error'
+    if (errorMessage.includes('too large') || errorMessage.includes('500KB')) {
+      throw new Error('Image is too large. Please use an image smaller than 500KB.')
+    } else if (errorMessage.includes('Network')) {
+      throw new Error('Network error. Please check your connection and try again.')
+    } else {
+      throw new Error(`Failed to save article: ${errorMessage}`)
+    }
   }
 }
 
