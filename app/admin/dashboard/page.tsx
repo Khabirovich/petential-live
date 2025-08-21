@@ -6,21 +6,28 @@ import Link from 'next/link'
 import { isAuthenticated, logout } from '../../../lib/auth'
 import { getBlogArticles, deleteBlogArticle, initializeBlogStorage, refreshBlogArticles } from '../../../lib/blog-storage'
 import { BlogArticle } from '../../../data/blog-articles'
+import ErrorBoundary from '../../../components/ErrorBoundary'
 
-export default function AdminDashboard() {
+function AdminDashboardContent() {
   const [articles, setArticles] = useState<BlogArticle[]>([])
   const [isLoading, setIsLoading] = useState(true)
   const router = useRouter()
 
   useEffect(() => {
-    // Check authentication
-    if (!isAuthenticated()) {
-      router.push('/admin')
-      return
-    }
+    // Add a small delay to ensure client-side hydration is complete
+    const checkAuth = async () => {
+      // Check authentication
+      if (!isAuthenticated()) {
+        router.push('/admin')
+        return
+      }
 
-    // Initialize blog storage and load articles
-    loadArticles()
+      // Initialize blog storage and load articles
+      await loadArticles()
+    }
+    
+    // Small delay to prevent hydration mismatch
+    setTimeout(checkAuth, 100)
   }, [router])
 
   const loadArticles = async () => {
@@ -307,5 +314,13 @@ export default function AdminDashboard() {
         </div>
       </section>
     </div>
+  )
+}
+
+export default function AdminDashboard() {
+  return (
+    <ErrorBoundary>
+      <AdminDashboardContent />
+    </ErrorBoundary>
   )
 }

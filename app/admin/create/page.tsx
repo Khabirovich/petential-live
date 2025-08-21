@@ -23,9 +23,13 @@ export default function CreateArticlePage() {
   const router = useRouter()
 
   useEffect(() => {
-    if (!isAuthenticated()) {
-      router.push('/admin')
+    // Small delay to prevent hydration mismatch
+    const checkAuth = () => {
+      if (!isAuthenticated()) {
+        router.push('/admin')
+      }
     }
+    setTimeout(checkAuth, 100)
   }, [router])
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -39,9 +43,9 @@ export default function CreateArticlePage() {
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
     if (file) {
-      // Check file size (500KB = 500,000 bytes)
-      if (file.size > 500000) {
-        alert('⚠️ Image Too Large\n\nPlease select an image smaller than 500KB.\n\nCurrent size: ' + Math.round(file.size / 1024) + 'KB')
+      // Check file size (10MB = 10,000,000 bytes)
+      if (file.size > 10000000) {
+        alert('⚠️ Image Too Large\n\nPlease select an image smaller than 10MB.\n\nCurrent size: ' + Math.round(file.size / 1024 / 1024 * 10) / 10 + 'MB')
         e.target.value = '' // Clear the input
         return
       }
@@ -50,8 +54,8 @@ export default function CreateArticlePage() {
       const reader = new FileReader()
       reader.onload = (e) => {
         const result = e.target?.result as string
-        // Double-check base64 size
-        if (result && result.length > 700000) { // Base64 is ~33% larger than file size
+        // Double-check base64 size (15MB base64 limit)
+        if (result && result.length > 15000000) {
           alert('⚠️ Image Still Too Large\n\nThe processed image is still too large. Please use a smaller image.')
           setSelectedImage(null)
           setImagePreview('')
@@ -104,7 +108,7 @@ export default function CreateArticlePage() {
       const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred'
       
       if (errorMessage.includes('Image is too large')) {
-        alert('❌ Image Too Large\n\nPlease use an image smaller than 500KB. You can:\n• Resize your image\n• Use a different image\n• Or proceed without an image')
+        alert('❌ Image Too Large\n\nPlease use an image smaller than 10MB. You can:\n• Resize your image\n• Use a different image\n• Or proceed without an image')
       } else if (errorMessage.includes('Network')) {
         alert('❌ Network Error\n\nPlease check your internet connection and try again.')
       } else if (errorMessage.includes('Failed to save')) {
@@ -381,7 +385,7 @@ export default function CreateArticlePage() {
                       color: "var(--petential-sage)",
                       marginBottom: "var(--spacing-sm)"
                     }}>
-                      📷 Optional: Upload an image (max 500KB). Supported formats: JPG, PNG, WebP
+                      📷 Optional: Upload an image (max 10MB). Supported formats: JPG, PNG, WebP
                     </p>
                     <input
                       type="file"

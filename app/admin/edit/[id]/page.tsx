@@ -61,7 +61,8 @@ export default function EditArticlePage({ params }: EditArticlePageProps) {
       setIsLoading(false)
     }
 
-    loadArticle()
+    // Small delay to prevent hydration mismatch
+    setTimeout(loadArticle, 100)
   }, [params, router])
 
   const handleInputChange = (e: React.ChangeEvent<HTMLInputElement | HTMLTextAreaElement | HTMLSelectElement>) => {
@@ -75,9 +76,9 @@ export default function EditArticlePage({ params }: EditArticlePageProps) {
   const handleImageChange = (e: React.ChangeEvent<HTMLInputElement>) => {
     const file = e.target.files?.[0]
     if (file) {
-      // Check file size (500KB = 500,000 bytes)
-      if (file.size > 500000) {
-        alert('⚠️ Image Too Large\n\nPlease select an image smaller than 500KB.\n\nCurrent size: ' + Math.round(file.size / 1024) + 'KB')
+      // Check file size (10MB = 10,000,000 bytes)
+      if (file.size > 10000000) {
+        alert('⚠️ Image Too Large\n\nPlease select an image smaller than 10MB.\n\nCurrent size: ' + Math.round(file.size / 1024 / 1024 * 10) / 10 + 'MB')
         e.target.value = '' // Clear the input
         return
       }
@@ -86,8 +87,8 @@ export default function EditArticlePage({ params }: EditArticlePageProps) {
       const reader = new FileReader()
       reader.onload = (e) => {
         const result = e.target?.result as string
-        // Double-check base64 size
-        if (result && result.length > 700000) { // Base64 is ~33% larger than file size
+        // Double-check base64 size (15MB base64 limit)
+        if (result && result.length > 15000000) {
           alert('⚠️ Image Still Too Large\n\nThe processed image is still too large. Please use a smaller image.')
           setSelectedImage(null)
           setImagePreview('')
@@ -140,7 +141,7 @@ export default function EditArticlePage({ params }: EditArticlePageProps) {
       const errorMessage = error instanceof Error ? error.message : 'Unknown error occurred'
       
       if (errorMessage.includes('Image is too large')) {
-        alert('❌ Image Too Large\n\nPlease use an image smaller than 500KB. You can:\n• Resize your image\n• Use a different image\n• Or save without changing the image')
+        alert('❌ Image Too Large\n\nPlease use an image smaller than 10MB. You can:\n• Resize your image\n• Use a different image\n• Or save without changing the image')
       } else if (errorMessage.includes('Network')) {
         alert('❌ Network Error\n\nPlease check your internet connection and try again.')
       } else if (errorMessage.includes('Failed to save')) {

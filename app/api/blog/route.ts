@@ -115,15 +115,16 @@ export async function POST(request: NextRequest) {
     // Check if article with this slug already exists - if so, update instead of creating
     const existingArticle = blogData.articles.find(article => article.id === slug)
     if (existingArticle) {
-      // Handle image processing for updates
+      // Handle image processing for updates - support up to 10MB images
       let processedImage = existingArticle.image || '/images/placeholder-pet.svg'
       if (image) {
         if (image.startsWith('data:image/')) {
-          if (image.length > 500000) { // 500KB limit
-            console.warn('Image too large, keeping existing image')
+          if (image.length > 15000000) { // ~10MB base64 limit
+            console.warn('Image extremely large (>10MB), keeping existing image')
             processedImage = existingArticle.image || '/images/placeholder-pet.svg'
           } else {
             processedImage = image
+            console.log(`Processing updated image of size: ${Math.round(image.length / 1024)}KB`)
           }
         } else {
           processedImage = image
@@ -155,16 +156,18 @@ export async function POST(request: NextRequest) {
       })
     }
     
-    // Handle image processing
+    // Handle image processing - support up to 10MB images
     let processedImage = image || '/images/placeholder-pet.svg'
     
-    // If image is base64 and too large, compress it or use placeholder
+    // If image is base64, handle different sizes
     if (image && image.startsWith('data:image/')) {
-      if (image.length > 500000) { // 500KB limit
-        console.warn('Image too large, using placeholder')
+      if (image.length > 15000000) { // ~10MB base64 limit (base64 is ~33% larger than original)
+        console.warn('Image extremely large (>10MB), using placeholder')
         processedImage = '/images/placeholder-pet.svg'
       } else {
+        // Accept the image regardless of size up to 10MB
         processedImage = image
+        console.log(`Processing image of size: ${Math.round(image.length / 1024)}KB`)
       }
     }
     
@@ -229,15 +232,16 @@ export async function PUT(request: NextRequest) {
       )
     }
     
-    // Handle image processing for PUT updates
+    // Handle image processing for PUT updates - support up to 10MB images
     let processedImage = blogData.articles[articleIndex].image || '/images/placeholder-pet.svg'
     if (image) {
       if (image.startsWith('data:image/')) {
-        if (image.length > 500000) { // 500KB limit
-          console.warn('Image too large, keeping existing image')
+        if (image.length > 15000000) { // ~10MB base64 limit
+          console.warn('Image extremely large (>10MB), keeping existing image')
           processedImage = blogData.articles[articleIndex].image || '/images/placeholder-pet.svg'
         } else {
           processedImage = image
+          console.log(`Processing PUT image of size: ${Math.round(image.length / 1024)}KB`)
         }
       } else {
         processedImage = image

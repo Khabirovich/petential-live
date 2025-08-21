@@ -3,9 +3,8 @@ import { BlogArticle } from '../data/blog-articles'
 // Blog storage utilities for managing articles
 export async function getBlogArticles(): Promise<BlogArticle[]> {
   if (typeof window === 'undefined') {
-    // Return default articles for server-side rendering
-    const { blogArticles } = require('../data/blog-articles')
-    return blogArticles
+    // Return empty array for server-side rendering to avoid webpack issues
+    return []
   }
   
   try {
@@ -44,9 +43,8 @@ export async function getBlogArticles(): Promise<BlogArticle[]> {
       return localArticles
     }
     
-    // Final fallback to default articles
-    const { blogArticles } = require('../data/blog-articles')
-    return blogArticles
+    // Final fallback to empty array to avoid webpack issues
+    return []
   }
 }
 
@@ -203,11 +201,10 @@ async function tryMigrateFromLocalStorage(): Promise<void> {
 // Synchronous version for backward compatibility (will be deprecated)
 export function getBlogArticlesSync(): BlogArticle[] {
   if (typeof window === 'undefined') {
-    const { blogArticles } = require('../data/blog-articles')
-    return blogArticles
+    return []
   }
   
-  // Return cached articles or default articles for immediate use
+  // Return cached articles for immediate use
   const stored = localStorage.getItem('blog-articles-cache')
   if (stored) {
     try {
@@ -217,9 +214,8 @@ export function getBlogArticlesSync(): BlogArticle[] {
     }
   }
   
-  // Fallback to default articles
-  const { blogArticles } = require('../data/blog-articles')
-  return blogArticles
+  // Fallback to empty array
+  return []
 }
 
 // Compress base64 image to reduce size
@@ -277,9 +273,9 @@ export async function addBlogArticle(article: BlogArticle): Promise<void> {
     let processedArticle = { ...article }
     
     if (article.image && article.image.startsWith('data:image/')) {
-      // Check image size
-      if (article.image.length > 500000) { // 500KB limit
-        console.warn('Image is too large (>500KB), using placeholder instead')
+      // Check image size - now supporting up to 10MB
+      if (article.image.length > 15000000) { // ~10MB base64 limit
+        console.warn('Image is extremely large (>10MB), using placeholder instead')
         processedArticle.image = '/images/placeholder-pet.svg'
         
         // Show user-friendly notification
@@ -292,7 +288,7 @@ export async function addBlogArticle(article: BlogArticle): Promise<void> {
         `
         notification.innerHTML = `
           <strong>⚠️ Image Too Large</strong><br>
-          Using placeholder image. Please use images under 500KB.
+          Using placeholder image. Please use images under 10MB.
         `
         document.body.appendChild(notification)
         setTimeout(() => {
@@ -300,16 +296,19 @@ export async function addBlogArticle(article: BlogArticle): Promise<void> {
             document.body.removeChild(notification)
           }
         }, 5000)
-      } else if (article.image.length > 100000) {
-        // Try to compress images larger than 100KB
+      } else if (article.image.length > 2000000) { // ~1.5MB base64
+        // Try to compress very large images (>1.5MB) for better performance
         try {
-          const compressed = await compressBase64Image(article.image, 0.6)
+          const compressed = await compressBase64Image(article.image, 0.7)
           processedArticle.image = compressed
-          console.log('Successfully compressed image')
+          console.log(`Successfully compressed large image from ${Math.round(article.image.length / 1024)}KB to ${Math.round(compressed.length / 1024)}KB`)
         } catch (error) {
-          console.warn('Failed to compress image, using original:', error)
+          console.warn('Failed to compress large image, using original:', error)
           // Keep original image if compression fails
         }
+      } else {
+        // Accept images up to 1.5MB without compression
+        console.log(`Accepting image of size: ${Math.round(article.image.length / 1024)}KB`)
       }
     }
     
@@ -343,8 +342,8 @@ export async function addBlogArticle(article: BlogArticle): Promise<void> {
     
     // Show user-friendly error message
     const errorMessage = error instanceof Error ? error.message : 'Unknown error'
-    if (errorMessage.includes('too large') || errorMessage.includes('500KB')) {
-      throw new Error('Image is too large. Please use an image smaller than 500KB.')
+    if (errorMessage.includes('too large') || errorMessage.includes('10MB')) {
+      throw new Error('Image is too large. Please use an image smaller than 10MB.')
     } else if (errorMessage.includes('Network')) {
       throw new Error('Network error. Please check your connection and try again.')
     } else {
@@ -427,8 +426,7 @@ export async function deleteBlogArticle(id: string): Promise<void> {
 
 export async function getBlogArticleById(id: string): Promise<BlogArticle | undefined> {
   if (typeof window === 'undefined') {
-    const { blogArticles } = require('../data/blog-articles')
-    return blogArticles.find((article: BlogArticle) => article.id === id)
+    return undefined
   }
   
   try {
