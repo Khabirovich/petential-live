@@ -1,0 +1,736 @@
+<html lang="en">
+
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>PETential.es — Find your ideal pet match</title>
+    <meta name="description"
+        content="Take a quick lifestyle quiz and discover pets that fit your space, schedule, and personality. Smarter pet matching, happier homes.">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin="">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600&amp;display=swap" rel="stylesheet">
+    <script src="https://cdn.tailwindcss.com"></script>
+</head>
+
+<body
+    class="bg-white antialiased [font-family:Inter,ui-sans-serif,system-ui,-apple-system,Segoe UI,Roboto,Ubuntu,Cantarell,Noto Sans,sans-serif] text-[#080516]">
+    <!-- Background accents (brand greens, subtle on light) -->
+    <div class="fixed inset-0 -z-10 overflow-hidden">
+        <div
+            class="absolute -top-32 -left-24 h-80 w-80 rounded-full bg-gradient-to-tr from-[#d4fe77]/50 via-[#c1fd3a]/40 to-[#b3e834]/30 blur-3xl">
+        </div>
+        <div
+            class="absolute top-1/2 -right-40 h-[28rem] w-[28rem] -translate-y-1/2 rounded-full bg-gradient-to-br from-[#c1fd3a]/35 via-[#d4fe77]/30 to-[#b3e834]/25 blur-3xl">
+        </div>
+        <div
+            class="absolute -bottom-24 left-1/2 h-72 w-72 -translate-x-1/2 rounded-full bg-gradient-to-t from-[#d4fe77]/30 to-transparent blur-3xl">
+        </div>
+        <div
+            class="absolute inset-0 bg-[radial-gradient(1200px_600px_at_50%_-100px,rgba(193,253,58,0.08),rgba(255,255,255,0))] pointer-events-none">
+        </div>
+    </div>
+
+    <!-- Nav -->
+    <header
+        class="sticky top-0 z-20 backdrop-blur supports-[backdrop-filter]:bg-white/80 border-b border-[hsl(214.3_31.8%_91.4%)]">
+        <div class="mx-auto max-w-7xl px-6 md:px-10">
+            <div class="flex items-center justify-between h-16">
+                <a href="#" class="group inline-flex items-center gap-2">
+                    <span
+                        class="inline-flex h-8 w-8 items-center justify-center rounded-md ring-1 bg-[#f9f8f9] ring-[hsl(214.3_31.8%_91.4%)]">
+                        <!-- lucide-sparkles -->
+                        <svg xmlns="http://www.w3.org/2000/svg"
+                            class="h-4.5 w-4.5 group-hover:text-[#080516] transition-colors text-[#c1fd3a]"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M12 3v4M12 17v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M3 12h4M17 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83">
+                            </path>
+                        </svg>
+                    </span>
+                    <span class="text-base font-semibold tracking-tight text-[#080516]">PETential.es</span>
+                </a>
+
+                <nav class="hidden md:flex items-center gap-8 text-sm">
+                    <a href="#features"
+                        class="transition-colors text-[rgba(8,5,22,0.7)] hover:text-[#080516]">Features</a>
+                    <a href="#how" class="transition-colors text-[rgba(8,5,22,0.7)] hover:text-[#080516]">How it
+                        works</a>
+                    <a href="#stories"
+                        class="transition-colors text-[rgba(8,5,22,0.7)] hover:text-[#080516]">Stories</a>
+                    <a href="#faq" class="transition-colors text-[rgba(8,5,22,0.7)] hover:text-[#080516]">FAQ</a>
+                </nav>
+
+                <div class="flex items-center gap-3">
+                    <a href="#quiz"
+                        class="hidden sm:inline-flex items-center gap-2 rounded-md border px-3.5 py-2 text-sm font-medium transition-colors border-[hsl(214.3_31.8%_91.4%)] bg-[#f9f8f9] hover:bg-white hover:border-[hsl(214.3_31.8%_91.4%)] text-[#080516]">
+                        <!-- lucide-sliders -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4.5 w-4.5 text-[#080516]" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <line x1="4" x2="4" y1="21" y2="14"></line>
+                            <line x1="4" x2="4" y1="10" y2="3"></line>
+                            <line x1="12" x2="12" y1="21" y2="12"></line>
+                            <line x1="12" x2="12" y1="8" y2="3"></line>
+                            <line x1="20" x2="20" y1="21" y2="16"></line>
+                            <line x1="20" x2="20" y1="12" y2="3"></line>
+                            <line x1="2" x2="6" y1="14" y2="14"></line>
+                            <line x1="10" x2="14" y1="8" y2="8"></line>
+                            <line x1="18" x2="22" y1="16" y2="16"></line>
+                        </svg>
+                        Quick Preview
+                    </a>
+                    <a href="#cta"
+                        class="inline-flex items-center gap-2 rounded-md bg-gradient-to-r from-[#c1fd3a] to-[#b3e834] px-3.5 py-2 text-sm font-semibold tracking-tight shadow-sm hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-offset-0 focus:ring-[#c1fd3a]/40 transition text-[#080516]">
+                        Start the Quiz
+                        <!-- lucide-arrow-right -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4.5 w-4.5 text-[#080516]" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M5 12h14"></path>
+                            <path d="m12 5 7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </header>
+
+    <!-- Hero -->
+    <section class="relative">
+        <div class="mx-auto max-w-7xl px-6 md:px-10 pt-16 md:pt-24">
+            <div class="grid lg:grid-cols-2 gap-10 items-center">
+                <div class="space-y-6">
+                    <div
+                        class="inline-flex items-center gap-2 rounded-full border px-2.5 py-1 text-xs border-[hsl(214.3_31.8%_91.4%)] bg-[#f9f8f9] text-[rgba(8,5,22,0.7)]">
+                        <span class="h-1.5 w-1.5 rounded-full animate-pulse" style="background-color:#c1fd3a;"></span>
+                        Smart matching live for 2,000+ adopters
+                    </div>
+                    <h1 class="text-4xl sm:text-5xl md:text-6xl font-semibold tracking-tight text-[#080516]">
+                        Find your ideal pet with
+                        <span
+                            class="bg-gradient-to-r bg-clip-text text-transparent from-[#c1fd3a] via-[#d4fe77] to-[#b3e834]">PETential</span>
+                    </h1>
+                    <p class="max-w-xl text-base md:text-lg text-[rgba(8,5,22,0.7)]">
+                        Answer a quick quiz about your lifestyle, space, and preferences—then get a curated list of pets
+                        that truly fit your life. Less guesswork, more tail wags.
+                    </p>
+                    <div class="flex flex-col sm:flex-row gap-3">
+                        <a id="cta" href="#quiz"
+                            class="inline-flex items-center justify-center gap-2 rounded-md bg-gradient-to-r from-[#c1fd3a] to-[#b3e834] px-5 py-3 text-sm font-semibold tracking-tight shadow-lg hover:opacity-90 focus:outline-none focus:ring-2 focus:ring-[#c1fd3a]/40 transition text-[#080516]">
+                            Start your matching quiz
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#080516]" viewBox="0 0 24 24"
+                                fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                                stroke-linejoin="round">
+                                <path d="M5 12h14"></path>
+                                <path d="m12 5 7 7-7 7"></path>
+                            </svg>
+                        </a>
+                        <a href="#how"
+                            class="inline-flex items-center justify-center gap-2 rounded-md border px-5 py-3 text-sm font-medium transition border-[hsl(214.3_31.8%_91.4%)] bg-[#f9f8f9] text-[#080516] hover:bg-white hover:border-[hsl(214.3_31.8%_91.4%)]">
+                            How it works
+                            <!-- lucide-search -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[rgba(8,5,22,0.8)]"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <circle cx="11" cy="11" r="8"></circle>
+                                <path d="m21 21-4.3-4.3"></path>
+                            </svg>
+                        </a>
+                    </div>
+
+                    <div class="mt-6 grid grid-cols-3 gap-4 border-t pt-6 border-[hsl(214.3_31.8%_91.4%)]">
+                        <div class="flex items-center gap-3">
+                            <!-- lucide-heart -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" style="color:#c1fd3a"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path
+                                    d="M19 14c1.49-1.46 3-3.24 3-5.5A4.5 4.5 0 0 0 17.5 4C15.76 4 14.09 4.81 13 6.09 11.91 4.81 10.24 4 8.5 4A4.5 4.5 0 0 0 4 8.5c0 2.26 1.51 4.04 3 5.5l6 5 6-5">
+                                </path>
+                            </svg>
+                            <div>
+                                <div class="text-sm font-medium text-[#080516]">98% happy matches</div>
+                                <div class="text-xs text-[rgba(8,5,22,0.6)]">based on post-adoption surveys</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <!-- lucide-home -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" style="color:#c1fd3a"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M3 9l9-7 9 7"></path>
+                                <path d="M9 22V12h6v10"></path>
+                            </svg>
+                            <div>
+                                <div class="text-sm font-medium text-[#080516]">Fits your space</div>
+                                <div class="text-xs text-[rgba(8,5,22,0.6)]">apartment to acreage</div>
+                            </div>
+                        </div>
+                        <div class="flex items-center gap-3">
+                            <!-- lucide-shield -->
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" style="color:#c1fd3a"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            </svg>
+                            <div>
+                                <div class="text-sm font-medium text-[#080516]">Adoption-friendly</div>
+                                <div class="text-xs text-[rgba(8,5,22,0.6)]">partner shelters &amp; rescues</div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Hero visual -->
+                <div class="relative">
+                    <div
+                        class="relative rounded-xl border p-2 backdrop-blur border-[hsl(214.3_31.8%_91.4%)] bg-[#f9f8f9]">
+                        <div class="grid grid-cols-3 gap-2">
+                            <img src="https://images.unsplash.com/photo-1548199973-03cce0bbc87b?q=80&amp;w=1480&amp;auto=format&amp;fit=crop"
+                                alt="Playful dog"
+                                class="h-40 w-full object-cover rounded-lg ring-1 hover:scale-[1.02] transition ring-[hsl(214.3_31.8%_91.4%)]">
+                            <img src="https://images.unsplash.com/photo-1518791841217-8f162f1e1131?q=80&amp;w=1480&amp;auto=format&amp;fit=crop"
+                                alt="Curious cat"
+                                class="h-40 w-full object-cover rounded-lg ring-1 hover:scale-[1.02] transition ring-[hsl(214.3_31.8%_91.4%)]">
+                            <img src="https://images.unsplash.com/photo-1541339907198-e08756dedf3f?q=80&amp;w=1480&amp;auto=format&amp;fit=crop"
+                                alt="Rabbit"
+                                class="h-40 w-full object-cover rounded-lg ring-1 hover:scale-[1.02] transition ring-[hsl(214.3_31.8%_91.4%)]">
+                            <img src="https://images.unsplash.com/photo-1543466835-00a7907e9de1?q=80&amp;w=1480&amp;auto=format&amp;fit=crop"
+                                alt="Parrot"
+                                class="h-40 w-full object-cover rounded-lg ring-1 hover:scale-[1.02] transition ring-[hsl(214.3_31.8%_91.4%)]">
+                            <img src="https://images.unsplash.com/photo-1621619856624-42fd193a0661?w=1080&amp;q=80"
+                                alt="Turtle"
+                                class="h-40 w-full object-cover rounded-lg ring-1 hover:scale-[1.02] transition ring-[hsl(214.3_31.8%_91.4%)]">
+                            <img src="https://images.unsplash.com/photo-1563460716037-460a3ad24ba9?q=80&amp;w=1480&amp;auto=format&amp;fit=crop"
+                                alt="Hamster"
+                                class="h-40 w-full object-cover rounded-lg ring-1 hover:scale-[1.02] transition ring-[hsl(214.3_31.8%_91.4%)]">
+                        </div>
+                    </div>
+                    <div
+                        class="absolute -bottom-6 -left-6 hidden sm:flex items-center gap-3 rounded-xl border px-4 py-3 backdrop-blur border-[hsl(214.3_31.8%_91.4%)] bg-white">
+                        <!-- lucide-star -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5" style="color:#c1fd3a"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <polygon points="12 2 15 9 22 9 17 14 19 21 12 17 5 21 7 14 2 9 9 9 12 2"></polygon>
+                        </svg>
+                        <div class="text-sm text-[#080516]">
+                            <div class="font-medium">Loved by pet seekers</div>
+                            <div class="text-xs text-[rgba(8,5,22,0.6)]">4.9/5 average rating</div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Features -->
+    <section id="features" class="mt-24 md:mt-32">
+        <div class="mx-auto max-w-7xl px-6 md:px-10">
+            <div class="flex items-end justify-between gap-6">
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-[#080516]">Why PETential</h2>
+                    <p class="mt-2 max-w-2xl text-[rgba(8,5,22,0.7)]">We combine lifestyle insights with rescue partner
+                        data to recommend pets that thrive with you.</p>
+                </div>
+                <a href="#cta"
+                    class="hidden sm:inline-flex items-center gap-2 text-sm transition text-[rgba(8,5,22,0.7)] hover:text-[#080516]">
+                    Start now
+                    <svg xmlns="http://www.w3.org/2000/svg" class="h-4.5 w-4.5 text-[#080516]" viewBox="0 0 24 24"
+                        fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                        stroke-linejoin="round">
+                        <path d="M5 12h14"></path>
+                        <path d="m12 5 7 7-7 7"></path>
+                    </svg>
+                </a>
+            </div>
+
+            <div class="mt-8 grid md:grid-cols-3 gap-6">
+                <div
+                    class="group rounded-xl border p-6 hover:-translate-y-0.5 hover:bg-[#f9f8f9] transition transform border-[hsl(214.3_31.8%_91.4%)] bg-white">
+                    <div
+                        class="inline-flex h-10 w-10 items-center justify-center rounded-md bg-[#d4fe77]/50 ring-1 mb-4 ring-[hsl(214.3_31.8%_91.4%)]">
+                        <!-- lucide-sliders -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#080516]" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <line x1="4" x2="4" y1="21" y2="14"></line>
+                            <line x1="4" x2="4" y1="10" y2="3"></line>
+                            <line x1="12" x2="12" y1="21" y2="12"></line>
+                            <line x1="12" x2="12" y1="8" y2="3"></line>
+                            <line x1="20" x2="20" y1="21" y2="16"></line>
+                            <line x1="20" x2="20" y1="12" y2="3"></line>
+                            <line x1="2" x2="6" y1="14" y2="14"></line>
+                            <line x1="10" x2="14" y1="8" y2="8"></line>
+                            <line x1="18" x2="22" y1="16" y2="16"></line>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold tracking-tight text-[#080516]">Lifestyle-first matching</h3>
+                    <p class="mt-2 text-sm text-[rgba(8,5,22,0.7)]">From schedule and activity level to home size, we
+                        match on what truly matters.</p>
+                </div>
+
+                <div
+                    class="group rounded-xl border p-6 hover:-translate-y-0.5 hover:bg-[#f9f8f9] transition transform border-[hsl(214.3_31.8%_91.4%)] bg-white">
+                    <div
+                        class="inline-flex h-10 w-10 items-center justify-center rounded-md bg-[#d4fe77]/50 ring-1 mb-4 ring-[hsl(214.3_31.8%_91.4%)]">
+                        <!-- lucide-home -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#080516]" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M3 9l9-7 9 7"></path>
+                            <path d="M9 22V12h6v10"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold tracking-tight text-[#080516]">Fits your space</h3>
+                    <p class="mt-2 text-sm text-[rgba(8,5,22,0.7)]">Recommendations adapt to apartments, shared spaces,
+                        yards, or rural homes.</p>
+                </div>
+
+                <div
+                    class="group rounded-xl border p-6 hover:-translate-y-0.5 hover:bg-[#f9f8f9] transition transform border-[hsl(214.3_31.8%_91.4%)] bg-white">
+                    <div
+                        class="inline-flex h-10 w-10 items-center justify-center rounded-md bg-[#d4fe77]/50 ring-1 mb-4 ring-[hsl(214.3_31.8%_91.4%)]">
+                        <!-- lucide-shield-check -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-5 w-5 text-[#080516]" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                            <path d="m9 12 2 2 4-4"></path>
+                        </svg>
+                    </div>
+                    <h3 class="text-lg font-semibold tracking-tight text-[#080516]">Adoption-ready</h3>
+                    <p class="mt-2 text-sm text-[rgba(8,5,22,0.7)]">Seamless connect to shelters and rescues, with
+                        guidance for first-time adopters.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- How it works -->
+    <section id="how" class="mt-24 md:mt-32">
+        <div class="mx-auto max-w-7xl px-6 md:px-10">
+            <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-[#080516]">How it works</h2>
+            <div class="mt-8 grid lg:grid-cols-3 gap-6">
+                <div class="rounded-xl border p-6 border-[hsl(214.3_31.8%_91.4%)] bg-white">
+                    <div class="flex items-center gap-3">
+                        <span
+                            class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#d4fe77] text-sm font-medium ring-1 text-[#080516] ring-[hsl(214.3_31.8%_91.4%)]">1</span>
+                        <div class="text-base font-medium text-[#080516]">Tell us about you</div>
+                    </div>
+                    <p class="mt-3 text-sm text-[rgba(8,5,22,0.7)]">A short quiz on your routine, space, allergies, and
+                        pet experience.</p>
+                </div>
+
+                <div class="rounded-xl border p-6 border-[hsl(214.3_31.8%_91.4%)] bg-white">
+                    <div class="flex items-center gap-3">
+                        <span
+                            class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#d4fe77] text-sm font-medium ring-1 text-[#080516] ring-[hsl(214.3_31.8%_91.4%)]">2</span>
+                        <div class="text-base font-medium text-[#080516]">Get curated matches</div>
+                    </div>
+                    <p class="mt-3 text-sm text-[rgba(8,5,22,0.7)]">We surface pets aligned with your lifestyle and
+                        preferences.</p>
+                </div>
+
+                <div class="rounded-xl border p-6 border-[hsl(214.3_31.8%_91.4%)] bg-white">
+                    <div class="flex items-center gap-3">
+                        <span
+                            class="inline-flex h-8 w-8 items-center justify-center rounded-full bg-[#d4fe77] text-sm font-medium ring-1 text-[#080516] ring-[hsl(214.3_31.8%_91.4%)]">3</span>
+                        <div class="text-base font-medium text-[#080516]">Adopt with confidence</div>
+                    </div>
+                    <p class="mt-3 text-sm text-[rgba(8,5,22,0.7)]">Connect with partners, plan meet &amp; greets, and
+                        bring home your new best friend.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Quiz Preview -->
+    <section id="quiz" class="mt-24 md:mt-32">
+        <div class="mx-auto max-w-7xl px-6 md:px-10">
+            <div class="grid lg:grid-cols-2 gap-10 items-center">
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-[#080516]">A preview of the quiz
+                    </h2>
+                    <p class="mt-2 max-w-xl text-[rgba(8,5,22,0.7)]">We’ll ask a few focused questions to understand
+                        your day-to-day and what you’re looking for.</p>
+
+                    <div class="mt-6 rounded-xl border p-6 border-[hsl(214.3_31.8%_91.4%)] bg-white">
+                        <div class="text-sm text-[rgba(8,5,22,0.7)]">Question 3 of 7</div>
+                        <h3 class="mt-2 text-lg font-semibold tracking-tight text-[#080516]">How much space do you have
+                            at home?</h3>
+                        <div class="mt-4 grid sm:grid-cols-3 gap-3">
+                            <button
+                                class="group rounded-lg border px-4 py-3 text-sm font-medium transition text-left border-[hsl(214.3_31.8%_91.4%)] bg-[#f9f8f9] hover:bg-white hover:border-[hsl(214.3_31.8%_91.4%)] text-[#080516]">
+                                <div class="flex items-center justify-between">
+                                    <span>Cozy apartment</span>
+                                    <!-- lucide-home -->
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="h-4.5 w-4.5 group-hover:text-[#080516] transition text-[rgba(8,5,22,0.8)]"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M3 9l9-7 9 7"></path>
+                                        <path d="M9 22V12h6v10"></path>
+                                    </svg>
+                                </div>
+                            </button>
+                            <button
+                                class="group rounded-lg border px-4 py-3 text-sm font-medium transition text-left border-[hsl(214.3_31.8%_91.4%)] bg-[#f9f8f9] hover:bg-white hover:border-[hsl(214.3_31.8%_91.4%)] text-[#080516]">
+                                <div class="flex items-center justify-between">
+                                    <span>Medium home</span>
+                                    <!-- lucide-home (same icon) -->
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="h-4.5 w-4.5 group-hover:text-[#080516] transition text-[rgba(8,5,22,0.8)]"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M3 9l9-7 9 7"></path>
+                                        <path d="M9 22V12h6v10"></path>
+                                    </svg>
+                                </div>
+                            </button>
+                            <button
+                                class="group rounded-lg border px-4 py-3 text-sm font-medium transition text-left border-[hsl(214.3_31.8%_91.4%)] bg-[#f9f8f9] hover:bg-white hover:border-[hsl(214.3_31.8%_91.4%)] text-[#080516]">
+                                <div class="flex items-center justify-between">
+                                    <span>Large space / yard</span>
+                                    <!-- lucide-home -->
+                                    <svg xmlns="http://www.w3.org/2000/svg"
+                                        class="h-4.5 w-4.5 group-hover:text-[#080516] transition text-[rgba(8,5,22,0.8)]"
+                                        viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                        stroke-linecap="round" stroke-linejoin="round">
+                                        <path d="M3 9l9-7 9 7"></path>
+                                        <path d="M9 22V12h6v10"></path>
+                                    </svg>
+                                </div>
+                            </button>
+                        </div>
+
+                        <div class="mt-5 flex items-center justify-between">
+                            <button
+                                class="inline-flex items-center gap-2 text-sm transition text-[rgba(8,5,22,0.7)] hover:text-[#080516]">
+                                <!-- lucide-arrow-right (mirrored) -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4.5 w-4.5 -scale-x-100 text-[#080516]"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14"></path>
+                                    <path d="m12 5 7 7-7 7"></path>
+                                </svg>
+                                Back
+                            </button>
+                            <button
+                                class="inline-flex items-center gap-2 rounded-md bg-gradient-to-r from-[#c1fd3a] to-[#b3e834] px-4 py-2 text-sm font-semibold tracking-tight hover:opacity-90 transition text-[#080516]">
+                                Next
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4.5 w-4.5 text-[#080516]"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M5 12h14"></path>
+                                    <path d="m12 5 7 7-7 7"></path>
+                                </svg>
+                            </button>
+                        </div>
+                    </div>
+
+                    <div class="mt-4 flex items-center gap-2 text-xs text-[rgba(8,5,22,0.6)]">
+                        <!-- lucide-shield -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4 w-4 text-[rgba(8,5,22,0.8)]"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path d="M12 22s8-4 8-10V5l-8-3-8 3v7c0 6 8 10 8 10z"></path>
+                        </svg>
+                        Your answers are private and never sold.
+                    </div>
+                </div>
+
+                <div class="rounded-2xl border p-6 border-[hsl(214.3_31.8%_91.4%)] bg-white">
+                    <div class="flex items-center justify-between">
+                        <div>
+                            <h3 class="text-lg font-semibold tracking-tight text-[#080516]">What you’ll get</h3>
+                            <p class="text-sm text-[rgba(8,5,22,0.7)]">Personalized matches updated in real-time.</p>
+                        </div>
+                        <!-- lucide-sparkles -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-6 w-6" style="color:#c1fd3a"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M12 3v4M12 17v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M3 12h4M17 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83">
+                            </path>
+                        </svg>
+                    </div>
+
+                    <div class="mt-4 grid sm:grid-cols-2 gap-4">
+                        <div
+                            class="rounded-xl border p-4 hover:-translate-y-0.5 transition border-[hsl(214.3_31.8%_91.4%)] bg-white">
+                            <div class="flex items-center gap-2">
+                                <!-- lucide-users -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4.5 w-4.5 text-[#080516]"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M16 21v-2a4 4 0 0 0-4-4H6a4 4 0 0 0-4 4v2"></path>
+                                    <circle cx="9" cy="7" r="4"></circle>
+                                    <path d="M22 21v-2a4 4 0 0 0-3-3.87"></path>
+                                    <path d="M16 3.13a4 4 0 0 1 0 7.75"></path>
+                                </svg>
+                                <div class="text-sm font-medium text-[#080516]">Temperament fit</div>
+                            </div>
+                            <p class="mt-1 text-xs text-[rgba(8,5,22,0.6)]">Energy level, friendliness, and training
+                                needs.</p>
+                        </div>
+
+                        <div
+                            class="rounded-xl border p-4 hover:-translate-y-0.5 transition border-[hsl(214.3_31.8%_91.4%)] bg-white">
+                            <div class="flex items-center gap-2">
+                                <!-- lucide-check-circle -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4.5 w-4.5" style="color:#c1fd3a"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="m9 12 2 2 4-4"></path>
+                                    <circle cx="12" cy="12" r="10"></circle>
+                                </svg>
+                                <div class="text-sm font-medium text-[#080516]">Lifestyle checks</div>
+                            </div>
+                            <p class="mt-1 text-xs text-[rgba(8,5,22,0.6)]">Space, schedule, budget, and experience
+                                level.</p>
+                        </div>
+
+                        <div
+                            class="rounded-xl border p-4 hover:-translate-y-0.5 transition border-[hsl(214.3_31.8%_91.4%)] bg-white">
+                            <div class="flex items-center gap-2">
+                                <!-- lucide-map-pin -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4.5 w-4.5" style="color:#c1fd3a"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path d="M20 10c0 6-8 12-8 12S4 16 4 10a8 8 0 1 1 16 0Z"></path>
+                                    <circle cx="12" cy="10" r="3"></circle>
+                                </svg>
+                                <div class="text-sm font-medium text-[#080516]">Nearby rescues</div>
+                            </div>
+                            <p class="mt-1 text-xs text-[rgba(8,5,22,0.6)]">See availability close to you.</p>
+                        </div>
+
+                        <div
+                            class="rounded-xl border p-4 hover:-translate-y-0.5 transition border-[hsl(214.3_31.8%_91.4%)] bg-white">
+                            <div class="flex items-center gap-2">
+                                <!-- lucide-heart -->
+                                <svg xmlns="http://www.w3.org/2000/svg" class="h-4.5 w-4.5" style="color:#c1fd3a"
+                                    viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                    stroke-linecap="round" stroke-linejoin="round">
+                                    <path
+                                        d="M19 14c1.49-1.46 3-3.24 3-5.5A4.5 4.5 0 0 0 17.5 4C15.76 4 14.09 4.81 13 6.09 11.91 4.81 10.24 4 8.5 4A4.5 4.5 0 0 0 4 8.5c0 2.26 1.51 4.04 3 5.5l6 5 6-5">
+                                    </path>
+                                </svg>
+                                <div class="text-sm font-medium text-[#080516]">Care guidance</div>
+                            </div>
+                            <p class="mt-1 text-xs text-[rgba(8,5,22,0.6)]">Prep lists and ongoing tips tailored to your
+                                match.</p>
+                        </div>
+                    </div>
+
+                    <a href="#cta"
+                        class="mt-6 inline-flex items-center gap-2 rounded-md border px-4 py-2 text-sm font-medium transition border-[hsl(214.3_31.8%_91.4%)] bg-[#f9f8f9] hover:bg-white hover:border-[hsl(214.3_31.8%_91.4%)] text-[#080516]">
+                        Take the full quiz
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4.5 w-4.5 text-[#080516]" viewBox="0 0 24 24"
+                            fill="none" stroke="currentColor" stroke-width="1.5" stroke-linecap="round"
+                            stroke-linejoin="round">
+                            <path d="M5 12h14"></path>
+                            <path d="m12 5 7 7-7 7"></path>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Stories / Testimonials -->
+    <section id="stories" class="mt-24 md:mt-32">
+        <div class="mx-auto max-w-7xl px-6 md:px-10">
+            <div class="flex items-end justify-between">
+                <div>
+                    <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-[#080516]">Happy matches, happier
+                        homes</h2>
+                    <p class="mt-2 text-[rgba(8,5,22,0.7)]">Real stories from people who found their perfect companions.
+                    </p>
+                </div>
+                <div class="hidden md:block text-sm text-[rgba(8,5,22,0.6)]">4.9/5 average satisfaction</div>
+            </div>
+
+            <div class="mt-8 grid md:grid-cols-3 gap-6">
+                <div
+                    class="rounded-xl border p-6 hover:-translate-y-0.5 transition border-[hsl(214.3_31.8%_91.4%)] bg-white">
+                    <div class="flex items-center gap-3">
+                        <img src="https://images.unsplash.com/photo-1642615835477-d303d7dc9ee9?w=1080&amp;q=80"
+                            alt="Reviewer avatar"
+                            class="h-9 w-9 rounded-full object-cover ring-1 ring-[hsl(214.3_31.8%_91.4%)]">
+                        <div>
+                            <div class="text-sm font-medium text-[#080516]">María • Valencia</div>
+                            <div class="text-xs text-[rgba(8,5,22,0.6)]">Adopted: Luna (cat)</div>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-sm text-[rgba(8,5,22,0.7)]">The quiz nailed my lifestyle. Luna is calm, cuddly,
+                        and perfect for my small flat.</p>
+                </div>
+
+                <div
+                    class="rounded-xl border p-6 hover:-translate-y-0.5 transition border-[hsl(214.3_31.8%_91.4%)] bg-white">
+                    <div class="flex items-center gap-3">
+                        <img src="https://images.unsplash.com/photo-1544005313-94ddf0286df2?q=80&amp;w=256&amp;auto=format&amp;fit=crop"
+                            alt="Reviewer avatar"
+                            class="h-9 w-9 rounded-full object-cover ring-1 ring-[hsl(214.3_31.8%_91.4%)]">
+                        <div>
+                            <div class="text-sm font-medium text-[#080516]">James • Madrid</div>
+                            <div class="text-xs text-[rgba(8,5,22,0.6)]">Adopted: Milo (dog)</div>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-sm text-[rgba(8,5,22,0.7)]">We matched with a lower-energy dog, ideal for my
+                        busy schedule. Couldn’t be happier.</p>
+                </div>
+
+                <div
+                    class="rounded-xl border p-6 hover:-translate-y-0.5 transition border-[hsl(214.3_31.8%_91.4%)] bg-white">
+                    <div class="flex items-center gap-3">
+                        <img src="https://images.unsplash.com/photo-1519345182560-3f2917c472ef?q=80&amp;w=256&amp;auto=format&amp;fit=crop"
+                            alt="Reviewer avatar"
+                            class="h-9 w-9 rounded-full object-cover ring-1 ring-[hsl(214.3_31.8%_91.4%)]">
+                        <div>
+                            <div class="text-sm font-medium text-[#080516]">Sofía • Barcelona</div>
+                            <div class="text-xs text-[rgba(8,5,22,0.6)]">Adopted: Kiwi (parrot)</div>
+                        </div>
+                    </div>
+                    <p class="mt-4 text-sm text-[rgba(8,5,22,0.7)]">The recommendations were surprisingly thoughtful.
+                        The care guidance was a bonus.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- CTA -->
+    <section class="mt-24 md:mt-32">
+        <div class="mx-auto max-w-7xl px-6 md:px-10">
+            <div
+                class="rounded-2xl border bg-gradient-to-r p-1 border-[hsl(214.3_31.8%_91.4%)] from-[#d4fe77]/40 via-[#c1fd3a]/30 to-[#b3e834]/30">
+                <div
+                    class="rounded-2xl bg-white p-8 md:p-10 flex flex-col md:flex-row items-center justify-between gap-6">
+                    <div>
+                        <h3 class="text-2xl md:text-3xl font-semibold tracking-tight text-[#080516]">Ready to meet your
+                            perfect pet?</h3>
+                        <p class="mt-2 max-w-2xl text-[rgba(8,5,22,0.7)]">Takes under 3 minutes. No signup required to
+                            see your top matches.</p>
+                    </div>
+                    <div class="flex items-center gap-3">
+                        <a href="#quiz"
+                            class="inline-flex items-center gap-2 rounded-md border px-4 py-2 text-sm font-medium transition border-[hsl(214.3_31.8%_91.4%)] bg-[#f9f8f9] hover:bg-white hover:border-[hsl(214.3_31.8%_91.4%)] text-[#080516]">
+                            Preview questions
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4.5 w-4.5 text-[#080516]"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14"></path>
+                                <path d="m12 5 7 7-7 7"></path>
+                            </svg>
+                        </a>
+                        <a href="#"
+                            class="inline-flex items-center gap-2 rounded-md bg-gradient-to-r from-[#c1fd3a] to-[#b3e834] px-5 py-2.5 text-sm font-semibold tracking-tight hover:opacity-90 transition text-[#080516]">
+                            Start the quiz
+                            <svg xmlns="http://www.w3.org/2000/svg" class="h-4.5 w-4.5 text-[#080516]"
+                                viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                                stroke-linecap="round" stroke-linejoin="round">
+                                <path d="M5 12h14"></path>
+                                <path d="m12 5 7 7-7 7"></path>
+                            </svg>
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- FAQ -->
+    <section id="faq" class="mt-24 md:mt-32 mb-24">
+        <div class="mx-auto max-w-7xl px-6 md:px-10">
+            <h2 class="text-2xl md:text-3xl font-semibold tracking-tight text-[#080516]">FAQs</h2>
+            <div class="mt-8 grid md:grid-cols-2 gap-6">
+                <div class="rounded-xl border p-6 border-[hsl(214.3_31.8%_91.4%)] bg-white">
+                    <div class="text-base font-medium text-[#080516]">Is the quiz free?</div>
+                    <p class="mt-2 text-sm text-[rgba(8,5,22,0.7)]">Yes. It’s completely free to take and view your
+                        initial matches.</p>
+                </div>
+                <div class="rounded-xl border p-6 border-[hsl(214.3_31.8%_91.4%)] bg-white">
+                    <div class="text-base font-medium text-[#080516]">How accurate are the recommendations?</div>
+                    <p class="mt-2 text-sm text>[rgba(8,5,22,0.7)]">We combine your inputs with partner data and care
+                        profiles—most users report an excellent fit.</p>
+                </div>
+                <div class="rounded-xl border p-6 border-[hsl(214.3_31.8%_91.4%)] bg-white">
+                    <div class="text-base font-medium text-[#080516]">Do I have to adopt?</div>
+                    <p class="mt-2 text-sm text-[rgba(8,5,22,0.7)]">No pressure. Explore matches, save favorites, and
+                        reach out when you’re ready.</p>
+                </div>
+                <div class="rounded-xl border p-6 border-[hsl(214.3_31.8%_91.4%)] bg-white">
+                    <div class="text-base font-medium text-[#080516]">Where is PETential available?</div>
+                    <p class="mt-2 text-sm text-[rgba(8,5,22,0.7)]">We’re expanding across Spain and select EU regions
+                        with new partners joining weekly.</p>
+                </div>
+            </div>
+        </div>
+    </section>
+
+    <!-- Footer -->
+    <footer class="border-t border-[hsl(214.3_31.8%_91.4%)]">
+        <div class="mx-auto max-w-7xl px-6 md:px-10 py-10">
+            <div class="flex flex-col md:flex-row items-start md:items-center justify-between gap-6">
+                <div class="flex items-center gap-3">
+                    <span
+                        class="inline-flex h-8 w-8 items-center justify-center rounded-md ring-1 bg-[#f9f8f9] ring-[hsl(214.3_31.8%_91.4%)]">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4.5 w-4.5" style="color:#c1fd3a"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M12 3v4M12 17v4M4.93 4.93l2.83 2.83M16.24 16.24l2.83 2.83M3 12h4M17 12h4M4.93 19.07l2.83-2.83M16.24 7.76l2.83-2.83">
+                            </path>
+                        </svg>
+                    </span>
+                    <span class="text-base font-semibold tracking-tight text-[#080516]">PETential.es</span>
+                </div>
+                <div class="flex items-center gap-6 text-sm">
+                    <a href="#features" class="transition text-[rgba(8,5,22,0.7)] hover:text-[#080516]">Features</a>
+                    <a href="#how" class="transition text-[rgba(8,5,22,0.7)] hover:text-[#080516]">How it works</a>
+                    <a href="#stories" class="transition text-[rgba(8,5,22,0.7)] hover:text-[#080516]">Stories</a>
+                    <a href="#faq" class="transition text-[rgba(8,5,22,0.7)] hover:text-[#080516]">FAQ</a>
+                </div>
+                <div class="flex items-center gap-3">
+                    <a href="#"
+                        class="inline-flex h-9 w-9 items-center justify-center rounded-md border transition border-[hsl(214.3_31.8%_91.4%)] bg-[#f9f8f9] hover:bg-white"
+                        aria-label="Twitter">
+                        <!-- lucide-twitter -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4.5 w-4.5 text-[rgba(8,5,22,0.8)]"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <path
+                                d="M22 4s-.7 2.1-2 3.4c1.6 10-9.4 17.3-18 11.6 2.2.1 4.4-.6 6-2C3 15.5.5 9.6 3 6c2.2 2.6 5.6 4.1 9 4-.5-2.2 2.1-5.3 4.5-3.2 1.1 0 3-1.3 3-1.3z">
+                            </path>
+                        </svg>
+                    </a>
+                    <a href="#"
+                        class="inline-flex h-9 w-9 items-center justify-center rounded-md border transition border-[hsl(214.3_31.8%_91.4%)] bg-[#f9f8f9] hover:bg-white"
+                        aria-label="Instagram">
+                        <!-- lucide-instagram -->
+                        <svg xmlns="http://www.w3.org/2000/svg" class="h-4.5 w-4.5 text-[rgba(8,5,22,0.8)]"
+                            viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="1.5"
+                            stroke-linecap="round" stroke-linejoin="round">
+                            <rect width="20" height="20" x="2" y="2" rx="5" ry="5"></rect>
+                            <path d="M16 11.37A4 4 0 1 1 12.63 8 4 4 0 0 1 16 11.37z"></path>
+                            <line x1="17.5" x2="17.51" y1="6.5" y2="6.5"></line>
+                        </svg>
+                    </a>
+                </div>
+            </div>
+            <div class="mt-6 text-xs text-[rgba(8,5,22,0.6)]">© <span id="year">2025</span> PETential.es — All rights
+                reserved.</div>
+        </div>
+    </footer>
+
+    <!-- Minimal year update -->
+    <script>
+        (function () { var y = new Date().getFullYear(); var e = document.getElementById('year'); if (e) e.textContent = y; })();
+    </script>
+
+</body>
+
+</html>

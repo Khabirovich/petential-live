@@ -42,7 +42,7 @@ export default function EditArticlePage({ params }: EditArticlePageProps) {
       const id = resolvedParams.id
       setArticleId(id)
 
-      const article = getBlogArticleById(id)
+      const article = await getBlogArticleById(id)
       if (!article) {
         router.push('/admin/dashboard')
         return

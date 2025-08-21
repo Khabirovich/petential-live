@@ -1,56 +1,225 @@
 import { BlogArticle } from '../data/blog-articles'
 
 // Blog storage utilities for managing articles
-export function getBlogArticles(): BlogArticle[] {
+export async function getBlogArticles(): Promise<BlogArticle[]> {
   if (typeof window === 'undefined') {
     // Return default articles for server-side rendering
     const { blogArticles } = require('../data/blog-articles')
     return blogArticles
   }
   
-  // Always load fresh articles from data file and merge with localStorage
-  const { blogArticles: defaultArticles, BLOG_DATA_VERSION } = require('../data/blog-articles')
-  const stored = localStorage.getItem('blog-articles')
-  const storedVersion = localStorage.getItem('blog-data-version')
+  try {
+    // Fetch from backend API
+    const response = await fetch('/api/blog')
+    if (!response.ok) {
+      throw new Error(`Failed to fetch articles: ${response.status}`)
+    }
+    
+    const data = await response.json()
+    if (data.status === 'success') {
+      // If no articles in backend, try to migrate from localStorage
+      if (data.articles.length === 0) {
+        await tryMigrateFromLocalStorage()
+        // Fetch again after potential migration
+        const retryResponse = await fetch('/api/blog')
+        if (retryResponse.ok) {
+          const retryData = await retryResponse.json()
+          if (retryData.status === 'success') {
+            return retryData.articles
+          }
+        }
+      }
+      return data.articles
+    } else {
+      throw new Error(data.message || 'Failed to fetch articles')
+    }
+  } catch (error) {
+    console.error('Error fetching blog articles from API:', error)
+    
+    // Try to get from localStorage as fallback
+    const localArticles = getLocalStorageArticles()
+    if (localArticles.length > 0) {
+      console.log(`Found ${localArticles.length} articles in localStorage, attempting migration...`)
+      await tryMigrateFromLocalStorage()
+      return localArticles
+    }
+    
+    // Final fallback to default articles
+    const { blogArticles } = require('../data/blog-articles')
+    return blogArticles
+  }
+}
+
+// Helper function to get articles from localStorage
+function getLocalStorageArticles(): BlogArticle[] {
+  if (typeof window === 'undefined') return []
   
-  // If version changed, clear cache and use fresh data
-  if (storedVersion !== BLOG_DATA_VERSION) {
-    localStorage.removeItem('blog-articles')
-    localStorage.setItem('blog-data-version', BLOG_DATA_VERSION)
-    saveBlogArticles(defaultArticles)
-    return defaultArticles
+  // Skip if already migrated
+  if (localStorage.getItem('articles-migrated') === 'true') {
+    console.log('📌 Articles already migrated to backend, skipping localStorage check')
+    return []
   }
   
-  if (stored) {
-    try {
-      const storedArticles = JSON.parse(stored)
-      
-      // Check if we have fewer articles in storage than in default data
-      // This means new articles were added to the data file
-      if (storedArticles.length < defaultArticles.length) {
-        // Find new articles that aren't in storage
-        const newArticles = defaultArticles.filter(
-          (defaultArticle: BlogArticle) => !storedArticles.some((stored: BlogArticle) => stored.id === defaultArticle.id)
-        )
-        
-        // Merge new articles with stored ones
-        const mergedArticles = [...newArticles, ...storedArticles]
-        saveBlogArticles(mergedArticles)
-        return mergedArticles
+  // Check multiple localStorage keys where articles might be stored
+  const possibleKeys = ['blog-articles', 'blog-articles-cache', 'articles', 'blogArticles']
+  let allArticles: BlogArticle[] = []
+  
+  for (const key of possibleKeys) {
+    const stored = localStorage.getItem(key)
+    if (stored) {
+      try {
+        const articles = JSON.parse(stored)
+        if (Array.isArray(articles) && articles.length > 0) {
+          // Validate that these look like blog articles
+          const validArticles = articles.filter(article => 
+            article && 
+            typeof article === 'object' && 
+            article.title && 
+            article.content && 
+            article.author
+          )
+          
+          if (validArticles.length > 0) {
+            console.log(`🔍 Found ${validArticles.length} valid articles in localStorage key: ${key}`)
+            allArticles = [...allArticles, ...validArticles]
+          }
+        }
+      } catch (error) {
+        console.error(`Error parsing localStorage key ${key}:`, error)
       }
-      
-      return storedArticles
-    } catch (error) {
-      console.error('Error parsing stored articles:', error)
-      // Fallback to default articles if parsing fails
-      saveBlogArticles(defaultArticles)
-      return defaultArticles
     }
   }
   
-  // Return default articles if none stored and initialize localStorage
-  saveBlogArticles(defaultArticles)
-  return defaultArticles
+  // Remove duplicates based on ID or title
+  const uniqueArticles = allArticles.filter((article, index, self) => 
+    index === self.findIndex(a => 
+      (a.id && article.id && a.id === article.id) || 
+      (a.title === article.title && a.author === article.author)
+    )
+  )
+  
+  if (uniqueArticles.length > 0) {
+    console.log(`🎉 Total unique articles found in localStorage: ${uniqueArticles.length}`)
+    uniqueArticles.forEach((article, index) => {
+      console.log(`   ${index + 1}. "${article.title}" by ${article.author}`)
+    })
+  }
+  
+  return uniqueArticles
+}
+
+// Helper function to migrate articles from localStorage to backend
+async function tryMigrateFromLocalStorage(): Promise<void> {
+  if (typeof window === 'undefined') return
+  
+  const localArticles = getLocalStorageArticles()
+  if (localArticles.length === 0) return
+  
+  console.log(`🚀 AUTOMATIC MIGRATION: Found ${localArticles.length} articles in localStorage - migrating to backend...`)
+  
+  // Show user-friendly notification
+  if (localArticles.length > 0) {
+    const notification = document.createElement('div')
+    notification.style.cssText = `
+      position: fixed; top: 20px; right: 20px; z-index: 10000;
+      background: #4caf50; color: white; padding: 15px 20px;
+      border-radius: 8px; box-shadow: 0 4px 12px rgba(0,0,0,0.3);
+      font-family: Arial, sans-serif; font-size: 14px; max-width: 300px;
+    `
+    notification.innerHTML = `
+      <strong>🔄 Recovering Your Articles</strong><br>
+      Found ${localArticles.length} articles in browser storage.<br>
+      Migrating to permanent backend storage...
+    `
+    document.body.appendChild(notification)
+    
+    let migrated = 0
+    let failed = 0
+    
+    for (const article of localArticles) {
+      try {
+        console.log(`📝 Migrating: "${article.title}"`)
+        
+        const response = await fetch('/api/blog', {
+          method: 'POST',
+          headers: {
+            'Content-Type': 'application/json',
+          },
+          body: JSON.stringify(article),
+        })
+        
+        if (response.ok) {
+          const result = await response.json()
+          if (result.status === 'success') {
+            migrated++
+            console.log(`✅ Successfully migrated: "${article.title}"`)
+          } else {
+            console.log(`⚠️ Article "${article.title}" already exists or was updated: ${result.message}`)
+            migrated++ // Count as successful since article is preserved
+          }
+        } else {
+          console.error(`❌ Failed to migrate "${article.title}": HTTP ${response.status}`)
+          failed++
+        }
+      } catch (error) {
+        console.error(`❌ Error migrating "${article.title}":`, error)
+        failed++
+      }
+      
+      // Small delay to avoid overwhelming the server
+      await new Promise(resolve => setTimeout(resolve, 100))
+    }
+    
+    // Update notification with results
+    notification.style.background = migrated > 0 ? '#4caf50' : '#f44336'
+    notification.innerHTML = `
+      <strong>✅ Migration Complete!</strong><br>
+      Successfully migrated: ${migrated} articles<br>
+      ${failed > 0 ? `Failed: ${failed} articles<br>` : ''}
+      Your articles are now permanently saved!
+    `
+    
+    console.log(`🎉 MIGRATION COMPLETE!`)
+    console.log(`✅ Successfully migrated: ${migrated} articles`)
+    console.log(`❌ Failed to migrate: ${failed} articles`)
+    
+    if (migrated > 0) {
+      console.log(`🔄 Articles are now permanently stored on the backend!`)
+      
+      // Auto-remove notification after 5 seconds
+      setTimeout(() => {
+        if (document.body.contains(notification)) {
+          document.body.removeChild(notification)
+        }
+      }, 5000)
+      
+      // Mark localStorage articles as migrated
+      localStorage.setItem('articles-migrated', 'true')
+      localStorage.setItem('migration-date', new Date().toISOString())
+    }
+  }
+}
+
+// Synchronous version for backward compatibility (will be deprecated)
+export function getBlogArticlesSync(): BlogArticle[] {
+  if (typeof window === 'undefined') {
+    const { blogArticles } = require('../data/blog-articles')
+    return blogArticles
+  }
+  
+  // Return cached articles or default articles for immediate use
+  const stored = localStorage.getItem('blog-articles-cache')
+  if (stored) {
+    try {
+      return JSON.parse(stored)
+    } catch (error) {
+      console.error('Error parsing cached articles:', error)
+    }
+  }
+  
+  // Fallback to default articles
+  const { blogArticles } = require('../data/blog-articles')
+  return blogArticles
 }
 
 // Compress base64 image to reduce size
@@ -100,113 +269,184 @@ function getLocalStorageSize(): number {
   return total
 }
 
-export async function saveBlogArticles(articles: BlogArticle[]): Promise<void> {
+export async function addBlogArticle(article: BlogArticle): Promise<void> {
   if (typeof window === 'undefined') return
   
   try {
-    // Compress images in articles if they're base64 and too large
-    const processedArticles = await Promise.all(
-      articles.map(async (article) => {
-        if (article.image && article.image.startsWith('data:image/') && article.image.length > 100000) {
-          // Compress large base64 images
-          try {
-            const compressed = await compressBase64Image(article.image, 0.6)
-            return { ...article, image: compressed }
-          } catch (error) {
-            console.warn('Failed to compress image for article:', article.id, error)
-            return article
-          }
-        }
-        return article
-      })
-    )
-    
-    const dataString = JSON.stringify(processedArticles)
-    
-    // Check if the data will fit in localStorage (5MB limit)
-    if (dataString.length > 4.5 * 1024 * 1024) { // 4.5MB safety margin
-      throw new Error('Data too large for localStorage')
-    }
-    
-    localStorage.setItem('blog-articles', dataString)
-  } catch (error: unknown) {
-    const errorMessage = error instanceof Error ? error.message : 'Unknown error'
-    const errorName = error instanceof Error ? error.name : 'Error'
-    
-    if (errorName === 'QuotaExceededError' || errorMessage.includes('quota exceeded') || errorMessage.includes('Data too large')) {
-      console.error('LocalStorage quota exceeded. Attempting to save without images...')
-      
-      // Fallback: Save articles without base64 images
-      const articlesWithoutImages = articles.map(article => ({
-        ...article,
-        image: article.image && article.image.startsWith('data:') ? '' : article.image
-      }))
-      
+    // Compress image if it's base64 and too large
+    let processedArticle = { ...article }
+    if (article.image && article.image.startsWith('data:image/') && article.image.length > 100000) {
       try {
-        localStorage.setItem('blog-articles', JSON.stringify(articlesWithoutImages))
-        alert('Warning: Images were too large to save. Please use smaller images (under 500KB recommended).')
-      } catch (fallbackError) {
-        console.error('Failed to save even without images:', fallbackError)
-        alert('Failed to save articles. Please try refreshing the page and using smaller images.')
+        const compressed = await compressBase64Image(article.image, 0.6)
+        processedArticle.image = compressed
+      } catch (error) {
+        console.warn('Failed to compress image for article:', article.id, error)
+        // Use original image if compression fails
       }
-    } else {
-      console.error('Error saving blog articles:', error)
-      alert('Failed to save articles. Please try again.')
     }
+    
+    // Send to backend API
+    const response = await fetch('/api/blog', {
+      method: 'POST',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(processedArticle),
+    })
+    
+    if (!response.ok) {
+      throw new Error(`Failed to create article: ${response.status}`)
+    }
+    
+    const data = await response.json()
+    if (data.status !== 'success') {
+      throw new Error(data.message || 'Failed to create article')
+    }
+    
+    // Update local cache
+    const currentArticles = await getBlogArticles()
+    localStorage.setItem('blog-articles-cache', JSON.stringify(currentArticles))
+    
+  } catch (error) {
+    console.error('Error adding blog article:', error)
+    throw error
   }
-}
-
-export async function addBlogArticle(article: BlogArticle): Promise<void> {
-  const articles = getBlogArticles()
-  articles.unshift(article) // Add to beginning
-  await saveBlogArticles(articles)
 }
 
 export async function updateBlogArticle(id: string, updatedArticle: BlogArticle): Promise<void> {
-  const articles = getBlogArticles()
-  const index = articles.findIndex(article => article.id === id)
-  if (index !== -1) {
-    articles[index] = updatedArticle
-    await saveBlogArticles(articles)
+  if (typeof window === 'undefined') return
+  
+  try {
+    // Compress image if it's base64 and too large
+    let processedArticle = { ...updatedArticle }
+    if (updatedArticle.image && updatedArticle.image.startsWith('data:image/') && updatedArticle.image.length > 100000) {
+      try {
+        const compressed = await compressBase64Image(updatedArticle.image, 0.6)
+        processedArticle.image = compressed
+      } catch (error) {
+        console.warn('Failed to compress image for article:', updatedArticle.id, error)
+        // Use original image if compression fails
+      }
+    }
+    
+    // Send to backend API
+    const response = await fetch('/api/blog', {
+      method: 'PUT',
+      headers: {
+        'Content-Type': 'application/json',
+      },
+      body: JSON.stringify(processedArticle),
+    })
+    
+    if (!response.ok) {
+      throw new Error(`Failed to update article: ${response.status}`)
+    }
+    
+    const data = await response.json()
+    if (data.status !== 'success') {
+      throw new Error(data.message || 'Failed to update article')
+    }
+    
+    // Update local cache
+    const currentArticles = await getBlogArticles()
+    localStorage.setItem('blog-articles-cache', JSON.stringify(currentArticles))
+    
+  } catch (error) {
+    console.error('Error updating blog article:', error)
+    throw error
   }
 }
 
-export function deleteBlogArticle(id: string): void {
-  const articles = getBlogArticles()
-  const filtered = articles.filter(article => article.id !== id)
-  saveBlogArticles(filtered)
-}
-
-export function getBlogArticleById(id: string): BlogArticle | undefined {
-  const articles = getBlogArticles()
-  return articles.find(article => article.id === id)
-}
-
-// Initialize with default articles if localStorage is empty
-export function initializeBlogStorage(): void {
+export async function deleteBlogArticle(id: string): Promise<void> {
   if (typeof window === 'undefined') return
   
-  const stored = localStorage.getItem('blog-articles')
-  if (!stored) {
-    // Load default articles and save to localStorage
+  try {
+    // Send to backend API
+    const response = await fetch(`/api/blog?id=${encodeURIComponent(id)}`, {
+      method: 'DELETE',
+    })
+    
+    if (!response.ok) {
+      throw new Error(`Failed to delete article: ${response.status}`)
+    }
+    
+    const data = await response.json()
+    if (data.status !== 'success') {
+      throw new Error(data.message || 'Failed to delete article')
+    }
+    
+    // Update local cache
+    const currentArticles = await getBlogArticles()
+    localStorage.setItem('blog-articles-cache', JSON.stringify(currentArticles))
+    
+  } catch (error) {
+    console.error('Error deleting blog article:', error)
+    throw error
+  }
+}
+
+export async function getBlogArticleById(id: string): Promise<BlogArticle | undefined> {
+  if (typeof window === 'undefined') {
     const { blogArticles } = require('../data/blog-articles')
-    saveBlogArticles(blogArticles)
+    return blogArticles.find((article: BlogArticle) => article.id === id)
+  }
+  
+  try {
+    // Fetch specific article from backend API
+    const response = await fetch(`/api/blog/${encodeURIComponent(id)}`)
+    if (!response.ok) {
+      if (response.status === 404) {
+        return undefined
+      }
+      throw new Error(`Failed to fetch article: ${response.status}`)
+    }
+    
+    const data = await response.json()
+    if (data.status === 'success') {
+      return data.article
+    } else {
+      throw new Error(data.message || 'Failed to fetch article')
+    }
+  } catch (error) {
+    console.error('Error fetching blog article by ID:', error)
+    
+    // Fallback to searching in all articles
+    const articles = await getBlogArticles()
+    return articles.find(article => article.id === id)
   }
 }
 
-// Force refresh articles from data file (useful for development)
-export function refreshBlogArticles(): void {
+// Initialize with default articles - now handled by backend
+export async function initializeBlogStorage(): Promise<void> {
   if (typeof window === 'undefined') return
   
-  const { blogArticles } = require('../data/blog-articles')
-  saveBlogArticles(blogArticles)
+  try {
+    // Just refresh the cache from the backend
+    const articles = await getBlogArticles()
+    localStorage.setItem('blog-articles-cache', JSON.stringify(articles))
+  } catch (error) {
+    console.error('Error initializing blog storage:', error)
+  }
 }
 
-// Clear localStorage cache and reload fresh articles
+// Force refresh articles from backend (useful for development)
+export async function refreshBlogArticles(): Promise<void> {
+  if (typeof window === 'undefined') return
+  
+  try {
+    // Clear cache and fetch fresh data from backend
+    localStorage.removeItem('blog-articles-cache')
+    const articles = await getBlogArticles()
+    localStorage.setItem('blog-articles-cache', JSON.stringify(articles))
+  } catch (error) {
+    console.error('Error refreshing blog articles:', error)
+  }
+}
+
+// Clear localStorage cache
 export function clearBlogCache(): void {
   if (typeof window === 'undefined') return
   
-  localStorage.removeItem('blog-articles')
-  const { blogArticles } = require('../data/blog-articles')
-  saveBlogArticles(blogArticles)
+  localStorage.removeItem('blog-articles-cache')
+  localStorage.removeItem('blog-data-version')
 }

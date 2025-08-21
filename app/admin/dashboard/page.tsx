@@ -20,23 +20,32 @@ export default function AdminDashboard() {
     }
 
     // Initialize blog storage and load articles
-    initializeBlogStorage()
     loadArticles()
   }, [router])
 
-  const loadArticles = () => {
+  const loadArticles = async () => {
     setIsLoading(true)
-    setTimeout(() => {
-      const loadedArticles = getBlogArticles()
+    try {
+      await initializeBlogStorage()
+      const loadedArticles = await getBlogArticles()
       setArticles(loadedArticles)
+    } catch (error) {
+      console.error('Error loading articles:', error)
+      alert('Failed to load articles. Please try again.')
+    } finally {
       setIsLoading(false)
-    }, 500)
+    }
   }
 
-  const handleDelete = (id: string) => {
+  const handleDelete = async (id: string) => {
     if (confirm('Are you sure you want to delete this article?')) {
-      deleteBlogArticle(id)
-      loadArticles()
+      try {
+        await deleteBlogArticle(id)
+        await loadArticles()
+      } catch (error) {
+        console.error('Error deleting article:', error)
+        alert('Failed to delete article. Please try again.')
+      }
     }
   }
 
@@ -45,10 +54,15 @@ export default function AdminDashboard() {
     router.push('/admin')
   }
 
-  const handleRefreshArticles = () => {
-    if (confirm('This will reload all articles from the data file. Any custom articles will be lost. Continue?')) {
-      refreshBlogArticles()
-      loadArticles()
+  const handleRefreshArticles = async () => {
+    if (confirm('This will refresh articles from the backend. Continue?')) {
+      try {
+        await refreshBlogArticles()
+        await loadArticles()
+      } catch (error) {
+        console.error('Error refreshing articles:', error)
+        alert('Failed to refresh articles. Please try again.')
+      }
     }
   }
 

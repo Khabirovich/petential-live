@@ -14,15 +14,21 @@ export default function BlogPage() {
   const articlesPerPage = 6
 
   useEffect(() => {
-    // Small delay to ensure localStorage is ready
-    const timer = setTimeout(() => {
-      initializeBlogStorage()
-      const loadedArticles = getBlogArticles()
-      setArticles(loadedArticles)
-      setIsLoading(false)
-    }, 100)
+    const loadArticles = async () => {
+      try {
+        await initializeBlogStorage()
+        const loadedArticles = await getBlogArticles()
+        setArticles(loadedArticles)
+      } catch (error) {
+        console.error('Error loading articles:', error)
+        // Fallback to empty array if loading fails
+        setArticles([])
+      } finally {
+        setIsLoading(false)
+      }
+    }
 
-    return () => clearTimeout(timer)
+    loadArticles()
   }, [])
 
   // Calculate pagination

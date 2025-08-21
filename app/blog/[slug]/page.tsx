@@ -26,27 +26,24 @@ export default function BlogArticlePage({ params }: BlogArticlePageProps) {
         const resolvedParams = await Promise.resolve(params)
         const slug = resolvedParams.slug
 
-        // Small delay to ensure localStorage is ready
-        setTimeout(() => {
-          initializeBlogStorage()
-          const articles = getBlogArticles()
-          const foundArticle = articles.find(article => article.id === slug)
+        await initializeBlogStorage()
+        const articles = await getBlogArticles()
+        const foundArticle = articles.find(article => article.id === slug)
 
-          if (!foundArticle) {
-            setIsLoading(false)
-            setArticle(null)
-            return
-          }
-
-          setArticle(foundArticle)
-
-          // Get related articles (excluding current article)
-          const related = articles
-            .filter(a => a.id !== foundArticle.id)
-            .slice(0, 2)
-          setRelatedArticles(related)
+        if (!foundArticle) {
           setIsLoading(false)
-        }, 100)
+          setArticle(null)
+          return
+        }
+
+        setArticle(foundArticle)
+
+        // Get related articles (excluding current article)
+        const related = articles
+          .filter(a => a.id !== foundArticle.id)
+          .slice(0, 2)
+        setRelatedArticles(related)
+        setIsLoading(false)
       } catch (error) {
         console.error('Error loading article:', error)
         setIsLoading(false)
