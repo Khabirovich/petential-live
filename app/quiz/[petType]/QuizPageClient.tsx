@@ -47,6 +47,8 @@ export default function QuizPageClient({ petType }: Props) {
     const result = await submitAnswer(answer, weight);
 
     if (result.completed) {
+      // Set loading state for final submission
+      setIsLoading(true);
       // Get the final answers including this last one
       const finalAnswers = [...answers, {
         question: question?.question || '',
@@ -92,6 +94,9 @@ export default function QuizPageClient({ petType }: Props) {
 
         localStorage.setItem('quizResults', JSON.stringify(results));
         router.push('/results');
+      } finally {
+        // Note: We don't reset loading here because we're navigating away
+        // The loading state will naturally reset when the component unmounts
       }
     }
 

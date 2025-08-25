@@ -150,7 +150,11 @@ export default function QuizQuestion({
           onClick={handleSubmit}
           disabled={!selectedAnswer || isLoading}
         >
-          {isLoading ? t('common.loading') : t('quiz.next')} →
+          {isLoading 
+            ? t('common.loading') 
+            : currentQuestion === totalQuestions - 1 
+              ? t('quiz.results')
+              : t('quiz.next')} →
         </Button>
       </div>
     </div>
