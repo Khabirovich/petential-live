@@ -98,7 +98,7 @@ export default function QuizQuestion({
   };
 
   return (
-    <div className="max-w-2xl mx-auto p-6">
+    <div className="max-w-2xl mx-auto p-6 pt-24">
       {/* Progress Section */}
       <div className="mb-8">
         <div className="flex justify-between items-center mb-2">

@@ -19,7 +19,7 @@ export default function QuizStart({ isLoading = false }: QuizStartProps) {
   };
 
   return (
-    <div className="max-w-4xl mx-auto p-6">
+    <div className="max-w-4xl mx-auto p-6 pt-24">
       <div className="text-center mb-8">
         <h1 className="text-4xl font-bold text-gray-900 mb-4">
           {t('quizStart.title')}
