@@ -115,11 +115,16 @@ export function useQuiz(t?: (key: string) => string) {
     setState(initialState);
   }, []);
 
+  const setLoading = useCallback((loading: boolean) => {
+    setState(prev => ({ ...prev, isLoading: loading }));
+  }, []);
+
   return {
     ...state,
     startQuiz,
     loadQuestion,
     submitAnswer,
     resetQuiz,
+    setLoading,
   };
 }

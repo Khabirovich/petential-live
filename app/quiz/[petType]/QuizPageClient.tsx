@@ -27,7 +27,8 @@ export default function QuizPageClient({ petType }: Props) {
     startQuiz,
     loadQuestion,
     submitAnswer,
-    resetQuiz
+    resetQuiz,
+    setLoading
   } = useQuiz(t);
 
   // Start quiz automatically when page loads
@@ -48,7 +49,7 @@ export default function QuizPageClient({ petType }: Props) {
 
     if (result.completed) {
       // Set loading state for final submission
-      setIsLoading(true);
+      setLoading(true);
       // Get the final answers including this last one
       const finalAnswers = [...answers, {
         question: question?.question || '',
