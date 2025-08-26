@@ -115,8 +115,8 @@ function AdminDashboardContent() {
               <Link href="/admin/create" className="btn-primary">
                 Create New Article
               </Link>
-              <Link href="/admin/users" className="btn-secondary">
-                View User Data
+              <Link href="/admin/contacts" className="btn-secondary">
+                Contact Management
               </Link>
               <button 
                 onClick={handleRefreshArticles}

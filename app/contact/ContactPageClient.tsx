@@ -29,8 +29,8 @@ export default function ContactPageClient() {
     setSubmitStatus("idle")
 
     try {
-      // Submit to Flask backend API
-      const response = await fetch('https://petential-live-production.up.railway.app/api/contact', {
+      // Submit to Next.js API (which saves to Supabase)
+      const response = await fetch('/api/contact', {
         method: 'POST',
         headers: {
           'Content-Type': 'application/json',

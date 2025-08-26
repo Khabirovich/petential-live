@@ -1,82 +1,30 @@
 import { NextRequest, NextResponse } from 'next/server'
-import fs from 'fs'
-import path from 'path'
-
-// Define the blog data structure
-interface BlogArticle {
-  id: string
-  title: string
-  excerpt: string
-  content: string
-  author: string
-  publishDate: string
-  readTime: string
-  category: string
-  image: string
-  tags: string[]
-}
-
-interface BlogData {
-  articles: BlogArticle[]
-  lastUpdated: string
-}
-
-const BLOG_DATA_FILE = path.join(process.cwd(), 'data', 'blog-data.json')
-
-// Ensure data directory exists
-function ensureDataDirectory(): void {
-  const dataDir = path.dirname(BLOG_DATA_FILE)
-  if (!fs.existsSync(dataDir)) {
-    fs.mkdirSync(dataDir, { recursive: true })
-  }
-}
-
-// Read blog data from file
-function readBlogData(): BlogData {
-  ensureDataDirectory()
-  
-  try {
-    if (fs.existsSync(BLOG_DATA_FILE)) {
-      const data = fs.readFileSync(BLOG_DATA_FILE, 'utf-8')
-      return JSON.parse(data)
-    }
-  } catch (error) {
-    console.error('Error reading blog data:', error)
-  }
-  
-  // Return default structure if file doesn't exist or error occurred
-  return {
-    articles: [],
-    lastUpdated: new Date().toISOString()
-  }
-}
-
-// Write blog data to file
-function writeBlogData(blogData: BlogData): void {
-  ensureDataDirectory()
-  
-  try {
-    blogData.lastUpdated = new Date().toISOString()
-    fs.writeFileSync(BLOG_DATA_FILE, JSON.stringify(blogData, null, 2))
-  } catch (error) {
-    console.error('Error writing blog data:', error)
-    throw error
-  }
-}
-
-// Generate unique ID
-function generateId(): string {
-  return Date.now().toString(36) + Math.random().toString(36).substr(2, 9)
-}
+import { BlogService } from '../../../lib/database/blog-service'
+import { BlogArticle } from '../../../lib/supabase'
 
 // GET - Retrieve all blog articles
 export async function GET() {
   try {
-    const blogData = readBlogData()
+    const articles = await BlogService.getAllArticles()
+    
+    // Transform database fields to match frontend expectations
+    const transformedArticles = articles.map(article => ({
+      id: article.id,
+      title: article.title,
+      excerpt: article.excerpt,
+      content: article.content,
+      author: article.author,
+      publishDate: article.publish_date,
+      readTime: article.read_time,
+      category: article.category,
+      image: article.image_url, // Map image_url to image for frontend
+      tags: article.tags
+    }))
+    
     return NextResponse.json({
       status: 'success',
-      articles: blogData.articles,
-      lastUpdated: blogData.lastUpdated
+      articles: transformedArticles,
+      lastUpdated: new Date().toISOString()
     })
   } catch (error) {
     console.error('Error getting blog articles:', error)
@@ -101,9 +49,6 @@ export async function POST(request: NextRequest) {
       )
     }
     
-    // Read existing data
-    const blogData = readBlogData()
-    
     // Generate slug from title
     const slug = title
       .toLowerCase()
@@ -112,42 +57,20 @@ export async function POST(request: NextRequest) {
       .replace(/-+/g, '-')
       .trim()
     
-    // Check if article with this slug already exists - if so, update instead of creating
-    const existingArticle = blogData.articles.find(article => article.id === slug)
+    // Check if article with this slug already exists
+    const existingArticle = await BlogService.getArticleById(slug)
     if (existingArticle) {
-      // Handle image processing for updates - support up to 10MB images
-      let processedImage = existingArticle.image || '/images/placeholder-pet.svg'
-      if (image) {
-        if (image.startsWith('data:image/')) {
-          if (image.length > 15000000) { // ~10MB base64 limit
-            console.warn('Image extremely large (>10MB), keeping existing image')
-            processedImage = existingArticle.image || '/images/placeholder-pet.svg'
-          } else {
-            processedImage = image
-            console.log(`Processing updated image of size: ${Math.round(image.length / 1024)}KB`)
-          }
-        } else {
-          processedImage = image
-        }
-      }
-      
-      // Update existing article instead of failing
-      const updatedArticle: BlogArticle = {
-        ...existingArticle,
+      // Update existing article instead of creating new one
+      const updatedArticle = await BlogService.updateArticle(slug, {
         title,
         excerpt,
         content: content.replace(/\n/g, '<br>'),
         author,
         category: category || 'Pet Care',
-        readTime: readTime || '5 min read',
-        image: processedImage,
+        read_time: readTime || '5 min read',
+        image_url: image || null,
         tags: Array.isArray(tags) ? tags : (tags ? tags.split(',').map((tag: string) => tag.trim()).filter((tag: string) => tag) : [])
-      }
-      
-      const articleIndex = blogData.articles.findIndex(article => article.id === slug)
-      blogData.articles[articleIndex] = updatedArticle
-      
-      writeBlogData(blogData)
+      })
       
       return NextResponse.json({
         status: 'success',
@@ -156,40 +79,19 @@ export async function POST(request: NextRequest) {
       })
     }
     
-    // Handle image processing - support up to 10MB images
-    let processedImage = image || '/images/placeholder-pet.svg'
-    
-    // If image is base64, handle different sizes
-    if (image && image.startsWith('data:image/')) {
-      if (image.length > 15000000) { // ~10MB base64 limit (base64 is ~33% larger than original)
-        console.warn('Image extremely large (>10MB), using placeholder')
-        processedImage = '/images/placeholder-pet.svg'
-      } else {
-        // Accept the image regardless of size up to 10MB
-        processedImage = image
-        console.log(`Processing image of size: ${Math.round(image.length / 1024)}KB`)
-      }
-    }
-    
     // Create new article
-    const newArticle: BlogArticle = {
+    const newArticle = await BlogService.createArticle({
       id: slug,
       title,
       excerpt,
       content: content.replace(/\n/g, '<br>'),
       author,
-      publishDate: new Date().toISOString().split('T')[0],
-      readTime: readTime || '5 min read',
+      publish_date: new Date().toISOString().split('T')[0],
+      read_time: readTime || '5 min read',
       category: category || 'Pet Care',
-      image: processedImage,
+      image_url: image || null,
       tags: Array.isArray(tags) ? tags : (tags ? tags.split(',').map((tag: string) => tag.trim()).filter((tag: string) => tag) : [])
-    }
-    
-    // Add to beginning of articles array
-    blogData.articles.unshift(newArticle)
-    
-    // Save to file
-    writeBlogData(blogData)
+    })
     
     return NextResponse.json({
       status: 'success',
@@ -220,52 +122,17 @@ export async function PUT(request: NextRequest) {
       )
     }
     
-    // Read existing data
-    const blogData = readBlogData()
-    
-    // Find article to update
-    const articleIndex = blogData.articles.findIndex(article => article.id === id)
-    if (articleIndex === -1) {
-      return NextResponse.json(
-        { status: 'error', message: 'Article not found' },
-        { status: 404 }
-      )
-    }
-    
-    // Handle image processing for PUT updates - support up to 10MB images
-    let processedImage = blogData.articles[articleIndex].image || '/images/placeholder-pet.svg'
-    if (image) {
-      if (image.startsWith('data:image/')) {
-        if (image.length > 15000000) { // ~10MB base64 limit
-          console.warn('Image extremely large (>10MB), keeping existing image')
-          processedImage = blogData.articles[articleIndex].image || '/images/placeholder-pet.svg'
-        } else {
-          processedImage = image
-          console.log(`Processing PUT image of size: ${Math.round(image.length / 1024)}KB`)
-        }
-      } else {
-        processedImage = image
-      }
-    }
-    
     // Update article
-    const updatedArticle: BlogArticle = {
-      id,
+    const updatedArticle = await BlogService.updateArticle(id, {
       title,
       excerpt,
       content: content.replace(/\n/g, '<br>'),
       author,
-      publishDate: blogData.articles[articleIndex].publishDate, // Keep original publish date
-      readTime: readTime || '5 min read',
+      read_time: readTime || '5 min read',
       category: category || 'Pet Care',
-      image: processedImage,
+      image_url: image || null,
       tags: Array.isArray(tags) ? tags : (tags ? tags.split(',').map((tag: string) => tag.trim()).filter((tag: string) => tag) : [])
-    }
-    
-    blogData.articles[articleIndex] = updatedArticle
-    
-    // Save to file
-    writeBlogData(blogData)
+    })
     
     return NextResponse.json({
       status: 'success',
@@ -295,28 +162,22 @@ export async function DELETE(request: NextRequest) {
       )
     }
     
-    // Read existing data
-    const blogData = readBlogData()
-    
-    // Find article to delete
-    const articleIndex = blogData.articles.findIndex(article => article.id === id)
-    if (articleIndex === -1) {
+    // Get article before deleting for response
+    const article = await BlogService.getArticleById(id)
+    if (!article) {
       return NextResponse.json(
         { status: 'error', message: 'Article not found' },
         { status: 404 }
       )
     }
     
-    // Remove article
-    const deletedArticle = blogData.articles.splice(articleIndex, 1)[0]
-    
-    // Save to file
-    writeBlogData(blogData)
+    // Delete article
+    await BlogService.deleteArticle(id)
     
     return NextResponse.json({
       status: 'success',
       message: 'Blog article deleted successfully',
-      deletedArticle
+      deletedArticle: article
     })
     
   } catch (error) {

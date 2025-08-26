@@ -1,55 +1,5 @@
 import { NextRequest, NextResponse } from 'next/server'
-import fs from 'fs'
-import path from 'path'
-
-// Define the blog data structure
-interface BlogArticle {
-  id: string
-  title: string
-  excerpt: string
-  content: string
-  author: string
-  publishDate: string
-  readTime: string
-  category: string
-  image: string
-  tags: string[]
-}
-
-interface BlogData {
-  articles: BlogArticle[]
-  lastUpdated: string
-}
-
-const BLOG_DATA_FILE = path.join(process.cwd(), 'data', 'blog-data.json')
-
-// Ensure data directory exists
-function ensureDataDirectory(): void {
-  const dataDir = path.dirname(BLOG_DATA_FILE)
-  if (!fs.existsSync(dataDir)) {
-    fs.mkdirSync(dataDir, { recursive: true })
-  }
-}
-
-// Read blog data from file
-function readBlogData(): BlogData {
-  ensureDataDirectory()
-  
-  try {
-    if (fs.existsSync(BLOG_DATA_FILE)) {
-      const data = fs.readFileSync(BLOG_DATA_FILE, 'utf-8')
-      return JSON.parse(data)
-    }
-  } catch (error) {
-    console.error('Error reading blog data:', error)
-  }
-  
-  // Return default structure if file doesn't exist or error occurred
-  return {
-    articles: [],
-    lastUpdated: new Date().toISOString()
-  }
-}
+import { BlogService } from '../../../../lib/database/blog-service'
 
 // GET - Retrieve specific blog article by ID
 export async function GET(
@@ -66,8 +16,7 @@ export async function GET(
       )
     }
     
-    const blogData = readBlogData()
-    const article = blogData.articles.find(article => article.id === id)
+    const article = await BlogService.getArticleById(id)
     
     if (!article) {
       return NextResponse.json(
@@ -76,9 +25,23 @@ export async function GET(
       )
     }
     
+    // Transform database fields to match frontend expectations
+    const transformedArticle = {
+      id: article.id,
+      title: article.title,
+      excerpt: article.excerpt,
+      content: article.content,
+      author: article.author,
+      publishDate: article.publish_date,
+      readTime: article.read_time,
+      category: article.category,
+      image: article.image_url, // Map image_url to image for frontend
+      tags: article.tags
+    }
+    
     return NextResponse.json({
       status: 'success',
-      article
+      article: transformedArticle
     })
     
   } catch (error) {

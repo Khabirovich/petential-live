@@ -1,55 +1,7 @@
 import { NextRequest, NextResponse } from 'next/server'
-import fs from 'fs'
-import path from 'path'
+import { ContactService } from '../../../lib/database/contact-service'
 
-interface ContactSubmission {
-  id: string
-  name: string
-  email: string
-  subject: string
-  message: string
-  timestamp: string
-}
-
-interface NewsletterSubscription {
-  id: string
-  email: string
-  timestamp: string
-}
-
-interface FeedbackSubmission {
-  id: string
-  name: string
-  email: string
-  feedback_type: string
-  rating: string
-  features_used: string[]
-  message: string
-  suggestions: string
-  allow_follow_up: boolean
-  newsletter_signup: boolean
-  timestamp: string
-}
-
-interface UserData {
-  contacts: ContactSubmission[]
-  newsletters: NewsletterSubscription[]
-  feedback: FeedbackSubmission[]
-}
-
-const USER_DATA_FILE = path.join(process.cwd(), 'data', 'user-data.json')
-
-function ensureDataDirectory() {
-  const dataDir = path.dirname(USER_DATA_FILE)
-  if (!fs.existsSync(dataDir)) {
-    fs.mkdirSync(dataDir, { recursive: true })
-  }
-}
-
-function generateId(): string {
-  return Date.now().toString(36) + Math.random().toString(36).substr(2)
-}
-
+// POST - Submit contact form
 export async function POST(request: NextRequest) {
   try {
     const body = await request.json()
@@ -63,35 +15,22 @@ export async function POST(request: NextRequest) {
       )
     }
     
-    // Ensure data directory exists
-    ensureDataDirectory()
-    
-    // Read existing data
-    let userData: UserData = { contacts: [], newsletters: [], feedback: [] }
-    try {
-      if (fs.existsSync(USER_DATA_FILE)) {
-        const data = fs.readFileSync(USER_DATA_FILE, 'utf-8')
-        userData = JSON.parse(data)
-      }
-    } catch (error) {
-      console.error('Error reading user data:', error)
+    // Basic email validation
+    const emailRegex = /^[^\s@]+@[^\s@]+\.[^\s@]+$/
+    if (!emailRegex.test(email)) {
+      return NextResponse.json(
+        { status: 'error', message: 'Please enter a valid email address' },
+        { status: 400 }
+      )
     }
     
-    // Create new contact submission
-    const submission = {
-      id: generateId(),
-      name: name || '',
+    // Create contact submission
+    const submission = await ContactService.createContactSubmission({
+      name: name || undefined,
       email,
-      subject: subject || '',
-      message,
-      timestamp: new Date().toISOString()
-    }
-    
-    // Add to contacts array
-    userData.contacts.unshift(submission)
-    
-    // Save back to file
-    fs.writeFileSync(USER_DATA_FILE, JSON.stringify(userData, null, 2))
+      subject: subject || undefined,
+      message
+    })
     
     return NextResponse.json({
       status: 'success',
@@ -106,4 +45,52 @@ export async function POST(request: NextRequest) {
       { status: 500 }
     )
   }
-} 
+}
+
+// GET - Get all contact submissions (admin only)
+export async function GET() {
+  try {
+    const submissions = await ContactService.getAllContactSubmissions()
+    
+    return NextResponse.json({
+      status: 'success',
+      submissions: submissions
+    })
+    
+  } catch (error) {
+    console.error('Error fetching contact submissions:', error)
+    return NextResponse.json(
+      { status: 'error', message: 'Failed to fetch contact submissions' },
+      { status: 500 }
+    )
+  }
+}
+
+// DELETE - Delete contact submission (admin only)
+export async function DELETE(request: NextRequest) {
+  try {
+    const { searchParams } = new URL(request.url)
+    const id = searchParams.get('id')
+    
+    if (!id) {
+      return NextResponse.json(
+        { status: 'error', message: 'Submission ID is required' },
+        { status: 400 }
+      )
+    }
+    
+    await ContactService.deleteContactSubmission(id)
+    
+    return NextResponse.json({
+      status: 'success',
+      message: 'Contact submission deleted successfully'
+    })
+    
+  } catch (error) {
+    console.error('Error deleting contact submission:', error)
+    return NextResponse.json(
+      { status: 'error', message: 'Failed to delete contact submission' },
+      { status: 500 }
+    )
+  }
+}
