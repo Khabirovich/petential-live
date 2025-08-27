@@ -174,12 +174,12 @@ export default function BlogPage() {
                         marginBottom: "var(--spacing-sm)"
                       }}
                     >
-                      <span 
+                      <span
                         style={{
                           fontSize: "var(--font-size-small)",
                           fontWeight: "var(--font-weight-medium)",
-                          color: "var(--petential-primary)",
-                          backgroundColor: "rgba(193, 253, 58, 0.1)",
+                          color: "var(--petential-haiti-60)",
+                          backgroundColor: "var(--petential-alabaster)",
                           padding: "var(--spacing-xs) var(--spacing-sm)",
                           borderRadius: "var(--radius-sm)"
                         }}
@@ -258,10 +258,10 @@ export default function BlogPage() {
                           })}
                         </p>
                       </div>
-                      <div 
+                      <div
                         style={{
                           fontSize: "var(--font-size-body)",
-                          color: "var(--petential-primary)",
+                          color: "var(--petential-haiti-60)",
                           fontWeight: "var(--font-weight-medium)"
                         }}
                       >
