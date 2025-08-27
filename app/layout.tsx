@@ -60,10 +60,33 @@ export default function RootLayout({
             `,
           }}
         />
+        <script
+          dangerouslySetInnerHTML={{
+            __html: `
+              // Register service worker for caching
+              if ('serviceWorker' in navigator && window.location.protocol === 'https:') {
+                window.addEventListener('load', function() {
+                  navigator.serviceWorker.register('/sw.js')
+                    .then(function(registration) {
+                      console.log('Service Worker registered successfully:', registration.scope);
+                    })
+                    .catch(function(registrationError) {
+                      console.log('Service Worker registration failed:', registrationError);
+                    });
+                });
+              }
+            `,
+          }}
+        />
         <link rel="icon" href="/favicon.ico" sizes="any" />
         <link rel="icon" href="/favicon/favicon-16x16.png" sizes="16x16" type="image/png" />
         <link rel="icon" href="/favicon/favicon-32x32.png" sizes="32x32" type="image/png" />
         <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
+
+        {/* Preload critical resources */}
+        <link rel="preload" href="/fonts/dm-sans.woff2" as="font" type="font/woff2" crossOrigin="anonymous" />
+        <link rel="dns-prefetch" href="//fonts.googleapis.com" />
+        <link rel="dns-prefetch" href="//images.unsplash.com" />
       </head>
       <body className={`${dmSans.variable} ${roboto.variable} antialiased`}>
         {/* Background accents (brand greens, subtle on light) */}

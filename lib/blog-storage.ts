@@ -1,21 +1,36 @@
 import { BlogArticle } from '../data/blog-articles'
 
+// Cache for blog articles to improve performance
+let articlesCache: BlogArticle[] | null = null
+let cacheTimestamp: number | null = null
+const CACHE_DURATION = 5 * 60 * 1000 // 5 minutes
+
 // Blog storage utilities for managing articles
-export async function getBlogArticles(): Promise<BlogArticle[]> {
+export async function getBlogArticles(forceRefresh = false): Promise<BlogArticle[]> {
   if (typeof window === 'undefined') {
     // Return empty array for server-side rendering to avoid webpack issues
     return []
   }
-  
+
+  // Return cached articles if they're still fresh and not forcing refresh
+  if (!forceRefresh && articlesCache && cacheTimestamp &&
+      Date.now() - cacheTimestamp < CACHE_DURATION) {
+    return articlesCache
+  }
+
   try {
     // Fetch from backend API
     const response = await fetch('/api/blog')
     if (!response.ok) {
       throw new Error(`Failed to fetch articles: ${response.status}`)
     }
-    
+
     const data = await response.json()
     if (data.status === 'success') {
+      // Cache the articles
+      articlesCache = data.articles
+      cacheTimestamp = Date.now()
+
       // If no articles in backend, try to migrate from localStorage
       if (data.articles.length === 0) {
         await tryMigrateFromLocalStorage()
@@ -24,6 +39,8 @@ export async function getBlogArticles(): Promise<BlogArticle[]> {
         if (retryResponse.ok) {
           const retryData = await retryResponse.json()
           if (retryData.status === 'success') {
+            articlesCache = retryData.articles
+            cacheTimestamp = Date.now()
             return retryData.articles
           }
         }
@@ -34,7 +51,7 @@ export async function getBlogArticles(): Promise<BlogArticle[]> {
     }
   } catch (error) {
     console.error('Error fetching blog articles from API:', error)
-    
+
     // Try to get from localStorage as fallback
     const localArticles = getLocalStorageArticles()
     if (localArticles.length > 0) {
@@ -42,7 +59,7 @@ export async function getBlogArticles(): Promise<BlogArticle[]> {
       await tryMigrateFromLocalStorage()
       return localArticles
     }
-    
+
     // Final fallback to empty array to avoid webpack issues
     return []
   }

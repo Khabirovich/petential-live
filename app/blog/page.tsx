@@ -2,6 +2,7 @@
 
 import { useState, useEffect } from "react"
 import Link from "next/link"
+import Image from "next/image"
 import { getBlogArticles, initializeBlogStorage } from "../../lib/blog-storage"
 import { BlogArticle } from "../../data/blog-articles"
 import { useLanguage } from "@/lib/i18n/context"
@@ -18,7 +19,16 @@ export default function BlogPage() {
       try {
         await initializeBlogStorage()
         const loadedArticles = await getBlogArticles()
-        setArticles(loadedArticles)
+        // Only load first 6 articles initially for better performance
+        const initialArticles = loadedArticles.slice(0, 6)
+        setArticles(initialArticles)
+
+        // Preload remaining articles in the background
+        if (loadedArticles.length > 6) {
+          setTimeout(() => {
+            setArticles(loadedArticles)
+          }, 100)
+        }
       } catch (error) {
         console.error('Error loading articles:', error)
         // Fallback to empty array if loading fails
@@ -127,14 +137,20 @@ export default function BlogPage() {
                     }}
                   >
                     {article.image ? (
-                      <img
+                      <Image
                         src={article.image}
                         alt={article.title}
+                        width={350}
+                        height={200}
                         style={{
                           width: "100%",
                           height: "100%",
-                          objectFit: "cover"
+                          objectFit: "cover",
+                          borderRadius: "var(--radius-lg)"
                         }}
+                        loading="lazy"
+                        placeholder="blur"
+                        blurDataURL="data:image/jpeg;base64,/9j/4AAQSkZJRgABAQAAAQABAAD/2wBDAAYEBQYFBAYGBQYHBwYIChAKCgkJChQODwwQFxQYGBcUFhYaHSUfGhsjHBYWICwgIyYnKSopGR8tMC0oMCUoKSj/2wBDAQcHBwoIChMKChMoGhYaKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCgoKCj/wAARCAAIAAoDASIAAhEBAxEB/8QAFQABAQAAAAAAAAAAAAAAAAAAAAv/xAAhEAACAQMDBQAAAAAAAAAAAAABAgMABAUGIWGRkqGx0f/EABUBAQEAAAAAAAAAAAAAAAAAAAMF/8QAGhEAAgIDAAAAAAAAAAAAAAAAAAECEgMRkf/aAAwDAQACEQMRAD8AltJagyeH0AthI5xdrLcNM91BF5pX2HaH9bcfaSXWGaRmknyJckliyjqTzSlT54b6bk+h0R//2Q=="
                         onError={(e) => {
                           console.error('Image failed to load:', article.image);
                           console.error('Article title:', article.title);
