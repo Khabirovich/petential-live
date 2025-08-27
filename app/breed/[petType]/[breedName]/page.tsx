@@ -1,8 +1,6 @@
 import { Metadata } from 'next';
 import { generateBreedSEO } from '@/lib/seo/config';
 import { generateMetadata as generateSEOMetadata } from '@/lib/seo/metadata';
-import { JsonLdScript } from '@/components/seo/JsonLdScript';
-import { generateBreedSchema, generateBreadcrumbSchema } from '@/lib/seo/structured-data';
 import BreedDetailsClient from './BreedDetailsClient';
 
 interface Props {
@@ -12,7 +10,7 @@ interface Props {
 export async function generateMetadata({ params }: Props): Promise<Metadata> {
   const petType = params.petType as 'dog' | 'cat';
   const breedName = decodeURIComponent(params.breedName);
-  
+
   if (petType !== 'dog' && petType !== 'cat') {
     return generateSEOMetadata({
       title: 'Breed Not Found | PETential',
@@ -21,7 +19,31 @@ export async function generateMetadata({ params }: Props): Promise<Metadata> {
   }
 
   const seoConfig = generateBreedSEO(breedName, petType, 'en');
-  return generateSEOMetadata(seoConfig);
+  const metadata = generateSEOMetadata(seoConfig);
+
+  // Add simplified JSON-LD for breed page
+  return {
+    ...metadata,
+    other: {
+      'script:ld+json': JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebPage",
+        "name": `${breedName} ${petType.charAt(0).toUpperCase() + petType.slice(1)} Breed Information`,
+        "description": `Complete guide to the ${breedName} ${petType} breed including characteristics, temperament, and care requirements`,
+        "url": `https://petential.es/breed/${petType}/${encodeURIComponent(breedName)}`,
+        "isPartOf": {
+          "@type": "WebSite",
+          "name": "PETential",
+          "url": "https://petential.es"
+        },
+        "about": {
+          "@type": "Thing",
+          "name": breedName,
+          "description": `${breedName} ${petType} breed characteristics and information`
+        }
+      })
+    }
+  };
 }
 
 export default function BreedDetailsPage({ params }: Props) {
@@ -32,18 +54,5 @@ export default function BreedDetailsPage({ params }: Props) {
     return <div>Breed not found</div>;
   }
 
-  const breadcrumbs = [
-    { name: 'Home', url: 'https://petential.es' },
-    { name: 'Breeds', url: 'https://petential.es/breeds' },
-    { name: `${petType.charAt(0).toUpperCase() + petType.slice(1)} Breeds`, url: `https://petential.es/breeds?tab=${petType}s` },
-    { name: breedName, url: `https://petential.es/breed/${petType}/${encodeURIComponent(breedName)}` }
-  ];
-
-  return (
-    <>
-      <JsonLdScript data={generateBreedSchema(breedName, petType, {})} />
-      <JsonLdScript data={generateBreadcrumbSchema(breadcrumbs)} />
-      <BreedDetailsClient petType={petType} breedName={breedName} />
-    </>
-  );
+  return <BreedDetailsClient petType={petType} breedName={breedName} />;
 }

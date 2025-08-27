@@ -8,31 +8,39 @@ import FAQ from "@/components/faq"
 import Insights from "@/components/insights"
 import { pageSEO } from "@/lib/seo/config"
 import { generateMetadata as generateSEOMetadata } from "@/lib/seo/metadata"
-import { JsonLdScript } from "@/components/seo/JsonLdScript"
-import { 
-  generateOrganizationSchema, 
-  generateWebsiteSchema, 
-  generateHowToSchema 
-} from "@/lib/seo/structured-data"
 
-export const metadata: Metadata = generateSEOMetadata(pageSEO.home.en);
+export const metadata: Metadata = {
+  ...generateSEOMetadata(pageSEO.home.en),
+  other: {
+    'script:ld+json': [
+      JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "Organization",
+        "name": "PETential",
+        "description": "Pet breed matching platform helping users find their perfect companion",
+        "url": "https://petential.es"
+      }),
+      JSON.stringify({
+        "@context": "https://schema.org",
+        "@type": "WebSite",
+        "name": "PETential",
+        "description": "Find your perfect pet match with our intelligent breed matching quiz",
+        "url": "https://petential.es"
+      })
+    ]
+  }
+};
 
 export default function HomePage() {
   return (
-    <>
-      <JsonLdScript data={pageSEO.home.en.jsonLd} />
-      <JsonLdScript data={generateOrganizationSchema()} />
-      <JsonLdScript data={generateWebsiteSchema()} />
-      <JsonLdScript data={generateHowToSchema()} />
-      <main>
-        <Hero />
-        <About />
-        <Features />
-        <CTA />
-        <Testimonials />
-        <FAQ />
-        <Insights />
-      </main>
-    </>
+    <main>
+      <Hero />
+      <About />
+      <Features />
+      <CTA />
+      <Testimonials />
+      <FAQ />
+      <Insights />
+    </main>
   )
 }

@@ -42,8 +42,6 @@ export function generateMetadata(seoConfig: SEOConfig, baseUrl: string = 'https:
       title: twitter?.title || title,
       description: twitter?.description || description,
       images: [twitter?.image || '/images/social/og-image.png'],
-      creator: '@petential',
-      site: '@petential',
     },
     robots: {
       index: true,
@@ -62,6 +60,3 @@ export function generateMetadata(seoConfig: SEOConfig, baseUrl: string = 'https:
   };
 }
 
-export function generateJsonLd(jsonLd: any): string {
-  return JSON.stringify(jsonLd);
-}
