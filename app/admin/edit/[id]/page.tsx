@@ -3,9 +3,19 @@
 import { useState, useEffect } from 'react'
 import { useRouter } from 'next/navigation'
 import Link from 'next/link'
+import dynamic from 'next/dynamic'
 import { isAuthenticated } from '../../../../lib/auth'
 import { getBlogArticleById, updateBlogArticle } from '../../../../lib/blog-storage'
 import { BlogArticle } from '../../../../data/blog-articles'
+
+// Dynamically import MDEditor to avoid SSR issues
+const MDEditor = dynamic(() => import('@uiw/react-md-editor'), {
+  ssr: false,
+  loading: () => <div>Loading editor...</div>
+})
+
+import '@uiw/react-md-editor/markdown-editor.css'
+import '@uiw/react-markdown-preview/markdown.css'
 
 interface EditArticlePageProps {
   params: {
@@ -31,6 +41,42 @@ export default function EditArticlePage({ params }: EditArticlePageProps) {
   const [articleId, setArticleId] = useState('')
   const router = useRouter()
 
+  // Markdown Editor configuration
+  const [markdownContent, setMarkdownContent] = useState('')
+
+  // Function to convert markdown to HTML (simple conversion for basic formatting)
+  const markdownToHtml = (markdown: string): string => {
+    return markdown
+      .replace(/^### (.*$)/gim, '<h3>$1</h3>')
+      .replace(/^## (.*$)/gim, '<h2>$1</h2>')
+      .replace(/^# (.*$)/gim, '<h1>$1</h1>')
+      .replace(/\*\*(.*)\*\*/gim, '<strong>$1</strong>')
+      .replace(/\*(.*)\*/gim, '<em>$1</em>')
+      .replace(/~~(.*)~~/gim, '<del>$1</del>')
+      .replace(/`([^`]+)`/gim, '<code>$1</code>')
+      .replace(/\n/g, '<br>')
+      .replace(/^\- (.*$)/gim, '<li>$1</li>')
+      .replace(/^\d+\. (.*$)/gim, '<li>$1</li>')
+      .replace(/(<li>.*<\/li>)/gim, '<ul>$1</ul>')
+      .replace(/^\> (.*$)/gim, '<blockquote>$1</blockquote>')
+  }
+
+  // Function to convert HTML back to markdown for editing
+  const htmlToMarkdown = (html: string): string => {
+    return html
+      .replace(/<h3>(.*?)<\/h3>/gi, '### $1')
+      .replace(/<h2>(.*?)<\/h2>/gi, '## $1')
+      .replace(/<h1>(.*?)<\/h1>/gi, '# $1')
+      .replace(/<strong>(.*?)<\/strong>/gi, '**$1**')
+      .replace(/<em>(.*?)<\/em>/gi, '*$1*')
+      .replace(/<del>(.*?)<\/del>/gi, '~~$1~~')
+      .replace(/<code>(.*?)<\/code>/gi, '`$1`')
+      .replace(/<br>/gi, '\n')
+      .replace(/<ul>(.*?)<\/ul>/gi, '$1')
+      .replace(/<li>(.*?)<\/li>/gi, '- $1')
+      .replace(/<blockquote>(.*?)<\/blockquote>/gi, '> $1')
+  }
+
   useEffect(() => {
     const loadArticle = async () => {
       if (!isAuthenticated()) {
@@ -48,15 +94,19 @@ export default function EditArticlePage({ params }: EditArticlePageProps) {
         return
       }
 
+      // Convert HTML back to markdown for editing
+      const markdownFromHtml = htmlToMarkdown(article.content)
+
       setFormData({
         title: article.title,
         excerpt: article.excerpt,
-        content: article.content.replace(/<br>/g, '\n'),
+        content: article.content, // Keep HTML content for storage
         author: article.author,
         category: article.category,
         readTime: article.readTime,
         tags: article.tags.join(', ')
       })
+      setMarkdownContent(markdownFromHtml) // Set markdown for editor
       setCurrentImage(article.image)
       setIsLoading(false)
     }
@@ -70,6 +120,17 @@ export default function EditArticlePage({ params }: EditArticlePageProps) {
     setFormData(prev => ({
       ...prev,
       [name]: value
+    }))
+  }
+
+  const handleContentChange = (value?: string) => {
+    const content = value || ''
+    setMarkdownContent(content)
+    // Convert markdown to HTML for storage
+    const htmlContent = markdownToHtml(content)
+    setFormData(prev => ({
+      ...prev,
+      content: htmlContent
     }))
   }
 
@@ -125,7 +186,7 @@ export default function EditArticlePage({ params }: EditArticlePageProps) {
         id: articleId,
         title: formData.title,
         excerpt: formData.excerpt,
-        content: formData.content.replace(/\n/g, '<br>'),
+        content: formData.content || '', // ReactQuill content is already HTML
         author: formData.author,
         publishDate: new Date().toISOString().split('T')[0],
         readTime: formData.readTime,
@@ -381,8 +442,7 @@ export default function EditArticlePage({ params }: EditArticlePageProps) {
 
                   {/* Content */}
                   <div>
-                    <label 
-                      htmlFor="content"
+                    <label
                       style={{
                         display: "block",
                         fontSize: "var(--font-size-body)",
@@ -393,24 +453,19 @@ export default function EditArticlePage({ params }: EditArticlePageProps) {
                     >
                       Content *
                     </label>
-                    <textarea
-                      id="content"
-                      name="content"
-                      value={formData.content}
-                      onChange={handleInputChange}
-                      required
-                      rows={15}
-                      placeholder="Write your article content here. Use double line breaks for paragraphs..."
-                      style={{
-                        width: "100%",
-                        padding: "var(--spacing-md)",
-                        border: "2px solid var(--petential-alabaster)",
-                        borderRadius: "var(--radius-lg)",
-                        fontSize: "var(--font-size-body)",
-                        resize: "vertical",
-                        minHeight: "300px"
-                      }}
-                    />
+                    <div data-color-mode="light">
+                      <MDEditor
+                        value={markdownContent}
+                        onChange={handleContentChange}
+                        preview="edit"
+                        hideToolbar={false}
+                        visibleDragBar={false}
+                        textareaProps={{
+                          placeholder: 'Write your article content here. Use Markdown syntax for formatting:\n\n**bold** *italic* ~~strikethrough~~\n# Header 1\n## Header 2\n- Bullet list\n1. Numbered list\n\n> Blockquote\n\n`inline code`'
+                        }}
+                        height={400}
+                      />
+                    </div>
                   </div>
 
                   {/* Image Upload */}

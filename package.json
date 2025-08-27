@@ -45,6 +45,7 @@
     "@radix-ui/react-tooltip": "1.1.6",
     "@supabase/supabase-js": "^2.56.0",
     "@tabler/icons-react": "^3.34.1",
+    "@uiw/react-md-editor": "^4.0.8",
     "@vercel/kv": "^3.0.0",
     "autoprefixer": "^10.4.20",
     "class-variance-authority": "^0.7.1",

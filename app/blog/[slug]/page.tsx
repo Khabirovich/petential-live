@@ -200,7 +200,7 @@ export default function BlogArticlePage({ params }: BlogArticlePageProps) {
                 display: "flex",
                 alignItems: "center",
                 gap: "var(--spacing-md)",
-                marginBottom: "var(--spacing-2xl)",
+                marginBottom: "var(--spacing-lg)",
                 paddingBottom: "var(--spacing-lg)",
                 borderBottom: "1px solid rgba(8, 5, 22, 0.1)"
               }}
@@ -257,7 +257,7 @@ export default function BlogArticlePage({ params }: BlogArticlePageProps) {
                   height: "300px",
                   backgroundColor: "var(--petential-alabaster)",
                   borderRadius: "var(--radius-lg)",
-                  marginBottom: "var(--spacing-2xl)",
+                  marginBottom: "var(--spacing-lg)",
                   display: "flex",
                   alignItems: "center",
                   justifyContent: "center",
